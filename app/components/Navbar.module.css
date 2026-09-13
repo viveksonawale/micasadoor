@@ -1,0 +1,355 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 220ms var(--ease-inout);
+}
+
+.headerTop {
+  background-color: transparent;
+  height: 80px;
+}
+
+@media (min-width: 1024px) {
+  .headerTop {
+    height: 90px;
+  }
+}
+
+.headerScrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 12px rgba(28, 23, 18, 0.06);
+  height: 72px;
+}
+
+@media (min-width: 1024px) {
+  .headerScrolled {
+    height: 80px;
+  }
+}
+
+.container {
+  max-width: 1240px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 48px;
+  }
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  outline: none;
+  cursor: pointer;
+}
+
+.brandLogo {
+  width: auto;
+  height: 36px;
+  transition: all 200ms ease;
+}
+
+@media (min-width: 1024px) {
+  .brandLogo {
+    height: 42px;
+  }
+}
+
+.brandLogoTop {
+  filter: brightness(0) invert(1);
+}
+
+.brandLogoScrolled {
+  /* assuming the original logo looks good on white */
+}
+
+/* Desktop Nav */
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 36px;
+}
+
+@media (min-width: 1024px) {
+  .desktopNav {
+    display: flex;
+  }
+}
+
+.navLink {
+  position: relative;
+  font-family: var(--font-inter);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 4px 0;
+  transition: color 150ms ease;
+  cursor: pointer;
+}
+
+.navLinkTop {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.navLinkTop:hover {
+  color: #ffffff;
+}
+
+.navLinkTopActive {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.navLinkScrolled {
+  color: var(--color-text-secondary);
+}
+
+.navLinkScrolled:hover {
+  color: var(--color-text-primary);
+}
+
+.navLinkScrolledActive {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.navLinkUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  width: 0;
+  transition: width 200ms ease-out;
+}
+
+.navLink:hover .navLinkUnderline {
+  width: 100%;
+}
+
+.navLinkUnderlineActive {
+  width: 100%;
+}
+
+/* Actions */
+.actions {
+  display: none;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .actions {
+    display: flex;
+  }
+}
+
+.ctaButtonTop {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Toggle */
+.mobileToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 150ms ease;
+}
+
+.mobileToggle svg {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 1024px) {
+  .mobileToggle {
+    display: none;
+  }
+}
+
+.mobileToggleTop {
+  color: #ffffff;
+}
+
+.mobileToggleTop:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobileToggleScrolled {
+  color: var(--color-text-primary);
+}
+
+.mobileToggleScrolled:hover {
+  background-color: var(--color-surface-alt);
+}
+
+/* Mobile Drawer */
+.drawerBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms ease;
+}
+
+.drawerBackdropOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (min-width: 1024px) {
+  .drawerBackdrop {
+    display: none;
+  }
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 320px;
+  background-color: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+  transform: translateX(100%);
+  transition: transform 280ms var(--ease-inout);
+}
+
+.drawerOpen {
+  transform: translateX(0);
+}
+
+@media (min-width: 1024px) {
+  .drawer {
+    display: none;
+  }
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.drawerBrand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.drawerLogoIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: var(--color-accent);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-playfair);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.drawerBrandName {
+  font-family: var(--font-playfair);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-text-primary);
+}
+
+.drawerClose {
+  padding: 8px;
+  border-radius: 6px;
+  color: var(--color-text-secondary);
+  transition: all 150ms ease;
+}
+
+.drawerClose svg {
+  width: 20px;
+  height: 20px;
+}
+
+.drawerClose:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-alt);
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 24px 0;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-family: var(--font-playfair);
+  font-weight: 600;
+  font-size: 17px;
+  min-height: 48px;
+  color: var(--color-text-primary);
+  transition: all 150ms ease;
+}
+
+.drawerLink:hover {
+  background-color: var(--color-surface-alt);
+}
+
+.drawerLinkActive {
+  background-color: var(--color-accent-tint);
+  color: var(--color-accent);
+}
+
+.drawerFooter {
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.drawerFooterBtn {
+  width: 100%;
+}
+
+.drawerFooterText {
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
