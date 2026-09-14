@@ -1,5 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import MarqueeSection from "./components/MarqueeSection";
+import ProjectsSection from "./components/ProjectsSection";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -11,21 +13,10 @@ export default function Home() {
       {/* Main Content Area */}
       <main className={styles.mainContent}>
         <Hero />
+        <MarqueeSection />
 
-        {/* Placeholder for upcoming sections */}
-        <section id="doors" className={styles.catalogSection}>
-          <div className={styles.catalogContainer}>
-            <span className={styles.catalogEyebrow}>
-              Engineered Catalog
-            </span>
-            <h2 className={styles.catalogTitle}>
-              Door Collections & Architectural Frames
-            </h2>
-            <p className={styles.catalogDescription}>
-              Designed with precision joinery and acoustic core damping. Full catalog showcase coming up next.
-            </p>
-          </div>
-        </section>
+        {/* Projects / Catalog Section */}
+        <ProjectsSection />
       </main>
     </div>
   );

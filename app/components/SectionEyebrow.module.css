@@ -1,0 +1,32 @@
+.eyebrowContainer {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background-color: var(--color-neutral-100, #f1f2f3);
+  padding: 6px 16px 6px 6px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.iconCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-primary-base, #e14401); /* Matches the website theme */
+  color: white;
+}
+
+.arrowIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.eyebrowText {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-neutral-700, #525152);
+}

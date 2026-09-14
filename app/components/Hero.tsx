@@ -5,32 +5,62 @@ import Image from "next/image";
 import Button from "./Button";
 import styles from "./Hero.module.css";
 
+const renderStrandplyLine = (lineText: string, startIndex: number = 0) => {
+  let currentIndex = startIndex;
+  const words = lineText.split(" ");
+
+  return words.map((word, wordIndex) => {
+    const chars = word.split("");
+    const wordStartIndex = currentIndex;
+    currentIndex += chars.length;
+
+    return (
+      <span key={wordIndex} className={styles.wordWrapper}>
+        {chars.map((char, charIndex) => {
+          const i = wordStartIndex + charIndex;
+          return (
+            <span
+              key={charIndex}
+              aria-hidden="true"
+              className={styles.strandplyChar}
+              style={{ "--i": i } as React.CSSProperties}
+            >
+              {char}
+            </span>
+          );
+        })}
+      </span>
+    );
+  });
+};
+
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    // Parallax scroll handler for desktop only (> 768px)
     const handleScroll = () => {
-      if (window.innerWidth >= 768) {
-        setScrollY(window.scrollY);
-      }
+      setScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const line1 = "Doors Built to Last.";
+  const line2 = "Delivered to Scale";
+  const line1CharCount = line1.replace(/\s/g, "").length;
+
   return (
     <section className={styles.heroSection}>
-      {/* Background Image Container with Parallax */}
+      {/* Background Image Container with Zoom Parallax */}
       <div
         className={styles.bgContainer}
         style={{
-          transform: `translate3d(0, ${scrollY * 0.35}px, 0)`,
+          transform: `translate3d(0, ${scrollY * 0.35}px, 0) scale(${1 + scrollY * 0.0005})`,
         }}
       >
         <Image
-          src="/hero-image/hero-factory.avif"
+          src="/hero-image/hero.avif"
           alt="MICASA Precision Engineered Wood Door Manufacturing Facility"
           fill
           priority
@@ -38,85 +68,58 @@ export default function Hero() {
           className={styles.bgImage}
         />
 
-        {/* Full-width dark scrim overlay for perfect text visibility */}
+        {/* Full-width dark scrim overlay for text visibility */}
         <div className={styles.scrimOverlay} />
-        
-        {/* Soft bottom vignette to ground the transition to the next section */}
-        <div className={styles.bottomVignette} />
       </div>
 
       {/* Content Container (Center aligned) */}
       <div className={styles.contentContainer}>
         <div className={styles.textContent}>
           
-          {/* Eyebrow / Overline */}
-          <div className={`${styles.eyebrow} ${styles.animateEyebrow}`}>
-            <span className={styles.eyebrowDot} />
-            Precision Engineered Doors & Frames
-          </div>
-
-          {/* Headline */}
-          <h1 className={`${styles.headline} ${styles.animateHeadline}`}>
-            Architectural timber, <br className={styles.desktopBreak} />
-            <span className={styles.headlineItalic}>engineered</span> for generations.
+          {/* Headline with Strandply-exact Character onMount Animation */}
+          <h1 className={styles.headline}>
+            <div
+              className={styles.headlineLine}
+              role="img"
+              aria-label={line1}
+            >
+              {renderStrandplyLine(line1, 0)}
+            </div>
+            <div
+              className={styles.headlineLine}
+              role="img"
+              aria-label={line2}
+            >
+              {renderStrandplyLine(line2, line1CharCount)}
+            </div>
           </h1>
 
-          {/* Subtext */}
-          <p className={`${styles.subtext} ${styles.animateSubtext}`}>
-            Custom engineered internal doors, fire-rated acoustic assemblies, and precision-milled frames designed for architects, luxury builders, and commercial spaces.
-          </p>
-
-          {/* CTAs */}
-          <div className={`${styles.ctas} ${styles.animateCtas}`}>
-            <Button href="#doors" variant="primary" size="lg">
-              Explore Door Collection
-            </Button>
-            <Button
-              href="#frames"
-              variant="secondary"
-              size="lg"
-              className={styles.secondaryBtn}
-            >
-              Browse Frame Finishes
-            </Button>
+          {/* Inline Small Info Tags */}
+          <div className={`${styles.statsGroup} ${styles.animateStats}`}>
+            <span className={styles.statItem}>12,000+ Doors/Month</span>
+            <span className={styles.statDivider}></span>
+            <span className={styles.statItem}>On-Time Delivery</span>
+            <span className={styles.statDivider}></span>
+            <span className={styles.statItem}>Global Supply</span>
           </div>
 
-          {/* Key Engineering Trust Stats */}
-          <div className={`${styles.statsGroup} ${styles.animateStats}`}>
-            <div className={styles.statItem}>
-              <div className={styles.statNumber}>
-                6<span className={styles.statPlus}>+</span>
-              </div>
-              <div className={styles.statLabel}>
-                Door Profiles & Cores
-              </div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statNumber}>
-                8×<span className={styles.statPlus}>Finishes</span>
-              </div>
-              <div className={styles.statLabel}>
-                Solid Frame Materials
-              </div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statNumber}>
-                100<span className={styles.statPlus}>%</span>
-              </div>
-              <div className={styles.statLabel}>
-                Kiln-Dried Precision
-              </div>
-            </div>
+          {/* CTAs with Fade Effect */}
+          <div className={`${styles.ctas} ${styles.animateCtas}`}>
+            <Button href="#explore" variant="primary" size="lg">
+              EXPLORE OUR DOORS
+            </Button>
+            <Button
+              href="#quote"
+              variant="outline"
+              size="lg"
+            >
+              REQUEST A PROJECT QUOTE
+            </Button>
           </div>
 
         </div>
       </div>
 
-      {/* Subtle Scroll Indicator */}
-      <div className={styles.scrollIndicator}>
-        <span className={styles.scrollText}>Scroll</span>
-        <div className={styles.scrollLine} />
-      </div>
     </section>
   );
 }

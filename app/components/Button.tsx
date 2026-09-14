@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./Button.module.css";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
   href?: string;
   className?: string;
@@ -20,17 +20,24 @@ export default function Button({
 }: ButtonProps) {
   const combinedStyles = `${styles.base} ${styles[variant]} ${styles[size]} ${className}`;
 
+  const content = (
+    <>
+      <span className={styles.circleFill} aria-hidden="true" />
+      <span className={styles.btnContent}>{children}</span>
+    </>
+  );
+
   if (href) {
     return (
       <Link href={href} className={combinedStyles}>
-        {children}
+        {content}
       </Link>
     );
   }
 
   return (
     <button className={combinedStyles} {...props}>
-      {children}
+      {content}
     </button>
   );
 }

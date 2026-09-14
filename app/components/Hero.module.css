@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--color-text-primary);
+  background-color: var(--color-black);
 }
 
 @media (min-width: 1024px) {
@@ -18,12 +18,12 @@
 /* Background & Parallax */
 .bgContainer {
   position: absolute;
-  top: -9%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 118%;
+  top: -10%;
+  left: -5%;
+  right: -5%;
+  bottom: -10%;
+  width: 110%;
+  height: 120%;
   pointer-events: none;
   will-change: transform;
   transition: transform 0.05s linear;
@@ -31,23 +31,13 @@
 
 .bgImage {
   object-fit: cover;
-  object-position: center 35%;
+  object-position: center;
 }
 
 .scrimOverlay {
   position: absolute;
   inset: 0;
-  /* Dark overlay to ensure white text is perfectly legible */
-  background-color: rgba(28, 23, 18, 0.7);
-}
-
-.bottomVignette {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 128px;
-  background: linear-gradient(to top, rgba(28, 23, 18, 0.7), transparent);
+  background-color: rgba(20, 15, 10, 0.6);
 }
 
 /* Content */
@@ -55,9 +45,9 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 1240px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 112px 20px 64px;
+  padding: 80px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,117 +56,134 @@
 
 @media (min-width: 640px) {
   .contentContainer {
-    padding: 112px 32px 64px;
+    padding: 96px 36px;
   }
 }
 
 @media (min-width: 1024px) {
   .contentContainer {
-    padding: 128px 48px;
+    padding: 120px 48px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .contentContainer {
+    padding: 128px 64px;
   }
 }
 
 .textContent {
-  max-width: 800px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Typography & Layout */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 12px;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--color-accent);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-
-@media (min-width: 640px) {
-  .eyebrow {
-    font-size: 13px;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.eyebrowDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--color-accent);
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
+/* Typography */
 .headline {
   font-family: var(--font-playfair);
-  color: #ffffff;
-  font-size: 36px;
+  color: var(--color-white);
+  font-size: 26px;
   font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
+  line-height: 1.25;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+  perspective: 900px;
+  transform-style: preserve-3d;
 }
 
 @media (min-width: 640px) {
+  .headline {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
   .headline {
     font-size: 46px;
+    line-height: 1.22;
+    margin-bottom: 24px;
   }
 }
 
-@media (min-width: 1024px) {
-  .headline {
-    font-size: 58px;
+/* Strandply OSB On-Mount Character Reveal Animation */
+.headlineLine {
+  display: block;
+}
+
+.wordWrapper {
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 0.28em;
+}
+
+.wordWrapper:last-child {
+  margin-right: 0;
+}
+
+.strandplyChar {
+  display: inline-block;
+  opacity: 0.001;
+  filter: blur(15px);
+  transform: translateY(10px) scale(2);
+  transform-origin: 50% 50%;
+  animation: strandplyAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--i) * 0.05s + 0.1s);
+  will-change: transform, opacity, filter;
+}
+
+@keyframes strandplyAppear {
+  0% {
+    opacity: 0.001;
+    filter: blur(15px);
+    transform: translateY(10px) scale(2);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px) scale(1);
   }
 }
 
-.desktopBreak {
-  display: none;
+/* Stats (Small Info Tags) */
+.statsGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 36px;
 }
 
-@media (min-width: 640px) {
-  .desktopBreak {
-    display: inline;
+@media (min-width: 768px) {
+  .statsGroup {
+    gap: 18px;
   }
 }
 
-.headlineItalic {
-  font-style: italic;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.subtext {
+.statItem {
   font-family: var(--font-inter);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 640px;
-  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
-@media (min-width: 640px) {
-  .subtext {
-    font-size: 18px;
+@media (min-width: 768px) {
+  .statItem {
+    font-size: 14px;
   }
 }
 
-@media (min-width: 1024px) {
-  .subtext {
-    font-size: 19px;
+.statDivider {
+  width: 1px;
+  height: 14px;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+@media (min-width: 768px) {
+  .statDivider {
+    height: 16px;
   }
 }
 
@@ -187,152 +194,56 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin-bottom: 56px;
 }
 
-.secondaryBtn {
-  border-color: rgba(255, 255, 255, 0.8) !important;
-  color: #ffffff !important;
-}
 
-.secondaryBtn:hover {
-  background-color: rgba(255, 255, 255, 0.15) !important;
-  border-color: #ffffff !important;
-}
 
-/* Stats */
-.statsGroup {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  max-width: 600px;
-  width: 100%;
-}
 
-.statItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.statNumber {
-  font-family: var(--font-playfair);
-  color: #ffffff;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-@media (min-width: 640px) {
-  .statNumber {
-    font-size: 28px;
-  }
-}
-
-.statPlus {
-  color: var(--color-accent);
-  font-size: 18px;
-  font-family: var(--font-inter);
-  margin-left: 2px;
-}
-
-.statLabel {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.7);
-  font-family: var(--font-inter);
-  line-height: 1.2;
-}
-
-@media (min-width: 640px) {
-  .statLabel {
-    font-size: 13px;
-  }
-}
-
-/* Scroll Indicator */
-.scrollIndicator {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-@media (min-width: 640px) {
-  .scrollIndicator {
-    display: flex;
-  }
-}
-
-.scrollText {
-  font-size: 11px;
-  font-family: var(--font-inter);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.scrollLine {
-  width: 1px;
-  height: 24px;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Animations */
-@keyframes heroReveal {
-  from {
+/* Staged Keyframe Animations:
+   1. First: Hero H1 letters reveal sequentially into sharp focus (handled by .fxFocus b)
+   2. Then: Small info tags slide in smoothly
+   3. Then: Buttons fade into view
+*/
+@keyframes heroTagsLoad {
+  0% {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(14px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.animateEyebrow {
-  opacity: 0;
-  animation: heroReveal 500ms var(--ease-standard) 100ms forwards;
-}
-
-.animateHeadline {
-  opacity: 0;
-  animation: heroReveal 500ms var(--ease-standard) 180ms forwards;
-}
-
-.animateSubtext {
-  opacity: 0;
-  animation: heroReveal 500ms var(--ease-standard) 260ms forwards;
-}
-
-.animateCtas {
-  opacity: 0;
-  animation: heroReveal 500ms var(--ease-standard) 340ms forwards;
+@keyframes heroButtonsFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animateStats {
   opacity: 0;
-  animation: heroReveal 500ms var(--ease-standard) 420ms forwards;
+  animation: heroTagsLoad 650ms cubic-bezier(0.16, 1, 0.3, 1) 1800ms forwards;
+}
+
+.animateCtas {
+  opacity: 0;
+  animation: heroButtonsFade 650ms cubic-bezier(0.16, 1, 0.3, 1) 2250ms forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animateEyebrow,
-  .animateHeadline,
-  .animateSubtext,
+  .animateStats,
   .animateCtas,
-  .animateStats {
+  .strandplyChar {
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
     animation: none !important;
   }
 }

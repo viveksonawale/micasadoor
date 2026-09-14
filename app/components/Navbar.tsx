@@ -106,7 +106,7 @@ export default function Navbar() {
             <Button
               href="#contact"
               variant="primary"
-              size="sm"
+              size="md"
               className={!isScrolled ? styles.ctaButtonTop : ''}
             >
               Get a Quote
