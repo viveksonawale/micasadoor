@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     "Precision-engineered doors and architectural frames crafted for durability, acoustic performance, and timeless architectural luxury.",
 };
 
+import SmoothScroll from "./components/SmoothScroll";
+import WhatsAppButton from "./components/WhatsAppButton";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,7 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll>
+          {children}
+          <WhatsAppButton />
+        </SmoothScroll>
+      </body>
     </html>
   );
 }

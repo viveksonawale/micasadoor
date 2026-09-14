@@ -12,19 +12,25 @@
 
 .catalogSection {
   padding: 96px 20px;
-  max-width: 1240px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
 @media (min-width: 640px) {
   .catalogSection {
-    padding: 96px 32px;
+    padding: 96px 36px;
   }
 }
 
 @media (min-width: 1024px) {
   .catalogSection {
-    padding: 96px 64px;
+    padding: 112px 48px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .catalogSection {
+    padding: 128px 64px;
   }
 }
 

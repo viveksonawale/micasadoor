@@ -1,18 +1,22 @@
 .base {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-inter, sans-serif);
   font-weight: 600;
-  border-radius: var(--radius-md);
-  transition: all 150ms var(--ease-standard);
+  border-radius: var(--radius-full);
   text-decoration: none;
   cursor: pointer;
   border: none;
+  isolation: isolate;
+  will-change: transform;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
 }
 
 .base:focus-visible {
-  outline: 2px solid var(--color-accent-active);
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
 }
 
@@ -21,64 +25,116 @@
   pointer-events: none;
 }
 
+.base:active {
+  transform: scale(0.97);
+}
+
+/* Inner Text / Content */
+.btnContent {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Strandply Expanding Circle Fill Animation (stiffness: 180, damping: 30) */
+.circleFill {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  transform: translate(-50%, 50%) scale(0);
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.base:hover .circleFill {
+  transform: translate(-50%, 50%) scale(28);
+}
+
+.base:hover .btnContent {
+  transform: translateY(-1px);
+}
+
 /* Variants */
 .primary {
-  background-color: var(--color-accent);
-  color: var(--color-text-primary);
-  box-shadow: 0 1px 2px rgba(28, 23, 18, 0.04);
+  background-color: var(--color-btn-primary-bg);
+  color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(225, 68, 1, 0.25);
+}
+
+.primary .circleFill {
+  background-color: var(--color-btn-primary-hover);
 }
 
 .primary:hover {
-  background-color: var(--color-accent-hover);
-  transform: translateY(-2px);
-}
-
-.primary:active {
-  background-color: var(--color-accent-active);
-  transform: scale(0.98);
+  box-shadow: 0 4px 16px rgba(225, 68, 1, 0.35);
 }
 
 .secondary {
   background-color: transparent;
-  color: var(--color-text-primary);
-  border: 1.5px solid var(--color-text-primary);
+  color: var(--color-btn-primary-bg);
+  border: 1.5px solid var(--color-btn-primary-bg);
+}
+
+.secondary .circleFill {
+  background-color: var(--color-btn-primary-bg);
 }
 
 .secondary:hover {
-  background-color: var(--color-surface-alt);
+  color: var(--color-white);
 }
 
-.secondary:active {
-  transform: scale(0.98);
+.outline {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+}
+
+.outline .circleFill {
+  background-color: var(--color-white);
+}
+
+.outline:hover {
+  border-color: var(--color-white);
+}
+
+.outline:hover .btnContent {
+  color: #1a1a1a;
 }
 
 .ghost {
   background-color: transparent;
-  color: var(--color-accent);
+  color: var(--color-btn-primary-bg);
+}
+
+.ghost .circleFill {
+  background-color: var(--color-neutral-200);
 }
 
 .ghost:hover {
-  background-color: var(--color-accent-tint-subtle);
   text-decoration: underline;
-}
-
-.ghost:active {
-  transform: scale(0.98);
 }
 
 /* Sizes */
 .sm {
   font-size: 13px;
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
+  padding: 8px 18px;
 }
 
 .md {
   font-size: 15px;
-  padding: 14px 28px;
+  padding: 13px 26px;
 }
 
 .lg {
-  font-size: 16px;
+  font-size: 15px;
+  letter-spacing: 0.04em;
   padding: 16px 32px;
 }

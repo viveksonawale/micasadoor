@@ -1,0 +1,166 @@
+.sectionContainer {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-surface, #ffffff);
+  padding: 80px 0 0 0; /* Padding only at top, bottom has full bleed grid */
+}
+
+.contentWrapper {
+  max-width: var(--container-max-width, 1600px);
+  margin: 0 auto;
+  padding: 0 var(--gutter-desktop, 48px);
+  margin-bottom: 48px;
+}
+
+@media (max-width: 1024px) {
+  .contentWrapper {
+    padding: 0 var(--gutter-tablet, 36px);
+  }
+}
+
+@media (max-width: 640px) {
+  .contentWrapper {
+    padding: 0 var(--gutter-mobile, 20px);
+  }
+}
+
+.sectionTitle {
+  font-family: var(--font-playfair, serif);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-text-primary, #1a1a1a);
+  margin-bottom: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 36px;
+  }
+}
+
+.highlight {
+  color: var(--color-primary-base, #e14401);
+}
+
+.sectionSubtitle {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 16px;
+  color: var(--color-text-secondary, #666);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  border-top: 1px solid var(--color-neutral-200, #e5e6e7);
+}
+
+@media (max-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--color-neutral-200, #e5e6e7);
+  border-bottom: 1px solid var(--color-neutral-200, #e5e6e7);
+}
+
+/* Remove right border on the last column */
+@media (min-width: 1025px) {
+  .projectCard:nth-child(3n) {
+    border-right: none;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .projectCard:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .projectCard {
+    border-right: none;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Matches typical card proportions */
+  background-color: var(--color-neutral-100, #f1f2f3);
+}
+
+.projectImage {
+  object-fit: cover;
+}
+
+.sampleBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.cardContent {
+  padding: 32px;
+  background-color: #fcfcfc; /* Very light grey off-white as seen in screenshot */
+  flex-grow: 1;
+}
+
+.projectTitle {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-heading, #1a1a1a);
+  margin-bottom: 32px;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 24px;
+  column-gap: 16px;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detailLabel {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 10px;
+  font-weight: 600;
+  color: #c25f46; /* Matching the muted rust/orange in screenshot */
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.detailValue {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 13px;
+  color: var(--color-text-secondary, #525152);
+  line-height: 1.4;
+}
