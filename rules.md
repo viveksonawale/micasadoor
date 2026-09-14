@@ -1,120 +1,197 @@
-# MICASA Architectural Engineering — UI & Design Rules for AI Agents
+# MICASA Section Generation Rules for AI Agents
 
-> **Audience:** All AI coding agents, subagents, and developers working on this codebase.  
-> **Mandate:** These rules MUST be strictly followed across ALL current and future pages, components, and layouts in this project.
+> **Mandate:** Any AI agent generating or refactoring a section in this project MUST strictly adhere to these rules.
 
 ---
 
-## 1. Viewport Geometry & Horizontal Margin Rules
+## 1. Mandatory Questioning: Heading Highlight Selection
+**CRITICAL RULE:** Whenever you are tasked with creating, designing, or adding a new section:
+- You **MUST ASK THE USER** which word or phrase in the section heading should be highlighted with the orange brand accent (`var(--color-primary-base, #e14401)` / `.highlight`).
+- Do not make an unconfirmed assumption about which word to highlight when introducing new headings unless the user has already specified it.
 
-### 1.1 Abolishment of Narrow Max-Width Bottlenecks
-* **NEVER** use small, arbitrary constraints like `max-width: 1200px` or `max-width: 1240px` on top-level section containers or headers. On modern displays (1440px, 1920px, 2K, 4K), narrow containers create excessive, wasted empty margins on the left and right edges.
-* **All sections must utilize the available viewport width** with modern, expansive container sizing.
+---
 
-### 1.2 Layout Tokens (`app/globals.css`)
-Agents must consume and adhere to the standardized container and gutter tokens:
+## 2. Layout, Viewport & Spacing Tokens
 
-```css
-:root {
-  /* Container & Viewport Scale */
-  --container-max-width: 1600px;
+### 2.1 Section Container
+- **Full Width:** `width: 100%; position: relative;`
+- **Background:** `var(--color-surface, #ffffff)` or designated section theme.
+- **Vertical Spacing:** `padding: 80px 0;` (use `padding: 80px 0 0 0;` only if the bottom element is a full-bleed grid).
 
-  /* Responsive Horizontal Gutters */
-  --gutter-mobile: 20px;       /* < 640px */
-  --gutter-tablet: 36px;       /* 640px – 1023px */
-  --gutter-desktop: 48px;      /* 1024px – 1439px */
-  --gutter-wide: 64px;         /* 1440px – 1919px */
-  --gutter-ultrawide: 80px;    /* >= 1920px */
-}
-```
-
-### 1.3 Navigation Header Specification (`Navbar.module.css`)
-* Navbars container uses a bounded width centered horizontally:
+### 2.2 Content Wrapper
+- **Max Width:** `max-width: var(--container-max-width, 1600px);`
+- **Margin:** `margin: 0 auto; margin-bottom: 40px;`
+- **Horizontal Responsive Gutters:**
   ```css
-  .container {
-    width: 100%;
-    max-width: 1240px;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  padding: 0 var(--gutter-desktop, 48px);
+  
+  @media (max-width: 1024px) {
+    padding: 0 var(--gutter-tablet, 36px);
   }
-
-  @media (min-width: 640px)  { .container { padding: 0 32px; } }
-  @media (min-width: 1024px) { .container { padding: 0 40px; } }
+  @media (max-width: 640px) {
+    padding: 0 var(--gutter-mobile, 20px);
+  }
   ```
-* **Result:** The brand logo is kept at its normal size on the left, while the navigation links and CTA button sit comfortably within a centered 1240px container instead of stretching across the entire monitor.
+- **Alignment:** When centered, apply:
+  ```css
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  ```
 
-### 1.4 Content Sections & Future Page Guidelines
-All section containers (e.g., catalog, product showcases, feature comparisons, contact forms) must be structured with:
+### 2.3 Cards & Geometry
+- **Card Border Radius:** Must always use `border-radius: var(--radius-xl, 28px);` for modern architectural rounded cards (as standardized in `StatsSection` and `ProductRangeSection`).
+
+---
+
+## 3. Typography Hierarchy
+
+### 3.1 Eyebrow Component
+- Always use the dedicated `<SectionEyebrow label="..." />` component.
+- The eyebrow container handles its own pill background, orange circular arrow icon, and typography.
+- Spacing below eyebrow: `margin-bottom: 24px;`
+
+### 3.2 Section Title (`h2`)
 ```css
-.sectionContainer {
-  width: 100%;
-  max-width: var(--container-max-width, 1600px);
-  margin: 0 auto;
-  padding-left: var(--gutter-mobile);
-  padding-right: var(--gutter-mobile);
+.sectionTitle {
+  font-family: var(--font-playfair, serif);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-text-primary, #1a1a1a);
+  margin-bottom: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  perspective: 900px;
+  transform-style: preserve-3d;
 }
 
-@media (min-width: 640px)  { .sectionContainer { padding-left: var(--gutter-tablet); padding-right: var(--gutter-tablet); } }
-@media (min-width: 1024px) { .sectionContainer { padding-left: var(--gutter-desktop); padding-right: var(--gutter-desktop); } }
-@media (min-width: 1440px) { .sectionContainer { padding-left: var(--gutter-wide); padding-right: var(--gutter-wide); } }
-@media (min-width: 1920px) { .sectionContainer { padding-left: var(--gutter-ultrawide); padding-right: var(--gutter-ultrawide); } }
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 36px;
+  }
+}
+```
+
+### 3.3 Accent Highlight Color
+```css
+.highlight {
+  color: var(--color-primary-base, #e14401);
+}
+```
+
+### 3.4 Section Subtitle (`p`)
+```css
+.sectionSubtitle {
+  font-family: var(--font-dm-sans, sans-serif);
+  font-size: 20px;
+  color: var(--color-text-secondary, #666);
+  max-width: 640px; /* or up to 680px-720px when centered */
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .sectionSubtitle {
+    font-size: 16px;
+  }
+}
 ```
 
 ---
 
-## 2. Typography & Color Tokens
+## 4. Mandatory On-Load / On-Scroll Headline Animation
 
-### 2.1 Font Hierarchy
-* **Headings (`h1`–`h6`):** `var(--font-playfair)` (Playfair Display, serif) — elegant, high-contrast architectural character.
-* **Body / UI Labels / Buttons:** `var(--font-inter)` (Inter, sans-serif) — neutral, highly legible at all scales.
+Every section heading **MUST** implement the signature Strandply character reveal animation triggered via `IntersectionObserver`.
 
-### 2.2 Brand Colors (`color-palette.md`)
-* **Primary Brand Core:** `--color-primary-base: #e14401` (Main CTA, active states, key highlights).
-* **Hover Accent:** `--color-primary-dark: #a11e00` (Hover fills, deep state accents).
-* **Active / Focus:** `--color-primary-darker: #7c1a02` (Pressed states, focus rings).
-* **Backgrounds & Neutrals:**
-  * App background: `--color-neutral-100: #f1f2f3`
-  * Text body: `--color-neutral-700: #525152`
-  * Headings: `--color-neutral-900: #2b2a2b`
-  * Pure White: `--color-white: #ffffff`
-  * Deep Dark: `--color-black: #1a1a1a`
+### 4.1 React Helper Function
+```tsx
+const renderStrandplyText = (lineText: string, startIndex: number = 0, isHighlight: boolean = false) => {
+  let currentIndex = startIndex;
+  const words = lineText.trim().split(/\s+/);
 
----
+  return words.map((word, wordIndex) => {
+    const chars = word.split("");
+    const wordStartIndex = currentIndex;
+    currentIndex += chars.length;
 
-## 3. Signature Motion & Animation Standards (Strandply OSB Benchmarks)
+    return (
+      <span key={wordIndex} className={`${styles.wordWrapper} ${isHighlight ? styles.highlight : ""}`}>
+        {chars.map((char, charIndex) => {
+          const i = wordStartIndex + charIndex;
+          return (
+            <span
+              key={charIndex}
+              aria-hidden="true"
+              className={styles.strandplyChar}
+              style={{ "--i": i } as React.CSSProperties}
+            >
+              {char}
+            </span>
+          );
+        })}
+      </span>
+    );
+  });
+};
+```
 
-### 3.1 Headline On-Mount Text Reveal
-Extracted directly from [Strandply OSB](https://www.strandplyosb.com/):
-* **Execution:** Triggered strictly **ONCE on page mount** (`trigger: 'onMount'`), NEVER in an infinite loop.
-* **Structure:** Group words in `.wordWrapper` to prevent responsive hyphenation breaks; split characters into `.strandplyChar`.
-* **Properties:**
-  * Initial state: `opacity: 0.001; filter: blur(15px); transform: translateY(10px) scale(2);`
-  * Transition: `0.8s cubic-bezier(0.16, 1, 0.3, 1)` (spring physics: damping 40, stiffness 200, mass 1).
-  * Stagger: `animation-delay: calc(var(--i) * 0.05s + 0.1s);`
-  * Settled state: `opacity: 1; filter: blur(0px); transform: translateY(0px) scale(1);`
+### 4.2 Observer Implementation
+```tsx
+const [isVisible, setIsVisible] = useState(false);
+const headerRef = useRef<HTMLHeadingElement>(null);
 
-### 3.2 Button Interaction Architecture (`Button.module.css`)
-* **Geometry:** Tactile pill radius `border-radius: var(--radius-full);`.
-* **Expanding Circle Hover Effect:**
-  * An internal `.circleFill` span sits at `bottom: -8px; left: 50%; transform: translate(-50%, 50%) scale(0)`.
-  * On `:hover`: Springs outward to `scale(28)` via `transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1)` (damping: 30, stiffness: 180), smoothly flooding the button background.
-  * Inner text is elevated with `position: relative; z-index: 2;` and slightly lifts `translateY(-1px)`.
-* **Active Press:** `transform: scale(0.97)` on click.
-* **Variants:**
-  * `primary`: `#e14401` background with `#a11e00` expanding circle fill.
-  * `outline`: White translucent border (`rgba(255, 255, 255, 0.65)`) with white expanding circle fill, turning text to `#1a1a1a` on hover.
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    },
+    { threshold: 0.2 }
+  );
 
----
+  const currentRef = headerRef.current;
+  if (currentRef) observer.observe(currentRef);
 
-## 4. Universal Page Development Checklist for Subagents
+  return () => {
+    if (currentRef) observer.unobserve(currentRef);
+  };
+}, []);
+```
 
-When creating or modifying ANY new page or section:
-1. `[ ]` **Width Check:** Verify container uses `width: 100%` and `max-width: 1600px` (or `max-width: 100%` for navigation headers).
-2. `[ ]` **Margin / Gutter Check:** Verify that content extends comfortably across the screen, respecting the `--gutter-*` tokens rather than leaving empty 300px+ side gutters.
-3. `[ ]` **Typography:** Apply `var(--font-playfair)` to headings and `var(--font-inter)` to body copy.
-4. `[ ]` **CTA Buttons:** Use the `<Button />` component with `variant="primary"` or `variant="outline"` to preserve the Strandply expanding circle animation.
-5. `[ ]` **Smooth Scroll:** Do not interfere with the Lenis smooth scroll provider mounted in `app/layout.tsx`.
+### 4.3 Animation CSS
+```css
+.wordWrapper {
+  display: inline-flex;
+  white-space: nowrap;
+  margin-right: 0.28em;
+}
+
+.strandplyChar {
+  display: inline-flex;
+  opacity: 0.001;
+  filter: blur(15px);
+  transform: translateY(10px) scale(2);
+  transform-origin: 50% 50%;
+  will-change: transform, opacity, filter;
+}
+
+.animate .strandplyChar {
+  animation: strandplyAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--i) * 0.05s + 0.1s);
+}
+
+@keyframes strandplyAppear {
+  0% {
+    opacity: 0.001;
+    filter: blur(15px);
+    transform: translateY(10px) scale(2);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+}
+```
