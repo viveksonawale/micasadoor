@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Frames", href: "#frames" },
   { name: "Gallery", href: "#gallery" },
   { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -104,7 +104,7 @@ export default function Navbar() {
           {/* Actions */}
           <div className={styles.actions}>
             <Button
-              href="#contact"
+              href="/contact"
               variant="primary"
               size="md"
               className={!isScrolled ? styles.ctaButtonTop : ''}
@@ -177,7 +177,7 @@ export default function Navbar() {
 
         <div className={styles.drawerFooter}>
           <Button
-            href="#contact"
+            href="/contact"
             variant="primary"
             className={styles.drawerFooterBtn}
             onClick={() => setMobileMenuOpen(false)}

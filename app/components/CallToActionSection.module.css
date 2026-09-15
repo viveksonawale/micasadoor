@@ -1,0 +1,184 @@
+.section {
+  padding: 40px 4vw 90px 4vw;
+  background-color: var(--color-surface, #ffffff);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  background: linear-gradient(135deg, #f4f6f9 0%, #e8ecf1 100%);
+  border-radius: 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /* subtle shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 480px;
+  }
+}
+
+.contentWrapper {
+  flex: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .contentWrapper {
+    padding: 80px 60px;
+    max-width: 55%;
+  }
+}
+
+.heading {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  font-family: var(--font-playfair), serif;
+  color: var(--color-neutral-900);
+  font-weight: 400;
+}
+
+.highlight {
+  color: #e14401; /* Using the brand red from button */
+  display: block;
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-neutral-600);
+  margin-bottom: 40px;
+  max-width: 480px;
+  font-family: var(--font-inter), sans-serif;
+}
+
+.actions {
+  display: flex;
+}
+
+.graphicWrapper {
+  flex: 1;
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* Fade out at the bottom */
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .graphicWrapper {
+    min-height: auto;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 50%;
+  }
+}
+
+.doorsContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 2vw;
+}
+
+.door {
+  position: absolute;
+  bottom: 0;
+  width: 240px;
+  height: 520px;
+  border-radius: 12px 12px 0 0;
+  box-shadow: -15px 0 40px rgba(0, 0, 0, 0.2);
+  transform-origin: bottom center;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  background-color: white;
+}
+
+.door img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Door 1 (Back - Dark Wood) */
+.door1 {
+  right: 200px;
+  transform: rotate(-18deg) translateY(30px);
+  z-index: 1;
+}
+
+/* Door 2 (Middle - Medium Wood) */
+.door2 {
+  right: 110px;
+  transform: rotate(-9deg) translateY(15px);
+  z-index: 2;
+}
+
+/* Door 3 (Front - Light Oak) */
+.door3 {
+  right: 20px;
+  transform: rotate(0deg);
+  z-index: 3;
+}
+
+/* Hover effects */
+.doorsContainer:hover .door1 {
+  transform: rotate(-22deg) translateY(20px) translateX(-15px);
+}
+
+.doorsContainer:hover .door2 {
+  transform: rotate(-12deg) translateY(10px) translateX(-5px);
+}
+
+.doorsContainer:hover .door3 {
+  transform: rotate(0deg) translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .door {
+    width: 180px;
+    height: 400px;
+  }
+  .door1 { right: 140px; }
+  .door2 { right: 80px; }
+  .door3 { right: 20px; }
+}
+
+@media (max-width: 768px) {
+  .door {
+    width: 140px;
+    height: 320px;
+  }
+  .door1 { right: 50%; transform: rotate(-15deg) translateX(-40px); }
+  .door2 { right: 50%; transform: rotate(-5deg) translateX(10px); }
+  .door3 { right: 50%; transform: rotate(5deg) translateX(60px); }
+  .graphicWrapper {
+    align-items: center;
+  }
+  .doorsContainer {
+    padding-right: 0;
+    justify-content: center;
+  }
+}

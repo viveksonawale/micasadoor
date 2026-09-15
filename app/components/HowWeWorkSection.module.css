@@ -5,37 +5,27 @@
   padding: 80px 0;
 }
 
-.contentWrapper {
-  width: 100%;
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
+  margin-bottom: 24px;
   padding: 0 var(--gutter-desktop, 48px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: start;
 }
 
 @media (max-width: 1024px) {
-  .contentWrapper {
+  .headerWrapper {
     padding: 0 var(--gutter-tablet, 36px);
-    grid-template-columns: 1fr;
-    align-items: flex-start;
   }
 }
 
 @media (max-width: 640px) {
-  .contentWrapper {
+  .headerWrapper {
     padding: 0 var(--gutter-mobile, 20px);
   }
-}
-
-/* Header Section */
-.headerColumn {
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  top: 15vh;
 }
 
 .sectionTitle {
@@ -64,9 +54,9 @@
   font-family: var(--font-dm-sans, sans-serif);
   font-size: 20px;
   color: var(--color-text-secondary, #666);
-  max-width: 640px;
+  max-width: 680px;
   line-height: 1.6;
-  margin-bottom: 32px;
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -109,42 +99,45 @@
   }
 }
 
-/* Timeline Column */
-.timelineColumn {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.timelineLine {
-  position: absolute;
-  left: 20px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background-color: var(--color-border, #e5e5e5);
-  border-radius: 2px;
-  z-index: 1;
-}
-
-.timelineProgress {
+/* Content Grid Layout */
+.contentWrapper {
   width: 100%;
-  background-color: var(--color-primary-base, #e14401);
-  border-radius: 2px;
-  transition: height 0.1s ease-out;
+  max-width: var(--container-max-width, 1600px);
+  margin: 0 auto;
+  padding: 0 var(--gutter-desktop, 48px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
 }
 
-.stepsContainer {
+@media (max-width: 1024px) {
+  .contentWrapper {
+    padding: 0 var(--gutter-tablet, 36px);
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contentWrapper {
+    padding: 0 var(--gutter-mobile, 20px);
+  }
+}
+
+/* Left Column - Steps */
+.stepsColumn {
   display: flex;
   flex-direction: column;
-  gap: 120px;
-  padding-left: 60px;
-  padding-bottom: 20vh;
+  gap: 60px;
+  padding-bottom: 20vh; /* Allow scrolling past the last item */
 }
 
 .stepItem {
-  position: relative;
+  display: flex;
+  gap: 24px;
   transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.4;
 }
 
 .stepActive {
@@ -152,39 +145,57 @@
 }
 
 .stepPast {
-  opacity: 0.3;
+  opacity: 1; /* Past items stay fully visible per reference, or slightly dimmed if preferred. Keeping it 1 to match the 'done' state */
 }
 
-.stepDot {
-  position: absolute;
-  left: -44px;
-  top: 5px;
-  width: 10px;
-  height: 10px;
+/* Step Indicator (Circle with checkmark) */
+.stepIndicator {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: var(--color-primary-base, #e14401);
-  opacity: 0.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border, #e5e5e5);
+  background-color: transparent;
   transition: all 0.3s ease;
+  color: var(--color-surface, #ffffff);
 }
 
-.stepActive .stepDot {
-  opacity: 1;
-  box-shadow: 0 0 0 4px rgba(225, 68, 1, 0.2);
+.stepActive .stepIndicator,
+.stepPast .stepIndicator {
+  background-color: var(--color-text-primary, #1a1a1a);
+  border-color: var(--color-text-primary, #1a1a1a);
+}
+
+.stepDotInactive {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-border, #e5e5e5);
+  transition: background-color 0.3s ease;
+}
+
+/* Text Content */
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4px; /* Align text with circle */
 }
 
 .stepNumber {
   font-family: var(--font-dm-sans, sans-serif);
-  font-size: 80px;
-  font-weight: 800;
-  color: var(--color-text-primary, #1a1a1a);
-  opacity: 0.1;
-  line-height: 1;
-  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary-base, #e14401);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
 }
 
 .stepTitle {
   font-family: var(--font-playfair, serif);
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
   margin-bottom: 12px;
@@ -192,19 +203,63 @@
 
 .stepDescription {
   font-family: var(--font-dm-sans, sans-serif);
-  font-size: 18px;
+  font-size: 16px;
   color: var(--color-text-secondary, #666);
   line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-  .stepNumber {
-    font-size: 60px;
-  }
   .stepTitle {
     font-size: 24px;
   }
-  .stepDescription {
-    font-size: 16px;
+}
+
+/* Right Column - Sticky Images */
+.imageColumn {
+  position: relative;
+  height: 100%;
+}
+
+.stickyImageContainer {
+  position: sticky;
+  top: 15vh;
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-xl, 28px);
+  overflow: hidden;
+  background-color: var(--color-surface, #ffffff); /* Fallback */
+}
+
+@media (max-width: 1024px) {
+  .stickyImageContainer {
+    position: relative;
+    top: 0;
+    aspect-ratio: 16/9;
   }
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.imageActive {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.stepImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-xl, 28px); /* Ensure rounded corners on image itself if container overflow fails in some browsers */
 }

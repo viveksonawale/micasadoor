@@ -5,6 +5,9 @@ import StatsSection from "./components/StatsSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ProductRangeSection from "./components/ProductRangeSection";
 import HowWeWorkSection from "./components/HowWeWorkSection";
+import CustomDoorsSection from "./components/CustomDoorsSection";
+import CallToActionSection from "./components/CallToActionSection";
+import Footer from "./components/Footer";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -27,7 +30,16 @@ export default function Home() {
 
         {/* How We Work Section */}
         <HowWeWorkSection />
+
+        {/* Custom Doors Section */}
+        <CustomDoorsSection />
+
+        {/* Call To Action Section */}
+        <CallToActionSection />
       </main>
+
+      {/* Site Footer */}
+      <Footer />
     </div>
   );
 }
