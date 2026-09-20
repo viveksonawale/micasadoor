@@ -4,7 +4,7 @@
   gap: 12px;
   background-color: var(--color-neutral-100, #f1f2f3);
   padding: 6px 16px 6px 6px;
-  border-radius: 999px;
+  border-radius: var(--radius-md);
   margin-bottom: 24px;
 }
 
@@ -14,7 +14,7 @@
   justify-content: center;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: var(--radius-md);
   background-color: var(--color-primary-base, #e14401); /* Matches the website theme */
   color: white;
 }

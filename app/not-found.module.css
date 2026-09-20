@@ -80,7 +80,7 @@
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
-  border-radius: var(--radius-xl, 28px);
+  border-radius: var(--radius-md);
   transition: all 0.3s ease;
 }
 

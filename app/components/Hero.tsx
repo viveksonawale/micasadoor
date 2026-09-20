@@ -36,14 +36,28 @@ const renderStrandplyLine = (lineText: string, startIndex: number = 0) => {
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    // Check if preloader was already shown (in case component mounts after event fired)
+    if (typeof window !== 'undefined' && sessionStorage.getItem('micasa-preloader-shown')) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsReady(true);
+    }
+
+    const handlePreloaderDone = () => setIsReady(true);
+    window.addEventListener('preloaderDone', handlePreloaderDone);
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('preloaderDone', handlePreloaderDone);
+    };
   }, []);
 
   const line1 = "Doors Built to Last.";
@@ -51,7 +65,7 @@ export default function Hero() {
   const line1CharCount = line1.replace(/\s/g, "").length;
 
   return (
-    <section className={styles.heroSection}>
+    <section className={`${styles.heroSection} ${!isReady ? styles.heroWaiting : ""}`}>
       {/* Background Image Container with Zoom Parallax */}
       <div
         className={styles.bgContainer}
@@ -98,9 +112,9 @@ export default function Hero() {
           <div className={`${styles.statsGroup} ${styles.animateStats}`}>
             <span className={styles.statItem}>12,000+ Doors/Month</span>
             <span className={styles.statDivider}></span>
-            <span className={styles.statItem}>On-Time Delivery</span>
+            <span className={styles.statItem}>1M+ Doors Delivered</span>
             <span className={styles.statDivider}></span>
-            <span className={styles.statItem}>Global Supply</span>
+            <span className={styles.statItem}>4 Lakh Sq. Ft. Facility</span>
           </div>
 
           {/* CTAs with Fade Effect */}

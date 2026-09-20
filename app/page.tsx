@@ -1,6 +1,5 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import MarqueeSection from "./components/MarqueeSection";
 import StatsSection from "./components/StatsSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ProductRangeSection from "./components/ProductRangeSection";
@@ -19,7 +18,6 @@ export default function Home() {
       {/* Main Content Area */}
       <main className={styles.mainContent}>
         <Hero />
-        <MarqueeSection />
         <StatsSection />
 
         {/* Projects / Catalog Section */}

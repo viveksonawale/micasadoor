@@ -31,7 +31,7 @@ export default function Footer() {
         {/* Background watermark */}
         <div className={styles.bgLogoWrapper}>
           <Image
-            src="/logo-1_1.svg"
+            src="/logo/micasalogo.svg"
             alt=""
             width={500}
             height={500}
@@ -46,7 +46,7 @@ export default function Footer() {
             <div className={styles.brandColumn}>
               <div className={styles.brandLogoGroup}>
                 <Image
-                  src="/micasa-logo-text.svg"
+                  src="/logo/micasawithtext.svg"
                   alt="MICASA"
                   width={200}
                   height={46}

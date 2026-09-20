@@ -59,18 +59,19 @@ const PRODUCTS = [
   {
     id: 4,
     title: "MDO Panels",
-    subtitle: "COMING SOON",
+    subtitle: "ARCHITECTURAL GRADE PANELS",
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
     link: "#mdo",
   }
 ];
 
 export default function ProductRangeSection() {
-  const [activeIndex, setActiveIndex] = useState(1);
-  const [isHovered, setIsHovered] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const headerRef = useRef<HTMLHeadingElement>(null);
-  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -102,19 +103,50 @@ export default function ProductRangeSection() {
     setActiveIndex((current) => (current === 0 ? PRODUCTS.length - 1 : current - 1));
   }, []);
 
+  // Automatic swipe on continuous interval (3.5s)
   useEffect(() => {
-    if (!isHovered) {
-      autoplayRef.current = setInterval(() => {
-        nextSlide();
-      }, 4000);
-    }
+    timerRef.current = setInterval(() => {
+      nextSlide();
+    }, 3500);
 
     return () => {
-      if (autoplayRef.current) {
-        clearInterval(autoplayRef.current);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
       }
     };
-  }, [isHovered, nextSlide]);
+  }, [activeIndex, nextSlide]);
+
+  const resetAutoplay = useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
+      nextSlide();
+    }, 3500);
+  }, [nextSlide]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current !== null && touchEndX.current !== null) {
+      const diff = touchStartX.current - touchEndX.current;
+      if (diff > 50) {
+        nextSlide();
+        resetAutoplay();
+      } else if (diff < -50) {
+        prevSlide();
+        resetAutoplay();
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   const getSlideClass = (index: number) => {
     if (index === activeIndex) return styles.slideActive;
@@ -129,7 +161,7 @@ export default function ProductRangeSection() {
   };
 
   return (
-    <section className={styles.sectionContainer} id="products">
+    <section className={styles.sectionContainer} id="doors">
       <div className={styles.contentWrapper}>
         <SectionEyebrow label="Our Collection" />
         
@@ -143,21 +175,25 @@ export default function ProductRangeSection() {
         </h2>
         
         <p className={styles.sectionSubtitle}>
-          Explore a collection where each panel isn't just a product — it's a promise of strength, style, and sustainability. From solid wood to fire-rated doors, find the perfect partner for every project.
+          Explore a collection where each panel isn&apos;t just a product — it&apos;s a promise of strength, style, and sustainability. From solid wood to fire-rated doors, find the perfect partner for every project.
         </p>
       </div>
 
-      {/* Carousel */}
+      {/* Carousel Container with Touch Swipe */}
       <div 
         className={styles.carouselContainer}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {PRODUCTS.map((product, index) => (
           <div 
             key={product.id} 
             className={`${styles.carouselSlide} ${getSlideClass(index)}`}
-            onClick={() => setActiveIndex(index)}
+            onClick={() => {
+              setActiveIndex(index);
+              resetAutoplay();
+            }}
           >
             <div className={styles.imageWrapper}>
               <Image
@@ -188,6 +224,7 @@ export default function ProductRangeSection() {
             onClick={(e) => {
               e.stopPropagation();
               prevSlide();
+              resetAutoplay();
             }}
             aria-label="Previous slide"
           >
@@ -201,6 +238,7 @@ export default function ProductRangeSection() {
             onClick={(e) => {
               e.stopPropagation();
               nextSlide();
+              resetAutoplay();
             }}
             aria-label="Next slide"
           >
@@ -210,6 +248,22 @@ export default function ProductRangeSection() {
           </button>
         </div>
       </div>
+
+      {/* Pagination Dots */}
+      <div className={styles.dotsContainer}>
+        {PRODUCTS.map((product, index) => (
+          <button
+            key={product.id}
+            className={`${styles.dot} ${index === activeIndex ? styles.dotActive : ""}`}
+            onClick={() => {
+              setActiveIndex(index);
+              resetAutoplay();
+            }}
+            aria-label={`Go to slide ${index + 1}: ${product.title}`}
+          />
+        ))}
+      </div>
     </section>
   );
 }
+

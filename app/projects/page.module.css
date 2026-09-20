@@ -1,0 +1,105 @@
+.pageContainer {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  flex: 1;
+  width: 100%;
+}
+
+/* ── Hero Section ── */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 320px;
+  max-height: 400px;
+  display: flex;
+  align-items: flex-end;
+  padding: 48px 20px;
+  overflow: hidden;
+  background-color: var(--color-neutral-900, #1a1a1a);
+}
+
+.heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max-width, 1600px);
+  width: 100%;
+  margin: 0 auto;
+  padding-left: max(0px, calc((100vw - var(--container-max-width, 1600px)) / 2));
+}
+
+@media (min-width: 640px) {
+  .heroContent {
+    padding-left: var(--gutter-tablet, 36px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroContent {
+    padding-left: var(--gutter-desktop, 48px);
+  }
+}
+
+.heroTitle {
+  font-family: var(--font-playfair, serif);
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 64px;
+  }
+}
+
+.heroAccentLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-light, #fd8c0b),
+    var(--color-primary-base, #e14401),
+    var(--color-primary-dark, #a11e00)
+  );
+  z-index: 10;
+}
+
+.projectsSection {
+  padding: 80px 0;
+  background-color: var(--color-surface, #ffffff);
+}

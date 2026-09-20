@@ -3,13 +3,19 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./StatsSection.module.css";
 
+interface FormattedResult {
+  value: string;
+  unit?: string;
+}
+
 interface AnimatedNumberProps {
   end: number;
   suffix?: string;
   duration?: number;
+  formatter?: (val: number) => FormattedResult;
 }
 
-function AnimatedNumber({ end, suffix = "", duration = 2200 }: AnimatedNumberProps) {
+function AnimatedNumber({ end, suffix = "", duration = 2200, formatter }: AnimatedNumberProps) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLHeadingElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -62,10 +68,25 @@ function AnimatedNumber({ end, suffix = "", duration = 2200 }: AnimatedNumberPro
     return () => cancelAnimationFrame(animationFrameId);
   }, [hasAnimated, end, duration]);
 
+  let numberPart = "";
+  let unitPart = "";
+
+  if (formatter) {
+    const res = formatter(count);
+    numberPart = res.value;
+    unitPart = res.unit || "";
+  } else {
+    numberPart = count.toLocaleString("en-IN");
+  }
+
   return (
     <h2 ref={ref} className={styles.title}>
-      {count.toLocaleString()}
-      {suffix}
+      <span className={styles.numberPart}>{numberPart}</span>
+      {unitPart ? (
+        <span className={styles.unitPart}>{unitPart}</span>
+      ) : suffix ? (
+        <span className={styles.suffixPart}>{suffix}</span>
+      ) : null}
     </h2>
   );
 }
@@ -82,31 +103,39 @@ export default function StatsSection() {
             <span>Doors / Month</span>
           </div>
           <p className={styles.description}>
-            Meeting your needs at unmatched scale and speed.
+            Unmatched Laminated Door Production Capacity.
           </p>
         </div>
 
         {/* Card 2 */}
         <div className={styles.card}>
-          <AnimatedNumber end={98} suffix="%+" duration={2200} />
+          <AnimatedNumber 
+            end={1000} 
+            duration={2200} 
+            formatter={(val) => {
+              if (val >= 1000) return { value: "1", unit: "Million+" };
+              if (val === 0) return { value: "0", unit: "" };
+              return { value: `${val}`, unit: "K+" };
+            }}
+          />
           <div className={styles.subtitle}>
             <div className={styles.dot}></div>
-            <span>On-Time Delivery</span>
+            <span>Doors Delivered</span>
           </div>
           <p className={styles.description}>
-            Built tougher for projects that demand more.
+            Delivered and installed door till date.
           </p>
         </div>
 
         {/* Card 3 */}
         <div className={styles.card}>
-          <AnimatedNumber end={40} suffix="+" duration={2200} />
+          <AnimatedNumber end={400000} suffix="+" duration={2200} />
           <div className={styles.subtitle}>
             <div className={styles.dot}></div>
-            <span>Global Supply</span>
+            <span>Sq. Ft. (4 Lakh)</span>
           </div>
           <p className={styles.description}>
-            Protecting the planet with every panel we produce.
+            Total Land Parcel for top Notch Production.
           </p>
         </div>
       </div>

@@ -40,8 +40,9 @@
   text-align: center;
   ```
 
-### 2.3 Cards & Geometry
-- **Card Border Radius:** Must always use `border-radius: var(--radius-xl, 28px);` for modern architectural rounded cards (as standardized in `StatsSection` and `ProductRangeSection`).
+### 2.3 Cards, Buttons & Geometry
+- **Universal Border Radius:** Must always use a normal, subtle border radius (like Vercel buttons, typically `6px`) across the whole website for cards, buttons, and all containers.
+- **Implementation:** Always use `border-radius: var(--radius-md);` (which corresponds to `6px`). Do not use large pill shapes (`999px`), severe square edges (`0px` unless required for layout), or huge architectural curves (`28px`/`40px`), except for strictly circular icons/avatars (`50%`).
 
 ---
 
@@ -195,3 +196,14 @@ useEffect(() => {
   }
 }
 ```
+
+---
+
+## 5. Page Navigation & Scroll-to-Top Behavior
+
+When navigating between pages (e.g., clicking "Show More Projects", navigation links, or router transitions):
+- **Mandatory Scroll Reset:** Every route navigation **MUST** immediately reset the viewport scroll to the top of the page (`(0, 0)`).
+- **Lenis Smooth Scroll Compatibility:**
+  - `SmoothScroll.tsx` must track pathname changes via `usePathname()` and execute `lenis.scrollTo(0, { immediate: true })` and `window.scrollTo(0, 0)` on route change.
+  - Do **NOT** set `scroll-behavior: smooth;` in CSS on `html` / `body` as it interferes with Lenis scroll resets and causes delayed or skipped scroll-to-top behavior.
+

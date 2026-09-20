@@ -124,7 +124,7 @@
   flex-direction: column;
   gap: 64px;
   background-color: #f8f9fa;
-  border-radius: 48px;
+  border-radius: var(--radius-md);
   padding: 48px 32px;
   position: relative;
   overflow: hidden;
@@ -296,7 +296,7 @@
   padding: 16px 24px;
   background-color: #f1f2f3;
   border: 1px solid transparent;
-  border-radius: 28px;
+  border-radius: var(--radius-md);
   font-family: var(--font-dm-sans);
   font-size: 16px;
   color: var(--color-text-primary);
@@ -314,7 +314,7 @@
 .formTextarea {
   resize: vertical;
   min-height: 140px;
-  border-radius: 24px;
+  border-radius: var(--radius-md);
 }
 
 .submitButton {
@@ -387,7 +387,7 @@
 
 .officeCard {
   background-color: #f8f9fa;
-  border-radius: 48px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   padding: 40px;
   display: flex;
@@ -418,7 +418,7 @@
 .mapContainer {
   height: 280px;
   width: 100%;
-  border-radius: 24px;
+  border-radius: var(--radius-md);
   overflow: hidden;
 }
 

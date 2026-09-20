@@ -1,0 +1,85 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--color-neutral-900, #2b2a2b);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-neutral-200, #e5e6e7);
+  overflow: hidden;
+  gap: 48px;
+}
+
+.circleContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* Start at the top */
+}
+
+.progressRingTrack {
+  stroke: rgba(255, 255, 255, 0.05);
+}
+
+.progressRingCircle {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+  /* SVG filter handles the core glow, but we can add an extra drop-shadow for intensity */
+  filter: drop-shadow(0 0 10px rgba(255, 123, 0, 0.6));
+}
+
+.logoCenter {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.logoImage {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 15px rgba(255, 123, 0, 0.2)); /* Slight glow behind the logo */
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.loadingText {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 123, 0, 0.4);
+}
+
+.percentageText {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--color-primary-light, #fd8c0b);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 8px rgba(253, 140, 11, 0.5);
+}
+
+.preloaderHidden {
+  pointer-events: none;
+}

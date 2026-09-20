@@ -247,3 +247,11 @@
     animation: none !important;
   }
 }
+
+/* Pause animations if hero is not ready (waiting for preloader) */
+.heroWaiting .strandplyChar,
+.heroWaiting .animateStats,
+.heroWaiting .animateCtas {
+  animation-play-state: paused !important;
+  opacity: 0 !important;
+}

@@ -3,102 +3,140 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import Button from "./Button";
 import styles from "./Navbar.module.css";
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Doors", href: "#doors" },
-  { name: "Frames", href: "#frames" },
-  { name: "Gallery", href: "#gallery" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "/contact" },
+const doorTypes = [
+  { name: "Fire Retardant Doors", image: "/hero-image/hero.avif" },
+  { name: "Engineered Laminated Doors", image: "/doors/medium_wood_door.jpg" },
+  { name: "Veneer Finish Doors", image: "/doors/light_oak_door.jpg" },
+  { name: "PU Finish Doors", image: "/doors/dark_wood_door.jpg" },
+  { name: "Flush Doors", image: "/hero-image/hero.avif" },
+  { name: "Moulded Doors", image: "/doors/medium_wood_door.jpg" }
+];
+
+const frameTypes = [
+  { name: "SYP — Southern Yellow Pine", image: "/doors/dark_wood_door.jpg" },
+  { name: "Red Meranti — A Grade", image: "/hero-image/hero.avif" },
+  { name: "Teak Wood — A Grade", image: "/doors/light_oak_door.jpg" },
+  { name: "Steam Beech — A Grade", image: "/doors/medium_wood_door.jpg" },
+  { name: "Engineered Laminated Frame — LVL Grade", image: "/hero-image/hero.avif" },
+  { name: "Engineered Laminated Frame — MR Grade", image: "/doors/dark_wood_door.jpg" },
+  { name: "Post Forming Frame — LVL Grade", image: "/doors/light_oak_door.jpg" },
+  { name: "Profile Warping Frame — LVL Grade", image: "/doors/medium_wood_door.jpg" },
+  { name: "Veneer Finish Frame", image: "/hero-image/hero.avif" }
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const [isMounted, setIsMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("Home");
+  const [hoveredMenu, setHoveredMenu] = useState<"doors" | "frames" | null>(null);
+  
+  const [hoveredDoorIdx, setHoveredDoorIdx] = useState<number>(0);
+  const [hoveredFrameIdx, setHoveredFrameIdx] = useState<number>(0);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      if (window.scrollY > 80) setIsScrolled(true);
+      else setIsScrolled(false);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setMobileMenuOpen(false);
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+        setHoveredMenu(null);
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    if (mobileMenuOpen) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "unset";
   }, [mobileMenuOpen]);
 
-  const headerClass = `${styles.header} ${isScrolled ? styles.headerScrolled : styles.headerTop}`;
+  // Navbar is solid white if scrolled OR if a mega menu is open
+  const isSolid = isScrolled || hoveredMenu !== null;
+  const headerClass = `${styles.header} ${isSolid ? styles.headerScrolled : styles.headerTop}`;
 
   return (
     <>
-      <header className={headerClass}>
+      <header className={headerClass} onMouseLeave={() => setHoveredMenu(null)}>
         <div className={styles.container}>
-          {/* Brand Logo */}
-          <Link
-            href="/"
-            className={styles.brand}
-            onClick={() => setActiveLink("Home")}
+          {/* Brand Logo - Crossfade between white and black text versions */}
+          <Link 
+            href="/" 
+            className={`${styles.brand} ${isSolid ? styles.isSolid : ""}`} 
+            onClick={() => setHoveredMenu(null)}
           >
-            <Image
-              src="/micasa-logo-text.svg"
-              alt="MICASA Logo"
-              width={140}
-              height={40}
-              className={`${styles.brandLogo} ${isScrolled ? styles.brandLogoScrolled : styles.brandLogoTop}`}
-              priority
-            />
+            <div className={styles.logoContainer}>
+              <Image
+                src="/logo/micasawithtext.svg"
+                alt="MICASA Logo"
+                width={240}
+                height={68}
+                className={`${styles.brandLogo} ${styles.logoWhite}`}
+                priority
+              />
+              <Image
+                src="/logo/logowithblacktext.svg"
+                alt="MICASA Logo (Solid)"
+                width={240}
+                height={68}
+                className={`${styles.brandLogo} ${styles.logoBlack}`}
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className={styles.desktopNav}>
-            {navLinks.map((link) => {
-              const isActive = activeLink === link.name;
-              
-              let linkClass = styles.navLink;
-              if (isScrolled) {
-                linkClass += ` ${isActive ? styles.navLinkScrolledActive : styles.navLinkScrolled}`;
-              } else {
-                linkClass += ` ${isActive ? styles.navLinkTopActive : styles.navLinkTop}`;
-              }
+            
+            {/* DOORS ITEM */}
+            <div 
+              className={styles.navItemWrapper}
+              onMouseEnter={() => setHoveredMenu("doors")}
+            >
+              <button className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}>
+                DOORS
+                <ChevronDown className={`${styles.chevron} ${hoveredMenu === "doors" ? styles.chevronUp : ""}`} size={16} />
+              </button>
+            </div>
 
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setActiveLink(link.name)}
-                  className={linkClass}
-                >
-                  {link.name}
-                  <span
-                    className={`${styles.navLinkUnderline} ${isActive ? styles.navLinkUnderlineActive : ''}`}
-                  />
-                </Link>
-              );
-            })}
+            {/* FRAMES ITEM */}
+            <div 
+              className={styles.navItemWrapper}
+              onMouseEnter={() => setHoveredMenu("frames")}
+            >
+              <button className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}>
+                FRAMES
+                <ChevronDown className={`${styles.chevron} ${hoveredMenu === "frames" ? styles.chevronUp : ""}`} size={16} />
+              </button>
+            </div>
+
+            <Link href="/projects" className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}>
+              PROJECTS
+            </Link>
+            
+            <Link href="/about" className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}>
+              ABOUT
+            </Link>
+
           </nav>
 
           {/* Actions */}
@@ -107,9 +145,8 @@ export default function Navbar() {
               href="/contact"
               variant="primary"
               size="md"
-              className={!isScrolled ? styles.ctaButtonTop : ''}
             >
-              Get a Quote
+              CONTACT US
             </Button>
           </div>
 
@@ -117,8 +154,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            className={`${styles.mobileToggle} ${isScrolled ? styles.mobileToggleScrolled : styles.mobileToggleTop}`}
+            className={`${styles.mobileToggle} ${isSolid ? styles.mobileToggleScrolled : styles.mobileToggleTop}`}
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               {mobileMenuOpen ? (
@@ -129,13 +165,102 @@ export default function Navbar() {
             </svg>
           </button>
         </div>
+
+        {/* MEGA MENU PANELS - Only rendered after navbar hydrates */}
+        {isMounted && (
+          <div className={`${styles.megaMenuWrapper} ${hoveredMenu ? styles.megaMenuOpen : ""}`}>
+            <div className={styles.megaMenuInner}>
+              
+              {/* DOORS MEGA MENU */}
+              {hoveredMenu === "doors" && (
+                <div className={styles.megaMenuGrid}>
+                  {/* Column 1: Info */}
+                  <div className={styles.megaColLeft}>
+                    <h3 className={styles.megaTitle}>FIND THE PERFECT WOOD FOR YOUR NEEDS</h3>
+                    <p className={styles.megaDesc}>
+                      Explore our extensive inventory of high performance wood products including hard-to-find sizes and custom finishes.
+                    </p>
+                    <Button href="/#doors" variant="secondary" size="md" className={styles.megaBtn}>
+                      EXPLORE DOORS <ArrowRight size={16} />
+                    </Button>
+                  </div>
+                  {/* Column 2: List */}
+                  <div className={styles.megaColMiddle}>
+                    <ul className={styles.megaList}>
+                      {doorTypes.map((door, idx) => (
+                        <li key={idx} onMouseEnter={() => setHoveredDoorIdx(idx)}>
+                          <Link href="/#doors" onClick={() => setHoveredMenu(null)} className={`${styles.megaListItem} ${hoveredDoorIdx === idx ? styles.activeListText : ''}`}>
+                            <span className={styles.megaListNum}>{String(idx + 1).padStart(2, '0')}</span>
+                            <span className={styles.megaListText}>{door.name}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {/* Column 3: Dynamic Image */}
+                  <div className={styles.megaColRight}>
+                    <div className={styles.megaImageCard}>
+                      <Image 
+                        key={doorTypes[hoveredDoorIdx].image} 
+                        src={doorTypes[hoveredDoorIdx].image} 
+                        alt={doorTypes[hoveredDoorIdx].name} 
+                        fill 
+                        style={{objectFit: 'cover'}} 
+                        className={styles.dynamicImage}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* FRAMES MEGA MENU */}
+              {hoveredMenu === "frames" && (
+                <div className={styles.megaMenuGrid}>
+                  {/* Column 1: Info */}
+                  <div className={styles.megaColLeft}>
+                    <h3 className={styles.megaTitle}>ARCHITECTURAL DOOR FRAMES</h3>
+                    <p className={styles.megaDesc}>
+                      Precision engineered door frames built for longevity, acoustic superiority, and stunning visual appeal.
+                    </p>
+                    <Button href="/#frames" variant="secondary" size="md" className={styles.megaBtn}>
+                      EXPLORE FRAMES <ArrowRight size={16} />
+                    </Button>
+                  </div>
+                  {/* Column 2: Frame List */}
+                  <div className={styles.megaColMiddle}>
+                    <ul className={styles.megaList}>
+                      {frameTypes.map((frame, idx) => (
+                        <li key={idx} onMouseEnter={() => setHoveredFrameIdx(idx)}>
+                          <Link href="/#frames" onClick={() => setHoveredMenu(null)} className={`${styles.megaListItem} ${hoveredFrameIdx === idx ? styles.activeListText : ''}`}>
+                            <span className={styles.megaListNum}>{String(idx + 1).padStart(2, '0')}</span>
+                            <span className={styles.megaListText}>{frame.name}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {/* Column 3: Dynamic Image */}
+                  <div className={styles.megaColRight}>
+                    <div className={styles.megaImageCard}>
+                      <Image 
+                        key={frameTypes[hoveredFrameIdx].image} 
+                        src={frameTypes[hoveredFrameIdx].image} 
+                        alt={frameTypes[hoveredFrameIdx].name} 
+                        fill 
+                        style={{objectFit: 'cover'}} 
+                        className={styles.dynamicImage}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Mobile Drawer */}
-      <div
-        className={`${styles.drawerBackdrop} ${mobileMenuOpen ? styles.drawerBackdropOpen : ''}`}
-        onClick={() => setMobileMenuOpen(false)}
-      />
+      <div className={`${styles.drawerBackdrop} ${mobileMenuOpen ? styles.drawerBackdropOpen : ''}`} onClick={() => setMobileMenuOpen(false)} />
 
       <div className={`${styles.drawer} ${mobileMenuOpen ? styles.drawerOpen : ''}`}>
         <div>
@@ -144,11 +269,7 @@ export default function Navbar() {
               <div className={styles.drawerLogoIcon}>M</div>
               <span className={styles.drawerBrandName}>MICASA</span>
             </div>
-            <button
-              onClick={() => setMobileMenuOpen(false)}
-              className={styles.drawerClose}
-              aria-label="Close menu"
-            >
+            <button onClick={() => setMobileMenuOpen(false)} className={styles.drawerClose}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -156,37 +277,12 @@ export default function Navbar() {
           </div>
 
           <nav className={styles.drawerNav}>
-            {navLinks.map((link) => {
-              const isActive = activeLink === link.name;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => {
-                    setActiveLink(link.name);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`${styles.drawerLink} ${isActive ? styles.drawerLinkActive : ''}`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
+            <Link href="/#doors" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>DOORS</Link>
+            <Link href="/#frames" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>FRAMES</Link>
+            <Link href="/projects" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>PROJECTS</Link>
+            <Link href="/about" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>ABOUT</Link>
+            <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>CONTACT US</Link>
           </nav>
-        </div>
-
-        <div className={styles.drawerFooter}>
-          <Button
-            href="/contact"
-            variant="primary"
-            className={styles.drawerFooterBtn}
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Request Catalog
-          </Button>
-          <div className={styles.drawerFooterText}>
-            Engineered Architectural Woodwork
-          </div>
         </div>
       </div>
     </>

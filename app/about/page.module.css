@@ -1,0 +1,361 @@
+.pageContainer {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg, #ffffff);
+}
+
+.mainContent {
+  flex: 1;
+  width: 100%;
+}
+
+/* ── Hero Section ── */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  padding: 48px 20px;
+  overflow: hidden;
+  background-color: var(--color-neutral-900);
+}
+
+.heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 60%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: var(--container-max-width, 1600px);
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .heroContent {
+    padding-left: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroContent {
+    padding-left: 48px;
+  }
+}
+
+.heroAccentLine {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-primary-base);
+  margin-bottom: 24px;
+}
+
+.heroTitle {
+  font-family: var(--font-playfair);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-white);
+  margin: 0 0 24px;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 64px;
+  }
+}
+
+.heroSubtitle {
+  font-family: var(--font-dm-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-neutral-300);
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards 0.5s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ── Our Story Section ── */
+.storySection {
+  padding: 80px 20px;
+  background-color: var(--color-surface);
+}
+
+@media (min-width: 1024px) {
+  .storySection {
+    padding: 120px 48px;
+  }
+}
+
+.storyContainer {
+  max-width: var(--container-max-width, 1400px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .storyContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.storyContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.storyHeading {
+  font-family: var(--font-playfair);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 24px 0 32px;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .storyHeading {
+    font-size: 48px;
+  }
+}
+
+.storyTextWrapper {
+  border-left: 3px solid var(--color-primary-base);
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.storyText {
+  font-family: var(--font-dm-sans);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.storyImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1024px) {
+  .storyImageWrapper {
+    aspect-ratio: 1;
+  }
+}
+
+.storyImage {
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.storyImageWrapper:hover .storyImage {
+  transform: scale(1.05);
+}
+
+
+/* ── Leadership Section ── */
+.leadershipSection {
+  padding: 80px 20px;
+  background-color: var(--color-bg);
+}
+
+@media (min-width: 1024px) {
+  .leadershipSection {
+    padding: 120px 48px;
+  }
+}
+
+.leadershipContainer {
+  max-width: var(--container-max-width, 1000px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.leadershipHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.leadershipHeading {
+  font-family: var(--font-playfair);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 24px 0 16px;
+}
+
+@media (min-width: 768px) {
+  .leadershipHeading {
+    font-size: 48px;
+  }
+}
+
+.leadershipSubheading {
+  font-family: var(--font-dm-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.foundersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .foundersGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+  }
+}
+
+.founderCard {
+  background-color: var(--color-surface);
+  padding: 48px 32px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-neutral-300);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.founderCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+  border-color: var(--color-primary-base);
+}
+
+.founderInitials {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(225, 68, 1, 0.1); /* Primary color with low opacity */
+  color: var(--color-primary-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-playfair);
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.founderName {
+  font-family: var(--font-dm-sans);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 8px;
+}
+
+.founderRole {
+  font-family: var(--font-dm-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-primary-base);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Strandply OSB On-Mount Character Reveal Animation */
+.wordWrapper {
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 0.28em;
+}
+
+.wordWrapper:last-child {
+  margin-right: 0;
+}
+
+.strandplyChar {
+  display: inline-block;
+  opacity: 0.001;
+  filter: blur(15px);
+  transform: translateY(10px) scale(2);
+  transform-origin: 50% 50%;
+  animation: strandplyAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--i) * 0.05s + 0.1s);
+  will-change: transform, opacity, filter;
+}
+
+@keyframes strandplyAppear {
+  0% {
+    opacity: 0.001;
+    filter: blur(15px);
+    transform: translateY(10px) scale(2);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strandplyChar {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+}
+
+.heroWaiting .strandplyChar {
+  animation-play-state: paused !important;
+  opacity: 0 !important;
+}

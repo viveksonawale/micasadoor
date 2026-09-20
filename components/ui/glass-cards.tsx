@@ -85,7 +85,7 @@ const Card: React.FC<CardProps> = ({ id, title, description, index, totalCards, 
                     width: '90%',
                     maxWidth: '1000px',
                     height: '480px',
-                    borderRadius: '28px', // var(--radius-xl) from rules.md
+                    borderRadius: 'var(--radius-md)', // 6px from rules.md
                     isolation: 'isolate',
                     top: `${index * 20}px`,
                     transformOrigin: 'top',

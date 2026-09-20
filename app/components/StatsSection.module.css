@@ -28,7 +28,7 @@
 
 .card {
   background-color: var(--color-bg); /* Light grey to match the website background */
-  border-radius: var(--radius-xl, 28px);
+  border-radius: var(--radius-md);
   padding: var(--space-8);
   display: flex;
   flex-direction: column;
@@ -42,11 +42,36 @@
 
 .title {
   font-family: var(--font-playfair, var(--font-display-fallback));
-  font-size: 3rem;
-  font-weight: 400;
+  font-size: clamp(2.4rem, 3.5vw, 3.2rem);
+  font-weight: 700;
   color: var(--color-heading);
   line-height: 1.1;
   margin-bottom: var(--space-4);
+  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.numberPart {
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.unitPart {
+  font-size: 0.54em;
+  font-weight: 600;
+  margin-left: 0.35rem;
+  letter-spacing: 0.01em;
+  color: var(--color-heading);
+}
+
+.suffixPart {
+  font-size: 0.85em;
+  font-weight: 500;
+  margin-left: 1px;
+  color: var(--color-heading);
 }
 
 .subtitle {

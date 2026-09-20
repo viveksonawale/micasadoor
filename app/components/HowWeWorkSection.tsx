@@ -105,8 +105,8 @@ export default function HowWeWorkSection() {
   }));
 
   return (
-    <section className={styles.sectionContainer} style={{ paddingBottom: 0 }}>
-      
+    <section className={styles.sectionContainer} id="about" style={{ paddingBottom: 0 }}>
+
       {/* Centered Header */}
       <div className={styles.headerWrapper}>
         <SectionEyebrow label="Precision in Every Step" />
