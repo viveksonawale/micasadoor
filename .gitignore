@@ -10,6 +10,9 @@
 !.yarn/releases
 !.yarn/versions
 
+#reference - micasa not included
+/ref-micasa
+
 # testing
 /coverage
 

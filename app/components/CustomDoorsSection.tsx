@@ -133,7 +133,7 @@ export default function CustomDoorsSection() {
     <section className={styles.sectionContainer} id="custom-doors">
       {/* ── Header ── */}
       <div className={styles.headerWrapper}>
-        <SectionEyebrow label="Configure Your Door" />
+        <SectionEyebrow label="04 CONFIGURE YOUR DOOR" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}

@@ -51,7 +51,7 @@
 }
 
 .sectionSubtitle {
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-size: 20px;
   color: var(--color-text-secondary, #666);
   max-width: 680px;
@@ -185,7 +185,7 @@
 }
 
 .stepNumber {
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-size: 14px;
   font-weight: 600;
   color: var(--color-primary-base, #e14401);
@@ -202,7 +202,7 @@
 }
 
 .stepDescription {
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-size: 16px;
   color: var(--color-text-secondary, #666);
   line-height: 1.6;
@@ -225,7 +225,7 @@
   top: 15vh;
   width: 100%;
   aspect-ratio: 4/5;
-  border-radius: var(--radius-xl, 28px);
+  border-radius: 0;
   overflow: hidden;
   background-color: var(--color-surface, #ffffff); /* Fallback */
 }
@@ -261,5 +261,5 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-xl, 28px); /* Ensure rounded corners on image itself if container overflow fails in some browsers */
+  border-radius: 0; /* Ensure rounded corners on image itself if container overflow fails in some browsers */
 }

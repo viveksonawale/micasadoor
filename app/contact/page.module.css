@@ -55,18 +55,30 @@
   max-width: var(--container-max-width, 1600px);
   width: 100%;
   margin: 0 auto;
-  padding-left: max(0px, calc((100vw - var(--container-max-width, 1600px)) / 2));
+  padding: 0 var(--gutter-mobile, 20px);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .heroContent {
-    padding-left: var(--gutter-tablet, 36px);
+    padding: 0 var(--gutter-tablet, 36px);
   }
 }
 
 @media (min-width: 1024px) {
   .heroContent {
-    padding-left: var(--gutter-desktop, 48px);
+    padding: 0 var(--gutter-desktop, 48px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .heroContent {
+    padding: 0 var(--gutter-wide, 64px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .heroContent {
+    padding: 0 var(--gutter-ultrawide, 80px);
   }
 }
 
@@ -124,7 +136,7 @@
   flex-direction: column;
   gap: 64px;
   background-color: #f8f9fa;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   padding: 48px 32px;
   position: relative;
   overflow: hidden;
@@ -205,7 +217,7 @@
 
 .contactValue {
   display: block;
-  font-family: var(--font-dm-sans);
+  font-family: var(--font-inter, sans-serif);
   font-size: 20px;
   color: var(--color-text-primary);
   text-decoration: none;
@@ -296,8 +308,8 @@
   padding: 16px 24px;
   background-color: #f1f2f3;
   border: 1px solid transparent;
-  border-radius: var(--radius-md);
-  font-family: var(--font-dm-sans);
+  border-radius: 0;
+  font-family: var(--font-inter, sans-serif);
   font-size: 16px;
   color: var(--color-text-primary);
   transition: all 0.2s ease;
@@ -314,7 +326,7 @@
 .formTextarea {
   resize: vertical;
   min-height: 140px;
-  border-radius: var(--radius-md);
+  border-radius: 0;
 }
 
 .submitButton {
@@ -329,7 +341,7 @@
   padding: 24px;
   background-color: rgba(46, 125, 50, 0.1);
   border: 1px solid rgba(46, 125, 50, 0.2);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   text-align: center;
 }
 
@@ -387,7 +399,7 @@
 
 .officeCard {
   background-color: #f8f9fa;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   overflow: hidden;
   padding: 40px;
   display: flex;
@@ -418,7 +430,7 @@
 .mapContainer {
   height: 280px;
   width: 100%;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   overflow: hidden;
 }
 

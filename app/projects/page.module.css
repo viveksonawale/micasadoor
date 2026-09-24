@@ -55,18 +55,30 @@
   max-width: var(--container-max-width, 1600px);
   width: 100%;
   margin: 0 auto;
-  padding-left: max(0px, calc((100vw - var(--container-max-width, 1600px)) / 2));
+  padding: 0 var(--gutter-mobile, 20px);
 }
 
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .heroContent {
-    padding-left: var(--gutter-tablet, 36px);
+    padding: 0 var(--gutter-tablet, 36px);
   }
 }
 
 @media (min-width: 1024px) {
   .heroContent {
-    padding-left: var(--gutter-desktop, 48px);
+    padding: 0 var(--gutter-desktop, 48px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .heroContent {
+    padding: 0 var(--gutter-wide, 64px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .heroContent {
+    padding: 0 var(--gutter-ultrawide, 80px);
   }
 }
 

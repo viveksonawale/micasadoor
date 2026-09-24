@@ -69,7 +69,7 @@ export default function ProjectsSection() {
   return (
     <section className={styles.sectionContainer} id="projects">
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="Our Work" />
+        <SectionEyebrow label="01 OUR WORK" />
         
         <h2
           ref={headerRef}
