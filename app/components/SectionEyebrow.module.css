@@ -2,15 +2,29 @@
   display: inline-flex;
   align-items: center;
   background-color: var(--color-neutral-100, #f1f2f3);
-  padding: 6px 16px;
+  padding: 4px 16px 4px 4px; /* Tight on the left so the number box sits flush */
   border-radius: 0;
   margin-bottom: 24px;
 }
 
+.eyebrowNumber {
+  background-color: var(--color-primary-base, #e14401);
+  color: var(--color-white, #ffffff);
+  font-family: var(--font-inter, sans-serif);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 10px;
+  margin-right: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .eyebrowText {
   font-family: var(--font-inter, sans-serif);
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-neutral-700, #525152);
-  letter-spacing: 0.05em;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-primary, #1a1a1a);
+  letter-spacing: 0.1em;
 }

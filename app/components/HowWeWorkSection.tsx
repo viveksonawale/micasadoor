@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./HowWeWorkSection.module.css";
 import SectionEyebrow from "./SectionEyebrow";
 import { StackedCards } from "@/components/ui/glass-cards";
+import FactoryStorySection from "./FactoryStorySection";
 
 const steps = [
   {
@@ -126,7 +127,8 @@ export default function HowWeWorkSection() {
 
       {/* DESIGN 3: GSAP Stacking White Cards */}
       <div style={{ width: '100%', marginTop: 0 }}>
-        <StackedCards cards={cardData} />
+        {/* <StackedCards cards={cardData} /> */}
+        <FactoryStorySection/>
       </div>
 
     </section>

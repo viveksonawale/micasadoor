@@ -1,0 +1,189 @@
+.sectionContainer {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-surface, #ffffff);
+  padding: 100px 0;
+  /* border-top: 1px solid var(--color-border, #e5e5e5); */
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: var(--container-max-width, 1600px);
+  margin: 0 auto;
+  margin-bottom: 48px;
+  padding: 0 var(--gutter-desktop, 48px);
+}
+
+.sectionTitle {
+  font-family: var(--font-playfair, serif);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-text-primary, #1a1a1a);
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+
+/* ─── Strandply Animation ─────────────────────────────────────────────────── */
+
+.wordWrapper {
+  display: inline-flex;
+  white-space: nowrap;
+  margin-right: 0.28em;
+}
+
+.highlight {
+  color: var(--color-primary-base, #e14401);
+}
+
+.strandplyChar {
+  display: inline-flex;
+  opacity: 0.001;
+  filter: blur(15px);
+  transform: translateY(10px) scale(2);
+  transform-origin: 50% 50%;
+  will-change: transform, opacity, filter;
+}
+
+.animate .strandplyChar {
+  animation: strandplyAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--i) * 0.05s + 0.1s);
+}
+
+@keyframes strandplyAppear {
+  0% {
+    opacity: 0.001;
+    filter: blur(15px);
+    transform: translateY(10px) scale(2);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+}
+
+.sectionSubtitle {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 17px;
+  color: var(--color-text-secondary, #666);
+  max-width: 590px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+  max-width: var(--container-max-width, 1440px);
+  margin: 0 auto;
+  padding: 0 var(--gutter-desktop, 48px);
+}
+
+/* Dynamic spans based on the original 12-col layout */
+.span3 { grid-column: span 3; }
+.span4 { grid-column: span 4; }
+.span5 { grid-column: span 5; }
+.span7 { grid-column: span 7; }
+
+.appCard {
+  position: relative;
+  display: block;
+  height: 280px;
+  overflow: hidden;
+  text-decoration: none;
+  border-radius: 0; /* Square design */
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.appCard:hover .cardImage {
+  transform: scale(1.05);
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  transition: background-color 0.5s ease;
+}
+
+.appCard:hover .cardOverlay {
+  background-color: rgba(0, 0, 0, 0.2); /* Brightens on hover */
+}
+
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 24px 32px;
+  z-index: 2;
+}
+
+.cardTitle {
+  font-family: var(--font-playfair, serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.cardIndex {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 2;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .sectionTitle {
+    font-size: 40px;
+  }
+  .headerWrapper, .bentoGrid {
+    padding: 0 var(--gutter-tablet, 36px);
+  }
+  /* On tablet, flow nicely in a 2-col or 3-col logic */
+  .span3, .span4 { grid-column: span 6; }
+  .span5, .span7 { grid-column: span 6; }
+  
+  .appCard {
+    height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .sectionTitle {
+    font-size: 32px;
+  }
+  .headerWrapper, .bentoGrid {
+    padding: 0 var(--gutter-mobile, 20px);
+  }
+  /* Stack completely on mobile */
+  .span3, .span4, .span5, .span7 { 
+    grid-column: span 12; 
+  }
+  .appCard {
+    height: 200px;
+  }
+}
