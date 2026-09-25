@@ -163,7 +163,7 @@ export default function ProductRangeSection() {
   return (
     <section className={styles.sectionContainer} id="doors">
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="Our Collection" />
+        <SectionEyebrow label="02 OUR COLLECTION" />
         
         <h2
           ref={headerRef}

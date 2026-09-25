@@ -22,7 +22,6 @@ export default function Button({
 
   const content = (
     <>
-      <span className={styles.circleFill} aria-hidden="true" />
       <span className={styles.btnContent}>{children}</span>
     </>
   );

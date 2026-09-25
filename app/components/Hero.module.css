@@ -45,9 +45,9 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 1600px;
+  max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
-  padding: 80px 20px;
+  padding: 80px var(--gutter-mobile, 20px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,19 +56,25 @@
 
 @media (min-width: 640px) {
   .contentContainer {
-    padding: 96px 36px;
+    padding: 96px var(--gutter-tablet, 36px);
   }
 }
 
 @media (min-width: 1024px) {
   .contentContainer {
-    padding: 120px 48px;
+    padding: 120px var(--gutter-desktop, 48px);
   }
 }
 
 @media (min-width: 1440px) {
   .contentContainer {
-    padding: 128px 64px;
+    padding: 128px var(--gutter-wide, 64px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .contentContainer {
+    padding: 128px var(--gutter-ultrawide, 80px);
   }
 }
 

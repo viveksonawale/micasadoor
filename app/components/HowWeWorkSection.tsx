@@ -109,7 +109,7 @@ export default function HowWeWorkSection() {
 
       {/* Centered Header */}
       <div className={styles.headerWrapper}>
-        <SectionEyebrow label="Precision in Every Step" />
+        <SectionEyebrow label="03 PRECISION IN EVERY STEP" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}

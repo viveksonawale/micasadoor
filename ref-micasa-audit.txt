@@ -1,0 +1,37 @@
+Based on my analysis of the ref-micasa folder, here is an explanatory, simple report on the project:
+
+🛠️ Tech Stack
+The project is built using a modern frontend web development stack:
+
+Core Framework: React (v18) built with Create React App (via Craco) and JavaScript (no TypeScript).
+Routing: React Router (v7) for handling multi-page navigation.
+Styling: Tailwind CSS for utility-first styling, along with custom CSS.
+UI Components: Radix UI (accessible component primitives) and Lucide React (for icons).
+Animations & Scrolling: Framer Motion (for animations) and Lenis (for smooth scrolling).
+State Management / Data Fetching: React Query, SWR, and Axios for API requests.
+Forms & Validation: React Hook Form and Zod.
+📄 Pages
+There are 12 distinct page components stored inside the frontend/src/pages/ directory:
+
+About.jsx
+Contact.jsx
+DoorsPage.jsx
+FireDoors.jsx
+FramesPage.jsx
+Home.jsx
+Installation.jsx
+Manufacturing.jsx
+NotFound.jsx
+ProductPage.jsx
+Projects.jsx
+Resources.jsx
+🛣️ Routes
+The application is configured with 31 specific routes (plus a wildcard * route for the NotFound page).
+
+While there are only 12 page files, many of these routes are used to display specific products using the shared ProductPage.jsx component. Here's a breakdown of the routes:
+
+Main Routes: /, /about, /wooden-doors, /door-frames, /fire-rated-doors, /manufacturing, /installation, /projects, /resources, /contact, /is-3614-fire-doors.
+Product Routes (all map to ProductPage.jsx): Include various door and frame types such as /teak-wood-doors, /red-meranti-doors, /solid-teak-frames, /laminated-fire-rated-doors, etc.
+Fallback: A catch-all * route for missing pages mapping to NotFound.jsx.
+Everything in the ref-micasa directory was only reviewed and remains unmodified. Let me know if you need any more details from this repository!
+

@@ -33,7 +33,7 @@
 }
 
 .sectionSubtitle {
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-size: 17px;
   color: var(--color-text-secondary, #666);
   max-width: 560px;
@@ -103,7 +103,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 3 / 4;
-  border-radius: var(--radius-md, 6px);
+  border-radius: 0;
   overflow: hidden;
   background: var(--color-neutral-100, #f1f2f3);
   border: 1px solid var(--color-border, #8d8f93);
@@ -125,7 +125,7 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--color-border, #8d8f93);
-  border-radius: var(--radius-md, 6px);
+  border-radius: 0;
   padding: 12px 16px;
   display: flex;
   flex-direction: column;
@@ -133,7 +133,7 @@
 }
 
 .badgeLabel {
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -142,7 +142,7 @@
 }
 
 .badgeValue {
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-size: 14px;
   font-weight: 600;
   color: var(--color-text-primary, #1a1a1a);
@@ -158,7 +158,7 @@
   flex-direction: column;
   gap: 0;
   border: 1px solid var(--color-border, #8d8f93);
-  border-radius: var(--radius-md, 6px);
+  border-radius: 0;
   overflow: hidden;
   background: var(--color-neutral-100, #f1f2f3);
 }
@@ -184,7 +184,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -193,14 +193,14 @@
 }
 
 .stepNum {
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--color-white, #fff);
   background: var(--color-primary-base, #e14401);
   padding: 2px 7px;
-  border-radius: var(--radius-md, 6px);
+  border-radius: 0;
   line-height: 1.6;
 }
 
@@ -233,10 +233,10 @@
   border: 1.5px solid var(--color-border, #8d8f93);
   background: var(--color-surface, #fff);
   color: var(--color-text-secondary, #525152);
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-weight: 500;
   font-size: 13px;
-  border-radius: var(--radius-md, 6px);
+  border-radius: 0;
   cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
   white-space: nowrap;
@@ -286,7 +286,7 @@
 }
 
 .summaryKey {
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -295,7 +295,7 @@
 }
 
 .summaryVal {
-  font-family: var(--font-dm-sans, sans-serif);
+  font-family: var(--font-inter, sans-serif);
   font-size: 13px;
   font-weight: 600;
   color: var(--color-text-primary, #1a1a1a);
