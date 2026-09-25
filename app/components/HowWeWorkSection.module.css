@@ -92,6 +92,7 @@
     filter: blur(15px);
     transform: translateY(10px) scale(2);
   }
+
   100% {
     opacity: 1;
     filter: blur(0px);
@@ -130,7 +131,8 @@
   display: flex;
   flex-direction: column;
   gap: 60px;
-  padding-bottom: 20vh; /* Allow scrolling past the last item */
+  padding-bottom: 20vh;
+  /* Allow scrolling past the last item */
 }
 
 .stepItem {
@@ -145,7 +147,8 @@
 }
 
 .stepPast {
-  opacity: 1; /* Past items stay fully visible per reference, or slightly dimmed if preferred. Keeping it 1 to match the 'done' state */
+  opacity: 1;
+  /* Past items stay fully visible per reference, or slightly dimmed if preferred. Keeping it 1 to match the 'done' state */
 }
 
 /* Step Indicator (Circle with checkmark) */
@@ -181,7 +184,8 @@
 .stepContent {
   display: flex;
   flex-direction: column;
-  padding-top: 4px; /* Align text with circle */
+  padding-top: 4px;
+  /* Align text with circle */
 }
 
 .stepNumber {
@@ -227,7 +231,8 @@
   aspect-ratio: 4/5;
   border-radius: 0;
   overflow: hidden;
-  background-color: var(--color-surface, #ffffff); /* Fallback */
+  background-color: var(--color-surface, #ffffff);
+  /* Fallback */
 }
 
 @media (max-width: 1024px) {
@@ -247,7 +252,7 @@
   opacity: 0;
   transform: scale(1.05);
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-              transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
 }
 
@@ -261,5 +266,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0; /* Ensure rounded corners on image itself if container overflow fails in some browsers */
+  border-radius: 0;
+  /* Ensure rounded corners on image itself if container overflow fails in some browsers */
 }

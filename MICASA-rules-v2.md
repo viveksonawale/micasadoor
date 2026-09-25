@@ -943,7 +943,80 @@ Check:
 
 ---
 
-# 20. Universal Pre-Commit Checklist
+# 20. Centered Header Pattern
+
+All new sections must follow the standard centered header pattern exactly as defined below. This ensures typographic consistency and perfectly centered alignments across all pages.
+
+## 20.1 Structure
+
+Every new section header must consist of three centered elements in this exact order:
+1. **Eyebrow**: A `SectionEyebrow` component with the section number (e.g. `04 SECTION NAME`).
+2. **Heading**: The `H2` section title.
+3. **Subheading**: A `p` description.
+
+## 20.2 CSS Implementation
+
+The wrapper must use the `headerWrapper` class to center everything:
+```css
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: var(--container-max-width, 1600px);
+  margin: 0 auto;
+  margin-bottom: 48px;
+  padding: 0 var(--gutter-desktop, 48px);
+}
+```
+
+## 20.2 Heading Animation (Strandply Effect)
+
+All section headings (`H2`) must use the **Strandply scroll-triggered character animation**. 
+This creates a premium, staggered 3D reveal effect as the user scrolls to the section.
+
+### TSX Implementation:
+1. Define the `renderStrandplyText` helper function (which splits text into animated spans).
+2. Use `IntersectionObserver` to detect when the header enters the viewport and set an `isVisible` state.
+3. Apply the `.animate` class to the `H2` dynamically.
+4. Pass the text to `renderStrandplyText`, using `isHighlight: true` on the final keyword to color it with the primary brand color.
+
+### CSS Implementation:
+The title must use the `sectionTitle` class with 3D perspective enabled:
+```css
+.sectionTitle {
+  font-family: var(--font-playfair, serif);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-text-primary, #1a1a1a);
+  margin-bottom: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  perspective: 900px;
+  transform-style: preserve-3d;
+}
+```
+
+Include the standard Strandply CSS classes (`wordWrapper`, `highlight`, `strandplyChar`) and the `@keyframes strandplyAppear` in the component's module CSS to handle the staggered blur and 3D rotation reveal.
+
+## 20.3 Subtitle Implementation
+
+The subtitle must use the `sectionSubtitle` class (Inter):
+```css
+.sectionSubtitle {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 17px;
+  color: var(--color-text-secondary, #666);
+  max-width: 590px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+```
+All of these elements must be perfectly centered on the screen.
+
+---
+
+# 21. Universal Pre-Commit Checklist
 
 Before considering any page complete:
 
@@ -953,6 +1026,7 @@ Before considering any page complete:
 [ ] Main content aligns with the navbar.
 [ ] Footer aligns with the same master grid.
 [ ] Major containers are centered.
+[ ] New section headers perfectly follow the 3-part Centered Header Pattern (Eyebrow -> Title -> Subtitle).
 [ ] No arbitrary narrow max-width was introduced.
 [ ] Internal routed pages use the standard full-width image hero.
 [ ] Hero text aligns with the master grid.
@@ -982,7 +1056,7 @@ Before considering any page complete:
 
 ---
 
-# 21. Final Non-Negotiable Rules
+# 22. Final Non-Negotiable Rules
 
 When there is ambiguity, follow these principles:
 

@@ -65,6 +65,15 @@ const PRODUCTS = [
   }
 ];
 
+const CATEGORIES = [
+  { title: "Wooden Doors", link: "/wooden-doors", img: "https://images.unsplash.com/photo-1543884846-95fb4b94cbf1?q=80&w=800&auto=format&fit=crop", note: "Laminated Fire & Non-Fire Doors" },
+  { title: "Door Frames", link: "/door-frames", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop", note: "Teak · Meranti · Mahogany · Oak · LVL" },
+  { title: "Fire-Rated Doors", link: "/fire-rated-doors", img: "https://images.unsplash.com/photo-1626379965008-8e6d30fb3950?q=80&w=800&auto=format&fit=crop", note: "IS 3614 Certified" },
+  { title: "Non-Fire Doors", link: "/laminated-non-fire-doors", img: "https://images.unsplash.com/photo-1534142499694-877f88417537?q=80&w=800&auto=format&fit=crop", note: "100% A-Grade Pine Core" },
+  { title: "Wet-Area Doors", link: "/laminated-toilet-doors", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop", note: "Bathroom & Utility" },
+  { title: "Custom Doors", link: "/custom-wooden-doors", img: "https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=800&auto=format&fit=crop", note: "Built to Drawing" },
+];
+
 export default function ProductRangeSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -150,13 +159,13 @@ export default function ProductRangeSection() {
 
   const getSlideClass = (index: number) => {
     if (index === activeIndex) return styles.slideActive;
-    
+
     const prevIndex = activeIndex === 0 ? PRODUCTS.length - 1 : activeIndex - 1;
     const nextIndex = activeIndex === PRODUCTS.length - 1 ? 0 : activeIndex + 1;
-    
+
     if (index === prevIndex) return styles.slidePrev;
     if (index === nextIndex) return styles.slideNext;
-    
+
     return styles.slideHidden;
   };
 
@@ -164,7 +173,7 @@ export default function ProductRangeSection() {
     <section className={styles.sectionContainer} id="doors">
       <div className={styles.contentWrapper}>
         <SectionEyebrow label="02 OUR COLLECTION" />
-        
+
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
@@ -173,13 +182,14 @@ export default function ProductRangeSection() {
           {renderStrandplyText("Product", 0, false)}
           {renderStrandplyText("Range", 7, true)}
         </h2>
-        
+
         <p className={styles.sectionSubtitle}>
           Explore a collection where each panel isn&apos;t just a product — it&apos;s a promise of strength, style, and sustainability. From solid wood to fire-rated doors, find the perfect partner for every project.
         </p>
       </div>
 
-      {/* Carousel Container with Touch Swipe */}
+      {/* OLD Carousel Container (Commented out) */}
+      {/* 
       <div 
         className={styles.carouselContainer}
         onTouchStart={handleTouchStart}
@@ -217,7 +227,6 @@ export default function ProductRangeSection() {
           </div>
         ))}
 
-        {/* Navigation Arrows positioned on the showcase image */}
         <div className={styles.showcaseNavOverlay}>
           <button 
             className={`${styles.navButton} ${styles.navPrev}`} 
@@ -249,7 +258,6 @@ export default function ProductRangeSection() {
         </div>
       </div>
 
-      {/* Pagination Dots */}
       <div className={styles.dotsContainer}>
         {PRODUCTS.map((product, index) => (
           <button
@@ -262,6 +270,33 @@ export default function ProductRangeSection() {
             aria-label={`Go to slide ${index + 1}: ${product.title}`}
           />
         ))}
+      </div>
+      */}
+
+      {/* NEW Smooth Natural Category Grid */}
+      <div className={styles.bentoGridWrapper}>
+        <div className={styles.bentoGrid}>
+          {CATEGORIES.map((c) => (
+            <a href={c.link} key={c.title} className={styles.gridCard}>
+              <div className={styles.cardImageWrapper}>
+                <img src={c.img} alt={c.title} className={styles.cardImage} />
+                <div className={styles.cardOverlay} />
+              </div>
+
+              <div className={styles.cardArrow}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+
+              <div className={styles.cardContentBox}>
+                <h3 className={styles.cardTitle}>{c.title}</h3>
+                <p className={styles.cardNote}>{c.note}</p>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );

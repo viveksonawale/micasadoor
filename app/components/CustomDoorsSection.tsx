@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import styles from "./CustomDoorsSection.module.css";
 import SectionEyebrow from "./SectionEyebrow";
 import Button from "./Button";
@@ -151,19 +152,42 @@ export default function CustomDoorsSection() {
 
         {/* LEFT — Door Showcase */}
         <div className={styles.showcaseCol}>
-          <div className={styles.showcaseInner}>
-            <Image
-              src="/hero-image/hero.avif"
-              alt="Custom door preview"
-              fill
-              style={{ objectFit: "cover" }}
-              className={styles.showcaseImage}
-            />
-            {/* Selection overlay badge */}
+          <div className={styles.showcaseInner} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+            
+            {/* Door Container */}
+            <div style={{ width: '100%', maxWidth: '340px', margin: '0 auto', position: 'relative' }}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={`${selectedFrame}-${selectedFinish}-${selectedDoor}`}
+                  initial={{ opacity: 0, rotateY: -8 }}
+                  animate={{ opacity: 1, rotateY: 0 }}
+                  exit={{ opacity: 0, rotateY: 8 }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  style={{ 
+                    perspective: 800, 
+                    backgroundColor: '#4A3219',
+                    padding: "12px",
+                    width: '100%',
+                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+                  }}
+                >
+                  <div style={{ position: 'relative', aspectRatio: '3/7', overflow: 'hidden', backgroundColor: '#6b4423' }}>
+                    <div style={{ position: 'absolute', inset: 0, backgroundColor: '#7c3b26', opacity: 0.55, mixBlendMode: 'multiply' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(115deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 45%)` }} />
+                    {selectedDoor === "Moulded" && <div style={{ position: 'absolute', inset: 0, background: 'repeating-linear-gradient(0deg, transparent 0 120px, rgba(0,0,0,0.15) 120px 123px)' }} />}
+                    {selectedDoor === "Engineered Laminated" && <div style={{ position: 'absolute', inset: 0, background: 'repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 26px)' }} />}
+                    <div style={{ position: 'absolute', right: '16px', top: '50%', height: '60px', width: '6px', transform: 'translateY(-50%)', backgroundColor: 'rgba(26,26,26,0.7)' }} />
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            
+            {/* Selection overlay badge - Positioned below the door */}
             <div className={styles.showcaseBadge}>
               <span className={styles.badgeLabel}>Your selection</span>
               <span className={styles.badgeValue}>{selectedDoor} · {frameData[selectedFrame]?.label}</span>
             </div>
+            
           </div>
         </div>
 

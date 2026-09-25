@@ -36,7 +36,7 @@
   font-family: var(--font-inter, sans-serif);
   font-size: 17px;
   color: var(--color-text-secondary, #666);
-  max-width: 560px;
+  max-width: 590px;
   line-height: 1.6;
   margin-bottom: 0;
 }
@@ -73,6 +73,7 @@
     filter: blur(15px);
     transform: translateY(10px) scale(2);
   }
+
   100% {
     opacity: 1;
     filter: blur(0px);
@@ -86,10 +87,10 @@
   max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
   padding: 0 var(--gutter-desktop, 48px);
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 48px;
+  display: flex;
+  justify-content: center;
   align-items: start;
+  gap: 50px; /* Perfect, controlled gap between door and config */
 }
 
 /* ─── LEFT — Door Showcase ───────────────────────────────────────────────── */
@@ -97,16 +98,18 @@
 .showcaseCol {
   position: sticky;
   top: 100px;
+  flex: 0 0 350px; /* Fixed width to control door size */
 }
 
 .showcaseInner {
-  position: relative;
+  /* position: relative; */
   width: 100%;
-  aspect-ratio: 3 / 4;
+  /* border:2px solid black; */
+  /* aspect-ratio: 4 / 4; */
   border-radius: 0;
   overflow: hidden;
-  background: var(--color-neutral-100, #f1f2f3);
-  border: 1px solid var(--color-border, #8d8f93);
+  /* background: var(--color-neutral-100, #f1f2f3); */
+  /* border: 1px solid var(--color-border, #8d8f93); */
 }
 
 .showcaseImage {
@@ -115,12 +118,18 @@
   object-fit: cover;
   display: block;
 }
+/* Ensure the parent container holding the door has this set */
+.showcaseParentContainer {
+  position: relative;
+}
 
 .showcaseBadge {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 300px;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -130,6 +139,9 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  pointer-events: none; /* Allows clicks to pass through to the door image if needed */
 }
 
 .badgeLabel {
@@ -161,6 +173,8 @@
   border-radius: 0;
   overflow: hidden;
   background: var(--color-neutral-100, #f1f2f3);
+  flex: 0 1 700px;
+  width: 100%;
 }
 
 .stepBlock {
@@ -363,4 +377,3 @@
     padding: 60px 0;
   }
 }
-

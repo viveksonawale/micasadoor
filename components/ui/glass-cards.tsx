@@ -82,65 +82,26 @@ const Card: React.FC<CardProps> = ({ id, title, description, index, totalCards, 
                 ref={cardRef}
                 style={{
                     position: 'relative',
-                    width: '90%',
-                    maxWidth: '1000px',
-                    height: '480px',
-                    borderRadius: 'var(--radius-md)', // 6px from rules.md
+                    width: '100%',
+                    maxWidth: '900px',
+                    height: '600px',
+                    borderRadius: '24px',
                     isolation: 'isolate',
                     top: `${index * 20}px`,
                     transformOrigin: 'top',
                     backgroundColor: '#ffffff',
-                    border: '1px solid #e5e5e5',
-                    boxShadow: '0 10px 40px rgba(0, 0, 0, 0.08)',
+                    border: '1px solid rgba(0,0,0,0.08)',
+                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
+                    overflow: 'hidden',
                     display: 'flex',
-                    overflow: 'hidden'
+                    flexDirection: 'column'
                 }}
             >
-                {/* Left Content Area */}
+                {/* Top Image Area */}
                 <div style={{
-                    width: '50%',
-                    padding: '48px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'center',
-                    backgroundColor: '#ffffff'
-                }}>
-                    <div style={{
-                        fontFamily: 'var(--font-dm-sans, sans-serif)',
-                        fontSize: '80px',
-                        fontWeight: '800',
-                        color: '#f0f0f0', // Very light grey for the big background number
-                        lineHeight: 1,
-                        marginBottom: '16px',
-                        letterSpacing: '-0.02em'
-                    }}>
-                        {id}
-                    </div>
-                    <h3 style={{
-                        fontFamily: 'var(--font-playfair, serif)',
-                        fontSize: '32px',
-                        fontWeight: '700',
-                        color: '#1a1a1a',
-                        marginBottom: '16px'
-                    }}>
-                        {title}
-                    </h3>
-                    <p style={{
-                        fontFamily: 'var(--font-dm-sans, sans-serif)',
-                        fontSize: '18px',
-                        color: '#666666',
-                        lineHeight: 1.6
-                    }}>
-                        {description}
-                    </p>
-                </div>
-
-                {/* Right Image Area */}
-                <div style={{
-                    width: '50%',
-                    position: 'relative',
-                    height: '100%',
-                    backgroundColor: '#f5f5f5'
+                    width: '100%',
+                    height: '55%',
+                    position: 'relative'
                 }}>
                     <img 
                         src={image} 
@@ -151,6 +112,55 @@ const Card: React.FC<CardProps> = ({ id, title, description, index, totalCards, 
                             objectFit: 'cover'
                         }}
                     />
+                </div>
+
+                {/* Bottom Content Area */}
+                <div style={{
+                    width: '100%',
+                    height: '45%',
+                    padding: '48px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    backgroundColor: '#ffffff',
+                    position: 'relative'
+                }}>
+                    <div style={{
+                        position: 'absolute',
+                        bottom: '24px',
+                        right: '48px',
+                        fontFamily: 'var(--font-inter, sans-serif)',
+                        fontSize: '120px',
+                        fontWeight: '800',
+                        color: 'rgba(0, 0, 0, 0.04)',
+                        lineHeight: 0.8,
+                        letterSpacing: '-0.04em',
+                        pointerEvents: 'none',
+                        zIndex: 0
+                    }}>
+                        {id}
+                    </div>
+
+                    <div style={{ position: 'relative', zIndex: 1 }}>
+                        <h3 style={{
+                            fontFamily: 'var(--font-playfair, serif)',
+                            fontSize: '36px',
+                            fontWeight: '700',
+                            color: '#1a1a1a',
+                            marginBottom: '12px'
+                        }}>
+                            {title}
+                        </h3>
+                        <p style={{
+                            fontFamily: 'var(--font-inter, sans-serif)',
+                            fontSize: '18px',
+                            color: '#666666',
+                            lineHeight: 1.6,
+                            maxWidth: '700px'
+                        }}>
+                            {description}
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
