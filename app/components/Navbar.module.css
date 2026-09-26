@@ -127,6 +127,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
+  text-decoration: none;
 }
 
 .navLinkTop {
@@ -348,7 +349,13 @@
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden;
   flex: 1;
+  scrollbar-width: none; /* Firefox */
+}
+
+.dropdownList::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
 .dropdownListItem {

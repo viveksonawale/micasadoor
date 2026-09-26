@@ -1,12 +1,81 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CallToActionSection from "../components/CallToActionSection";
 import SectionEyebrow from "../components/SectionEyebrow";
 import styles from "./page.module.css";
+
+const renderStrandplyText = (
+  lineText: string,
+  startIndex: number = 0,
+  isHighlight: boolean = false
+) => {
+  let currentIndex = startIndex;
+  const words = lineText.trim().split(/\s+/);
+
+  return words.map((word, wordIndex) => {
+    const chars = word.split("");
+    const wordStartIndex = currentIndex;
+    currentIndex += chars.length;
+
+    return (
+      <span
+        key={wordIndex}
+        className={`${styles.wordWrapper} ${isHighlight ? styles.highlight : ""}`}
+      >
+        {chars.map((char, charIndex) => {
+          const i = wordStartIndex + charIndex;
+          return (
+            <span
+              key={charIndex}
+              aria-hidden="true"
+              className={styles.strandplyChar}
+              style={{ "--i": i } as React.CSSProperties}
+            >
+              {char}
+            </span>
+          );
+        })}
+      </span>
+    );
+  });
+};
+
+function AnimatedOfficeHeading({ title }: { title: string }) {
+  const [inView, setInView] = useState(false);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const el = headingRef.current;
+    if (el) observer.observe(el);
+
+    return () => {
+      if (el) observer.unobserve(el);
+    };
+  }, []);
+
+  return (
+    <h3
+      ref={headingRef}
+      className={`${styles.officeHeading} ${inView ? styles.animate : ""}`}
+      aria-label={title}
+    >
+      {renderStrandplyText(title, 0, false)}
+    </h3>
+  );
+}
 
 const PILLARS = [
   { t: "Manufacturing Capability", d: "A dedicated production facility in Gandhidham, Gujarat with a capacity of 12,000+ doors built for project-scale supply." },
@@ -56,10 +125,7 @@ export default function AboutPage() {
 
               {/* Left: Text Content */}
               <div className={styles.textContent}>
-
-                <div className={styles.leftEyebrow}>
-                  <SectionEyebrow label="01 WHO WE ARE" />
-                </div>
+                <SectionEyebrow label="01 WHO WE ARE" />
 
                 <h2 className={styles.sectionHeading}>
                   Engineered for performance.<br />Crafted in wood.
@@ -105,19 +171,19 @@ export default function AboutPage() {
           </div>
         </section>
 
-
         {/* Office Locations */}
         <section className={styles.officesSection}>
-          <div className={styles.container}>
+          <div className={styles.officesContainer}>
+
             <div className={styles.officesGrid}>
-              
+
               {/* Head Office */}
               <div className={styles.officeCard}>
                 <div className={styles.officeInfo}>
-                  <h3 className={styles.officeHeading}>Head Office</h3>
+                  <AnimatedOfficeHeading title="Head Office" />
                   <p className={styles.officeAddress}>
                     Ladiwala Compound, Durga Mandir Lane, Mumbai,<br />
-                    Maharashtra - 400 072
+                     Maharashtra - 400 072
                   </p>
                 </div>
                 <div className={styles.mapContainer}>
@@ -135,7 +201,7 @@ export default function AboutPage() {
               {/* Factory Office */}
               <div className={styles.officeCard}>
                 <div className={styles.officeInfo}>
-                  <h3 className={styles.officeHeading}>Factory Office</h3>
+                  <AnimatedOfficeHeading title="Factory Office" />
                   <p className={styles.officeAddress}>
                     Plot No. 6, Revenue Survey No. 404/2, Mithirohar, Gandhidham, Kachchh, Gujarat - 370201
                   </p>
@@ -155,7 +221,7 @@ export default function AboutPage() {
               {/* Branch Office */}
               <div className={styles.officeCard}>
                 <div className={styles.officeInfo}>
-                  <h3 className={styles.officeHeading}>Branch Office</h3>
+                  <AnimatedOfficeHeading title="Branch Office" />
                   <p className={styles.officeAddress}>
                     Office No. 207, Nalanda Holdings CHS., Sector 19C, Vashi, Navi Mumbai - 400 703
                   </p>
@@ -179,15 +245,15 @@ export default function AboutPage() {
         {/* Leadership Section */}
         <section className={styles.leadershipSection}>
           <div className={styles.container}>
-            <div className={styles.centerEyebrow}>
+            <div className={styles.headerWrapper}>
               <SectionEyebrow label="02 LEADERSHIP" />
+              <h2 className={`${styles.sectionHeading} ${styles.textCenter}`}>
+                Founded by Industry <span className={styles.highlightOrange}>Professionals</span>
+              </h2>
+              <p className={styles.leadershipSubheading}>
+                Metanoia Global is led by <span className={styles.highlightOrange}>professionals</span> with deep expertise in building products, vendor management, and project execution.
+              </p>
             </div>
-            <h2 className={`${styles.sectionHeading} ${styles.textCenter}`}>
-              Founded by Industry <span className={styles.highlightOrange}>Professionals</span>
-            </h2>
-            <p className={styles.leadershipSubheading}>
-              Metanoia Global is led by <span className={styles.highlightOrange}>professionals</span> with deep expertise in building products, vendor management, and project execution.
-            </p>
             <div className={styles.leadersGrid}>
               <div className={styles.leaderCard}>
                 <div className={styles.leaderImagePlaceholder}></div>
