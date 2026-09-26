@@ -1079,3 +1079,16 @@ When there is ambiguity, follow these principles:
 17. **Every new component must belong visually and responsively to the same MICASA system.**
 
 **MICASA should feel like one coherent architectural website — not a collection of independently generated pages.**
+
+---
+
+# 23. Routing & Subpages
+
+## 23.1 Subpage Architecture
+When creating new subpages (e.g., `/products`), follow the Next.js App Router pattern:
+- Create a folder corresponding to the route inside `app/` (e.g., `app/products/`).
+- Inside this folder, create `page.tsx` for the component and `page.module.css` for its specific styles.
+- Do not clutter the `app/` root with global files; keep route-specific logic contained in their respective folders.
+
+## 23.2 Navigation Integration
+- Newly created subpages must be properly linked in the `Navbar` (`app/components/Navbar.tsx`) and mobile menu to ensure they are accessible.

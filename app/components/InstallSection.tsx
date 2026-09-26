@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./InstallSection.module.css";
 import SectionEyebrow from "./SectionEyebrow";
+import Button from "./Button";
 import BeforeAfter from "./BeforeAfter";
 
 const FLOW = [
@@ -100,9 +101,9 @@ export default function InstallSection() {
             ))}
           </div>
 
-          <button className={styles.primaryButton}>
+          <Button href="/contact" variant="primary" size="lg">
             REQUEST INSTALLATION SUPPORT
-          </button>
+          </Button>
         </div>
 
         {/* Right: Architectural Image (Before & After) */}

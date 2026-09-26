@@ -86,7 +86,7 @@ export default function ResourcesSection() {
       {/* ── 4 Column Grid ── */}
       <div className={styles.gridContainer}>
         {RESOURCES.map((r) => (
-          <a key={r.name} href="#request" className={styles.resourceCard}>
+          <a key={r.name} href="/contact" className={styles.resourceCard}>
             {/* <div className={styles.iconBox}>
               <FileText className={styles.icon} />
             </div> */}
@@ -104,7 +104,7 @@ export default function ResourcesSection() {
       </div>
 
       <div className={styles.viewAllWrapper}>
-        <a href="#resources" className={styles.viewAllLink}>
+        <a href="/resources" className={styles.viewAllLink}>
           VIEW ALL RESOURCES
         </a>
       </div>
