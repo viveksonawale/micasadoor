@@ -54,6 +54,7 @@
   gap: 14px;
   outline: none;
   cursor: pointer;
+  flex: 1;
 }
 
 .logoContainer {
@@ -94,7 +95,8 @@
 .desktopNav {
   display: none;
   align-items: center;
-  gap: 40px;
+  justify-content: center;
+  gap: 32px;
   height: 100%;
 }
 
@@ -113,8 +115,8 @@
 
 .navLink {
   position: relative;
-  font-family: var(--font-dm-sans, sans-serif);
-  font-size: 16px;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -124,7 +126,8 @@
   border: none;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
+  text-decoration: none;
 }
 
 .navLinkTop {
@@ -155,6 +158,8 @@
 .actions {
   display: none;
   align-items: center;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 @media (min-width: 1024px) {
@@ -179,6 +184,7 @@
   transition: all 150ms ease;
   background: none;
   border: none;
+  margin-left: auto;
 }
 
 .mobileToggleTop {
@@ -200,200 +206,271 @@
   }
 }
 
-/* -------------------------------------
-   MEGA MENU STYLES
-   ------------------------------------- */
+/* =========================================
+   SHARED DROPDOWN ANIMATION STATE
+   ========================================= */
+
+.dropdownOpen {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+/* =========================================
+   MEGA MENU WRAPPER — Full width, attached to header bottom
+   ========================================= */
 
 .megaMenuWrapper {
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--color-surface, #fafafa);
   border-top: 1px solid var(--color-border);
-  color: var(--color-text-primary, #1a1a1a);
+  border-bottom: 3px solid var(--color-primary-base, #e14401);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-20px);
-  transition: opacity 280ms var(--ease-inout), transform 280ms var(--ease-inout), visibility 280ms var(--ease-inout);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-  overflow: hidden;
-}
-
-.megaMenuOpen {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  transform: translateY(-10px);
+  transition:
+    opacity 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--color-text-primary, #1a1a1a);
+  z-index: 200;
 }
 
 .megaMenuInner {
   max-width: 1600px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 
-.megaMenuGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1.5fr;
-  min-height: 400px;
-}
-
-.megaColLeft, .megaColMiddle, .megaColRight {
-  padding: 60px 40px;
-}
-
-.megaColLeft {
-  border-right: 1px solid var(--color-border);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.megaColMiddle {
-  border-right: 1px solid var(--color-border);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.megaColRight {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.megaTitle {
-  font-family: var(--font-playfair, serif);
-  font-size: 32px;
-  margin-bottom: 24px;
-  line-height: 1.2;
-}
-
-.megaDesc {
-  color: var(--color-text-secondary, #525152);
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 40px;
-  font-family: var(--font-dm-sans, sans-serif);
-}
-
-.megaBtn {
-  align-self: flex-start;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background-color: transparent !important;
-  border: 1px solid var(--color-primary-base, #e14401) !important;
-  color: var(--color-primary-base, #e14401) !important;
-  transition: all 200ms ease;
-}
-
-.megaBtn:hover {
-  background-color: var(--color-primary-base, #e14401) !important;
-  color: #ffffff !important;
-}
-
-.megaList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.megaListItem {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  color: var(--color-text-secondary, #525152);
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: all 200ms ease;
-  cursor: pointer;
-  padding: 4px 0;
-}
-
-.megaListItem:hover, .activeListText {
-  color: var(--color-primary-base, #e14401);
-  transform: translateX(8px);
-}
-
-.megaListNum {
-  font-family: var(--font-dm-sans, sans-serif);
-  font-size: 14px;
-  color: var(--color-primary-base, #e14401);
-}
-
-/* Image Card in Mega Menu */
-.megaImageCard {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 360px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.dynamicImage {
-  animation: fadeImageIn 300ms var(--ease-inout);
-}
-
-@keyframes fadeImageIn {
-  from {
-    opacity: 0.5;
-    transform: scale(1.02);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Finishes List in Mega Menu (Removed unused finishes classes) */
-.finishesBox {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 20px;
-}
-
-.finishesTitle {
-  font-family: var(--font-dm-sans, sans-serif);
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 32px;
-  color: var(--color-primary-base, #e14401);
-}
-
-.finishesList {
+/* 2-column grid for the 9 frame items — sits inside dropdownCol */
+.framesListGrid {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  column-gap: 8px;
+  row-gap: 0;
+  align-content: start;
+  flex: 1;
+  overflow-y: auto;
 }
 
-.finishItem {
+.frameListItem {
+  display: block;
+  padding: 10px 8px;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background-color 180ms ease, padding-left 180ms ease;
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.framesListGrid li:last-child .frameListItem {
+  border-bottom: none;
+}
+
+.frameListItem:hover,
+.frameListItemActive {
+  background-color: rgba(225, 68, 1, 0.04);
+  padding-left: 16px;
+}
+
+.frameItemName {
+  display: block;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary, #1a1a1a);
+  transition: color 180ms ease;
+  line-height: 1.3;
+}
+
+.frameListItem:hover .frameItemName,
+.frameListItemActive .frameItemName {
+  color: var(--color-primary-base, #e14401);
+}
+
+.frameItemDesc {
+  display: block;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 11px;
+  color: var(--color-text-secondary, #737373);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+/* =========================================
+   SHARED COLUMN / GRID ELEMENTS
+   ========================================= */
+
+.dropdownGrid {
+  display: grid;
+  grid-template-columns: 380px 1fr 320px;
+  height: 560px;
+  overflow: hidden; /* ensures showcase image never bleeds outside the panel */
+}
+
+.dropdownCol {
+  padding: 28px 32px;
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dropdownColRight {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownColHeader {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-primary-base, #e14401);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* List items in the DOORS column */
+.dropdownList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  scrollbar-width: none; /* Firefox */
+}
+
+.dropdownList::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.dropdownListItem {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 15px;
-  color: var(--color-text-primary, #1a1a1a);
-  font-family: var(--font-dm-sans, sans-serif);
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: padding-left 200ms ease;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.finishDot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--color-primary-base, #e14401);
-  border-radius: 50%;
+.dropdownListItem:last-child {
+  border-bottom: none;
+}
+
+.dropdownListItem:hover {
+  padding-left: 6px;
+}
+
+.dropdownItemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dropdownItemTitle {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary, #1a1a1a);
+  transition: color 180ms ease;
+}
+
+.dropdownListItem:hover .dropdownItemTitle {
+  color: var(--color-primary-base, #e14401);
+}
+
+.dropdownItemDesc {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 12px;
+  color: var(--color-text-secondary, #737373);
+}
+
+.dropdownItemIcon {
+  color: var(--color-text-secondary, #adadad);
+  transition: color 180ms ease, transform 180ms ease;
+  flex-shrink: 0;
+}
+
+.dropdownListItem:hover .dropdownItemIcon {
+  color: var(--color-primary-base, #e14401);
+  transform: translateX(4px);
+}
+
+/* Showcase image card — stretches to fill full column height */
+.dropdownImageCard {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  background-color: #eee;
+  /* No min-height — flex:1 fills whatever the fixed grid row gives it */
+}
+
+.dynamicImage {
+  animation: fadeImageIn 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeImageIn {
+  from { opacity: 0; transform: scale(1.03); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Explore column */
+.exploreBox {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.exploreTitle {
+  font-family: var(--font-playfair, serif);
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0 0 12px 0;
+  color: var(--color-text-primary, #1a1a1a);
+}
+
+.exploreDesc {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--color-text-secondary, #525152);
+  flex: 1;
+  padding-bottom: 20px;
+}
+
+.exploreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary-base, #e14401);
+  transition: gap 200ms ease;
+  text-decoration: none;
+}
+
+.exploreLink:hover {
+  gap: 12px;
 }
 
 /* Mobile Drawer (Preserved from old css) */
@@ -419,18 +496,16 @@
   right: 0;
   bottom: 0;
   width: 100%;
-  max-width: 320px;
-  background-color: #ffffff;
-  border-left: 1px solid var(--color-border);
-  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  background-color: #fdfbf7;
   z-index: 50;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 24px;
+  padding: 0;
   transform: translateX(100%);
   transition: transform 280ms var(--ease-inout);
   color: var(--color-text-primary, #1a1a1a);
+  overflow-y: auto;
 }
 
 .drawerOpen {
@@ -441,8 +516,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--color-border);
+  padding: 24px;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .drawerBrand {
@@ -491,24 +566,73 @@
 .drawerNav {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 24px 0;
+  padding: 0 24px;
 }
 
 .drawerLink {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
-  font-family: var(--font-dm-sans, sans-serif);
-  font-weight: 600;
-  font-size: 16px;
+  justify-content: space-between;
+  padding: 20px 0;
+  font-family: var(--font-inter, sans-serif);
+  font-weight: 500;
+  font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-text-primary, #1a1a1a);
+  color: #1a1a1a;
+  border-bottom: 1px solid #e5e5e5;
   transition: all 150ms ease;
+}
+
+.drawerLink:last-child {
+  border-bottom: none;
 }
 
 .drawerLink:hover {
   color: var(--color-primary-base, #e14401);
-  padding-left: 24px;
+}
+
+.drawerFooter {
+  margin-top: auto;
+  padding: 24px;
+  background-color: #fdfbf7;
+}
+
+.drawerContactInfo {
+  margin-bottom: 24px;
+}
+
+.drawerContactInfo p {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 14px;
+  color: #737373;
+  margin: 0 0 8px 0;
+}
+
+.drawerActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.drawerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 14px 8px;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 150ms ease;
+}
+
+.drawerBtn:hover {
+  background-color: var(--color-primary-base, #e14401);
 }

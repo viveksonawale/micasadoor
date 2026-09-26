@@ -20,7 +20,6 @@ const doorLinks = [
 
 const emails = [
   'support@metanoiaglobal.com',
-  'support@micasadoor.com',
 ];
 
 export default function Footer() {

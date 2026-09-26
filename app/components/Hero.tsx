@@ -36,18 +36,9 @@ const renderStrandplyLine = (lineText: string, startIndex: number = 0) => {
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
-  const [isReady, setIsReady] = useState(false);
+  const [isReady, setIsReady] = useState(true);
 
   useEffect(() => {
-    // Check if preloader was already shown (in case component mounts after event fired)
-    if (typeof window !== 'undefined' && sessionStorage.getItem('micasa-preloader-shown')) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setIsReady(true);
-    }
-
-    const handlePreloaderDone = () => setIsReady(true);
-    window.addEventListener('preloaderDone', handlePreloaderDone);
-
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
@@ -56,7 +47,6 @@ export default function Hero() {
     
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener('preloaderDone', handlePreloaderDone);
     };
   }, []);
 
@@ -119,11 +109,11 @@ export default function Hero() {
 
           {/* CTAs with Fade Effect */}
           <div className={`${styles.ctas} ${styles.animateCtas}`}>
-            <Button href="#explore" variant="primary" size="lg">
+            <Button href="/wooden-doors" variant="primary" size="lg">
               EXPLORE OUR DOORS
             </Button>
             <Button
-              href="#quote"
+              href="/contact"
               variant="outline"
               size="lg"
             >
