@@ -7,9 +7,7 @@ interface SectionEyebrowProps {
   badge?: string;
 }
 
-export default function SectionEyebrow({ label }: SectionEyebrowProps) {
-  // Check if the label starts with a number (and optional letter) followed by a space
-  const match = label.match(/^(\d+[A-Za-z]?)\s+(.*)$/);
+
 export default function SectionEyebrow({ label, icon, badge }: SectionEyebrowProps) {
   if (icon) {
     return (

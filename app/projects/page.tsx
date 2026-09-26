@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import styles from "./page.module.css";
 import projectsStyles from "../components/ProjectsSection.module.css";
 import { PROJECTS } from "@/lib/projectsData";
+import ContactFormSection from "../components/ContactFormSection";
 
 const renderStrandplyText = (
   lineText: string,
@@ -65,25 +66,25 @@ export default function ProjectsPage() {
       <main className={styles.mainContent}>
         {/* Hero Section */}
         <section className={styles.heroSection}>
-          <div className={styles.heroBackground}>
-            <Image
-              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop"
-              alt="Micasa Doors Projects"
-              fill
-              className={styles.heroImage}
-              priority
-            />
-            <div className={styles.heroOverlay} />
-          </div>
+          <Image
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop"
+            alt="Micasa Doors Projects"
+            fill
+            className={styles.heroImage}
+            priority
+          />
+          <div className={styles.heroOverlay} />
 
           <div className={styles.heroContainer}>
             <h1
               ref={heroRef}
-              className={`${styles.pageTitle} ${isHeroVisible ? styles.animate : ""}`}
+              className={`${styles.pageTitle}`}
             >
-              {renderStrandplyText("Our", 0, false)}
-              {renderStrandplyText("Projects", 4, true)}
+              Our Projects
             </h1>
+            <p className={styles.pageSubtitle}>
+              Explore our portfolio of completed and ongoing projects across residential, commercial, and hospitality sectors.
+            </p>
           </div>
           <div className={styles.heroBottomBar} />
         </section>
@@ -132,6 +133,7 @@ export default function ProjectsPage() {
             ))}
           </div>
         </section>
+        <ContactFormSection/>
       </main>
 
       <Footer />

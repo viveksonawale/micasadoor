@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./page.module.css";
 import { ALL_PRODUCTS } from "../data/products";
+import ContactFormSection from "../components/ContactFormSection";
 
 const renderStrandplyText = (
   lineText: string,
@@ -62,27 +63,25 @@ export default function ProductsPage() {
   return (
     <div className={styles.pageContainer}>
       <Navbar />
-      
+
       <main className={styles.mainContent}>
         {/* Page Hero */}
         <section className={styles.heroSection}>
-          <div className={styles.heroBackground}>
-            <Image 
-              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop" 
-              fill 
-              className={styles.heroImage} 
-              alt="Products Hero" 
-              style={{ objectFit: 'cover' }}
-            />
-            <div className={styles.heroOverlay} />
-          </div>
+          <Image
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop"
+            fill
+            className={styles.heroImage}
+            alt="Products Hero"
+            style={{ objectFit: 'cover' }}
+            priority
+          />
+          <div className={styles.heroOverlay} />
           <div className={styles.heroContainer}>
-            <h1 
+            <h1
               ref={heroRef}
-              className={`${styles.pageTitle} ${isHeroVisible ? styles.animate : ""}`}
+              className={`${styles.pageTitle}`}
             >
-              {renderStrandplyText("Our", 0, false)}
-              {renderStrandplyText("Products", 4, true)}
+              Our Products
             </h1>
             <p className={styles.pageSubtitle}>
               Explore our comprehensive range of high-performance doors for every application.
@@ -113,11 +112,11 @@ export default function ProductsPage() {
               return (
                 <Link href={`/products/${prod.slug}`} key={idx} className={styles.productCard}>
                   <div className={styles.cardImageWrapper}>
-                    <Image 
-                      src={imgUrl} 
-                      alt={prod.name} 
+                    <Image
+                      src={imgUrl}
+                      alt={prod.name}
                       fill
-                      className={styles.cardImage} 
+                      className={styles.cardImage}
                       style={{ objectFit: 'cover' }}
                     />
                   </div>
@@ -135,7 +134,7 @@ export default function ProductsPage() {
           </div>
         </section>
       </main>
-
+        {/* <ContactFormSection /> */}
       <Footer />
     </div>
   );

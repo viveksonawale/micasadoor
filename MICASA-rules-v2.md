@@ -289,7 +289,8 @@ But the hero TEXT must follow the master navbar grid:
 ████████████████████████████████████████████████
 ```
 
-Do not place hero text using arbitrary left offsets.
+Do not center hero text or place hero text using arbitrary left offsets. 
+- **left-align all text content at the bottom-left of the master container grid (do NOT center the text).**
 
 ## 4.4 About Page as the Reference Pattern
 
