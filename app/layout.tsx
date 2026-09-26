@@ -24,7 +24,6 @@ export const metadata: Metadata = {
 
 import SmoothScroll from "./components/SmoothScroll";
 import WhatsAppButton from "./components/WhatsAppButton";
-import Preloader from "./components/Preloader";
 
 export default function RootLayout({
   children,
@@ -34,7 +33,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body>
-        <Preloader />
         <SmoothScroll>
           {children}
           <WhatsAppButton />
