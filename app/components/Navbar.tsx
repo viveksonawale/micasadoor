@@ -112,10 +112,29 @@ export default function Navbar() {
               className={styles.navItemWrapper}
               onMouseEnter={() => setHoveredMenu("doors")}
             >
-              <button className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}>
+              <Link 
+                href="/doors"
+                onClick={() => setHoveredMenu(null)}
+                className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
+              >
                 DOORS
                 <ChevronDown className={`${styles.chevron} ${hoveredMenu === "doors" ? styles.chevronUp : ""}`} size={16} />
-              </button>
+              </Link>
+            </div>
+
+            {/* FRAMES ITEM */}
+            <div 
+              className={styles.navItemWrapper}
+              onMouseEnter={() => setHoveredMenu("frames")}
+            >
+              <Link 
+                href="/frames"
+                onClick={() => setHoveredMenu(null)}
+                className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
+              >
+                FRAMES
+                <ChevronDown className={`${styles.chevron} ${hoveredMenu === "frames" ? styles.chevronUp : ""}`} size={16} />
+              </Link>
             </div>
 
             <Link 
@@ -127,23 +146,12 @@ export default function Navbar() {
             </Link>
 
             <Link 
-              href="/fire-rated-doors" 
+              href="/fire-rated" 
               className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
               onMouseEnter={() => setHoveredMenu(null)}
             >
               FIRE RATED
             </Link>
-
-            {/* FRAMES ITEM */}
-            <div 
-              className={styles.navItemWrapper}
-              onMouseEnter={() => setHoveredMenu("frames")}
-            >
-              <button className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}>
-                FRAMES
-                <ChevronDown className={`${styles.chevron} ${hoveredMenu === "frames" ? styles.chevronUp : ""}`} size={16} />
-              </button>
-            </div>
 
             <Link 
               href="/manufacturing" 
@@ -219,7 +227,7 @@ export default function Navbar() {
                       <ul className={styles.dropdownList}>
                         {doorTypes.map((door, idx) => (
                           <li key={idx} onMouseEnter={() => setHoveredDoorIdx(idx)}>
-                            <Link href="/#doors" onClick={() => setHoveredMenu(null)} className={styles.dropdownListItem}>
+                            <Link href="/doors" onClick={() => setHoveredMenu(null)} className={styles.dropdownListItem}>
                               <div className={styles.dropdownItemContent}>
                                 <span className={styles.dropdownItemTitle}>{door.name}</span>
                                 <span className={styles.dropdownItemDesc}>{door.desc}</span>
@@ -250,7 +258,7 @@ export default function Navbar() {
                         <p className={styles.exploreDesc}>
                           Discover our full range of premium doors designed for architectural perfection and lasting durability.
                         </p>
-                        <Link href="/products" onClick={() => setHoveredMenu(null)} className={styles.exploreLink}>
+                        <Link href="/doors" onClick={() => setHoveredMenu(null)} className={styles.exploreLink}>
                           Explore All Doors <ArrowRight size={16} />
                         </Link>
                       </div>
@@ -266,7 +274,7 @@ export default function Navbar() {
                       <ul className={styles.framesListGrid}>
                         {frameTypes.map((frame, idx) => (
                           <li key={idx} onMouseEnter={() => setHoveredFrameIdx(idx)}>
-                            <Link href="/#frames" onClick={() => setHoveredMenu(null)} className={`${styles.frameListItem} ${hoveredFrameIdx === idx ? styles.frameListItemActive : ""}`}>
+                            <Link href="/frames" onClick={() => setHoveredMenu(null)} className={`${styles.frameListItem} ${hoveredFrameIdx === idx ? styles.frameListItemActive : ""}`}>
                               <span className={styles.frameItemName}>{frame.name}</span>
                               <span className={styles.frameItemDesc}>{frame.desc}</span>
                             </Link>
@@ -294,7 +302,7 @@ export default function Navbar() {
                         <p className={styles.exploreDesc}>
                           Precision engineered door frames built for longevity, acoustic superiority, and stunning visual appeal.
                         </p>
-                        <Link href="/#frames" onClick={() => setHoveredMenu(null)} className={styles.exploreLink}>
+                        <Link href="/frames" onClick={() => setHoveredMenu(null)} className={styles.exploreLink}>
                           Explore All Frames <ArrowRight size={16} />
                         </Link>
                       </div>
@@ -327,17 +335,17 @@ export default function Navbar() {
             <Link href="/" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
               <span>HOME</span> <ArrowRight size={16} />
             </Link>
-            <Link href="/about" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
-              <span>ABOUT</span> <ArrowRight size={16} />
+            <Link href="/doors" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
+              <span>DOORS</span> <ArrowRight size={16} />
+            </Link>
+            <Link href="/frames" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
+              <span>FRAMES</span> <ArrowRight size={16} />
             </Link>
             <Link href="/products" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
               <span>PRODUCTS</span> <ArrowRight size={16} />
             </Link>
-            <Link href="/fire-rated-doors" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
+            <Link href="/fire-rated" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
               <span>FIRE RATED</span> <ArrowRight size={16} />
-            </Link>
-            <Link href="/#frames" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
-              <span>FRAMES</span> <ArrowRight size={16} />
             </Link>
             <Link href="/manufacturing" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
               <span>MANUFACTURING</span> <ArrowRight size={16} />
@@ -348,6 +356,9 @@ export default function Navbar() {
             <Link href="/resources" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
               <span>RESOURCES</span> <ArrowRight size={16} />
             </Link>
+            <Link href="/about" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
+              <span>ABOUT</span> <ArrowRight size={16} />
+            </Link>
             <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className={styles.drawerLink}>
               <span>CONTACT</span> <ArrowRight size={16} />
             </Link>
@@ -357,7 +368,7 @@ export default function Navbar() {
         <div className={styles.drawerFooter}>
           <div className={styles.drawerContactInfo}>
             <p>1800-123-4567</p>
-            <p>info@micasadoor.com</p>
+            <p>support@metanoiaglobal.com</p>
           </div>
           <div className={styles.drawerActions}>
             <a href="tel:18001234567" className={styles.drawerBtn}>CALL</a>

@@ -1,129 +1,19 @@
-.pageContainer {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.mainContent {
-  flex: 1;
-  width: 100%;
-}
-
-/* ── Hero Section ── */
-.heroSection {
-  position: relative;
-  width: 100%;
-  height: 40vh;
-  min-height: 320px;
-  max-height: 400px;
-  display: flex;
-  align-items: flex-end;
-  padding: 48px 0;
-  overflow: hidden;
-  background-color: var(--color-neutral-900);
-}
-
-.heroImage {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.6;
-}
-
-.heroOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.8) 100%);
-  z-index: 1;
-}
-
-.heroContent {
-  position: relative;
-  z-index: 2;
-  max-width: var(--container-max-width, 1600px);
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 var(--gutter-mobile, 20px);
-}
-
-@media (min-width: 768px) {
-  .heroContent {
-    padding: 0 var(--gutter-tablet, 36px);
-  }
-}
-
-@media (min-width: 1024px) {
-  .heroContent {
-    padding: 0 var(--gutter-desktop, 48px);
-  }
-}
-
-@media (min-width: 1440px) {
-  .heroContent {
-    padding: 0 var(--gutter-wide, 64px);
-  }
-}
-
-@media (min-width: 1920px) {
-  .heroContent {
-    padding: 0 var(--gutter-ultrawide, 80px);
-  }
-}
-
-.heroTitle {
-  font-family: var(--font-playfair);
-  font-size: 48px;
-  font-weight: 700;
-  color: var(--color-white);
-  margin: 0;
-}
-
-@media (min-width: 768px) {
-  .heroTitle {
-    font-size: 64px;
-  }
-}
-
-.heroAccentLine {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg,
-      var(--color-primary-light),
-      var(--color-primary-base),
-      var(--color-primary-dark));
-  z-index: 10;
-}
-
-
-/* ── Split Section: Get In Touch & Form ── */
+/* ── Split Section: Contact CTA Card (Copied directly from /contact) ── */
 .splitSection {
-  padding: 48px 20px 0;
+  padding: 80px 20px;
   max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
 }
 
 @media (min-width: 640px) {
   .splitSection {
-    padding: 64px 36px 0;
+    padding: 96px 36px;
   }
 }
 
 @media (min-width: 1024px) {
   .splitSection {
-    padding: 72px 48px 0;
+    padding: 120px 48px;
   }
 }
 
@@ -233,7 +123,7 @@
 .infoDescription {
   font-size: 15px;
   line-height: 1.6;
-  color: var(--color-text-secondary);
+  color: var(--color-text-secondary, #666666);
   margin-bottom: 28px;
 }
 
@@ -246,30 +136,24 @@
   font-family: var(--font-inter, sans-serif);
   font-size: 24px;
   font-weight: 400;
-  color: var(--color-text-primary);
+  color: var(--color-text-primary, #1a1a1a);
   text-transform: none;
   letter-spacing: normal;
   margin-bottom: 12px;
-}
-
-.contactValueGroup {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
 }
 
 .contactValue {
   display: block;
   font-family: var(--font-inter, sans-serif);
   font-size: 16px;
-  color: var(--color-text-secondary);
+  color: var(--color-text-secondary, #666666);
   text-decoration: none;
   margin-bottom: 4px;
   transition: color 0.2s ease;
 }
 
 .contactValue:hover {
-  color: var(--color-primary-base);
+  color: var(--color-primary-base, #e14401);
 }
 
 .socialRow {
@@ -285,13 +169,13 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background-color: var(--color-neutral-300);
-  color: var(--color-white);
+  background-color: var(--color-neutral-300, #cccccc);
+  color: var(--color-white, #ffffff);
   transition: all 0.2s ease;
 }
 
 .socialLink:hover {
-  background-color: var(--color-primary-base);
+  background-color: var(--color-primary-base, #e14401);
   transform: translateY(-2px);
 }
 
@@ -300,7 +184,6 @@
   height: 18px;
   fill: currentColor;
 }
-
 
 /* Right: Form */
 .formColumn {
@@ -342,7 +225,7 @@
 .formLabel {
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-neutral-700);
+  color: var(--color-neutral-700, #4a4a4a);
   margin-left: 2px;
 }
 
@@ -355,15 +238,15 @@
   border-radius: 0;
   font-family: var(--font-inter, sans-serif);
   font-size: 14px;
-  color: var(--color-text-primary);
+  color: var(--color-text-primary, #1a1a1a);
   transition: all 0.2s ease;
 }
 
 .formInput:focus,
 .formTextarea:focus {
   outline: none;
-  background-color: var(--color-surface);
-  border-color: var(--color-primary-base);
+  background-color: var(--color-surface, #ffffff);
+  border-color: var(--color-primary-base, #e14401);
   box-shadow: 0 0 0 3px rgba(225, 68, 1, 0.1);
 }
 
@@ -397,94 +280,4 @@
   color: #2e7d32;
   font-size: 15px;
   font-weight: 500;
-}
-
-
-/* ── Office Locations Grid ── */
-.officesSection {
-  padding: 28px 20px 72px;
-  background-color: var(--color-bg);
-}
-
-@media (min-width: 640px) {
-  .officesSection {
-    padding: 32px 36px 80px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .officesSection {
-    padding: 36px 48px 96px;
-  }
-}
-
-.officesContainer {
-  max-width: var(--container-max-width, 1600px);
-  margin: 0 auto;
-}
-
-.officesGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
-@media (min-width: 768px) {
-  .officesGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .officesGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.officeCard {
-  background-color: #f8f9fa;
-  border-radius: 0;
-  overflow: hidden;
-  padding: 36px 32px;
-  display: flex;
-  flex-direction: column;
-}
-
-.officeInfo {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.officeHeading {
-  font-family: var(--font-playfair, serif);
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin-bottom: 12px;
-  perspective: 900px;
-  transform-style: preserve-3d;
-}
-
-.officeAddress {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--color-neutral-700);
-  margin-bottom: 24px;
-}
-
-.mapContainer {
-  height: 340px;
-  width: 100%;
-  border-radius: 0;
-  overflow: hidden;
-  pointer-events: none;
-  user-select: none;
-}
-
-.mapIframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-  pointer-events: none;
 }

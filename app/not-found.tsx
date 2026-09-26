@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { AlertTriangle } from "lucide-react";
 import styles from "./not-found.module.css";
 import SectionEyebrow from "./components/SectionEyebrow";
 
@@ -59,7 +60,10 @@ export default function NotFound() {
   return (
     <section className={styles.sectionContainer}>
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="Error 404" />
+        <SectionEyebrow 
+          label="ERROR 404" 
+          icon={<AlertTriangle size={14} strokeWidth={2.5} />} 
+        />
         
         <h1 
           ref={headerRef}
