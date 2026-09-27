@@ -1,7 +1,7 @@
 .sectionContainer {
   position: relative;
   width: 100%;
-  background-color: var(--color-neutral-100, #f8f9fa);
+  background-color: var(--color-white, #ffffff);
   padding: 100px 0;
   /* border-top: 1px solid var(--color-border, #e5e5e5); */
 }

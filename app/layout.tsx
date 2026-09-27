@@ -17,9 +17,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MICASA Doors & Frames | Engineered Precision, Timeless Woodcraft",
+  title: "Micasa Door Pvt. Ltd. | Wooden Doors & Frames Manufacturer",
   description:
-    "Precision-engineered doors and architectural frames crafted for durability, acoustic performance, and timeless architectural luxury.",
+    "Micasa Doors Pvt. Ltd provides precision-engineered doors and architectural frames crafted for durability, acoustic performance, and timeless architectural luxury.",
 };
 
 import SmoothScroll from "./components/SmoothScroll";

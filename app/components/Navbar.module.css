@@ -59,20 +59,33 @@
 
 .logoContainer {
   position: relative;
-  width: 240px; /* Base width */
-  height: 68px; /* Base height */
+  width: 100px;
+  height: 50px;
   display: flex;
   align-items: center;
 }
 
+@media (min-width: 1024px) {
+  .logoContainer {
+    width: 240px;
+    height: 68px;
+  }
+}
+
 .brandLogo {
-  width: 140px;
+  width: 100px;
   height: auto;
   transition: opacity 280ms var(--ease-inout);
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 0;
+}
+
+@media (min-width: 1024px) {
+  .brandLogo {
+    width: 140px;
+  }
 }
 
 .logoWhite {
@@ -119,7 +132,7 @@
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+
   transition: color 150ms ease;
   cursor: pointer;
   background: none;
@@ -171,7 +184,7 @@
 .actions a,
 .actions button {
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+
 }
 
 /* Mobile Toggle */
@@ -334,7 +347,7 @@
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+
   color: var(--color-primary-base, #e14401);
   margin-bottom: 20px;
   padding-bottom: 10px;
@@ -463,7 +476,7 @@
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+
   color: var(--color-primary-base, #e14401);
   transition: gap 200ms ease;
   text-decoration: none;
@@ -516,14 +529,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px;
+  padding: 12px 20px;
   border-bottom: 1px solid #e5e5e5;
 }
 
-.drawerBrand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.drawerBrand img {
+  display: block;
+  height: 80px;
+  width: auto;
+  margin-top: -20px;
+  margin-bottom: -20px;
 }
 
 .drawerLogoIcon {
@@ -566,19 +581,20 @@
 .drawerNav {
   display: flex;
   flex-direction: column;
-  padding: 0 24px;
+  padding: 0 20px;
+  flex: 1;
 }
 
 .drawerLink {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 16px 0;
   font-family: var(--font-inter, sans-serif);
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 17px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   color: #1a1a1a;
   border-bottom: 1px solid #e5e5e5;
   transition: all 150ms ease;
@@ -594,7 +610,8 @@
 
 .drawerFooter {
   margin-top: auto;
-  padding: 24px;
+  padding: 16px 20px;
+  border-top: 1px solid #e5e5e5;
   background-color: #fdfbf7;
 }
 
@@ -615,24 +632,89 @@
   gap: 8px;
 }
 
-.drawerBtn {
+.drawerBtnCall {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
   background-color: #1a1a1a;
   color: #ffffff;
   padding: 14px 8px;
   font-family: var(--font-inter, sans-serif);
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   text-decoration: none;
-  border-radius: 4px;
-  text-align: center;
+  border-radius: 0;
   transition: background-color 150ms ease;
 }
 
-.drawerBtn:hover {
-  background-color: var(--color-primary-base, #e14401);
+.drawerBtnCall:hover {
+  background-color: #333333;
+}
+
+.drawerBtnWhatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #25d366;
+  color: #ffffff;
+  padding: 14px 8px;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background-color 150ms ease;
+}
+
+.drawerBtnWhatsapp:hover {
+  background-color: #1da850;
+}
+
+.drawerBtnMail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #6b4423;
+  color: #ffffff;
+  padding: 14px 8px;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background-color 150ms ease;
+}
+
+.drawerBtnMail:hover {
+  background-color: #4a2d15;
+}
+
+.drawerBtnPrimary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary-base);
+  color: #ffffff;
+  padding: 14px 8px;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background-color 150ms ease;
+}
+
+.drawerBtnPrimary:hover {
+  background-color: var(--color-primary-dark);
 }

@@ -11,11 +11,12 @@
 
 /* ── Hero Section (Copied from About Page) ── */
 .heroSection {
-  position: relative;
-  width: 100%;
   height: 48vh;
   min-height: 400px;
   max-height: 480px;
+  position: relative;
+  width: 100%;
+
   display: flex;
   align-items: flex-end;
   padding: 48px 0 56px;
@@ -31,7 +32,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  opacity: 0.6;
+  
 }
 
 .heroOverlay {
@@ -40,10 +41,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.2) 0%,
-      rgba(0, 0, 0, 0.8) 100%);
+
   z-index: 1;
+
+  background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.9) 100%);
 }
 
 .heroContent {
@@ -95,7 +96,7 @@
 .doorWoodType {
   font-family: var(--font-inter);
   font-size: 0.75rem;
-  letter-spacing: 0.05em;
+
   text-transform: uppercase;
   color: var(--color-primary-lightest);
   font-weight: 500;
@@ -217,7 +218,7 @@
 .specLabel {
   font-family: var(--font-inter);
   font-size: 0.6875rem;
-  letter-spacing: 0.15em;
+
   text-transform: uppercase;
   color: var(--color-primary-base);
   font-weight: 600;
@@ -245,7 +246,7 @@
   font-family: var(--font-inter);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.3s ease;

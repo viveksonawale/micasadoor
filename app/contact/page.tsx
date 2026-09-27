@@ -121,7 +121,7 @@ export default function ContactPage() {
         {/* Hero Section */}
         <section className={styles.heroSection}>
           <Image
-            src="/hero-image/hero-bg.jpg"
+            src="/banner/contact-banner.webp"
             alt="Micasa Doors Contact"
             fill
             className={styles.heroImage}

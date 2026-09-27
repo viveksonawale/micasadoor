@@ -9,7 +9,7 @@ import FramesShowcase from "./FramesShowcase";
 import styles from "./page.module.css";
 
 export const metadata = {
-  title: "Wooden Door Frames | Micasa Doors Solutions",
+  title: "Door Frames Catalog | Teak, SYP & Engineered Frames",
   description: "Solid timber and engineered LVL frame systems — including BWP and Marine grade options for moisture-prone areas.",
 };
 

@@ -2,7 +2,8 @@
   display: inline-flex;
   align-items: center;
   background-color: var(--color-neutral-100, #f1f2f3);
-  padding: 4px 16px 4px 4px; /* Tight on the left so the number box sits flush */
+  padding: 4px 16px 4px 4px;
+  /* Tight on the left so the number box sits flush */
   border-radius: 0;
   margin-bottom: 24px;
   width: max-content;
@@ -28,5 +29,5 @@
   font-weight: 700;
   text-transform: uppercase;
   color: var(--color-text-primary, #1a1a1a);
-  letter-spacing: 0.1em;
+
 }

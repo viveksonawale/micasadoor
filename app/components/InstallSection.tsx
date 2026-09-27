@@ -101,7 +101,7 @@ export default function InstallSection() {
             ))}
           </div>
 
-          <Button href="/contact" variant="primary" size="lg">
+          <Button href="/contact" variant="primary" size="lg" className={styles.primaryButton}>
             REQUEST INSTALLATION SUPPORT
           </Button>
         </div>
@@ -109,8 +109,8 @@ export default function InstallSection() {
         {/* Right: Architectural Image (Before & After) */}
         <div className={styles.imageColumn}>
           <BeforeAfter
-            beforeImg="https://images.unsplash.com/photo-1541888087611-66521dd9f2d1?q=80&w=1200&auto=format&fit=crop"
-            afterImg="https://images.unsplash.com/photo-1541888087611-66521dd9f2d1?q=80&w=1200&auto=format&fit=crop"
+            beforeImg="/install-door/before-image.webp"
+            afterImg="/install-door/after-image.webp"
           />
         </div>
       </div>

@@ -256,12 +256,16 @@ export default function AboutPage() {
             </div>
             <div className={styles.leadersGrid}>
               <div className={styles.leaderCard}>
-                <div className={styles.leaderImagePlaceholder}></div>
+                <div className={styles.leaderImageContainer}>
+                  <Image src="/leadership/rahul-dey.webp" alt="Rahul Dey" fill className={styles.leaderImage} sizes="(max-width: 768px) 100vw, 400px" />
+                </div>
                 <h3 className={styles.leaderName}>Rahul Dey</h3>
                 <p className={styles.leaderRole}>Founder</p>
               </div>
               <div className={styles.leaderCard}>
-                <div className={styles.leaderImagePlaceholder}></div>
+                <div className={styles.leaderImageContainer}>
+                  <Image src="/leadership/divyang-Bhanushali.webp" alt="Divyang Bhanushali" fill className={styles.leaderImage} sizes="(max-width: 768px) 100vw, 400px" />
+                </div>
                 <h3 className={styles.leaderName}>Divyang Bhanushali</h3>
                 <p className={styles.leaderRole}>Co-Founder</p>
               </div>

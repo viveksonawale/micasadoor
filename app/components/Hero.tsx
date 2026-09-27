@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "./Button";
+import IntroGate from "./IntroGate";
 import styles from "./Hero.module.css";
 
 const renderStrandplyLine = (lineText: string, startIndex: number = 0) => {
@@ -56,6 +57,7 @@ export default function Hero() {
 
   return (
     <section className={`${styles.heroSection} ${!isReady ? styles.heroWaiting : ""}`}>
+      <IntroGate />
       {/* Background Image Container with Zoom Parallax */}
       <div
         className={styles.bgContainer}
@@ -98,18 +100,15 @@ export default function Hero() {
             </div>
           </h1>
 
-          {/* Inline Small Info Tags */}
-          <div className={`${styles.statsGroup} ${styles.animateStats}`}>
-            <span className={styles.statItem}>12,000+ Doors/Month</span>
-            <span className={styles.statDivider}></span>
-            <span className={styles.statItem}>1M+ Doors Delivered</span>
-            <span className={styles.statDivider}></span>
-            <span className={styles.statItem}>4 Lakh Sq. Ft. Facility</span>
-          </div>
+          {/* Subheading */}
+          <p className={`${styles.subheading} ${styles.animateStats}`}>
+            Precision-engineered doors and frames manufactured for projects<br />
+            that demand durability, consistency, and scale.
+          </p>
 
           {/* CTAs with Fade Effect */}
           <div className={`${styles.ctas} ${styles.animateCtas}`}>
-            <Button href="/wooden-doors" variant="primary" size="lg">
+            <Button href="/doors" variant="primary" size="lg">
               EXPLORE OUR DOORS
             </Button>
             <Button
