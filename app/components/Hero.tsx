@@ -109,11 +109,11 @@ export default function Hero() {
 
           {/* CTAs with Fade Effect */}
           <div className={`${styles.ctas} ${styles.animateCtas}`}>
-            <Button href="#explore" variant="primary" size="lg">
+            <Button href="/wooden-doors" variant="primary" size="lg">
               EXPLORE OUR DOORS
             </Button>
             <Button
-              href="#quote"
+              href="/contact"
               variant="outline"
               size="lg"
             >

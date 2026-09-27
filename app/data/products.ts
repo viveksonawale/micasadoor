@@ -1,0 +1,72 @@
+export const ALL_PRODUCTS = [
+  {
+    slug: "teak-wood-doors",
+    name: "Teak Wood Doors",
+    wood: "Teak",
+    tagline: "The benchmark hardwood for premium doors.",
+    description: "Solid teak doors crafted from carefully selected timber. Teak is one of the most widely specified hardwoods in Indian architecture, valued for its rich golden-brown grain and natural oil content.",
+  },
+  {
+    slug: "red-meranti-doors",
+    name: "Red Meranti Wood Doors",
+    wood: "Red Meranti",
+    tagline: "Warm reddish tone with dependable project performance.",
+    description: "Red Meranti is a popular hardwood choice for door manufacturing, offering a warm reddish-brown appearance and good workability for both solid and panelled constructions.",
+  },
+  {
+    slug: "steamed-beech-doors",
+    name: "Steamed Beech Wood Doors",
+    wood: "Steamed Beech",
+    tagline: "Light, uniform and modern.",
+    description: "Steamed beech offers a pale, uniform appearance that suits contemporary interiors. Its even texture makes it a reliable substrate for polish, paint and laminate finishes.",
+  },
+  {
+    slug: "pine-doors",
+    name: "Pine Wood Doors",
+    wood: "Pine",
+    tagline: "100% pine construction for internal and wet-area applications.",
+    description: "Our non-fire-rated doors are built on 100% A-grade pine — bedrooms, utility areas and bathrooms. For bathrooms and wet areas we offer a water-resistant laminated build-up; final performance depends on the selected finish and site conditions.",
+  },
+  {
+    slug: "designer-wooden-doors",
+    name: "Designer Wooden Doors",
+    wood: "Multiple",
+    tagline: "Architectural surfaces, grooves and statement entrances.",
+    description: "Designer doors combine our standard timber constructions with architectural surface treatments — fluting, grooves, inlays and mixed-material detailing developed with your architect.",
+  },
+  {
+    slug: "custom-wooden-doors",
+    name: "Custom Wooden Doors",
+    wood: "To specification",
+    tagline: "Built to your drawings, in production quantity.",
+    description: "When a project needs something outside the standard range, we manufacture doors to architect and consultant specifications — sizes, cores, veneers, finishes and hardware preparation included.",
+  },
+  {
+    slug: "laminated-non-fire-doors",
+    name: "Laminated Non-Fire Rated Doors",
+    wood: "100% A-Grade Pine Core",
+    tagline: "Everyday doors, engineered to stay straight.",
+    description: "Every Micasa non-fire-rated door is built on a 100% A-grade pine core — selected, seasoned pine with a factory-applied laminated surface for a consistent, easy-maintenance finish across large project quantities.",
+  },
+  {
+    slug: "laminated-fire-rated-doors",
+    name: "Laminated Fire Rated Doors",
+    wood: "Fire-Rated Core · Laminated Finish",
+    tagline: "IS 3614 certified fire protection with a laminated finish.",
+    description: "Our fire-rated laminated doors combine a certified fire-rated construction with durable laminated faces — tested protection that still matches the interior design scheme.",
+  },
+  {
+    slug: "laminated-hotel-room-doors",
+    name: "Laminated Hotel Room Doors",
+    wood: "A-Grade Pine / Fire-Rated Core Options",
+    tagline: "Guest-room doors built for hospitality traffic.",
+    description: "Hotel room entry doors engineered for daily hospitality use — solid feel, laminated surfaces that resist scuffs and cleaning chemicals, and optional fire-rated construction for corridor compliance.",
+  },
+  {
+    slug: "laminated-toilet-doors",
+    name: "Laminated Toilet Doors",
+    wood: "100% A-Grade Pine Core",
+    tagline: "Water-resistant laminated doors for bathrooms and wet areas.",
+    description: "Toilet and bathroom doors with water-resistant laminated surfaces and sealed edges, built on our 100% A-grade pine core. Designed for humid Indian conditions.",
+  }
+];

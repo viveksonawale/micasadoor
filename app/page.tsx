@@ -13,6 +13,8 @@ import WhyUsSection from "./components/WhyUsSection";
 import InstallSection from "./components/InstallSection";
 import WoodCompareSection from "./components/WoodCompareSection";
 import ResourcesSection from "./components/ResourcesSection";
+import FireSection from "./components/FireSection";
+import WetAreaSection from "./components/WetAreaSection";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -47,6 +49,7 @@ export default function Home() {
         {/* Why Us Section (06) */}
         <WhyUsSection />
 
+
         {/* Installation Section (07) */}
         <InstallSection />
 
@@ -55,6 +58,12 @@ export default function Home() {
 
         {/* Resources Section (09) */}
         <ResourcesSection />
+
+        {/* Fire Rated Doors Section */}
+        <FireSection />
+
+        {/* Wet Area Section (06b) */}
+        <WetAreaSection />
 
         {/* Call To Action Section */}
         <CallToActionSection />

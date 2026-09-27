@@ -7,6 +7,7 @@ interface SectionEyebrowProps {
   badge?: string;
 }
 
+
 export default function SectionEyebrow({ label, icon, badge }: SectionEyebrowProps) {
   if (icon) {
     return (

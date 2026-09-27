@@ -276,7 +276,7 @@ export default function CustomDoorsSection() {
                 <span className={styles.summaryVal}>{selectedDoor}</span>
               </span>
             </div>
-            <Button variant="primary" size="md" className={styles.ctaBtn}>
+            <Button href="/contact" variant="primary" size="md" className={styles.ctaBtn}>
               Request This Configuration
             </Button>
           </div>

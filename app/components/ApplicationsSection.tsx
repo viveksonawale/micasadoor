@@ -87,7 +87,7 @@ export default function ApplicationsSection() {
 
       <div className={styles.bentoGrid}>
         {APPS.map((a, i) => (
-          <a href="#contact" key={a.name} className={`${styles.appCard} ${styles[a.span]}`}>
+          <a href="/contact" key={a.name} className={`${styles.appCard} ${styles[a.span]}`}>
             <img src={a.img} alt={`Doors for ${a.name}`} className={styles.cardImage} />
             <div className={styles.cardOverlay} />
 
