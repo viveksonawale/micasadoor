@@ -46,7 +46,7 @@
 .catalogEyebrow {
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+
   color: var(--color-text-secondary);
   text-transform: uppercase;
   margin-bottom: 8px;

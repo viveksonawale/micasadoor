@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronDown, ChevronRight, ArrowRight, Phone, MessageCircle, Mail } from "lucide-react";
 import Button from "./Button";
 import styles from "./Navbar.module.css";
 
@@ -66,8 +66,13 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    if (mobileMenuOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "unset";
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.classList.add("mobile-menu-open");
+    } else {
+      document.body.style.overflow = "unset";
+      document.body.classList.remove("mobile-menu-open");
+    }
   }, [mobileMenuOpen]);
 
   // Navbar is solid white if scrolled OR if a mega menu is open
@@ -321,8 +326,9 @@ export default function Navbar() {
         <div>
           <div className={styles.drawerHeader}>
             <div className={styles.drawerBrand}>
-              <div className={styles.drawerLogoIcon}>M</div>
-              <span className={styles.drawerBrandName}>MICASA</span>
+              <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                <Image src="/logo/logowithblacktext.svg" alt="MICASA" width={200} height={80} />
+              </Link>
             </div>
             <button onClick={() => setMobileMenuOpen(false)} className={styles.drawerClose}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -366,14 +372,18 @@ export default function Navbar() {
         </div>
         
         <div className={styles.drawerFooter}>
-          <div className={styles.drawerContactInfo}>
-            <p>1800-123-4567</p>
-            <p>support@metanoiaglobal.com</p>
-          </div>
           <div className={styles.drawerActions}>
-            <a href="tel:18001234567" className={styles.drawerBtn}>CALL</a>
-            <a href="https://wa.me/18001234567" className={styles.drawerBtn}>WHATSAPP</a>
-            <Link href="/contact" className={styles.drawerBtn}>GET QUOTE</Link>
+            <a href="tel:+918898903436" className={styles.drawerBtnCall} aria-label="Call us">
+              <Phone size={20} />
+              <span>Call</span>
+            </a>
+            <a href="https://wa.me/918898903436" className={styles.drawerBtnWhatsapp} aria-label="WhatsApp">
+              <svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 2C8.268 2 2 8.268 2 16c0 2.766.793 5.348 2.164 7.532L2.08 30.12a.75.75 0 0 0 .917.917l6.588-2.084A13.926 13.926 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.5a11.44 11.44 0 0 1-5.836-1.597.75.75 0 0 0-.585-.084l-4.992 1.579 1.579-4.992a.75.75 0 0 0-.084-.585A11.44 11.44 0 0 1 4.5 16C4.5 9.649 9.649 4.5 16 4.5S27.5 9.649 27.5 16 22.351 27.5 16 27.5zm6.545-8.497c-.36-.18-2.128-1.05-2.458-1.17-.33-.12-.57-.18-.81.18-.24.36-.93 1.17-1.14 1.41-.21.24-.42.27-.78.09-.36-.18-1.52-.56-2.895-1.787-1.07-.954-1.792-2.134-2-2.494-.21-.36-.022-.554.158-.733.162-.162.36-.42.54-.63.18-.21.24-.36.36-.6.12-.24.06-.45-.03-.63-.09-.18-.81-1.95-1.11-2.67-.293-.701-.59-.606-.81-.617l-.69-.013c-.24 0-.63.09-.96.45-.33.36-1.26 1.23-1.26 3 0 1.77 1.29 3.48 1.47 3.72.18.24 2.54 3.88 6.155 5.44.86.37 1.532.592 2.056.758.864.275 1.65.236 2.272.143.693-.104 2.128-.87 2.428-1.71.3-.84.3-1.56.21-1.71-.09-.15-.33-.24-.69-.42z" />
+              </svg>
+              <span>WhatsApp</span>
+            </a>
+            <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className={styles.drawerBtnPrimary}>Get Quote</Link>
           </div>
         </div>
       </div>

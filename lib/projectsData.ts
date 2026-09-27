@@ -7,7 +7,7 @@ export const PROJECTS = [
     status: "Completed",
     quantity: "2500+",
     location: "Byculla",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
+    image: "/project/monte-south.webp",
   },
   {
     id: 2,

@@ -118,7 +118,7 @@
   font-weight: 700;
   color: var(--color-primary-base, #e14401);
   margin-right: 32px;
-  letter-spacing: 0.1em;
+
 }
 
 .flowTitle {
@@ -145,7 +145,7 @@
   font-family: var(--font-inter, sans-serif);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+
   text-transform: uppercase;
   cursor: pointer;
   align-self: flex-start;
@@ -198,7 +198,7 @@
   font-size: 12px;
   font-weight: 600;
   color: #ffffff;
-  letter-spacing: 0.15em;
+
   text-transform: uppercase;
 }
 
@@ -237,12 +237,16 @@
   }
   .flowRow {
     padding: 16px 0;
+    margin-left: 0;
+    width: 100%;
   }
   .imageColumn {
     height: 400px;
   }
   .primaryButton {
-    width: 100%;
+    width: calc(100% - 80px);
     text-align: center;
+    padding: 16px 20px;
+    font-size: 12px;
   }
 }

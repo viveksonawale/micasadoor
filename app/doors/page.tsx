@@ -11,7 +11,7 @@ import DoorsShowcase from "./DoorsShowcase";
 import styles from "./page.module.css";
 
 export const metadata = {
-  title: "Wooden Doors | Micasa Doors Solutions",
+  title: "Wooden Doors Catalog | Fire-Rated, Veneer & Flush Doors",
   description: "Six door programmes across four timbers — from premium solid teak entrances to high-volume internal pine doors.",
 };
 
@@ -24,7 +24,7 @@ export default function DoorsPage() {
         {/* Hero Section */}
         <section className={styles.heroSection}>
           <Image
-            src={IMG.doorDark}
+            src="/banner/door-page-banner.webp"
             alt="Micasa Wooden Doors"
             fill
             className={styles.heroImage}

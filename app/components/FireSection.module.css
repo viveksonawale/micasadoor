@@ -160,7 +160,7 @@
   font-family: var(--font-inter, sans-serif);
   font-size: 14px; /* Increased */
   font-weight: 700;
-  letter-spacing: 0.1em;
+
   text-transform: uppercase;
   color: var(--color-text-primary, #1a1a1a);
 }
@@ -241,7 +241,7 @@
   font-family: var(--font-inter, sans-serif);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.15em;
+
   text-transform: uppercase;
   color: var(--color-text-secondary, #666);
   margin: 0;
@@ -266,7 +266,7 @@
 .certLabel {
   font-family: var(--font-inter, sans-serif);
   font-size: 12px;
-  letter-spacing: 0.1em;
+
   text-transform: uppercase;
   color: var(--color-text-secondary, #666);
 }
@@ -299,6 +299,10 @@
   .gridContainer {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+  
+  .leftCol {
+    margin-left: 0;
   }
   
   .contentWrapper {
