@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import FactoryStorySection from "./FactoryStorySection";
@@ -10,3 +10,4 @@ export default function HowWeWorkSection() {
     </div>
   );
 }
+

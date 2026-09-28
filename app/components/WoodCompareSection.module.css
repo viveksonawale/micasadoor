@@ -2,41 +2,41 @@
   position: relative;
   width: 100%;
   background-color: var(--color-surface, #ffffff);
-  padding: 100px 0;
+  padding: 80px 0 100px 0;
   /* border-top: 1px solid var(--color-border, #e5e5e5); */
 }
 
 /* ─── Header (Rule 20) ────────────────────────────────────────────────────── */
-.headerWrapper {
+.contentWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
-  margin-bottom: 64px;
+  margin-bottom: 8px;
   padding: 0 var(--gutter-desktop, 48px);
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 48px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
-  margin-bottom: 20px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
   perspective: 900px;
   transform-style: preserve-3d;
 }
 
 .sectionSubtitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 17px;
-  color: var(--color-text-secondary, #666);
+  color: rgba(26, 26, 26, 0.6);
   max-width: 620px;
-  line-height: 1.6;
-  margin-bottom: 0;
+  line-height: 1.02;
+  margin-bottom: 32px;
 }
 
 /* ─── Strandply Animation ─────────────────────────────────────────────────── */
@@ -109,12 +109,12 @@
 }
 
 .woodName {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 26px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
   margin: 0 0 24px 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.05em;
 }
 
 .woodDetails {
@@ -132,7 +132,7 @@
 }
 
 .detailLabel {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 11px;
   font-weight: 600;
   color: var(--color-primary-base, #e14401);
@@ -141,11 +141,11 @@
 }
 
 .detailValue {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 14px;
   color: var(--color-text-secondary, #666);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.02;
 }
 
 /* ─── Responsive ──────────────────────────────────────────────────────────── */
@@ -157,7 +157,7 @@
 }
 
 @media (max-width: 1024px) {
-  .headerWrapper, .gridContainer {
+  .contentWrapper, .gridContainer {
     padding: 0 var(--gutter-tablet, 36px);
   }
   .sectionTitle {
@@ -166,7 +166,7 @@
 }
 
 @media (max-width: 640px) {
-  .headerWrapper, .gridContainer {
+  .contentWrapper, .gridContainer {
     padding: 0 var(--gutter-mobile, 20px);
   }
   .gridContainer {
@@ -175,7 +175,11 @@
   .sectionTitle {
     font-size: 32px;
   }
-  .headerWrapper {
-    margin-bottom: 40px;
+  .contentWrapper {
+    margin-bottom: 8px;
   }
 }
+
+
+
+

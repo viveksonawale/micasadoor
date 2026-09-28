@@ -87,7 +87,7 @@
 
 /* Typography */
 .headline {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   color: var(--color-white);
   font-size: 26px;
   font-weight: 700;
@@ -168,7 +168,7 @@
 }
 
 .statItem {
-  font-family: var(--font-inter);
+  font-family: 'Cabinet Grotesk', sans-serif;
   color: rgba(255, 255, 255, 0.9);
   font-size: 13px;
   font-weight: 500;

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useRef, useEffect } from "react";
 import Button from "./Button";
@@ -87,9 +87,9 @@ export default function ContactFormSection() {
             className={`${styles.infoTitle} ${isVisible ? styles.animate : ""}`}
             aria-label="Get In Touch With Us"
           >
-            {renderStrandplyText("Get In Touch With ", 0, false)}
-            {renderStrandplyText("Us", 19, true)}
-          </h2>
+          {renderStrandplyText("Have a project ", 0, false)}
+          {renderStrandplyText("in mind?", 12, true)}
+        </h2>
 
           <p className={styles.infoDescription}>
             It may take us at least 24 hours to reach you but be rest assured, we&apos;ll get in touch with you.
@@ -231,3 +231,5 @@ export default function ContactFormSection() {
     </section>
   );
 }
+
+

@@ -115,7 +115,7 @@
 
 .navLink {
   position: relative;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
@@ -217,7 +217,7 @@
 }
 
 /* =========================================
-   MEGA MENU WRAPPER — Full width, attached to header bottom
+   MEGA MENU WRAPPER â€” Full width, attached to header bottom
    ========================================= */
 
 .megaMenuWrapper {
@@ -246,7 +246,7 @@
   padding: 0 40px;
 }
 
-/* 2-column grid for the 9 frame items — sits inside dropdownCol */
+/* 2-column grid for the 9 frame items â€” sits inside dropdownCol */
 .framesListGrid {
   list-style: none;
   padding: 0;
@@ -282,7 +282,7 @@
 
 .frameItemName {
   display: block;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: var(--color-text-primary, #1a1a1a);
@@ -297,7 +297,7 @@
 
 .frameItemDesc {
   display: block;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 11px;
   color: var(--color-text-secondary, #737373);
   margin-top: 2px;
@@ -330,7 +330,7 @@
 }
 
 .dropdownColHeader {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -384,7 +384,7 @@
 }
 
 .dropdownItemTitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 15px;
   font-weight: 600;
   color: var(--color-text-primary, #1a1a1a);
@@ -396,7 +396,7 @@
 }
 
 .dropdownItemDesc {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 12px;
   color: var(--color-text-secondary, #737373);
 }
@@ -412,14 +412,14 @@
   transform: translateX(4px);
 }
 
-/* Showcase image card — stretches to fill full column height */
+/* Showcase image card â€” stretches to fill full column height */
 .dropdownImageCard {
   position: relative;
   flex: 1;
   width: 100%;
   overflow: hidden;
   background-color: #eee;
-  /* No min-height — flex:1 fills whatever the fixed grid row gives it */
+  /* No min-height â€” flex:1 fills whatever the fixed grid row gives it */
 }
 
 .dynamicImage {
@@ -439,7 +439,7 @@
 }
 
 .exploreTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 22px;
   line-height: 1.2;
   margin: 0 0 12px 0;
@@ -447,7 +447,7 @@
 }
 
 .exploreDesc {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 13px;
   line-height: 1.7;
   color: var(--color-text-secondary, #525152);
@@ -459,7 +459,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -534,13 +534,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-weight: 700;
   font-size: 16px;
 }
 
 .drawerBrandName {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-weight: 700;
   font-size: 18px;
 }
@@ -574,7 +574,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 0;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-weight: 500;
   font-size: 15px;
   text-transform: uppercase;
@@ -603,7 +603,7 @@
 }
 
 .drawerContactInfo p {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 14px;
   color: #737373;
   margin: 0 0 8px 0;
@@ -622,7 +622,7 @@
   background-color: #1a1a1a;
   color: #ffffff;
   padding: 14px 8px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;

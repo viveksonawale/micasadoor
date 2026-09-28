@@ -69,14 +69,14 @@ export default function ResourcesSection() {
   return (
     <section className={styles.sectionContainer} id="resources">
       {/* ── Centered Header ── */}
-      <div className={styles.headerWrapper}>
+      <div className={styles.contentWrapper}>
         <SectionEyebrow label="09 TECHNICAL RESOURCES" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
         >
-          {renderStrandplyText("Documents for consultants &", 0, false)}
-          {renderStrandplyText("site teams.", 27, true)}
+          {renderStrandplyText("Documents for consultants & ", 0, false)}
+          {renderStrandplyText("site teams.", 24, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
           Catalogues, certificates, datasheets and installation guidelines — shared on request while our automated download library is being populated.
@@ -91,7 +91,7 @@ export default function ResourcesSection() {
               <FileText className={styles.icon} />
             </div> */}
             
-            <div className={styles.contentWrapper}>
+            <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>{r.name}</h3>
               <p className={styles.cardDesc}>{r.note}</p>
             </div>
@@ -111,3 +111,5 @@ export default function ResourcesSection() {
     </section>
   );
 }
+
+

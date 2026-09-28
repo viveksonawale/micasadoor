@@ -71,50 +71,39 @@ export default function FireSection() {
   ];
 
   const FIRE_PLACEHOLDERS = [
-    { label: "Fire Rating", value: "30 / 60 / 90 / 120 MINS" },
-    { label: "Thickness", value: "45mm - 55mm" },
-    { label: "Standard", value: "IS 3614 / BS 476" },
-    { label: "Core", value: "Proprietary Fire Core" },
+    { label: "Fire Rating", value: "[Fire Rating — e.g. as per certificate]" },
+    { label: "Certification Number", value: "[Certification Number]" },
+    { label: "Testing Laboratory", value: "[Testing Laboratory]" },
+    { label: "Certificate PDF", value: "[Certificate PDF — upload slot]" },
+    { label: "Door Thickness", value: "[Door Thickness]" },
+    { label: "Frame Specification", value: "[Frame Specification]" },
   ];
 
   return (
     <section className={styles.sectionContainer} id="fire-rated-doors">
       {/* Light Background Image with Overlay */}
-      <div className={styles.backgroundWrapper}>
-        <Image
-          src="https://images.unsplash.com/photo-1542840410-3092f99611a3?q=80&w=2000&auto=format&fit=crop"
-          alt="Fire rated wooden door background"
-          fill
-          className={styles.backgroundImage}
-          style={{ objectFit: 'cover' }}
-        />
-        <div className={styles.backgroundOverlay} />
-      </div>
 
       <div className={styles.contentWrapper}>
-        {/* Centered Header */}
-        <div className={styles.headerWrapper}>
-          <SectionEyebrow label="10 FIRE-RATED WOODEN DOORS" />
-          
-          <h2 
-            ref={headerRef} 
-            className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
-          >
-            {renderStrandplyText("Safety should never", 0, false)}
-            {renderStrandplyText("compromise design.", 17, true)}
-          </h2>
-          
-          <p className={styles.sectionSubtitle}>
-            Fire protection, engineered in wood. Micasa manufactures wooden fire-rated
-            doors with IS 3614 certification — combining tested fire performance with
-            the warmth of real timber, professional installation and full project documentation.
-          </p>
-        </div>
-
         <div className={styles.gridContainer}>
           {/* Left Column */}
           <div className={styles.leftCol}>
             <div className={styles.leftColTop}>
+              <SectionEyebrow label="10 FIRE-RATED WOODEN DOORS" />
+
+              <h2
+                ref={headerRef}
+                className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
+              >
+                {renderStrandplyText("Safety should never ", 0, false)}
+                {renderStrandplyText("compromise design.", 17, true)}
+              </h2>
+
+              <p className={styles.sectionSubtitle}>
+                Fire protection, engineered in wood. Micasa manufactures wooden fire-rated
+                doors with IS 3614 certification — combining tested fire performance with
+                the warmth of real timber, professional installation and full project documentation.
+              </p>
+
               <div className={styles.badgeBox}>
                 <Flame className={styles.flameIcon} size={22} />
                 <span className={styles.badgeText}>
@@ -144,25 +133,20 @@ export default function FireSection() {
 
           {/* Right Column */}
           <div className={styles.rightCol}>
-            <div className={styles.certBox}>
-              <div className={styles.certHeader}>
-                <FileBadge className={styles.certIcon} size={20} />
-                <p className={styles.certTitle}>
-                  Certification Details — Editable Slots
-                </p>
-              </div>
+            <div className={styles.detailsPanel}>
+              <p className={styles.panelEyebrow}>Certification Details — Editable Slots</p>
               
-              <dl className={styles.certList}>
+              <dl className={styles.detailsList}>
                 {FIRE_PLACEHOLDERS.map((f, idx) => (
-                  <div key={idx} className={styles.certRow}>
-                    <dt className={styles.certLabel}>{f.label}</dt>
-                    <dd className={styles.certValue}>{f.value}</dd>
+                  <div key={idx} className={styles.detailRow}>
+                    <dt className={styles.detailLabel}>{f.label}</dt>
+                    <dd className={styles.detailValue}>{f.value}</dd>
                   </div>
                 ))}
               </dl>
               
-              <p className={styles.certFooter}>
-                Placeholder slots — replaced with actual certification documents and values.
+              <p className={styles.panelDisclaimer}>
+                No ratings or certificate numbers are published until verified company documentation is uploaded here.
               </p>
             </div>
           </div>

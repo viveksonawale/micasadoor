@@ -133,14 +133,14 @@ export default function CustomDoorsSection() {
   return (
     <section className={styles.sectionContainer} id="custom-doors">
       {/* ── Header ── */}
-      <div className={styles.headerWrapper}>
+      <div className={styles.contentWrapper}>
         <SectionEyebrow label="04 CONFIGURE YOUR DOOR" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
         >
-          {renderStrandplyText("Design your", 0, false)}
-          {renderStrandplyText("door.", 11, true)}
+          {renderStrandplyText("Design your ", 0, false)}
+          {renderStrandplyText("door.", 10, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
           Three steps. Pick your frame, finish, and door type — then request a quote.
@@ -286,3 +286,5 @@ export default function CustomDoorsSection() {
     </section>
   );
 }
+
+

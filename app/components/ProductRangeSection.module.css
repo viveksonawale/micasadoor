@@ -1,7 +1,7 @@
 .sectionContainer {
   position: relative;
   width: 100%;
-  background-color: var(--color-surface, #ffffff);
+  background-color: #ffffff;
   padding: 80px 0 100px 0;
   overflow: hidden;
 }
@@ -13,8 +13,8 @@
   margin-bottom: 8px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 @media (max-width: 1024px) {
@@ -30,13 +30,13 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 48px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
   margin-bottom: 24px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
   perspective: 900px;
   transform-style: preserve-3d;
 }
@@ -73,6 +73,7 @@
     filter: blur(15px);
     transform: translateY(10px) scale(2);
   }
+
   100% {
     opacity: 1;
     filter: blur(0px);
@@ -85,19 +86,15 @@
 }
 
 .sectionSubtitle {
-  font-family: var(--font-inter, sans-serif);
-  font-size: 20px;
-  color: var(--color-text-secondary, #666);
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 16px;
+  color: rgba(26, 26, 26, 0.6);
   max-width: 680px;
-  line-height: 1.6;
+  line-height: 1.02;
   margin-bottom: 32px;
 }
 
-@media (max-width: 768px) {
-  .sectionSubtitle {
-    font-size: 16px;
-  }
-}
+
 
 /* Carousel */
 .carouselContainer {
@@ -108,7 +105,7 @@
   height: 600px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   perspective: 1200px;
 }
 
@@ -171,8 +168,15 @@
 }
 
 @media (max-width: 768px) {
-  .slidePrev { transform: translateX(-40%) scale(0.9); opacity: 0.3; }
-  .slideNext { transform: translateX(40%) scale(0.9); opacity: 0.3; }
+  .slidePrev {
+    transform: translateX(-40%) scale(0.9);
+    opacity: 0.3;
+  }
+
+  .slideNext {
+    transform: translateX(40%) scale(0.9);
+    opacity: 0.3;
+  }
 }
 
 .imageWrapper {
@@ -219,13 +223,13 @@
 }
 
 .productTitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.05em;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
 }
 
@@ -241,7 +245,7 @@
 }
 
 .productSubtitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
@@ -336,7 +340,7 @@
 }
 
 .cardTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 28px;
   font-weight: 700;
   color: #ffffff;
@@ -344,7 +348,7 @@
 }
 
 .cardNote {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 11px;
   font-weight: 500;
   text-transform: uppercase;
@@ -377,13 +381,15 @@
 }
 
 .gridCard:active .cardArrow {
-  transform: translate(-50%, -50%) scale(1.15); /* Enlarge circle on click */
+  transform: translate(-50%, -50%) scale(1.15);
+  /* Enlarge circle on click */
 }
 
 @media (max-width: 1024px) {
   .bentoGridWrapper {
     padding: 0 var(--gutter-tablet, 36px);
   }
+
   .bentoGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
@@ -394,17 +400,21 @@
   .bentoGridWrapper {
     padding: 0 var(--gutter-mobile, 20px);
   }
+
   .bentoGrid {
     grid-template-columns: 1fr;
   }
+
   .cardContentBox {
     padding: 32px 24px;
   }
+
   .cardArrow {
     top: 24px;
     right: 24px;
   }
 }
+
 @media (max-width: 768px) {
   .showcaseNavOverlay {
     width: 85%;
@@ -449,7 +459,7 @@
 .dotsContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   margin-top: 32px;
 }
@@ -476,4 +486,3 @@
   background-color: var(--color-primary-base, #e14401);
   opacity: 1;
 }
-

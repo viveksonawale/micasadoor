@@ -1,4 +1,4 @@
-.section {
+﻿.section {
   padding: var(--space-12) var(--gutter-mobile);
   background-color: var(--color-surface); /* Normal white background */
   display: flex;
@@ -41,11 +41,11 @@
 }
 
 .title {
-  font-family: var(--font-playfair, var(--font-display-fallback));
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: clamp(2.4rem, 3.5vw, 3.2rem);
   font-weight: 700;
   color: var(--color-heading);
-  line-height: 1.1;
+  line-height: 1.02;
   margin-bottom: var(--space-4);
   white-space: nowrap;
   display: flex;
@@ -56,7 +56,7 @@
 .numberPart {
   font-size: 1em;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.05em;
 }
 
 .unitPart {
@@ -76,7 +76,7 @@
 
 .subtitle {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-3);
   font-size: 1.125rem;
   font-weight: 700;
@@ -94,5 +94,45 @@
   margin-top: var(--space-4);
   font-size: 1.0625rem;
   color: var(--color-text);
-  line-height: 1.6;
+  line-height: 1.02;
 }
+
+
+
+.wordWrapper {
+  display: inline-flex;
+  white-space: nowrap;
+  margin-right: 0.22em;
+}
+
+.strandplyChar {
+  display: inline-flex;
+  opacity: 0;
+  filter: blur(15px);
+  transform: translateY(10px) scale(1.5);
+  animation: strandplyAppear 0.8s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation-delay: calc(var(--i) * 0.02s);
+}
+
+.highlight .strandplyChar {
+  color: var(--color-primary-base, #e14401);
+}
+
+.animate .strandplyChar {
+  animation-play-state: running;
+}
+
+@keyframes strandplyAppear {
+  0% {
+    opacity: 0.001;
+    filter: blur(15px);
+    transform: translateY(10px) scale(2);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+}
+
+

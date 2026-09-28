@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
@@ -97,9 +97,9 @@ export default function WetAreaSection() {
               ref={headerRef} 
               className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
             >
-              {renderStrandplyText("100% A-grade pine —", 0, false)}
-              {renderStrandplyText("including the bathroom.", 19, true)}
-            </h2>
+          {renderStrandplyText("100% A-grade pine - ", 0, false)}
+          {renderStrandplyText("including the bathroom.", 16, true)}
+        </h2>
             
             <p className={styles.sectionSubtitle}>
               Every non-fire-rated Micasa door is built on a 100% A-grade pine core. Bedrooms, internal doors, utility areas and wet spaces — our laminated toilet door build-up is a water-resistant solution engineered for humid Indian conditions, with final performance depending on the selected laminate and site ventilation.
@@ -124,3 +124,5 @@ export default function WetAreaSection() {
     </section>
   );
 }
+
+
