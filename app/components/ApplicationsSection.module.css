@@ -2,30 +2,30 @@
   position: relative;
   width: 100%;
   background-color: var(--color-surface, #ffffff);
-  padding: 100px 0;
+  padding: 80px 0 100px 0;
   /* border-top: 1px solid var(--color-border, #e5e5e5); */
 }
 
 /* ─── Header ──────────────────────────────────────────────────────────────── */
-.headerWrapper {
+.contentWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
-  margin-bottom: 48px;
+  margin-bottom: 8px;
   padding: 0 var(--gutter-desktop, 48px);
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 48px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
-  margin-bottom: 20px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
   perspective: 900px;
   transform-style: preserve-3d;
 }
@@ -71,12 +71,12 @@
 }
 
 .sectionSubtitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 17px;
-  color: var(--color-text-secondary, #666);
+  color: rgba(26, 26, 26, 0.6);
   max-width: 590px;
-  line-height: 1.6;
-  margin-bottom: 0;
+  line-height: 1.02;
+  margin-bottom: 32px;
 }
 
 .bentoGrid {
@@ -134,12 +134,12 @@
 }
 
 .cardTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 28px;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.05em;
   text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
@@ -147,7 +147,7 @@
   position: absolute;
   top: 24px;
   right: 24px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 11px;
   font-weight: 600;
 
@@ -160,7 +160,7 @@
   .sectionTitle {
     font-size: 40px;
   }
-  .headerWrapper, .bentoGrid {
+  .contentWrapper, .bentoGrid {
     padding: 0 var(--gutter-tablet, 36px);
   }
   /* On tablet, flow nicely in a 2-col or 3-col logic */
@@ -176,7 +176,7 @@
   .sectionTitle {
     font-size: 32px;
   }
-  .headerWrapper, .bentoGrid {
+  .contentWrapper, .bentoGrid {
     padding: 0 var(--gutter-mobile, 20px);
   }
   /* Stack completely on mobile */
@@ -187,3 +187,7 @@
     height: 200px;
   }
 }
+
+
+
+

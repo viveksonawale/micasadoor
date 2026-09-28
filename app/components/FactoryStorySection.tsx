@@ -70,16 +70,14 @@ export default function FactoryStorySection({ eyebrow = "03 PRECISION IN EVERY S
     <section className={styles.sectionContainer}>
       
       {/* Centered Header */}
-      <div className={styles.headerWrapper}>
+      <div className={styles.contentWrapper}>
         <SectionEyebrow label={eyebrow} />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
         >
-          {renderStrandplyText("From ", 0, false)}
-          {renderStrandplyText("raw timber ", 5, true)}
-          {renderStrandplyText("to ", 15, false)}
-          {renderStrandplyText("installed door.", 18, true)}
+          {renderStrandplyText("From raw timber ", 0, false)}
+          {renderStrandplyText("to installed door.", 13, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
           Our end-to-end process ensures that every product leaving our Gandhidham unit meets the highest standards of architectural precision.
@@ -110,3 +108,5 @@ export default function FactoryStorySection({ eyebrow = "03 PRECISION IN EVERY S
     </section>
   );
 }
+
+

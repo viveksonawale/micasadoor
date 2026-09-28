@@ -71,14 +71,14 @@ export default function ApplicationsSection() {
   return (
     <section className={styles.sectionContainer} id="applications">
       {/* ── Centered Header ── */}
-      <div className={styles.headerWrapper}>
+      <div className={styles.contentWrapper}>
         <SectionEyebrow label="05 APPLICATIONS" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
         >
-          {renderStrandplyText("Specified across every", 0, false)}
-          {renderStrandplyText("kind of building.", 22, true)}
+          {renderStrandplyText("Specified across every ", 0, false)}
+          {renderStrandplyText("kind of building.", 20, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
           From luxury villas to commercial developments, our doors are built to perform in any environment.
@@ -104,3 +104,5 @@ export default function ApplicationsSection() {
     </section>
   );
 }
+
+

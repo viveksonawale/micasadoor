@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
@@ -179,8 +179,8 @@ export default function ProductRangeSection() {
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
           aria-label="Product Range"
         >
-          {renderStrandplyText("Product", 0, false)}
-          {renderStrandplyText("Range", 7, true)}
+          {renderStrandplyText("One manufacturer. ", 0, false)}
+          {renderStrandplyText("Every door your project needs.", 16, true)}
         </h2>
 
         <p className={styles.sectionSubtitle}>
@@ -301,4 +301,6 @@ export default function ProductRangeSection() {
     </section>
   );
 }
+
+
 

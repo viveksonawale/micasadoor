@@ -71,14 +71,14 @@ export default function WhyUsSection() {
   return (
     <section className={styles.sectionContainer} id="why-us">
       {/* ── Centered Header ── */}
-      <div className={styles.headerWrapper}>
+      <div className={styles.contentWrapper}>
         <SectionEyebrow label="06 WHY MICASA" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
         >
-          {renderStrandplyText("Built like a manufacturer.", 0, false)}
-          {renderStrandplyText("Not a trader.", 25, true)}
+          {renderStrandplyText("Built like a manufacturer. ", 0, false)}
+          {renderStrandplyText("Not a trader.", 23, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
           We control the entire process from timber selection to final finish, ensuring absolute accountability.
@@ -99,3 +99,5 @@ export default function WhyUsSection() {
     </section>
   );
 }
+
+

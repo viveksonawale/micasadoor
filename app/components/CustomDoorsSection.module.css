@@ -4,41 +4,41 @@
   width: 100%;
   position: relative;
   background: var(--color-surface);
-  padding: 80px 0;
+  padding: 80px 0 100px 0;
 }
 
 /* ─── Header ──────────────────────────────────────────────────────────────── */
 
-.headerWrapper {
+.contentWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
-  margin-bottom: 48px;
+  margin-bottom: 8px;
   padding: 0 var(--gutter-desktop, 48px);
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 48px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
-  margin-bottom: 20px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
   perspective: 900px;
   transform-style: preserve-3d;
 }
 
 .sectionSubtitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 17px;
-  color: var(--color-text-secondary, #666);
+  color: rgba(26, 26, 26, 0.6);
   max-width: 590px;
-  line-height: 1.6;
-  margin-bottom: 0;
+  line-height: 1.02;
+  margin-bottom: 32px;
 }
 
 /* ─── Strandply Animation ─────────────────────────────────────────────────── */
@@ -145,7 +145,7 @@
 }
 
 .badgeLabel {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 10px;
   font-weight: 700;
 
@@ -154,7 +154,7 @@
 }
 
 .badgeValue {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: var(--color-text-primary, #1a1a1a);
@@ -196,9 +196,9 @@
 
 .stepLabel {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 12px;
   font-weight: 700;
 
@@ -207,7 +207,7 @@
 }
 
 .stepNum {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 10px;
   font-weight: 700;
 
@@ -215,7 +215,7 @@
   background: var(--color-primary-base, #e14401);
   padding: 2px 7px;
   border-radius: 0;
-  line-height: 1.6;
+  line-height: 1.02;
 }
 
 .stepNote {
@@ -247,14 +247,14 @@
   border: 1.5px solid var(--color-border, #8d8f93);
   background: var(--color-surface, #fff);
   color: var(--color-text-secondary, #525152);
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-weight: 500;
   font-size: 13px;
   border-radius: 0;
   cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
   white-space: nowrap;
-  line-height: 1.4;
+  line-height: 1.02;
 }
 
 .frameChip:hover,
@@ -279,7 +279,7 @@
   padding: 20px 24px;
   background: var(--color-neutral-100, #f1f2f3);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
@@ -287,7 +287,7 @@
 
 .summaryConfig {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 14px;
   flex-wrap: wrap;
   min-width: 0;
@@ -300,7 +300,7 @@
 }
 
 .summaryKey {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 10px;
   font-weight: 700;
 
@@ -309,7 +309,7 @@
 }
 
 .summaryVal {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: var(--color-text-primary, #1a1a1a);
@@ -362,9 +362,9 @@
     font-size: 15px;
   }
 
-  .headerWrapper {
+  .contentWrapper {
     padding: 0 var(--gutter-mobile, 20px);
-    margin-bottom: 32px;
+    margin-bottom: 8px;
   }
 
   .configuratorWrapper {
@@ -376,6 +376,9 @@
   }
 
   .sectionContainer {
-    padding: 60px 0;
+    padding: 80px 0 100px 0;
   }
 }
+
+
+

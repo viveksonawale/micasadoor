@@ -96,14 +96,14 @@ export default function WoodCompareSection() {
   return (
     <section className={styles.sectionContainer} id="wood-compare">
       {/* ── Centered Header ── */}
-      <div className={styles.headerWrapper}>
+      <div className={styles.contentWrapper}>
         <SectionEyebrow label="08 WOOD SELECTION" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
         >
-          {renderStrandplyText("Choose the", 0, false)}
-          {renderStrandplyText("right wood.", 10, true)}
+          {renderStrandplyText("Choose the ", 0, false)}
+          {renderStrandplyText("right wood.", 9, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
           Four timbers, four characters. We help you match species, finish and frame to the application — not the other way around.
@@ -146,3 +146,5 @@ export default function WoodCompareSection() {
     </section>
   );
 }
+
+
