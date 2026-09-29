@@ -1,4 +1,4 @@
-/* ── Split Section: Contact CTA Card (Copied directly from /contact) ── */
+﻿/* ── Split Section: Contact CTA Card (Copied directly from /contact) ── */
 .splitSection {
   padding: 80px 20px;
   max-width: var(--container-max-width, 1600px);
@@ -65,13 +65,13 @@
 }
 
 .infoTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
   margin-bottom: 16px;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
   perspective: 900px;
   transform-style: preserve-3d;
 }
@@ -122,7 +122,7 @@
 
 .infoDescription {
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.02;
   color: var(--color-text-secondary, #666666);
   margin-bottom: 28px;
 }
@@ -133,7 +133,7 @@
 
 .contactLabel {
   display: block;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 24px;
   font-weight: 400;
   color: var(--color-text-primary, #1a1a1a);
@@ -144,7 +144,7 @@
 
 .contactValue {
   display: block;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 16px;
   color: var(--color-text-secondary, #666666);
   text-decoration: none;
@@ -164,7 +164,7 @@
 
 .socialLink {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   width: 38px;
   height: 38px;
@@ -236,7 +236,7 @@
   background-color: #f1f2f3;
   border: 1px solid transparent;
   border-radius: 0;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 14px;
   color: var(--color-text-primary, #1a1a1a);
   transition: all 0.2s ease;
@@ -273,7 +273,7 @@
   background-color: rgba(46, 125, 50, 0.1);
   border: 1px solid rgba(46, 125, 50, 0.2);
   border-radius: 0;
-  text-align: center;
+  text-align: left;
 }
 
 .successMessage p {
@@ -281,3 +281,7 @@
   font-size: 15px;
   font-weight: 500;
 }
+
+
+
+

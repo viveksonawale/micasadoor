@@ -72,14 +72,14 @@ export default function InstallSection() {
   return (
     <section className={styles.sectionContainer} id="installation">
       {/* ── Centered Header ── */}
-      <div className={styles.headerWrapper}>
+      <div className={styles.contentWrapper}>
         <SectionEyebrow label="07 PROFESSIONAL INSTALLATION" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
         >
-          {renderStrandplyText("Manufactured right.", 0, false)}
-          {renderStrandplyText("Installed right.", 19, true)}
+          {renderStrandplyText("Manufactured right. ", 0, false)}
+          {renderStrandplyText("Installed right.", 18, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
           A door only performs as well as its fitting. Our teams handle measurement, delivery, site coordination and professional installation — closing the loop between factory and finished opening.
@@ -109,11 +109,14 @@ export default function InstallSection() {
         {/* Right: Architectural Image (Before & After) */}
         <div className={styles.imageColumn}>
           <BeforeAfter
-            beforeImg="/install-door/before-image.webp"
-            afterImg="/install-door/after-image.webp"
+            beforeImg="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop"
+            afterImg="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop"
           />
         </div>
       </div>
     </section>
   );
 }
+
+
+

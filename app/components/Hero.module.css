@@ -88,7 +88,7 @@
 
 /* Typography */
 .headline {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   color: var(--color-white);
   font-size: 32px;
   font-weight: 700;
@@ -152,9 +152,24 @@
   }
 }
 
-/* Subheading */
-.subheading {
-  font-family: var(--font-inter);
+/* Stats (Small Info Tags) */
+.statsGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+@media (min-width: 768px) {
+  .statsGroup {
+    gap: 18px;
+  }
+}
+
+.statItem {
+  font-family: 'Cabinet Grotesk', sans-serif;
   color: rgba(255, 255, 255, 0.9);
   font-size: 13.5px;
   font-weight: 400;

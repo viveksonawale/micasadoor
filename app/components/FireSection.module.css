@@ -2,11 +2,11 @@
   position: relative;
   width: 100%;
   background-color: var(--color-surface, #ffffff);
-  padding: 60px 0;
+  padding: 80px 0 100px 0;
   overflow: hidden;
 }
 
-/* ─── Background & Overlay ────────────────────────────────────────────────── */
+/* --- Background & Overlay -------------------------------------------------- */
 
 .backgroundWrapper {
   position: absolute;
@@ -27,35 +27,24 @@
   background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 60%, rgba(255,255,255,0.4) 100%);
 }
 
-/* ─── Layout ─────────────────────────────────────────────────────────────── */
+/* --- Layout --------------------------------------------------------------- */
 
 .contentWrapper {
   position: relative;
   z-index: 1;
-  max-width: 1350px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 var(--gutter-desktop, 48px);
 }
 
-.headerWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 1000px;
-  margin: 0 auto 20px auto;
-  /* border:2px solid red; */
-}
-
 .gridContainer {
   display: grid;
-  grid-template-columns: 5fr 4fr;
-  gap: 22px;
-  align-items: stretch; /* Match height of right col */
-  /* border:1px solid black; */
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: stretch;
 }
 
-/* ─── Typography & Content ────────────────────────────────────────────────── */
+/* --- Typography & Content -------------------------------------------------- */
 
 .leftCol {
   display: flex;
@@ -63,7 +52,7 @@
   align-items: flex-start;
   justify-content: space-between;
   /* border:1px solid blue; */
-  margin-left: 40px;
+  margin-left: 0;
 }
 
 .leftColTop {
@@ -74,27 +63,27 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 48px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
-  margin: 0 0 16px 0;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
   perspective: 900px;
   transform-style: preserve-3d;
 }
 
 .sectionSubtitle {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 17px;
-  color: var(--color-text-secondary, #666);
-  line-height: 1.6;
+  color: rgba(26, 26, 26, 0.6);
+  line-height: 1.02;
   max-width: 700px;
-  margin: 0 auto;
+  margin-bottom: 32px;
 }
 
-/* ─── Strandply Animation ─────────────────────────────────────────────────── */
+/* --- Strandply Animation --------------------------------------------------- */
 
 .wordWrapper {
   display: inline-flex;
@@ -133,11 +122,11 @@
   }
 }
 
-/* ─── Badge ──────────────────────────────────────────────────────────────── */
+/* --- Badge ---------------------------------------------------------------- */
 
 .badgeBox {
   display:flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
   border: 1px solid var(--color-border, #e5e5e5);
   background: var(--color-surface, #ffffff);
@@ -157,7 +146,7 @@
 }
 
 .badgeText {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 14px; /* Increased */
   font-weight: 700;
 
@@ -165,13 +154,13 @@
   color: var(--color-text-primary, #1a1a1a);
 }
 
-/* ─── Feature List ───────────────────────────────────────────────────────── */
+/* --- Feature List --------------------------------------------------------- */
 
 .featureList {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px 34px;
-  margin: 0;
+  margin-bottom: 30px;
   padding: 0;
   list-style: none;
   max-width: 650px;
@@ -181,10 +170,10 @@
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 15px; /* Increased */
   color: var(--color-text-secondary, #666);
-  line-height: 1.4;
+  line-height: 1.02;
 }
 
 .checkIcon {
@@ -193,7 +182,7 @@
   margin-top: 2px;
 }
 
-/* ─── Buttons ────────────────────────────────────────────────────────────── */
+/* --- Buttons -------------------------------------------------------------- */
 
 .actionGroup {
   display: flex;
@@ -201,95 +190,77 @@
   gap: 12px;
 }
 
-/* ─── Right Column (Certification Box) ───────────────────────────────────── */
+/* --- Right Column (Certification Box) ------------------------------------- */
 
 .rightCol {
   display: flex;
   flex-direction: column;
 }
 
-.certBox {
+.detailsPanel {
+  background-color: var(--color-bg, #fcfbf9);
+  border: 1px solid var(--color-border, #e5e5e5);
+  padding: 32px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertically center content if height is large */
-  border: 1px solid var(--color-border, #e5e5e5);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
-  padding: 32px 40px;
-  transition: all 0.3s ease;
 }
 
-.certBox:hover {
-  border-color: var(--color-primary-base, #e14401);
-}
-
-.certHeader {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 24px;
-}
-
-.certIcon {
-  color: var(--color-primary-base, #e14401);
-}
-
-.certTitle {
-  font-family: var(--font-inter, sans-serif);
+.panelEyebrow {
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 11px;
-  font-weight: 700;
-
+  font-weight: 600;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--color-text-secondary, #666);
-  margin: 0;
+  color: var(--color-text-secondary, #666666);
+  margin: 0 0 24px;
 }
 
-.certList {
+.detailsList {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin: 0 0 20px 0;
-}
-
-.certRow {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
   gap: 16px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--color-border, #e5e5e5);
-}
-
-.certLabel {
-  font-family: var(--font-inter, sans-serif);
-  font-size: 12px;
-
-  text-transform: uppercase;
-  color: var(--color-text-secondary, #666);
-}
-
-.certValue {
-  font-family: var(--font-inter, sans-serif);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-primary-base, #e14401);
-  text-align: right;
   margin: 0;
 }
 
-.certFooter {
-  font-family: var(--font-inter, sans-serif);
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--color-text-muted, #999);
-  margin: auto 0 0 0; /* Push to bottom if height stretches */
-  padding-top: 24px;
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  border-bottom: 1px solid var(--color-border, #e5e5e5);
+  padding-bottom: 12px;
 }
 
-/* ─── Responsive ─────────────────────────────────────────────────────────── */
+.detailLabel {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #666666);
+  margin: 0;
+  flex: 1;
+}
+
+.detailValue {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 12px;
+  color: var(--color-primary-base, #e14401);
+  margin: 0;
+  text-align: right;
+  flex: 1;
+}
+
+.panelDisclaimer {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--color-text-secondary, #666666);
+  margin: 24px 0 0;
+  margin-top: auto;
+}
+
+/* --- Responsive ----------------------------------------------------------- */
 
 @media (max-width: 1024px) {
   .sectionTitle {
@@ -320,10 +291,15 @@
   }
   
   .sectionContainer {
-    padding: 32px 0;
+    padding: 80px 0 100px 0;
   }
   
-  .certBox {
+  .detailsPanel {
     padding: 24px;
   }
 }
+
+
+
+
+

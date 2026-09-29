@@ -1,18 +1,18 @@
-.sectionContainer {
+﻿.sectionContainer {
   width: 100%;
   position: relative;
   background: var(--color-surface, #ffffff);
-  padding: 80px 0;
+  padding: 80px 0 100px 0;
 }
 
 .headerWrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
   padding: 0 var(--gutter-desktop, 48px);
 }
 
@@ -29,13 +29,13 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 48px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
   margin-bottom: 24px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
   perspective: 900px;
   transform-style: preserve-3d;
 }
@@ -51,19 +51,15 @@
 }
 
 .sectionSubtitle {
-  font-family: var(--font-inter, sans-serif);
-  font-size: 20px;
-  color: var(--color-text-secondary, #666);
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 16px;
+  color: rgba(26, 26, 26, 0.6);
   max-width: 680px;
-  line-height: 1.6;
+  line-height: 1.02;
   margin-bottom: 0;
 }
 
-@media (max-width: 768px) {
-  .sectionSubtitle {
-    font-size: 16px;
-  }
-}
+
 
 /* Strandply Text Animation */
 .wordWrapper {
@@ -109,7 +105,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: start;
+  align-items: flex-start;
 }
 
 @media (max-width: 1024px) {
@@ -158,7 +154,7 @@
   height: 40px;
   border-radius: 50%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   border: 1px solid var(--color-border, #e5e5e5);
   background-color: transparent;
@@ -189,7 +185,7 @@
 }
 
 .stepNumber {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: var(--color-primary-base, #e14401);
@@ -198,7 +194,7 @@
 }
 
 .stepTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 28px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
@@ -206,10 +202,10 @@
 }
 
 .stepDescription {
-  font-family: var(--font-inter, sans-serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 16px;
   color: var(--color-text-secondary, #666);
-  line-height: 1.6;
+  line-height: 1.02;
 }
 
 @media (max-width: 768px) {
@@ -269,3 +265,6 @@
   border-radius: 0;
   /* Ensure rounded corners on image itself if container overflow fails in some browsers */
 }
+
+
+

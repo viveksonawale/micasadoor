@@ -1,7 +1,37 @@
-import React from 'react';
+﻿import React from 'react';
 import Image from 'next/image';
 import styles from './CallToActionSection.module.css';
 import Button from './Button';
+
+
+const renderStrandplyText = (lineText: string, startIndex: number = 0, isHighlight: boolean = false) => {
+  let currentIndex = startIndex;
+  const words = lineText.trim().split(/\s+/);
+
+  return words.map((word, wordIndex) => {
+    const chars = word.split("");
+    const wordStartIndex = currentIndex;
+    currentIndex += chars.length;
+
+    return (
+      <span key={wordIndex} className={`${styles.wordWrapper} ${isHighlight ? styles.highlight : ""}`}>
+        {chars.map((char, charIndex) => {
+          const i = wordStartIndex + charIndex;
+          return (
+            <span
+              key={charIndex}
+              aria-hidden="true"
+              className={styles.strandplyChar}
+              style={{ "--i": i } as React.CSSProperties}
+            >
+              {char}
+            </span>
+          );
+        })}
+      </span>
+    );
+  });
+};
 
 export default function CallToActionSection() {
   return (
@@ -9,10 +39,9 @@ export default function CallToActionSection() {
       <div className={styles.container}>
         <div className={styles.contentWrapper}>
           <h2 className={styles.heading}>
-            Let&apos;s Build
-            <span className={styles.highlight}>Brighter Spaces</span>
-            Together
-          </h2>
+          {renderStrandplyText("Ready to start ", 0, false)}
+          {renderStrandplyText("your project?", 12, true)}
+        </h2>
           
           <p className={styles.description}>
             Whether you have questions, ideas, or projects in mind, we&apos;re here
@@ -63,3 +92,7 @@ export default function CallToActionSection() {
     </section>
   );
 }
+
+
+
+
