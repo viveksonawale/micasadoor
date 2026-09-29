@@ -10,7 +10,7 @@ import styles from "./page.module.css";
 
 export const metadata = {
   title: "Door Frames Catalog | Teak, SYP & Engineered Frames",
-  description: "Solid timber and engineered LVL frame systems — including BWP and Marine grade options for moisture-prone areas.",
+  description: "Solid timber and engineered LVL frame systems  including BWP and Marine grade options for moisture-prone areas.",
 };
 
 export default function FramesPage() {
@@ -33,7 +33,7 @@ export default function FramesPage() {
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>The frame decides how long the door lasts.</h1>
             <p className={styles.heroSubtitle}>
-              Solid timber and engineered LVL frame systems — including BWP and Marine grade options for moisture-prone areas.
+              Solid timber and engineered LVL frame systems  including BWP and Marine grade options for moisture-prone areas.
             </p>
           </div>
           <div className={styles.heroAccentLine} />

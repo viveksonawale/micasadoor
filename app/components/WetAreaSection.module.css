@@ -1,7 +1,7 @@
 .sectionContainer {
   position: relative;
   width: 100%;
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
   padding: 80px 0 100px 0; /* Minimal padding as requested */
   overflow: hidden;
 }
@@ -9,7 +9,7 @@
 /* ─── Layout ─────────────────────────────────────────────────────────────── */
 
 .contentWrapper {
-  max-width: 1350px;
+  max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
   padding: 0 var(--gutter-desktop, 48px);
 }
@@ -36,10 +36,10 @@
 }
 
 .sectionSubtitle {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-inter, 'Inter', sans-serif);
   font-size: 17px;
   color: rgba(26, 26, 26, 0.6);
-  line-height: 1.02;
+  line-height: 1.5;
   max-width: 650px;
   margin-bottom: 32px;
 }
@@ -147,7 +147,7 @@
 
 .tag {
   border: 1px solid var(--color-border, #e5e5e5);
-  background: var(--color-surface, #ffffff);
+  background: var(--color-surface, #F9F8F6);
   padding: 10px 16px;
   font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 11px;

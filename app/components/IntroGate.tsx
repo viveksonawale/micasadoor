@@ -69,8 +69,8 @@ export default function IntroGate() {
   const opening = phase === "opening" || phase === "blur" || phase === "fade";
   const doorAnim =
     phase === "closed" ? { rotateY: 0 }
-    : phase === "handle" ? { rotateY: 1.5 }
-    : { rotateY: [1.5, -116, -106] };
+      : phase === "handle" ? { rotateY: 1.5 }
+        : { rotateY: [1.5, -116, -106] };
   const doorTransition =
     opening
       ? { duration: 1.6, times: [0, 0.72, 1], ease: ["easeIn", [0.22, 1, 0.36, 1]] }
@@ -124,7 +124,7 @@ export default function IntroGate() {
           <img src="/factory/hero-factory.jpg" alt="Micasa Doors factory floor" className="h-full w-full object-cover" />
         </motion.div>
 
-        {/* scene — walls */}
+        {/* scene  walls */}
         <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: 1600 }}>
           <div className="relative" style={{ transform: "translateY(-3vh)" }}>
             {/* left wall */}
@@ -214,7 +214,7 @@ export default function IntroGate() {
                     <motion.button
                       data-testid="intro-door-handle"
                       onClick={(e: any) => { e.stopPropagation(); open(); }}
-                      aria-label="Door handle — click to open"
+                      aria-label="Door handle  click to open"
                       className="absolute z-10 flex h-24 w-24 items-center justify-center transition-all duration-300"
                       style={{ right: "-2%", top: "47%" }}
                       whileHover={{ scale: 1.15 }}
@@ -253,7 +253,7 @@ export default function IntroGate() {
         <button
           data-testid="intro-skip-btn"
           onClick={handleSkip}
-          className="absolute bottom-6 right-6 md:bottom-8 md:right-12 text-[10px] uppercase text-[var(--color-text-muted)] underline underline-offset-4 transition-colors duration-300 hover:text-[var(--color-primary-base)] z-50" style={{ fontFamily: "var(--font-inter)" }}
+          className="absolute bottom-6 right-6 md:bottom-8 md:right-12 text-[10px] uppercase text-[var(--color-text-muted)] underline underline-offset-4 transition-colors duration-300 hover:text-[var(--color-primary-base)] z-50" style={{ fontFamily: "var(--font-mono, 'JetBrains Mono', monospace)", fontWeight: 700 }}
         >
           Skip intro
         </button>

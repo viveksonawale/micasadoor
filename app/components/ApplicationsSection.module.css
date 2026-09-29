@@ -1,7 +1,7 @@
 .sectionContainer {
   position: relative;
   width: 100%;
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
   padding: 80px 0 100px 0;
   /* border-top: 1px solid var(--color-border, #e5e5e5); */
 }
@@ -71,18 +71,18 @@
 }
 
 .sectionSubtitle {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-inter, 'Inter', sans-serif);
   font-size: 17px;
   color: rgba(26, 26, 26, 0.6);
   max-width: 590px;
-  line-height: 1.02;
+  line-height: 1.5;
   margin-bottom: 32px;
 }
 
 .bentoGrid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 10px;
+  gap: 4px;
   max-width: var(--container-max-width, 1440px);
   margin: 0 auto;
   padding: 0 var(--gutter-desktop, 48px);

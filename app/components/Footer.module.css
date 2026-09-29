@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   Footer — Micasa Doors Pvt. Ltd.
+   Footer  Micasa Doors Pvt. Ltd.
    Dark-themed professional footer
    ═══════════════════════════════════════════════════ */
 
@@ -15,14 +15,12 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--color-primary-base, #e14401) 30%,
-    var(--color-primary, #fd7101) 50%,
-    var(--color-primary-base, #e14401) 70%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--color-primary-base, #e14401) 30%,
+      var(--color-primary, #fd7101) 50%,
+      var(--color-primary-base, #e14401) 70%,
+      transparent 100%);
   z-index: 10;
 }
 
@@ -277,7 +275,7 @@
   .mainFooter {
     padding: 36px 0 32px;
   }
-  
+
   .contentRow {
     gap: 60px;
   }

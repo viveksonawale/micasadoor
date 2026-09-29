@@ -1,7 +1,7 @@
 .sectionContainer {
   position: relative;
   width: 100%;
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
   padding: 80px 0 100px 0;
   /* border-top: 1px solid var(--color-border, #e5e5e5); */
 }
@@ -31,11 +31,11 @@
 }
 
 .sectionSubtitle {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-inter, 'Inter', sans-serif);
   font-size: 17px;
   color: rgba(26, 26, 26, 0.6);
   max-width: 680px;
-  line-height: 1.02;
+  line-height: 1.5;
   margin-bottom: 32px;
 }
 
@@ -123,7 +123,7 @@
 .resourceCard:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
   border-color: transparent;
 }
 
@@ -133,7 +133,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  background: var(--color-surface, #ffffff);
+  background: var(--color-surface, #F9F8F6);
   border: 1px solid var(--color-border, #e5e5e5);
   margin-bottom: 24px;
   transition: background-color 0.4s ease, border-color 0.4s ease;

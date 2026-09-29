@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useRef, useEffect } from "react";
 import Button from "./Button";
@@ -52,7 +52,7 @@ export default function ContactFormSection() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.2 }
     );
 
     const currentRef = headerRef.current;
@@ -60,13 +60,8 @@ export default function ContactFormSection() {
       observer.observe(currentRef);
     }
 
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 150);
-
     return () => {
       if (currentRef) observer.unobserve(currentRef);
-      clearTimeout(timer);
     };
   }, []);
 
@@ -88,7 +83,7 @@ export default function ContactFormSection() {
             aria-label="Get In Touch With Us"
           >
           {renderStrandplyText("Have a project ", 0, false)}
-          {renderStrandplyText("in mind?", 12, true)}
+          {renderStrandplyText("in mind?", 15, true)}
         </h2>
 
           <p className={styles.infoDescription}>

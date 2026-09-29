@@ -12,7 +12,7 @@ import styles from "./page.module.css";
 
 export const metadata = {
   title: "Wooden Doors Catalog | Fire-Rated, Veneer & Flush Doors",
-  description: "Six door programmes across four timbers — from premium solid teak entrances to high-volume internal pine doors.",
+  description: "Six door programmes across four timbers  from premium solid teak entrances to high-volume internal pine doors.",
 };
 
 export default function DoorsPage() {
@@ -33,9 +33,9 @@ export default function DoorsPage() {
           <div className={styles.heroOverlay} />
 
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>Wooden Doors</h1>
+            <h1 className={styles.heroTitle}>Defined by Direction</h1>
             <p className={styles.heroSubtitle}>
-              Six door programmes across four timbers — from premium solid teak entrances to high-volume internal pine doors.
+              Six door programmes across four timbers  from premium solid teak entrances to high-volume internal pine doors.
             </p>
           </div>
           <div className={styles.heroAccentLine} />

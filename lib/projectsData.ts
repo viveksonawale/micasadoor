@@ -95,7 +95,7 @@ export const PROJECTS = [
     developer: "Puranik Group",
     application: "Red Meranti frame with Door",
     status: "Completed",
-    quantity: "—",
+    quantity: "",
     location: "Thane",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop",
   },

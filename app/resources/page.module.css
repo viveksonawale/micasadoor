@@ -4,7 +4,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
 }
 
 .mainContent {
@@ -102,12 +102,13 @@
 }
 
 .heroTitle {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 44px;
   font-weight: 700;
   color: var(--color-white);
   margin: 0 0 16px;
   line-height: 1.1;
+  animation: bannerTextReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (min-width: 768px) {
@@ -141,7 +142,7 @@
 /* ── Resources Section ── */
 .resourcesSection {
   padding: 80px 0;
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
 }
 
 @media (min-width: 1024px) {
@@ -155,7 +156,7 @@
 }
 
 .sectionHeading {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 36px;
   font-weight: 700;
   color: var(--color-heading);
@@ -243,7 +244,7 @@
 .cardIconWrapper {
   width: 48px;
   height: 48px;
-  background-color: var(--color-white);
+  background-color: var(--color-ivory, #F9F8F6);
   border: 1px solid var(--color-neutral-200);
   display: flex;
   align-items: center;
@@ -258,7 +259,7 @@
 }
 
 .cardTitle {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 24px;
   font-weight: 700;
   color: var(--color-heading);

@@ -1,4 +1,4 @@
-# MICASA — UI & Design Rules for AI Coding Agents
+# MICASA  UI & Design Rules for AI Coding Agents
 
 ## 0. Purpose & Authority
 
@@ -10,10 +10,10 @@ These rules are the visual and layout source of truth for the MICASA website.
 
 ### Source-of-truth hierarchy
 
-1. **Existing application functionality and routing** — preserve unless a requested change requires it.
-2. **`app/globals.css`** — source of truth for colors, global typography variables, spacing, container tokens, and shared visual tokens already implemented there.
-3. **This `rules.md`** — source of truth for layout behavior, page architecture, geometry, responsive behavior, and AI-agent constraints.
-4. **Reference implementation (`ref-micasa`) / Emergent code** — reference for structure, content hierarchy, feature ideas, and requested visual composition only. It must not override the MICASA design system.
+1. **Existing application functionality and routing**  preserve unless a requested change requires it.
+2. **`app/globals.css`**  source of truth for colors, global typography variables, spacing, container tokens, and shared visual tokens already implemented there.
+3. **This `rules.md`**  source of truth for layout behavior, page architecture, geometry, responsive behavior, and AI-agent constraints.
+4. **Reference implementation (`ref-micasa`) / Emergent code**  reference for structure, content hierarchy, feature ideas, and requested visual composition only. It must not override the MICASA design system.
 
 ---
 
@@ -160,7 +160,7 @@ Do not allow different pages to introduce competing container widths.
 
 ---
 
-# 3. Responsive Design — Required From the Beginning
+# 3. Responsive Design  Required From the Beginning
 
 Every new component and page must be responsive from its first implementation.
 
@@ -462,7 +462,7 @@ Changing the color system requires explicit instruction.
 
 ---
 
-# 8. Geometry — Sharp Corners
+# 8. Geometry  Sharp Corners
 
 MICASA uses a **sharp architectural geometry system**.
 
@@ -709,7 +709,7 @@ Reference code is NOT the source of truth for:
 - global CSS
 - responsive architecture
 
-## 13.3 Adapt — do not blindly copy
+## 13.3 Adapt  do not blindly copy
 
 When implementing a reference feature:
 
@@ -865,7 +865,7 @@ Do not sacrifice usability for visual effects.
 
 When asked to create or modify a page, follow this sequence.
 
-### Step 1 — Inspect
+### Step 1  Inspect
 
 Inspect:
 
@@ -877,7 +877,7 @@ Inspect:
 - footer
 - relevant reference code
 
-### Step 2 — Identify the requested change
+### Step 2  Identify the requested change
 
 Separate:
 
@@ -888,13 +888,13 @@ Required visual changes
 Existing functionality that must remain
 ```
 
-### Step 3 — Establish the master grid
+### Step 3  Establish the master grid
 
 Before creating new sections, determine the same container width used by the navbar.
 
 All major content must align to it.
 
-### Step 4 — Build responsive structure
+### Step 4  Build responsive structure
 
 Implement:
 
@@ -907,7 +907,7 @@ Wide desktop
 
 as part of the initial implementation.
 
-### Step 5 — Apply MICASA design system
+### Step 5  Apply MICASA design system
 
 Use:
 
@@ -920,13 +920,13 @@ Use:
 - consistent buttons
 - shared container system
 
-### Step 6 — Compare against reference
+### Step 6  Compare against reference
 
 Use `ref-micasa` to verify that the requested structure/features have been carried over.
 
 Do NOT copy its visual system blindly.
 
-### Step 7 — Verify consistency
+### Step 7  Verify consistency
 
 Check:
 
@@ -1079,7 +1079,7 @@ When there is ambiguity, follow these principles:
 16. **Prefer targeted modifications over unnecessary rewrites.**
 17. **Every new component must belong visually and responsively to the same MICASA system.**
 
-**MICASA should feel like one coherent architectural website — not a collection of independently generated pages.**
+**MICASA should feel like one coherent architectural website  not a collection of independently generated pages.**
 
 ---
 

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import styles from "./InstallSection.module.css";
 import SectionEyebrow from "./SectionEyebrow";
 import Button from "./Button";
@@ -82,7 +83,7 @@ export default function InstallSection() {
           {renderStrandplyText("Installed right.", 18, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
-          A door only performs as well as its fitting. Our teams handle measurement, delivery, site coordination and professional installation — closing the loop between factory and finished opening.
+          A door only performs as well as its fitting. Our teams handle measurement, delivery, site coordination and professional installation  closing the loop between factory and finished opening.
         </p>
       </div>
 
@@ -92,12 +93,20 @@ export default function InstallSection() {
         <div className={styles.flowColumn}>
           <div className={styles.flowList}>
             {FLOW.map((step, index) => (
-              <div key={step} className={styles.flowRow}>
-                <span className={styles.flowNumber}>
-                  {String(index + 1).padStart(2, "0")}
+              <Link key={step} href="/contact" className={styles.flowRow}>
+                <div className={styles.flowLeft}>
+                  <span className={styles.flowNumber}>
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className={styles.flowTitle}>{step}</h3>
+                </div>
+                <span className={styles.flowArrow} aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="square">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
                 </span>
-                <h3 className={styles.flowTitle}>{step}</h3>
-              </div>
+              </Link>
             ))}
           </div>
 

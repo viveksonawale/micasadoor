@@ -8,10 +8,10 @@ import SectionEyebrow from "./SectionEyebrow";
 const REASONS = [
   { icon: Factory, title: "Manufacturing Expertise", desc: "A dedicated production unit running controlled, stage-gated manufacturing." },
   { icon: Gauge, title: "12,000+ Door Capacity", desc: "Production scale for large developments without losing batch consistency." },
-  { icon: Trees, title: "Multiple Wood Options", desc: "Teak, Red Meranti, Steamed Beech and Pine — matched to budget." },
+  { icon: Trees, title: "Multiple Wood Options", desc: "Teak, Red Meranti, Steamed Beech and Pine  matched to budget." },
   { icon: Layers, title: "Engineered Frames", desc: "LVL, BWP and Marine grade frames engineered for dimensional stability." },
   { icon: Flame, title: "Certified Fire Doors", desc: "IS 3614 certified wooden fire doors with full documentation support." },
-  { icon: Wrench, title: "Expert Installation", desc: "From measurement to final inspection — fitted by trained teams." },
+  { icon: Wrench, title: "Expert Installation", desc: "From measurement to final inspection  fitted by trained teams." },
 ];
 
 const renderStrandplyText = (
@@ -80,9 +80,9 @@ export default function WhyUsSection() {
           {renderStrandplyText("Built like a manufacturer. ", 0, false)}
           {renderStrandplyText("Not a trader.", 23, true)}
         </h2>
-        <p className={styles.sectionSubtitle}>
+        {/* <p className={styles.sectionSubtitle}>
           We control the entire process from timber selection to final finish, ensuring absolute accountability.
-        </p>
+        </p> */}
       </div>
 
       <div className={styles.gridContainer}>

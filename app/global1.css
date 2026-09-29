@@ -22,7 +22,7 @@
 .ref-eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.25em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -40,6 +40,7 @@
 }
 
 .ref-subheading {
+  font-family: var(--font-inter, 'Inter', sans-serif);
   font-size: 1rem; /* text-base */
   line-height: 1.625; /* leading-relaxed */
 }
@@ -77,5 +78,18 @@
 @media (max-width: 640px) {
   .micasa-content-wrapper {
     padding: 0 var(--gutter-mobile, 20px);
+  }
+}
+
+@keyframes bannerTextReveal {
+  0% {
+    opacity: 0.001;
+    transform: translateY(20px);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
   }
 }

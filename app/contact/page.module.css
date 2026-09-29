@@ -83,11 +83,12 @@
 }
 
 .heroTitle {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 48px;
   font-weight: 700;
   color: var(--color-white);
   margin: 0;
+  animation: bannerTextReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (min-width: 768px) {
@@ -110,22 +111,21 @@
 }
 
 
-/* ── Split Section: Get In Touch & Form ── */
 .splitSection {
-  padding: 48px 20px 0;
+  padding: 48px var(--gutter-mobile, 20px) 0;
   max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
 }
 
 @media (min-width: 640px) {
   .splitSection {
-    padding: 64px 36px 0;
+    padding: 64px var(--gutter-tablet, 36px) 0;
   }
 }
 
 @media (min-width: 1024px) {
   .splitSection {
-    padding: 72px 48px 0;
+    padding: 72px var(--gutter-desktop, 48px) 0;
   }
 }
 
@@ -139,7 +139,8 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
-  max-width: 1100px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -177,7 +178,7 @@
 }
 
 .infoTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
@@ -402,6 +403,22 @@
 }
 
 
+.contactCtaOverride {
+  padding-bottom: 24px !important;
+}
+
+@media (min-width: 640px) {
+  .contactCtaOverride {
+    padding-bottom: 32px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contactCtaOverride {
+    padding-bottom: 48px !important;
+  }
+}
+
 /* ── Office Locations Grid ── */
 .officesSection {
   padding: 28px 20px 72px;
@@ -459,7 +476,7 @@
 }
 
 .officeHeading {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 28px;
   font-weight: 600;
   color: var(--color-text-primary);

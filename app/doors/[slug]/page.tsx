@@ -175,7 +175,7 @@ export default function DoorDetailPage({ params }: { params: Promise<{ slug: str
 
                 <div className={styles.ctaWrapper}>
                   <Link href="/contact" className={styles.ctaButton}>
-                    REQUEST A QUOTE — {door.name.toUpperCase()}
+                    REQUEST A QUOTE  {door.name.toUpperCase()}
                   </Link>
                 </div>
               </div>
@@ -187,7 +187,7 @@ export default function DoorDetailPage({ params }: { params: Promise<{ slug: str
         <section className={styles.moreSection}>
           <div className={styles.container}>
             <h2 className={styles.sectionHeading}>Recommendations</h2>
-            
+
             <div className={styles.moreGrid}>
               {otherDoors.map((d) => (
                 <Link href={`/doors/${d.slug}`} key={d.slug} className={styles.moreCard}>

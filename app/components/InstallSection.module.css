@@ -1,7 +1,7 @@
 .sectionContainer {
   position: relative;
   width: 100%;
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
   padding: 80px 0 100px 0;
   /* border-top: 1px solid var(--color-border, #e5e5e5); */
 }
@@ -31,11 +31,11 @@
 }
 
 .sectionSubtitle {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-inter, 'Inter', sans-serif);
   font-size: 17px;
   color: rgba(26, 26, 26, 0.6);
   max-width: 680px;
-  line-height: 1.02;
+  line-height: 1.5;
   margin-bottom: 32px;
 }
 
@@ -73,11 +73,11 @@
 .splitContainer {
   display: grid;
   grid-template-columns: 0.8fr 1fr;
-  gap: 64px; /* Reduced from 80px */
-  max-width: var(--container-max-width, 1440px);
+  gap: 64px;
+  max-width: var(--container-max-width, 1600px);
   margin: 0 auto;
   padding: 0 var(--gutter-desktop, 48px);
-  align-items: flex-start; /* Vertically center the split components */
+  align-items: flex-start;
 }
 
 /* ─── Left: Flow List ─────────────────────────────────────────────────────── */
@@ -92,42 +92,70 @@
 .flowList {
   display: flex;
   flex-direction: column;
-  margin-bottom: 32px; /* Reduced from 48px */
+  margin-bottom: 32px;
   width: 100%;
+  border-top: 1px solid var(--color-border, #e5e5e5);
 }
 
 .flowRow {
   display: flex;
-  align-items: flex-start;
-  padding: 16px 20px; /* Added horizontal padding for a cleaner block feel */
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 12px;
   border-bottom: 1px solid var(--color-border, #e5e5e5);
+  border-left: 3px solid transparent;
   position: relative;
-  transition: background-color 0.4s ease, transform 0.4s ease;
-  margin-left: -20px; /* Offset the padding so it aligns with button */
-  width: calc(100% + 40px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-left: 0;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .flowRow:hover {
   background-color: var(--color-neutral-100, #f8f9fa);
-  transform: translateX(8px);
+  border-left-color: var(--color-primary-base, #e14401);
+  padding-left: 16px;
+}
+
+.flowLeft {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .flowNumber {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 13px;
   font-weight: 700;
+  letter-spacing: 0.05em;
   color: var(--color-primary-base, #e14401);
-  margin-right: 32px;
+  background-color: rgba(225, 68, 1, 0.08);
+  border: 1px solid rgba(225, 68, 1, 0.22);
+  padding: 4px 10px;
+  border-radius: 0;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  transition: all 0.3s ease;
+}
 
+.flowRow:hover .flowNumber {
+  background-color: var(--color-primary-base, #e14401);
+  border-color: var(--color-primary-base, #e14401);
+  color: #ffffff;
 }
 
 .flowTitle {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
   margin: 0;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.03em;
   text-transform: capitalize;
   transition: color 0.3s ease;
 }
@@ -136,16 +164,31 @@
   color: var(--color-primary-base, #e14401);
 }
 
+.flowArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-base, #e14401);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flowRow:hover .flowArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .primaryButton {
   background-color: var(--color-btn-primary-bg, #e14401);
   color: #ffffff;
   border: none;
   border-radius: 0;
-  padding: 20px 40px;
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-
+  padding: 18px 36px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
   cursor: pointer;
   align-self: flex-start;
@@ -230,13 +273,13 @@
     margin-bottom: 8px;
   }
   .flowTitle {
-    font-size: 20px;
+    font-size: 18px;
   }
-  .flowNumber {
-    margin-right: 16px;
+  .flowLeft {
+    gap: 12px;
   }
   .flowRow {
-    padding: 16px 0;
+    padding: 14px 8px;
     margin-left: 0;
     width: 100%;
   }

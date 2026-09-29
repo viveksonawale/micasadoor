@@ -12,7 +12,7 @@ import ContactFormSection from "../components/ContactFormSection";
 
 export default function ManufacturingPage() {
   const galleryImages = [
-    { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop", alt: "Gandhidham manufacturing unit — full production floor" },
+    { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop", alt: "Gandhidham manufacturing unit  full production floor" },
     { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop", alt: "Micasa team stacking engineered boards for door production" },
     { src: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop", alt: "Seasoned board inventory ready for precision manufacturing" },
   ];
@@ -48,7 +48,7 @@ export default function ManufacturingPage() {
         <StatsSection />
 
         {/* Factory Story Section */}
-        <FactoryStorySection eyebrow="01 CRAFTED WITH PRECISION"/>
+        <FactoryStorySection eyebrow="01 CRAFTED WITH PRECISION" />
 
         {/* Gallery Section */}
         <section className={styles.gallerySection}>
@@ -56,22 +56,22 @@ export default function ManufacturingPage() {
             <div className={styles.galleryGrid}>
               {galleryImages.map((img, i) => (
                 <div key={i} className={styles.galleryImageWrapper}>
-                  <Image 
-                    src={img.src} 
-                    alt={img.alt} 
-                    fill 
-                    className={styles.galleryImage} 
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className={styles.galleryImage}
                   />
                 </div>
               ))}
             </div>
             <p className={styles.galleryLabel}>
-              Micasa Doors manufacturing unit — Gandhidham, Gujarat
+              Micasa Doors manufacturing unit  Gandhidham, Gujarat
             </p>
           </div>
         </section>
 
-        <ContactFormSection/>
+        <ContactFormSection />
       </main>
 
       <Footer />

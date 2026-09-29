@@ -81,10 +81,10 @@ export default function ProductsPage() {
               ref={heroRef}
               className={`${styles.pageTitle}`}
             >
-              Our Products
+              Wooden doors, built to specification.
             </h1>
             <p className={styles.pageSubtitle}>
-              Explore our comprehensive range of high-performance doors for every application.
+              Six door programmes across four timbers — from premium solid teak entrances to high-volume internal pine doors.
             </p>
           </div>
           <div className={styles.heroBottomBar} />

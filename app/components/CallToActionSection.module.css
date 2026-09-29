@@ -1,184 +1,290 @@
-.section {
-  padding: 40px 4vw 90px 4vw;
-  background-color: var(--color-surface, #ffffff);
-  display: flex;
-  justify-content: center;
+.splitSection {
+  padding: 80px var(--gutter-mobile, 20px) 100px;
+  max-width: var(--container-max-width, 1600px);
+  margin: 0 auto;
+  background-color: var(--color-surface, #F9F8F6);
 }
 
-.container {
-  max-width: 1200px;
-  width: 100%;
-  background: linear-gradient(135deg, #f4f6f9 0%, #e8ecf1 100%);
+@media (min-width: 640px) {
+  .splitSection {
+    padding: 90px var(--gutter-tablet, 36px) 110px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .splitSection {
+    padding: 100px var(--gutter-desktop, 48px) 120px;
+  }
+}
+
+.splitContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  background-color: #f8f9fa;
   border-radius: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  padding: 32px 24px;
   position: relative;
-  /* subtle shadow */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-  .container {
+.logoWatermark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/logo/micasalogo.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  opacity: 0.04;
+  z-index: 0;
+  pointer-events: none;
+  transform: scale(1.5) translate(-10%, 10%);
+}
+
+@media (min-width: 1024px) {
+  .splitContainer {
     flex-direction: row;
-    align-items: stretch;
-    min-height: 480px;
+    justify-content: space-between;
+    gap: 56px;
+    padding: 48px 56px;
   }
 }
 
-.contentWrapper {
+/* Left: Contact Info */
+.infoColumn {
   flex: 1;
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 2;
+  max-width: 480px;
+  position: relative;
+  z-index: 1;
+}
+
+.infoTitle {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-text-primary, #1a1a1a);
+  margin-bottom: 16px;
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  perspective: 900px;
+  transform-style: preserve-3d;
 }
 
 @media (min-width: 768px) {
-  .contentWrapper {
-    padding: 80px 60px;
-    max-width: 55%;
+  .infoTitle {
+    font-size: 48px;
   }
 }
 
-.heading {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  line-height: 1.1;
-  margin-bottom: 24px;
-  font-family: var(--font-playfair), serif;
-  color: var(--color-neutral-900);
-  font-weight: 400;
+/* Strandply Text Animation */
+.wordWrapper {
+  display: inline-flex;
+  white-space: nowrap;
+  margin-right: 0.28em;
+}
+
+.strandplyChar {
+  display: inline-flex;
+  opacity: 0.001;
+  filter: blur(15px);
+  transform: translateY(10px) scale(2);
+  transform-origin: 50% 50%;
+  will-change: transform, opacity, filter;
+}
+
+.animate .strandplyChar {
+  animation: strandplyAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--i) * 0.03s + 0.05s);
+}
+
+@keyframes strandplyAppear {
+  0% {
+    opacity: 0.001;
+    filter: blur(15px);
+    transform: translateY(10px) scale(2);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
 }
 
 .highlight {
-  color: #e14401; /* Using the brand red from button */
-  display: block;
+  color: var(--color-primary-base, #e14401);
 }
 
-.description {
-  font-size: 1.125rem;
+.infoDescription {
+  font-size: 15px;
   line-height: 1.6;
-  color: var(--color-neutral-600);
-  margin-bottom: 40px;
-  max-width: 480px;
-  font-family: sans-serif;
+  color: var(--color-text-secondary, #666);
+  margin-bottom: 28px;
 }
 
-.actions {
-  display: flex;
+.contactBlock {
+  margin-bottom: 28px;
 }
 
-.graphicWrapper {
-  flex: 1;
-  position: relative;
-  min-height: 300px;
+.contactLabel {
+  display: block;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-text-primary, #1a1a1a);
+  text-transform: none;
+  letter-spacing: normal;
+  margin-bottom: 12px;
+}
+
+.contactValueGroup {
   display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.contactValue {
+  display: block;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 16px;
+  color: var(--color-text-secondary, #666);
+  text-decoration: none;
+  margin-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.contactValue:hover {
+  color: var(--color-primary-base, #e14401);
+}
+
+.socialRow {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: flex-end;
-  /* Fade out at the bottom */
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
-  mask-image: linear-gradient(to bottom, black 50%, transparent 95%);
-  z-index: 1;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: var(--color-neutral-300, #ccc);
+  color: var(--color-white, #fff);
+  transition: all 0.2s ease;
 }
 
-@media (min-width: 768px) {
-  .graphicWrapper {
-    min-height: auto;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    width: 50%;
-  }
+.socialLink:hover {
+  background-color: var(--color-primary-base, #e14401);
+  transform: translateY(-2px);
 }
 
-.doorsContainer {
+.socialLink svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Right: Form */
+.formColumn {
+  flex: 1;
+  max-width: 560px;
   position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding-right: 2vw;
-}
-
-.door {
-  position: absolute;
-  bottom: 0;
-  width: 240px;
-  height: 520px;
-  border-radius: 0;
-  box-shadow: -15px 0 40px rgba(0, 0, 0, 0.2);
-  transform-origin: bottom center;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-  background-color: white;
-}
-
-.door img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Door 1 (Back - Dark Wood) */
-.door1 {
-  right: 200px;
-  transform: rotate(-18deg) translateY(30px);
   z-index: 1;
 }
 
-/* Door 2 (Middle - Medium Wood) */
-.door2 {
-  right: 110px;
-  transform: rotate(-9deg) translateY(15px);
-  z-index: 2;
-}
-
-/* Door 3 (Front - Light Oak) */
-.door3 {
-  right: 20px;
-  transform: rotate(0deg);
-  z-index: 3;
-}
-
-/* Hover effects */
-.doorsContainer:hover .door1 {
-  transform: rotate(-22deg) translateY(20px) translateX(-15px);
-}
-
-.doorsContainer:hover .door2 {
-  transform: rotate(-12deg) translateY(10px) translateX(-5px);
-}
-
-.doorsContainer:hover .door3 {
-  transform: rotate(0deg) translateY(0);
-}
-
-@media (max-width: 1024px) {
-  .door {
-    width: 180px;
-    height: 400px;
+@media (min-width: 1024px) {
+  .formColumn {
+    padding-top: 8px;
   }
-  .door1 { right: 140px; }
-  .door2 { right: 80px; }
-  .door3 { right: 20px; }
 }
 
-@media (max-width: 768px) {
-  .door {
-    width: 140px;
-    height: 320px;
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .formGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 20px;
   }
-  .door1 { right: 50%; transform: rotate(-15deg) translateX(-40px); }
-  .door2 { right: 50%; transform: rotate(-5deg) translateX(10px); }
-  .door3 { right: 50%; transform: rotate(5deg) translateX(60px); }
-  .graphicWrapper {
-    align-items: center;
-  }
-  .doorsContainer {
-    padding-right: 0;
-    justify-content: center;
-  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.formGroupFull {
+  grid-column: 1 / -1;
+}
+
+.formLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-neutral-700, #333);
+  margin-left: 2px;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 12px 18px;
+  background-color: #f1f2f3;
+  border: 1px solid transparent;
+  border-radius: 0;
+  font-family: var(--font-inter, sans-serif);
+  font-size: 14px;
+  color: var(--color-text-primary, #1a1a1a);
+  transition: all 0.2s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  background-color: var(--color-surface, #fff);
+  border-color: var(--color-primary-base, #e14401);
+  box-shadow: 0 0 0 3px rgba(225, 68, 1, 0.1);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 110px;
+  border-radius: 0;
+}
+
+.submitButton {
+  margin-top: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.submitBtn {
+  width: 100%;
+}
+
+.successMessage {
+  margin-top: 24px;
+  padding: 20px;
+  background-color: rgba(46, 125, 50, 0.1);
+  border: 1px solid rgba(46, 125, 50, 0.2);
+  border-radius: 0;
+  text-align: center;
+}
+
+.successMessage p {
+  color: #2e7d32;
+  font-size: 15px;
+  font-weight: 500;
 }

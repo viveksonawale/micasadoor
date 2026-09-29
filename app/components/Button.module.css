@@ -3,8 +3,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-inter, sans-serif);
-  font-weight: 600;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace) !important;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
   border-radius: 0;
   text-decoration: none;
   cursor: pointer;
@@ -69,7 +71,7 @@
 }
 
 .outline:hover {
-  background-color: var(--color-white);
+  background-color: var(--color-ivory, #F9F8F6);
   color: #1a1a1a;
   border-color: var(--color-white);
 }
@@ -85,17 +87,16 @@
 
 /* Sizes */
 .sm {
-  font-size: 13px;
-  padding: 8px 18px;
+  font-size: 14px;
+  padding: 9px 20px;
 }
 
 .md {
-  font-size: 15px;
-  padding: 13px 26px;
+  font-size: 16px;
+  padding: 14px 28px;
 }
 
 .lg {
-  font-size: 15px;
-
-  padding: 16px 32px;
+  font-size: 16px;
+  padding: 18px 36px;
 }

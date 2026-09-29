@@ -68,8 +68,8 @@ export default function BeforeAfter({ beforeImg, afterImg }: BeforeAfterProps) {
       <div className={styles.handleWrapper} style={{ left: `${pos}%` }}>
         <div className={styles.handleLine} />
         <div className={styles.handleButton}>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M11 17l-5-5 5-5M13 17l5-5-5-5" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M8 17l-5-5 5-5M16 17l5-5-5-5" />
           </svg>
         </div>
       </div>

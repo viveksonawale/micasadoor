@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
@@ -129,8 +129,8 @@ export default function ProjectsSection() {
       </div>
 
       <div className={styles.buttonWrapper}>
-        <Button href="/projects" variant="primary" size="lg">
-          Show More Projects
+        <Button href="/projects" variant="primary" size="lg" className={styles.showMoreButton}>
+          SHOW MORE PROJECTS
         </Button>
       </div>
     </section>

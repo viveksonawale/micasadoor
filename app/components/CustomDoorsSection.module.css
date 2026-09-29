@@ -33,11 +33,11 @@
 }
 
 .sectionSubtitle {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-inter, 'Inter', sans-serif);
   font-size: 17px;
   color: rgba(26, 26, 26, 0.6);
   max-width: 590px;
-  line-height: 1.02;
+  line-height: 1.5;
   margin-bottom: 32px;
 }
 
@@ -81,7 +81,7 @@
   }
 }
 
-/* ─── Configurator Wrapper — two column ─────────────────────────────────── */
+/* ─── Configurator Wrapper  two column ─────────────────────────────────── */
 
 .configuratorWrapper {
   max-width: var(--container-max-width, 1600px);
@@ -90,15 +90,17 @@
   display: flex;
   justify-content: center;
   align-items: start;
-  gap: 50px; /* Perfect, controlled gap between door and config */
+  gap: 50px;
+  /* Perfect, controlled gap between door and config */
 }
 
-/* ─── LEFT — Door Showcase ───────────────────────────────────────────────── */
+/* ─── LEFT  Door Showcase ───────────────────────────────────────────────── */
 
 .showcaseCol {
   position: sticky;
   top: 100px;
-  flex: 0 0 350px; /* Fixed width to control door size */
+  flex: 0 0 350px;
+  /* Fixed width to control door size */
 }
 
 .showcaseInner {
@@ -118,6 +120,7 @@
   object-fit: cover;
   display: block;
 }
+
 /* Ensure the parent container holding the door has this set */
 .showcaseParentContainer {
   position: relative;
@@ -141,7 +144,8 @@
   gap: 2px;
   z-index: 10;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-  pointer-events: none; /* Allows clicks to pass through to the door image if needed */
+  pointer-events: none;
+  /* Allows clicks to pass through to the door image if needed */
 }
 
 .badgeLabel {
@@ -163,7 +167,7 @@
   text-overflow: ellipsis;
 }
 
-/* ─── RIGHT — Vertical Steps Column ─────────────────────────────────────── */
+/* ─── RIGHT  Vertical Steps Column ─────────────────────────────────────── */
 
 .stepsCol {
   display: flex;
@@ -175,6 +179,15 @@
   background: var(--color-neutral-100, #f1f2f3);
   flex: 0 1 700px;
   width: 100%;
+  font-family: 'JetBrains Mono', monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0 !important;
+}
+
+.stepsCol * {
+  font-family: 'JetBrains Mono', monospace !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0 !important;
 }
 
 .stepBlock {
@@ -238,7 +251,7 @@
   gap: 8px;
 }
 
-/* ─── Chips — shared ─────────────────────────────────────────────────────── */
+/* ─── Chips  shared ─────────────────────────────────────────────────────── */
 
 .frameChip,
 .finishChip,
@@ -379,6 +392,3 @@
     padding: 80px 0 100px 0;
   }
 }
-
-
-

@@ -1,6 +1,6 @@
-# MICASA — Website Design System
+# MICASA  Website Design System
 
-**Status:** v1 draft — overview level, to be refined as we build.
+**Status:** v1 draft  overview level, to be refined as we build.
 **Stack:** Next.js
 **Companion file:** `color-palette.md` (CSS variables for `global.css`)
 
@@ -8,14 +8,14 @@
 
 ## 1. Design Direction
 
-You picked "all of the above" for mood — here's how that resolves into one coherent language instead of four competing ones:
+You picked "all of the above" for mood  here's how that resolves into one coherent language instead of four competing ones:
 
 **"Confident Industrial-Premium"**
 
-- **Base layer (Clean & Premium):** Generous white space, light neutral backgrounds (`#f1f2f3`), restrained use of color — most of the page is quiet so the orange means something when it shows up.
+- **Base layer (Clean & Premium):** Generous white space, light neutral backgrounds (`#f1f2f3`), restrained use of color  most of the page is quiet so the orange means something when it shows up.
 - **Structure layer (Corporate/Technical, à la Metanoia):** Mega-menu navigation, numbered "how it works" process blocks, stat counters, "Us vs. Industry" comparison tables. This is what makes the site feel credible and linked to Metanoia's visual family without copying it.
-- **Energy layer (Bold & Industrial):** Primary CTAs, key numbers, active states, and section dividers use the full-strength brand orange (`#e14401`) at high contrast — heavier font weights on headlines, not thin corporate type.
-- **Texture layer (Warm & Earthy):** Reserved for imagery — product/timber photography, background tints (`#fed193`), and section backgrounds where you want the material itself (wood grain, board texture) to breathe. Earthy tone lives in photography and accents, not in UI chrome.
+- **Energy layer (Bold & Industrial):** Primary CTAs, key numbers, active states, and section dividers use the full-strength brand orange (`#e14401`) at high contrast  heavier font weights on headlines, not thin corporate type.
+- **Texture layer (Warm & Earthy):** Reserved for imagery  product/timber photography, background tints (`#fed193`), and section backgrounds where you want the material itself (wood grain, board texture) to breathe. Earthy tone lives in photography and accents, not in UI chrome.
 
 Rule of thumb: **structure and layout borrow from Metanoia/Strandply's professionalism; color and weight borrow from the logo's boldness; photography and select backgrounds carry the warmth.**
 
@@ -27,13 +27,13 @@ Rule of thumb: **structure and layout borrow from Metanoia/Strandply's professio
 
 | Role | Font | Weight | Notes |
 |---|---|---|---|
-| Display / H1 | Sora | 700–800 | Geometric, bold, slightly technical — matches the logo's angular "M" |
+| Display / H1 | Sora | 700–800 | Geometric, bold, slightly technical  matches the logo's angular "M" |
 | H2–H4 | Sora | 600–700 | Same family, lighter weight for hierarchy |
 | Body / paragraphs | Inter | 400–500 | Neutral, extremely readable at small sizes, safe for long product copy |
 | UI labels / buttons | Inter | 600 | Slightly heavier for tap targets |
 | Stats / big numbers | Sora | 800 | For "7000+ sheets/day" style counters |
 
-Why this pairing: Sora gives you the punchy, slightly industrial character for headlines (echoes the diagonal cuts in the MICASA "M"), while Inter keeps body copy calm and corporate-credible like Metanoia's site — avoiding the generic AI-generated feel of the current client site.
+Why this pairing: Sora gives you the punchy, slightly industrial character for headlines (echoes the diagonal cuts in the MICASA "M"), while Inter keeps body copy calm and corporate-credible like Metanoia's site  avoiding the generic AI-generated feel of the current client site.
 
 **Alternative body font** if you want more warmth: Manrope (rounder, friendlier than Inter, still professional).
 
@@ -69,7 +69,7 @@ Full token list lives in `color-palette.md`. Quick reference for this doc:
 
 | Token | Hex | Role |
 |---|---|---|
-| `--color-primary-base` | `#e14401` | Brand anchor — CTAs, links, active nav |
+| `--color-primary-base` | `#e14401` | Brand anchor  CTAs, links, active nav |
 | `--color-primary` | `#fd7101` | Secondary orange |
 | `--color-primary-light` | `#fd8c0b` | Accents, icons |
 | `--color-primary-lightest` | `#fed193` | Soft backgrounds, badges |
@@ -79,13 +79,13 @@ Full token list lives in `color-palette.md`. Quick reference for this doc:
 | `--color-neutral-300` | `#8d8f93` | Borders, muted text |
 | `--color-neutral-700` | `#525152` | Body text |
 
-**Usage discipline:** No more than one saturated-orange element per "view" above the fold (one hero CTA, or one highlighted stat — not both competing). This keeps the bold color feeling premium instead of loud.
+**Usage discipline:** No more than one saturated-orange element per "view" above the fold (one hero CTA, or one highlighted stat  not both competing). This keeps the bold color feeling premium instead of loud.
 
 ---
 
 ## 4. Spacing Scale
 
-8px base unit — consistent rhythm across sections, cards, and components.
+8px base unit  consistent rhythm across sections, cards, and components.
 
 | Token | Value |
 |---|---|
@@ -100,11 +100,11 @@ Full token list lives in `color-palette.md`. Quick reference for this doc:
 | `--space-24` | 96px |
 | `--space-32` | 128px |
 
-**Section padding:** `--space-24` top/bottom on desktop, `--space-12` on mobile — matches the generous breathing room seen on both reference sites.
+**Section padding:** `--space-24` top/bottom on desktop, `--space-12` on mobile  matches the generous breathing room seen on both reference sites.
 
 ---
 
-## 5. Border Radius — Mixed System
+## 5. Border Radius  Mixed System
 
 Per your choice: sharp on structural elements, rounded on interactive ones.
 
@@ -115,13 +115,13 @@ Per your choice: sharp on structural elements, rounded on interactive ones.
 | `--radius-md` | 8px | Inputs, small tags/badges |
 | `--radius-full` | 999px | Buttons (primary/secondary), pills, avatar/icon chips |
 
-This mix is what gives you the "industrial + premium" feel simultaneously — flat, confident card edges, but tactile, friendly pill-shaped buttons that invite the click.
+This mix is what gives you the "industrial + premium" feel simultaneously  flat, confident card edges, but tactile, friendly pill-shaped buttons that invite the click.
 
 ---
 
 ## 6. Elevation / Shadows
 
-Keep shadows minimal — this is a materials/engineering brand, not a soft SaaS product.
+Keep shadows minimal  this is a materials/engineering brand, not a soft SaaS product.
 
 ```css
 --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
@@ -218,7 +218,7 @@ Use `--shadow-sm` for resting cards, `--shadow-md` on hover, `--shadow-lg` only 
 }
 ```
 
-Product cards (OSB/board-type cards, like Strandply's product carousel) should use a **sharp top edge, image bleeding to the card's edges**, with only the content padding rounded slightly — mirrors how both reference sites present product tiles.
+Product cards (OSB/board-type cards, like Strandply's product carousel) should use a **sharp top edge, image bleeding to the card's edges**, with only the content padding rounded slightly  mirrors how both reference sites present product tiles.
 
 ---
 
@@ -275,7 +275,7 @@ Numbered steps (01–04), alternating image/text layout, connected by a thin ver
 
 ## 12. Motion & Transitions
 
-Keep it subtle and mechanical — not bouncy. This is an engineering-materials brand.
+Keep it subtle and mechanical  not bouncy. This is an engineering-materials brand.
 
 | Property | Duration | Easing |
 |---|---|---|
@@ -284,7 +284,7 @@ Keep it subtle and mechanical — not bouncy. This is an engineering-materials b
 | Menu/dropdown open | 250ms | `cubic-bezier(0.4, 0, 0.2, 1)` |
 | Page section reveal on scroll | 400–600ms | `ease-out`, fade + 16px translate-Y |
 
-Avoid: springy/bouncy easing, spinning icons, anything playful — save personality for color and photography, not motion.
+Avoid: springy/bouncy easing, spinning icons, anything playful  save personality for color and photography, not motion.
 
 ---
 
@@ -301,7 +301,7 @@ Avoid: springy/bouncy easing, spinning icons, anything playful — save personal
 
 ## 14. Imagery Guidelines
 
-- Real product/material photography (timber, OSB texture, boards) over stock/generic renders — this is the single biggest fix versus the current AI-generated client site, which likely leans on generic or placeholder visuals.
+- Real product/material photography (timber, OSB texture, boards) over stock/generic renders  this is the single biggest fix versus the current AI-generated client site, which likely leans on generic or placeholder visuals.
 - Warm, natural color grading on photography (let the wood tones carry warmth) while UI chrome stays clean/neutral.
 - Consistent image treatment: no drop shadows on photos, subtle bottom gradient overlay only where text sits on top of an image (for legibility), matching Strandply's full-bleed hero pattern.
 
@@ -309,8 +309,8 @@ Avoid: springy/bouncy easing, spinning icons, anything playful — save personal
 
 ## 15. Open Items / To Refine Later
 
-- [ ] Final icon set (recommend a single consistent line-icon library — e.g. Phosphor or Lucide — rather than mixed styles)
-- [ ] Dark-mode / dark-section treatment (both reference sites use occasional dark bands — decide if MICASA does too)
+- [ ] Final icon set (recommend a single consistent line-icon library  e.g. Phosphor or Lucide  rather than mixed styles)
+- [ ] Dark-mode / dark-section treatment (both reference sites use occasional dark bands  decide if MICASA does too)
 - [ ] Confirm whether Tailwind CSS will be layered on top of Next.js (this doc's tokens map directly into a `tailwind.config` theme if so)
 - [ ] Logo lockup rules (min size, clear space, on-dark vs on-light version)
 - [ ] Accessibility pass: confirm text/background contrast ratios once real copy and image overlays are in place

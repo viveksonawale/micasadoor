@@ -2,7 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-white);
+  background-color: var(--color-ivory, #F9F8F6);
 }
 
 .mainContent {
@@ -240,13 +240,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.85rem 1.75rem;
   background-color: var(--color-primary-base);
   color: var(--color-white);
-  font-family: var(--font-inter);
-  font-size: 0.75rem;
-  font-weight: 600;
-
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -262,7 +262,7 @@
 /* Recommendations */
 .moreSection {
   padding: 80px 0;
-  background-color: var(--color-white);
+  background-color: var(--color-ivory, #F9F8F6);
 }
 
 @media (min-width: 1024px) {

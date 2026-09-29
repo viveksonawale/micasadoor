@@ -131,37 +131,37 @@ export const FRAMES_PRODUCTS = [
     tagline: "Precision-engineered frames for strength, dimensional stability and project consistency.",
     image: IMG.blueprint,
     description:
-      "LVL (Laminated Veneer Lumber) frames are built from multiple thin wood veneers bonded under pressure with grains aligned. The result is an engineered frame that stays straighter and more consistent than conventional solid sections — door after door, floor after floor.",
+      "LVL (Laminated Veneer Lumber) frames are built from multiple thin wood veneers bonded under pressure with grains aligned. The result is an engineered frame that stays straighter and more consistent than conventional solid sections  door after door, floor after floor.",
     points: ["Engineered from laminated veneers", "High dimensional stability", "Consistent across large quantities", "Factory-machined precision"],
   },
   {
     slug: "bwp-door-frames",
     name: "BWP Grade LVL Frames",
-    kind: "Engineered — BWP",
+    kind: "Engineered  BWP",
     tagline: "Boiling-water-resistant bonding for demanding conditions.",
     image: IMG.grain,
     description:
-      "BWP grade LVL frames use boiling-water-proof adhesive systems for areas exposed to moisture and humidity — recommended for bathrooms, kitchens and coastal projects.",
+      "BWP grade LVL frames use boiling-water-proof adhesive systems for areas exposed to moisture and humidity  recommended for bathrooms, kitchens and coastal projects.",
     points: ["BWP-grade bonding", "For humid & moisture-prone areas", "Engineered stability", "Pairs with wet-area doors"],
   },
   {
     slug: "marine-grade-frames",
     name: "Marine Grade LVL Frames",
-    kind: "Engineered — Marine",
+    kind: "Engineered  Marine",
     tagline: "Our highest moisture-resistance frame specification.",
     image: IMG.bathroomAlt,
     description:
-      "Marine grade LVL frames are specified where water exposure is a given — wet areas, washrooms, coastal hospitality and healthcare projects.",
+      "Marine grade LVL frames are specified where water exposure is a given  wet areas, washrooms, coastal hospitality and healthcare projects.",
     points: ["Marine-grade bonding system", "Wet-area specification", "Engineered consistency", "Project documentation available"],
   },
   {
     slug: "custom-engineered-frames",
     name: "Custom Engineered Frames",
-    kind: "Engineered — Custom",
+    kind: "Engineered  Custom",
     tagline: "Sections, species and build-ups engineered to your specification.",
     image: IMG.factoryFloor,
     description:
-      "Custom engineered frames built to project drawings — non-standard sections, fire-rated frame build-ups and special finishes.",
+      "Custom engineered frames built to project drawings  non-standard sections, fire-rated frame build-ups and special finishes.",
     points: ["Custom sections", "Fire-rated frame build-ups", "Drawing-led production", "Sampling before supply"],
   },
   {
@@ -171,7 +171,7 @@ export const FRAMES_PRODUCTS = [
     tagline: "Warm-toned hardwood frames for residential and hospitality projects.",
     image: IMG.interiorAlt,
     description:
-      "Solid Red Meranti frames — a dependable hardwood with a warm reddish tone, machined to size with consistent rebates for project supply.",
+      "Solid Red Meranti frames  a dependable hardwood with a warm reddish tone, machined to size with consistent rebates for project supply.",
     points: ["Solid Red Meranti sections", "Warm reddish-brown tone", "Machined rebates", "Project quantities"],
   },
   {
@@ -181,7 +181,7 @@ export const FRAMES_PRODUCTS = [
     tagline: "Deep, rich-toned hardwood frames for premium interiors.",
     image: IMG.doorDark,
     description:
-      "Solid Red Mahogany frames with a deep, rich tone — a premium hardwood frame option for hotels, villas and premium residential projects.",
+      "Solid Red Mahogany frames with a deep, rich tone  a premium hardwood frame option for hotels, villas and premium residential projects.",
     points: ["Solid Red Mahogany sections", "Deep rich tone", "Premium finish substrate", "Machined to size"],
   },
   {
@@ -191,7 +191,7 @@ export const FRAMES_PRODUCTS = [
     tagline: "Pale, strong hardwood frames with a refined grain for contemporary spaces.",
     image: IMG.living,
     description:
-      "Solid White Oak frames — a pale, strong hardwood with a refined grain, suited to contemporary interiors and light finish schemes.",
+      "Solid White Oak frames  a pale, strong hardwood with a refined grain, suited to contemporary interiors and light finish schemes.",
     points: ["Solid White Oak sections", "Pale refined grain", "Suited to light finishes", "Machined to drawing"],
   }
 ];

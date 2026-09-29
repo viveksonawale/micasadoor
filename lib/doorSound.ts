@@ -1,4 +1,4 @@
-// Synthesized door sounds via Web Audio API — no audio files needed.
+// Synthesized door sounds via Web Audio API  no audio files needed.
 // Created on user gesture (the handle click), so no autoplay restrictions apply.
 
 let ctx: AudioContext | null = null;

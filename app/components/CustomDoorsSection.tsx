@@ -27,19 +27,19 @@ const frameData: Record<string, { label: string; finishes: string[] }> = {
     finishes: ["PU Finish", "Polish", "Waterbase PU", "Melamine", "Solvent PU", "Natural Finish", "Varnish", "RAL Finish"],
   },
   "eng-lvl": {
-    label: "Engineered Laminated — LVL",
+    label: "Engineered Laminated  LVL",
     finishes: ["PU Finish", "Laminated Finish", "Veneer Finish", "Polish", "Waterbase PU", "Melamine", "Solvent PU", "Natural Finish", "Varnish", "RAL Finish"],
   },
   "eng-mr": {
-    label: "Engineered Laminated — MR",
+    label: "Engineered Laminated  MR",
     finishes: ["PU Finish", "Laminated Finish", "Veneer Finish", "Polish", "Waterbase PU", "Melamine", "Solvent PU", "Natural Finish", "Varnish", "RAL Finish"],
   },
   "post-forming": {
-    label: "Post Forming — LVL",
+    label: "Post Forming  LVL",
     finishes: ["PU Finish", "Laminated Finish", "Polish", "Waterbase PU", "Melamine", "Solvent PU", "Natural Finish", "Varnish", "RAL Finish"],
   },
   "profile-warping": {
-    label: "Profile Warping — LVL",
+    label: "Profile Warping  LVL",
     finishes: ["PU Finish", "Polish", "Waterbase PU", "Melamine", "Solvent PU", "Natural Finish", "Varnish", "RAL Finish"],
   },
   "veneer-frame": {
@@ -143,17 +143,17 @@ export default function CustomDoorsSection() {
           {renderStrandplyText("door.", 10, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
-          Three steps. Pick your frame, finish, and door type — then request a quote.
+          Three steps. Pick your frame, finish, and door type  then request a quote.
         </p>
       </div>
 
-      {/* ── Configurator — two column ── */}
+      {/* ── Configurator  two column ── */}
       <div className={styles.configuratorWrapper}>
 
-        {/* LEFT — Door Showcase */}
+        {/* LEFT  Door Showcase */}
         <div className={styles.showcaseCol}>
           <div className={styles.showcaseInner} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-            
+
             {/* Door Container */}
             <div style={{ width: '100%', maxWidth: '340px', margin: '0 auto', position: 'relative' }}>
               <AnimatePresence mode="wait">
@@ -163,8 +163,8 @@ export default function CustomDoorsSection() {
                   animate={{ opacity: 1, rotateY: 0 }}
                   exit={{ opacity: 0, rotateY: 8 }}
                   transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  style={{ 
-                    perspective: 800, 
+                  style={{
+                    perspective: 800,
                     backgroundColor: '#4A3219',
                     padding: "12px",
                     width: '100%',
@@ -181,20 +181,20 @@ export default function CustomDoorsSection() {
                 </motion.div>
               </AnimatePresence>
             </div>
-            
+
             {/* Selection overlay badge - Positioned below the door */}
             <div className={styles.showcaseBadge}>
               <span className={styles.badgeLabel}>Your selection</span>
               <span className={styles.badgeValue}>{selectedDoor} · {frameData[selectedFrame]?.label}</span>
             </div>
-            
+
           </div>
         </div>
 
-        {/* RIGHT — Vertical Steps */}
+        {/* RIGHT  Vertical Steps */}
         <div className={styles.stepsCol}>
 
-          {/* Step 1 — Frame */}
+          {/* Step 1  Frame */}
           <div className={styles.stepBlock}>
             <div className={styles.stepLabel}>
               <span className={styles.stepNum}>01</span>
@@ -215,7 +215,7 @@ export default function CustomDoorsSection() {
 
           <div className={styles.stepDivider} aria-hidden />
 
-          {/* Step 2 — Finish */}
+          {/* Step 2  Finish */}
           <div className={styles.stepBlock}>
             <div className={styles.stepLabel}>
               <span className={styles.stepNum}>02</span>
@@ -237,7 +237,7 @@ export default function CustomDoorsSection() {
 
           <div className={styles.stepDivider} aria-hidden />
 
-          {/* Step 3 — Door */}
+          {/* Step 3  Door */}
           <div className={styles.stepBlock}>
             <div className={styles.stepLabel}>
               <span className={styles.stepNum}>03</span>

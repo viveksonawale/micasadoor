@@ -80,7 +80,7 @@ export default function ProjectsPage() {
               ref={heroRef}
               className={`${styles.pageTitle}`}
             >
-              Our Projects
+              Supplied. Installed. Delivered.
             </h1>
             <p className={styles.pageSubtitle}>
               Explore our portfolio of completed and ongoing projects across residential, commercial, and hospitality sectors.

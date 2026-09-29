@@ -19,7 +19,7 @@
 }
 
 .headerScrolled {
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
   border-bottom: 1px solid var(--color-border);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   height: 80px;
@@ -641,7 +641,7 @@
   background-color: #1a1a1a;
   color: #ffffff;
   padding: 14px 8px;
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -663,7 +663,7 @@
   background-color: #25d366;
   color: #ffffff;
   padding: 14px 8px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -685,7 +685,7 @@
   background-color: #6b4423;
   color: #ffffff;
   padding: 14px 8px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -706,7 +706,7 @@
   background-color: var(--color-primary-base);
   color: #ffffff;
   padding: 14px 8px;
-  font-family: var(--font-inter, sans-serif);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;

@@ -136,7 +136,7 @@ export default function FrameDetailPage({ params }: { params: Promise<{ slug: st
                   <span className={styles.specLabel}>Category</span>
                   <span className={styles.specValue}>{frame.kind}</span>
                 </div>
-                
+
                 {frame.points && frame.points.length > 0 && (
                   <div className={styles.specRow}>
                     <span className={styles.specLabel}>Key Features</span>
@@ -152,7 +152,7 @@ export default function FrameDetailPage({ params }: { params: Promise<{ slug: st
 
                 <div className={styles.ctaWrapper}>
                   <Link href="/contact" className={styles.ctaButton}>
-                    REQUEST A QUOTE — {frame.name.toUpperCase()}
+                    REQUEST A QUOTE  {frame.name.toUpperCase()}
                   </Link>
                 </div>
               </div>
@@ -164,7 +164,7 @@ export default function FrameDetailPage({ params }: { params: Promise<{ slug: st
         <section className={styles.moreSection}>
           <div className={styles.container}>
             <h2 className={styles.sectionHeading}>Recommendations</h2>
-            
+
             <div className={styles.moreGrid}>
               {otherFrames.map((f) => (
                 <Link href={`/frames/${f.slug}`} key={f.slug} className={styles.moreCard}>

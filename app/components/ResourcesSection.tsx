@@ -79,7 +79,7 @@ export default function ResourcesSection() {
           {renderStrandplyText("site teams.", 24, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
-          Catalogues, certificates, datasheets and installation guidelines — shared on request while our automated download library is being populated.
+          Catalogues, certificates, datasheets and installation guidelines  shared on request while our automated download library is being populated.
         </p>
       </div>
 
@@ -90,7 +90,7 @@ export default function ResourcesSection() {
             {/* <div className={styles.iconBox}>
               <FileText className={styles.icon} />
             </div> */}
-            
+
             <div className={styles.cardContent}>
               <h3 className={styles.cardTitle}>{r.name}</h3>
               <p className={styles.cardDesc}>{r.note}</p>

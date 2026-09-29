@@ -106,7 +106,7 @@ export default function WoodCompareSection() {
           {renderStrandplyText("right wood.", 9, true)}
         </h2>
         <p className={styles.sectionSubtitle}>
-          Four timbers, four characters. We help you match species, finish and frame to the application — not the other way around.
+          Four timbers, four characters. We help you match species, finish and frame to the application  not the other way around.
         </p>
       </div>
 
@@ -119,9 +119,9 @@ export default function WoodCompareSection() {
               className={styles.woodTone}
               style={{ backgroundColor: wood.tone }}
             />
-            
+
             <h3 className={styles.woodName}>{wood.name}</h3>
-            
+
             <dl className={styles.woodDetails}>
               <div className={styles.detailRow}>
                 <dt className={styles.detailLabel}>Appearance</dt>

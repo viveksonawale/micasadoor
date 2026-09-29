@@ -1,7 +1,7 @@
-﻿.sectionContainer {
+.sectionContainer {
   width: 100%;
   position: relative;
-  background: var(--color-surface, #ffffff);
+  background: var(--color-surface, #F9F8F6);
   padding: 80px 0 100px 0;
 }
 
@@ -51,11 +51,11 @@
 }
 
 .sectionSubtitle {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-inter, 'Inter', sans-serif);
   font-size: 16px;
   color: rgba(26, 26, 26, 0.6);
   max-width: 680px;
-  line-height: 1.02;
+  line-height: 1.5;
   margin-bottom: 0;
 }
 
@@ -227,7 +227,7 @@
   aspect-ratio: 4/5;
   border-radius: 0;
   overflow: hidden;
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
   /* Fallback */
 }
 

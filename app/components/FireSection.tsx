@@ -71,10 +71,10 @@ export default function FireSection() {
   ];
 
   const FIRE_PLACEHOLDERS = [
-    { label: "Fire Rating", value: "[Fire Rating — e.g. as per certificate]" },
+    { label: "Fire Rating", value: "[Fire Rating  e.g. as per certificate]" },
     { label: "Certification Number", value: "[Certification Number]" },
     { label: "Testing Laboratory", value: "[Testing Laboratory]" },
-    { label: "Certificate PDF", value: "[Certificate PDF — upload slot]" },
+    { label: "Certificate PDF", value: "[Certificate PDF  upload slot]" },
     { label: "Door Thickness", value: "[Door Thickness]" },
     { label: "Frame Specification", value: "[Frame Specification]" },
   ];
@@ -100,7 +100,7 @@ export default function FireSection() {
 
               <p className={styles.sectionSubtitle}>
                 Fire protection, engineered in wood. Micasa manufactures wooden fire-rated
-                doors with IS 3614 certification — combining tested fire performance with
+                doors with IS 3614 certification  combining tested fire performance with
                 the warmth of real timber, professional installation and full project documentation.
               </p>
 
@@ -122,10 +122,10 @@ export default function FireSection() {
             </div>
 
             <div className={styles.actionGroup}>
-              <Button href="/contact"  variant="primary" size="md">
+              <Button href="/contact" variant="primary" size="md">
                 Request Technical Data
               </Button>
-              <Button href="/contact"  variant="secondary" size="md">
+              <Button href="/contact" variant="secondary" size="md">
                 Talk to a Specialist
               </Button>
             </div>
@@ -134,8 +134,8 @@ export default function FireSection() {
           {/* Right Column */}
           <div className={styles.rightCol}>
             <div className={styles.detailsPanel}>
-              <p className={styles.panelEyebrow}>Certification Details — Editable Slots</p>
-              
+              <p className={styles.panelEyebrow}>Certification Details  Editable Slots</p>
+
               <dl className={styles.detailsList}>
                 {FIRE_PLACEHOLDERS.map((f, idx) => (
                   <div key={idx} className={styles.detailRow}>
@@ -144,7 +144,7 @@ export default function FireSection() {
                   </div>
                 ))}
               </dl>
-              
+
               <p className={styles.panelDisclaimer}>
                 No ratings or certificate numbers are published until verified company documentation is uploaded here.
               </p>

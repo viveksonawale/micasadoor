@@ -83,7 +83,7 @@ export default function ResourcesPage() {
           <div className={styles.heroOverlay} />
 
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>Resources & Downloads</h1>
+            <h1 className={styles.heroTitle}>Technical library.</h1>
             <p className={styles.heroSubtitle}>
               Access our comprehensive library of product catalogues, technical specifications, and installation guides designed for architects and builders.
             </p>
@@ -94,15 +94,7 @@ export default function ResourcesPage() {
         {/* Resources Collection */}
         <section className={styles.resourcesSection}>
           <div className={styles.container}>
-            <div className={styles.sectionHeader}>
-              <SectionEyebrow label="01 DOWNLOADS" />
-              <h2 className={styles.sectionHeading}>
-                Project Materials
-              </h2>
-              <p className={styles.sectionDesc}>
-                Everything you need to specify, detail, and install Micasa door systems. For custom requirements or specialized certifications, please contact our technical team.
-              </p>
-            </div>
+
 
             <div className={styles.resourceGrid}>
               {RESOURCES.map((resource, index) => (

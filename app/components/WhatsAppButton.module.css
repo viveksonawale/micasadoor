@@ -58,7 +58,7 @@
   z-index: 3;
 }
 
-/* WhatsApp wrapper — now inside floatingStack, position is relative */
+/* WhatsApp wrapper  now inside floatingStack, position is relative */
 .whatsappWrapper {
   position: relative;
   display: flex;
@@ -75,6 +75,7 @@
     opacity: 0;
     transform: translateY(20px) scale(0.85);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -108,9 +109,11 @@
     transform: scale(1);
     opacity: 0.65;
   }
+
   60% {
     opacity: 0.25;
   }
+
   100% {
     transform: scale(1.6);
     opacity: 0;
@@ -197,14 +200,18 @@
     bottom: 20px;
     right: 20px;
   }
-  .whatsappButton, .emailButton {
+
+  .whatsappButton,
+  .emailButton {
     width: 54px;
     height: 54px;
   }
+
   .whatsappIcon {
     width: 30px;
     height: 30px;
   }
+
   .tooltip {
     display: none;
   }
@@ -216,6 +223,7 @@
     transform: none !important;
     animation: none !important;
   }
+
   .radarRing {
     animation: none !important;
     display: none !important;

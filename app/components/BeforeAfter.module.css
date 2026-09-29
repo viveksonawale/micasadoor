@@ -53,7 +53,7 @@
   bottom: 0;
   left: 50%;
   width: 2px;
-  background-color: #ffffff;
+  background-color: var(--color-ivory, #F9F8F6);
   transform: translateX(-50%);
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }

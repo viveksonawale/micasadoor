@@ -1,8 +1,8 @@
 .sectionContainer {
   position: relative;
   width: 100%;
-  background-color: #ffffff;
-  padding: 80px 0 100px 0;
+  background-color: var(--color-ivory, #F9F8F6);
+  padding: 48px 0 100px 0;
   overflow: hidden;
 }
 
@@ -86,11 +86,11 @@
 }
 
 .sectionSubtitle {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-inter, 'Inter', sans-serif);
   font-size: 16px;
   color: rgba(26, 26, 26, 0.6);
   max-width: 680px;
-  line-height: 1.02;
+  line-height: 1.5;
   margin-bottom: 32px;
 }
 
@@ -245,7 +245,7 @@
 }
 
 .productSubtitle {
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-inter, 'Inter', sans-serif);
   font-size: 14px;
   color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
@@ -283,7 +283,7 @@
 .bentoGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 4px;
 }
 
 .gridCard {
@@ -366,7 +366,7 @@
   height: 64px;
   background-color: var(--color-primary-base, #e14401);
   color: #ffffff;
-  border-radius: 50%;
+  border-radius: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -392,7 +392,7 @@
 
   .bentoGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 4px;
   }
 }
 
@@ -403,6 +403,7 @@
 
   .bentoGrid {
     grid-template-columns: 1fr;
+    gap: 4px;
   }
 
   .cardContentBox {

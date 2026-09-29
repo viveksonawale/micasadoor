@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
 }
 
 .mainContent {
@@ -81,12 +81,13 @@
 }
 
 .pageTitle {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 44px;
   font-weight: 700;
   color: var(--color-white);
   margin: 0 0 16px;
   line-height: 1.1;
+  animation: bannerTextReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @media (min-width: 768px) {
@@ -166,7 +167,7 @@
 /* ─── Product Card ───────────────────────────────────────────────────────── */
 
 .productCard {
-  background-color: var(--color-surface, #ffffff);
+  background-color: var(--color-surface, #F9F8F6);
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -241,7 +242,7 @@
 }
 
 .cardTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 20px; /* Decreased font size */
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);

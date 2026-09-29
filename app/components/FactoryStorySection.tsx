@@ -15,7 +15,11 @@ const STEPS = [
   { n: "08", t: "Professional Installation", d: "Fitted by trained teams with site coordination." },
 ];
 
-const renderStrandplyText = (lineText: string, startIndex: number = 0, isHighlight: boolean = false) => {
+const renderStrandplyText = (
+  lineText: string,
+  startIndex: number = 0,
+  isHighlight: boolean = false
+) => {
   let currentIndex = startIndex;
   const words = lineText.trim().split(/\s+/);
 
@@ -25,7 +29,10 @@ const renderStrandplyText = (lineText: string, startIndex: number = 0, isHighlig
     currentIndex += chars.length;
 
     return (
-      <span key={wordIndex} className={`${styles.wordWrapper} ${isHighlight ? styles.highlight : ""}`}>
+      <span
+        key={wordIndex}
+        className={`${styles.wordWrapper} ${isHighlight ? styles.highlight : ""}`}
+      >
         {chars.map((char, charIndex) => {
           const i = wordStartIndex + charIndex;
           return (
@@ -44,8 +51,18 @@ const renderStrandplyText = (lineText: string, startIndex: number = 0, isHighlig
   });
 };
 
-export default function FactoryStorySection({ eyebrow = "03 PRECISION IN EVERY STEP" }: { eyebrow?: string }) {
-  const headerRef = useRef<HTMLHeadingElement>(null);
+interface FactoryStoryProps {
+  eyebrow?: string;
+  subtitle?: string;
+  image?: string;
+}
+
+export default function FactoryStorySection({
+  eyebrow = "03 PRECISION IN EVERY STEP",
+  subtitle = "Our manufacturing unit in Gandhidham, Gujarat runs a controlled stage-gated process so the thousandth door matches the first.",
+  image = "/factory/factory-team.jpg",
+}: FactoryStoryProps) {
+  const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -55,10 +72,10 @@ export default function FactoryStorySection({ eyebrow = "03 PRECISION IN EVERY S
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
-    const currentRef = headerRef.current;
+    const currentRef = sectionRef.current;
     if (currentRef) observer.observe(currentRef);
 
     return () => {
@@ -67,42 +84,58 @@ export default function FactoryStorySection({ eyebrow = "03 PRECISION IN EVERY S
   }, []);
 
   return (
-    <section className={styles.sectionContainer}>
-      
-      {/* Centered Header */}
-      <div className={styles.contentWrapper}>
-        <SectionEyebrow label={eyebrow} />
-        <h2
-          ref={headerRef}
-          className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}
-        >
-          {renderStrandplyText("From raw timber ", 0, false)}
-          {renderStrandplyText("to installed door.", 13, true)}
-        </h2>
-        <p className={styles.sectionSubtitle}>
-          Our end-to-end process ensures that every product leaving our Gandhidham unit meets the highest standards of architectural precision.
-        </p>
-      </div>
+    <section ref={sectionRef} className={styles.sectionContainer} id="about">
+      <div className={styles.layoutGrid}>
+        {/* Left Column (Sticky) */}
+        <div className={styles.stickyColumn}>
+          <div className={styles.stickyContent}>
+            <SectionEyebrow label={eyebrow} />
+            <h2 className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}>
+              {renderStrandplyText("From raw timber ", 0, false)}
+              {renderStrandplyText("to installed door.", 13, true)}
+            </h2>
+            <p className={styles.sectionSubtitle}>
+              {subtitle}
+            </p>
+            <div className={styles.imageWrapper}>
+              <img
+                src={image}
+                alt="Team handling board stacks at the Micasa manufacturing unit, Gandhidham"
+                className={styles.factoryImage}
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
 
-      <div className={styles.timelineContainer}>
-        {/* Connecting Line */}
-        <div className={styles.timelineLine} />
-
-        <div className={styles.timelineGrid}>
-          {STEPS.map((step) => (
-            <div key={step.n} className={styles.stepNode}>
-              {/* Square Node */}
-              <div className={styles.stepSquare}>
-                {step.n}
-              </div>
-
-              {/* Text Content */}
-              <div className={styles.stepContent}>
+        {/* Right Column (Scrolls first, vertical timeline steps) */}
+        <div className={styles.scrollColumn}>
+          <div className={styles.timelineContainer}>
+            {isVisible && (
+              <>
+                <div className={styles.timelineLine}></div>
+                <div className={styles.timelineLineFill}></div>
+              </>
+            )}
+            
+            {STEPS.map((step, index) => (
+              <div
+                key={step.n}
+                className={`${styles.stepItem} ${isVisible ? styles.animateItem : ''}`}
+                style={{ "--step-i": index } as React.CSSProperties}
+              >
+                {isVisible && (
+                  <div className={styles.stepMarker}>
+                    <div className={styles.stepInnerDot} />
+                  </div>
+                )}
+                
+                <p className={styles.stepNumber}>{step.n}</p>
                 <h3 className={styles.stepTitle}>{step.t}</h3>
                 <p className={styles.stepDescription}>{step.d}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

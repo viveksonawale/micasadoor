@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
@@ -66,12 +66,12 @@ const PRODUCTS = [
 ];
 
 const CATEGORIES = [
-  { title: "Wooden Doors", link: "/wooden-doors", img: "https://images.unsplash.com/photo-1543884846-95fb4b94cbf1?q=80&w=800&auto=format&fit=crop", note: "Laminated Fire & Non-Fire Doors" },
+  { title: "Wooden Doors", link: "/wooden-doors", img: "/doors/main-door.jpg", note: "Laminated Fire & Non-Fire Doors" },
   { title: "Door Frames", link: "/door-frames", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop", note: "Teak · Meranti · Mahogany · Oak · LVL" },
-  { title: "Fire-Rated Doors", link: "/fire-rated-doors", img: "https://images.unsplash.com/photo-1626379965008-8e6d30fb3950?q=80&w=800&auto=format&fit=crop", note: "IS 3614 Certified" },
-  { title: "Non-Fire Doors", link: "/laminated-non-fire-doors", img: "https://images.unsplash.com/photo-1534142499694-877f88417537?q=80&w=800&auto=format&fit=crop", note: "100% A-Grade Pine Core" },
-  { title: "Wet-Area Doors", link: "/laminated-toilet-doors", img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop", note: "Bathroom & Utility" },
-  { title: "Custom Doors", link: "/custom-wooden-doors", img: "https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=800&auto=format&fit=crop", note: "Built to Drawing" },
+  { title: "Fire-Rated Doors", link: "/fire-rated-doors", img: "/doors/fire-door.jpg", note: "IS 3614 Certified" },
+  { title: "Non-Fire Doors", link: "/laminated-non-fire-doors", img: "/doors/bedroom-door.jpg", note: "100% A-Grade Pine Core" },
+  { title: "Wet-Area Doors", link: "/laminated-toilet-doors", img: "/doors/toilet-door.jpg", note: "Bathroom & Utility" },
+  { title: "Custom Doors", link: "/custom-wooden-doors", img: "/doors/dark_wood_door.jpg", note: "Built to Drawing" },
 ];
 
 export default function ProductRangeSection() {
