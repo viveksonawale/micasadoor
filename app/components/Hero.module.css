@@ -88,27 +88,27 @@
 
 /* Typography */
 .headline {
-  font-family: 'Cabinet Grotesk', sans-serif;
-  color: var(--color-white);
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 1.25;
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  color: #F9F8F6;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   margin-bottom: 20px;
-  letter-spacing: -0.01em;
   perspective: 900px;
   transform-style: preserve-3d;
 }
 
 @media (min-width: 640px) {
   .headline {
-    font-size: 36px;
+    font-size: 42px;
   }
 }
 
 @media (min-width: 1024px) {
   .headline {
-    font-size: 46px;
-    line-height: 1.22;
+    font-size: 48px;
+    line-height: 1.08;
     margin-bottom: 24px;
   }
 }
@@ -168,26 +168,34 @@
   }
 }
 
-.statItem {
+.subheading {
   font-family: 'Cabinet Grotesk', sans-serif;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 13.5px;
+  color: #F9F8F6;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
+  letter-spacing: normal;
   margin-bottom: 36px;
-
 }
 
 @media (min-width: 768px) {
   .subheading {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
 @media (min-width: 1024px) {
   .subheading {
-    font-size: 18px;
+    font-size: 20px;
   }
+}
+
+.heroButton {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase !important;
 }
 
 /* CTAs */

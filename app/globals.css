@@ -23,9 +23,14 @@
   --color-white: #ffffff;
   --color-black: #1a1a1a;
 
+  /* Micasa Brand Colors */
+  --color-ivory: #F9F8F6;
+  --color-wood: #8C5E35;
+  --color-wood-pale: #EFE6DA;
+
   /* Semantic tokens */
-  --color-bg: var(--color-neutral-100);
-  --color-surface: var(--color-white);
+  --color-bg: var(--color-ivory);
+  --color-surface: var(--color-ivory);
   --color-text: var(--color-neutral-700);
   --color-text-muted: var(--color-neutral-300);
   --color-heading: var(--color-neutral-900);
@@ -94,7 +99,7 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
+  background-color: var(--color-ivory) !important;
   color: var(--color-text-primary);
   min-height: 100vh;
   display: flex;

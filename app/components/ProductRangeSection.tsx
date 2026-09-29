@@ -182,10 +182,6 @@ export default function ProductRangeSection() {
           {renderStrandplyText("One manufacturer. ", 0, false)}
           {renderStrandplyText("Every door your project needs.", 16, true)}
         </h2>
-
-        <p className={styles.sectionSubtitle}>
-          Explore a collection where each panel isn&apos;t just a product — it&apos;s a promise of strength, style, and sustainability. From solid wood to fire-rated doors, find the perfect partner for every project.
-        </p>
       </div>
 
       {/* OLD Carousel Container (Commented out) */}
