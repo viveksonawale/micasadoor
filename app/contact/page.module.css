@@ -12,15 +12,16 @@
 
 /* ── Hero Section ── */
 .heroSection {
-  height: 48vh;
-  min-height: 400px;
-  max-height: 480px;
+  height: 55vh;
+  min-height: 480px;
+  max-height: 550px;
   position: relative;
   width: 100%;
 
   display: flex;
-  align-items: flex-end;
-  padding: 48px 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   overflow: hidden;
   background-color: var(--color-neutral-900);
 }
@@ -32,9 +33,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center;
   z-index: 0;
-  
 }
 
 .heroOverlay {
@@ -46,7 +46,7 @@
 
   z-index: 1;
 
-  background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.9) 100%);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .heroContent {
@@ -56,6 +56,10 @@
   width: 100%;
   margin: 0 auto;
   padding: 0 var(--gutter-mobile, 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -95,6 +99,18 @@
   .heroTitle {
     font-size: 64px;
   }
+}
+
+.heroSubheading {
+  font-family: var(--font-inter, sans-serif);
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 16px auto 0;
+  line-height: 1.6;
+  animation: bannerTextReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
 }
 
 .heroAccentLine {
@@ -404,6 +420,7 @@
 
 
 .contactCtaOverride {
+  padding-top: 48px !important;
   padding-bottom: 24px !important;
 }
 

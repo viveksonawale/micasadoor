@@ -33,7 +33,7 @@
 }
 
 .sectionTitle {
-  font-family: var(--font-playfair, serif);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 64px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);

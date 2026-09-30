@@ -11,9 +11,9 @@
 
 /* ── Hero Section (Copied from About Page) ── */
 .heroSection {
-  height: 48vh;
-  min-height: 400px;
-  max-height: 480px;
+  height: 55vh;
+  min-height: 480px;
+  max-height: 550px;
   position: relative;
   width: 100%;
 
@@ -105,7 +105,7 @@
 
 /* Heading Animation */
 .animatedHeading {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 44px;
   font-weight: 700;
   color: var(--color-white);
@@ -272,7 +272,7 @@
 }
 
 .sectionHeading {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 36px;
   font-weight: 700;
   color: var(--color-heading, var(--color-neutral-900));
@@ -341,7 +341,7 @@
 }
 
 .moreTitle {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 1.5rem;
   color: var(--color-neutral-900);
   font-weight: 700;

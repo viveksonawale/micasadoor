@@ -54,7 +54,7 @@
 }
 
 .catalogTitle {
-  font-family: var(--font-playfair);
+  font-family: 'Cabinet Grotesk', sans-serif;
   font-size: 32px;
   font-weight: 700;
   color: var(--color-text-primary);

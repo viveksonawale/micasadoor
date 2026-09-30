@@ -143,7 +143,7 @@ const Card: React.FC<CardProps> = ({ id, title, description, index, totalCards, 
 
                     <div style={{ position: 'relative', zIndex: 1 }}>
                         <h3 style={{
-                            fontFamily: 'var(--font-playfair, serif)',
+                            fontFamily: '"Cabinet Grotesk", sans-serif',
                             fontSize: '36px',
                             fontWeight: '700',
                             color: '#1a1a1a',

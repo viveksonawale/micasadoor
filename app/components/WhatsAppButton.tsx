@@ -21,8 +21,6 @@ export default function WhatsAppButton() {
         className={styles.whatsappWrapper}
         aria-label="Chat with MICASA on WhatsApp (+91 88989 03436)"
       >
-        <span className={`${styles.radarRing} ${styles.radarRing1}`} aria-hidden="true" />
-        <span className={`${styles.radarRing} ${styles.radarRing2}`} aria-hidden="true" />
         <div className={styles.tooltip} aria-hidden="true">
           <span className={styles.tooltipDot} />
           Chat on WhatsApp
@@ -41,7 +39,7 @@ export default function WhatsAppButton() {
         aria-label="Email MICASA Doors"
       >
         <div className={styles.tooltip} aria-hidden="true">
-          <span className={styles.tooltipDot} style={{ backgroundColor: "#6b4423" }} />
+          <span className={styles.tooltipDot} style={{ backgroundColor: "var(--color-primary-base)" }} />
           Send us an Email
         </div>
         <div className={styles.emailButton}>

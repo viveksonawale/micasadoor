@@ -2,7 +2,7 @@
 .floatingStack {
   position: fixed;
   bottom: 28px;
-  right: 28px;
+  right: max(40px, calc(50vw - 800px + 40px));
   z-index: 90;
   display: flex;
   flex-direction: column;
@@ -28,10 +28,10 @@
 
 .emailButton {
   position: relative;
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-  background-color: #1a1a1a;
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  background-color: var(--color-primary-base);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -44,7 +44,7 @@
 
 .emailWrapper:hover .emailButton {
   transform: scale(1.06);
-  background-color: var(--color-primary-base);
+  background-color: var(--color-primary-dark);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
@@ -53,9 +53,34 @@
 }
 
 .emailIcon {
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   z-index: 3;
+}
+
+.emailButton::after,
+.whatsappButton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: inherit;
+  opacity: 0;
+  animation: squarePulse 2.5s cubic-bezier(0.12, 0.8, 0.32, 1) infinite;
+}
+
+@keyframes squarePulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
 }
 
 /* WhatsApp wrapper  now inside floatingStack, position is relative */
@@ -82,50 +107,14 @@
   }
 }
 
-/* Radar Wave Rings */
-.radarRing {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 12px;
-  border: 1.5px solid rgba(37, 211, 102, 0.4);
-  background-color: rgba(37, 211, 102, 0.05);
-  pointer-events: none;
-  animation: radarWave 2.8s cubic-bezier(0.12, 0.8, 0.32, 1) infinite;
-}
-
-.radarRing1 {
-  animation-delay: 3.1s;
-}
-
-.radarRing2 {
-  animation-delay: 4.5s;
-}
-
-@keyframes radarWave {
-  0% {
-    transform: scale(1);
-    opacity: 0.65;
-  }
-
-  60% {
-    opacity: 0.25;
-  }
-
-  100% {
-    transform: scale(1.6);
-    opacity: 0;
-  }
-}
+/* Removed old radar classes */
 
 /* Normal Clean WhatsApp Button */
 .whatsappButton {
   position: relative;
-  width: 60px;
-  height: 60px;
-  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
   background-color: #25d366;
   color: #ffffff;
   display: flex;
@@ -151,8 +140,8 @@
 
 /* WhatsApp Icon (Static, No Shaking) */
 .whatsappIcon {
-  width: 34px;
-  height: 34px;
+  width: 24px;
+  height: 24px;
   fill: #ffffff;
   z-index: 3;
 }
@@ -195,7 +184,7 @@
   transform: translateX(0);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1023px) {
   .floatingStack {
     bottom: 20px;
     right: 20px;
@@ -203,13 +192,18 @@
 
   .whatsappButton,
   .emailButton {
-    width: 54px;
-    height: 54px;
+    width: 42px;
+    height: 42px;
   }
 
   .whatsappIcon {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .emailIcon {
+    width: 18px;
+    height: 18px;
   }
 
   .tooltip {
@@ -224,7 +218,8 @@
     animation: none !important;
   }
 
-  .radarRing {
+  .whatsappButton::after,
+  .emailButton::after {
     animation: none !important;
     display: none !important;
   }
