@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import styles from "./InstallSection.module.css";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 import Button from "./Button";
 import BeforeAfter from "./BeforeAfter";
 
@@ -74,7 +74,7 @@ export default function InstallSection() {
     <section className={styles.sectionContainer} id="installation">
       {/* ── Centered Header ── */}
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="07 PROFESSIONAL INSTALLATION" />
+        <NewSectionEyebrow label="07 PROFESSIONAL INSTALLATION" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}

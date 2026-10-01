@@ -4,7 +4,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ContactFormSection from "../components/ContactFormSection";
-import SectionEyebrow from "../components/SectionEyebrow";
+import NewSectionEyebrow from "../components/NewSectionEyebrow";
 import styles from "./page.module.css";
 
 const RESOURCES = [

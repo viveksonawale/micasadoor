@@ -2,7 +2,7 @@
 
 import React from "react";
 import styles from "./ApplicationsSection.module.css";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 
 const APPS = [
   { name: "Residential", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop", span: "span5" },
@@ -72,7 +72,7 @@ export default function ApplicationsSection() {
     <section className={styles.sectionContainer} id="applications">
       {/* ── Centered Header ── */}
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="05 APPLICATIONS" />
+        <NewSectionEyebrow label="05 APPLICATIONS" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}

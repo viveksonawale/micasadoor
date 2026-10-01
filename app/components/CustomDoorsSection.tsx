@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import styles from "./CustomDoorsSection.module.css";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 import Button from "./Button";
 
 // ─── Compatibility Data ──────────────────────────────────────────────────────
@@ -134,7 +134,7 @@ export default function CustomDoorsSection() {
     <section className={styles.sectionContainer} id="custom-doors">
       {/* ── Header ── */}
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="04 CONFIGURE YOUR DOOR" />
+        <NewSectionEyebrow label="04 CONFIGURE YOUR DOOR" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./FactoryStorySection.module.css";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 
 const STEPS = [
   { n: "01", t: "Raw Material", d: "Selected timber and engineered boards enter the Gandhidham unit." },
@@ -89,7 +89,7 @@ export default function FactoryStorySection({
         {/* Left Column (Sticky) */}
         <div className={styles.stickyColumn}>
           <div className={styles.stickyContent}>
-            <SectionEyebrow label={eyebrow} />
+            <NewSectionEyebrow label={eyebrow} />
             <h2 className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}>
               {renderStrandplyText("From raw timber ", 0, false)}
               {renderStrandplyText("to installed door.", 13, true)}

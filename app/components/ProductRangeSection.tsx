@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 import styles from "./ProductRangeSection.module.css";
 
 const renderStrandplyText = (lineText: string, startIndex: number = 0, isHighlight: boolean = false) => {
@@ -172,7 +172,7 @@ export default function ProductRangeSection() {
   return (
     <section className={styles.sectionContainer} id="doors">
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="02 OUR COLLECTION" />
+        <NewSectionEyebrow label="02 OUR COLLECTION" />
 
         <h2
           ref={headerRef}

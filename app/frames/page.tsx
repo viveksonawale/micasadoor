@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import SectionEyebrow from "../components/SectionEyebrow";
+import NewSectionEyebrow from "../components/NewSectionEyebrow";
 import CallToActionSection from "../components/CallToActionSection";
 import { IMG } from "../../lib/doorsData";
 import FramesShowcase from "./FramesShowcase";
@@ -43,7 +43,7 @@ export default function FramesPage() {
         <section className={styles.doorsSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <SectionEyebrow label="02 DOOR FRAMES" />
+              <NewSectionEyebrow label="02 DOOR FRAMES" />
               <h2 className={styles.sectionHeading}>
                 Engineered for Stability
               </h2>

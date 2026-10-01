@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FileText, ArrowUpRight } from "lucide-react";
 import styles from "./ResourcesSection.module.css";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 
 export const RESOURCES = [
   { name: "Product Catalogue", note: "Full door & frame range" },
@@ -70,7 +70,7 @@ export default function ResourcesSection() {
     <section className={styles.sectionContainer} id="resources">
       {/* ── Centered Header ── */}
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="09 TECHNICAL RESOURCES" />
+        <NewSectionEyebrow label="09 TECHNICAL RESOURCES" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}

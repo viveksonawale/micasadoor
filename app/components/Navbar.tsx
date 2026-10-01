@@ -190,6 +190,14 @@ export default function Navbar() {
               ABOUT
             </Link>
 
+            <Link 
+              href="/contact" 
+              className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
+              onMouseEnter={() => setHoveredMenu(null)}
+            >
+              CONTACT
+            </Link>
+
           </nav>
 
           {/* Actions */}
@@ -197,9 +205,9 @@ export default function Navbar() {
             <Button
               href="/contact"
               variant="primary"
-              size="md"
+              size="sm"
             >
-              CONTACT US
+              Get a Quote
             </Button>
           </div>
 

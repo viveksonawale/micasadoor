@@ -5,7 +5,7 @@ import Image from "next/image";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CallToActionSection from "../components/CallToActionSection";
-import SectionEyebrow from "../components/SectionEyebrow";
+import NewSectionEyebrow from "../components/NewSectionEyebrow";
 import styles from "./page.module.css";
 
 const renderStrandplyText = (
@@ -125,7 +125,7 @@ export default function AboutPage() {
 
               {/* Left: Text Content */}
               <div className={styles.textContent}>
-                <SectionEyebrow label="01 WHO WE ARE" />
+                <NewSectionEyebrow label="01 WHO WE ARE" />
 
                 <h2 className={styles.sectionHeading}>
                   Engineered for performance.<br />Crafted in wood.
@@ -246,7 +246,7 @@ export default function AboutPage() {
         <section className={styles.leadershipSection}>
           <div className={styles.container}>
             <div className={styles.headerWrapper}>
-              <SectionEyebrow label="02 LEADERSHIP" />
+              <NewSectionEyebrow label="02 LEADERSHIP" />
               <h2 className={`${styles.sectionHeading} ${styles.textCenter}`}>
                 Founded by Industry <span className={styles.highlightOrange}>Professionals</span>
               </h2>

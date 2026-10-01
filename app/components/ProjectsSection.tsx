@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Button from "./Button";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 import styles from "./ProjectsSection.module.css";
 import { PROJECTS } from "@/lib/projectsData";
 
@@ -69,7 +69,7 @@ export default function ProjectsSection() {
   return (
     <section className={styles.sectionContainer} id="projects">
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="01 OUR WORK" />
+        <NewSectionEyebrow label="01 OUR WORK" />
         
         <h2
           ref={headerRef}

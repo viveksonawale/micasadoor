@@ -37,17 +37,25 @@ const renderStrandplyLine = (lineText: string, startIndex: number = 0) => {
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
-  const [isReady, setIsReady] = useState(true);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    if (sessionStorage.getItem("micasa-entered")) {
+      setIsReady(true);
+    }
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
-    
+
+    // Start hero animations only after the IntroGate finishes
+    const onGateDone = () => setIsReady(true);
+    window.addEventListener("micasa-gate-done", onGateDone);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("micasa-gate-done", onGateDone);
     };
   }, []);
 
@@ -56,7 +64,7 @@ export default function Hero() {
   const line1CharCount = line1.replace(/\s/g, "").length;
 
   return (
-    <section className={`${styles.heroSection} ${!isReady ? styles.heroWaiting : ""}`}>
+    <section className={styles.heroSection}>
       <IntroGate />
       {/* Background Image Container with Zoom Parallax */}
       <div
@@ -89,25 +97,25 @@ export default function Hero() {
               role="img"
               aria-label={line1}
             >
-              {renderStrandplyLine(line1, 0)}
+              {isReady ? renderStrandplyLine(line1, 0) : <span style={{ opacity: 0 }}>{line1}</span>}
             </div>
             <div
               className={styles.headlineLine}
               role="img"
               aria-label={line2}
             >
-              {renderStrandplyLine(line2, line1CharCount)}
+              {isReady ? renderStrandplyLine(line2, line1CharCount) : <span style={{ opacity: 0 }}>{line2}</span>}
             </div>
           </h1>
 
           {/* Subheading */}
-          <p className={`${styles.subheading} ${styles.animateStats}`}>
+          <p className={`${styles.subheading} ${isReady ? styles.animateStats : ""}`} style={{ opacity: isReady ? undefined : 0 }}>
             Precision-engineered doors and frames manufactured for projects<br />
             that demand durability, consistency, and scale.
           </p>
 
           {/* CTAs with Fade Effect */}
-          <div className={`${styles.ctas} ${styles.animateCtas}`}>
+          <div className={`${styles.ctas} ${isReady ? styles.animateCtas : ""}`} style={{ opacity: isReady ? undefined : 0 }}>
             <Button href="/doors" variant="primary" size="lg" className={styles.heroButton}>
               EXPLORE OUR DOORS
             </Button>

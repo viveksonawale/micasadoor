@@ -125,45 +125,47 @@ export default function CallToActionSection({ className }: { className?: string 
 
         {/* Right: Form */}
         <div className={styles.formColumn}>
-          {formSubmitted ? (
-            <div className={styles.successMessage}>
-              <p>Thank you! Your message has been sent successfully. We will get back to you soon.</p>
-            </div>
-          ) : (
-            <form className={styles.formGrid} onSubmit={handleSubmit}>
-              <div className={styles.formGroup}>
-                <label htmlFor="ctaFirstName" className={styles.formLabel}>First Name*</label>
-                <input type="text" id="ctaFirstName" name="firstName" required className={styles.formInput} placeholder="Jane" />
+          <div className={styles.formPanel}>
+            {formSubmitted ? (
+              <div className={styles.successMessage}>
+                <p>Thank you! Your message has been sent successfully. We will get back to you soon.</p>
               </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="ctaLastName" className={styles.formLabel}>Last Name*</label>
-                <input type="text" id="ctaLastName" name="lastName" required className={styles.formInput} placeholder="Smith" />
-              </div>
-
-              <div className={styles.formGroupFull}>
-                <label htmlFor="ctaEmail" className={styles.formLabel}>Email*</label>
-                <input type="email" id="ctaEmail" name="email" required className={styles.formInput} placeholder="abc@yourmail.com" />
-              </div>
-
-              <div className={styles.formGroupFull}>
-                <label htmlFor="ctaPhone" className={styles.formLabel}>Contact Number*</label>
-                <input type="tel" id="ctaPhone" name="phone" required className={styles.formInput} placeholder="1234567890" />
-              </div>
-
-              <div className={styles.formGroupFull}>
-                <label htmlFor="ctaMessage" className={styles.formLabel}>Message*</label>
-                <textarea id="ctaMessage" name="message" required className={styles.formTextarea} placeholder="Your Message"></textarea>
-              </div>
-
-              <div className={styles.formGroupFull}>
-                <div className={styles.submitButton}>
-                  <Button variant="primary" size="md" type="submit" className={styles.submitBtn}>
-                    Submit
-                  </Button>
+            ) : (
+              <form className={styles.formGrid} onSubmit={handleSubmit}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="ctaFirstName" className={styles.formLabel}>First Name*</label>
+                  <input type="text" id="ctaFirstName" name="firstName" required className={styles.formInput} placeholder="Jane" />
                 </div>
-              </div>
-            </form>
-          )}
+                <div className={styles.formGroup}>
+                  <label htmlFor="ctaLastName" className={styles.formLabel}>Last Name*</label>
+                  <input type="text" id="ctaLastName" name="lastName" required className={styles.formInput} placeholder="Smith" />
+                </div>
+
+                <div className={styles.formGroupFull}>
+                  <label htmlFor="ctaEmail" className={styles.formLabel}>Email*</label>
+                  <input type="email" id="ctaEmail" name="email" required className={styles.formInput} placeholder="abc@yourmail.com" />
+                </div>
+
+                <div className={styles.formGroupFull}>
+                  <label htmlFor="ctaPhone" className={styles.formLabel}>Contact Number*</label>
+                  <input type="tel" id="ctaPhone" name="phone" required className={styles.formInput} placeholder="1234567890" />
+                </div>
+
+                <div className={styles.formGroupFull}>
+                  <label htmlFor="ctaMessage" className={styles.formLabel}>Message*</label>
+                  <textarea id="ctaMessage" name="message" required className={styles.formTextarea} placeholder="Your Message"></textarea>
+                </div>
+
+                <div className={styles.formGroupFull}>
+                  <div className={styles.submitButton}>
+                    <Button variant="primary" size="md" type="submit" className={styles.submitBtn}>
+                      Submit
+                    </Button>
+                  </div>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
 
       </div>

@@ -133,94 +133,96 @@ export default function ContactFormSection() {
 
         {/* Right: Form */}
         <div className={styles.formColumn}>
-          {formSubmitted ? (
-            <div className={styles.successMessage}>
-              <p>Thank you! Your message has been sent successfully. We will get back to you soon.</p>
-            </div>
-          ) : (
-            <form className={styles.formGrid} onSubmit={handleSubmit}>
-              <div className={styles.formGroup}>
-                <label htmlFor="firstName" className={styles.formLabel}>
-                  First Name*
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  required
-                  className={styles.formInput}
-                  placeholder="Jane"
-                />
+          <div className={styles.formPanel}>
+            {formSubmitted ? (
+              <div className={styles.successMessage}>
+                <p>Thank you! Your message has been sent successfully. We will get back to you soon.</p>
               </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="lastName" className={styles.formLabel}>
-                  Last Name*
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  required
-                  className={styles.formInput}
-                  placeholder="Smith"
-                />
-              </div>
-
-              <div className={styles.formGroupFull}>
-                <label htmlFor="email" className={styles.formLabel}>
-                  Email*
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className={styles.formInput}
-                  placeholder="abc@yourmail.com"
-                />
-              </div>
-
-              <div className={styles.formGroupFull}>
-                <label htmlFor="phone" className={styles.formLabel}>
-                  Contact Number*
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  className={styles.formInput}
-                  placeholder="1234567890"
-                />
-              </div>
-
-              <div className={styles.formGroupFull}>
-                <label htmlFor="message" className={styles.formLabel}>
-                  Message*
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  className={styles.formTextarea}
-                  placeholder="Your Message"
-                ></textarea>
-              </div>
-
-              <div className={styles.formGroupFull}>
-                <div className={styles.submitButton}>
-                  <Button
-                    variant="primary"
-                    size="md"
-                    type="submit"
-                    className={styles.submitBtn}
-                  >
-                    Submit
-                  </Button>
+            ) : (
+              <form className={styles.formGrid} onSubmit={handleSubmit}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="firstName" className={styles.formLabel}>
+                    First Name*
+                  </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    required
+                    className={styles.formInput}
+                    placeholder="Jane"
+                  />
                 </div>
-              </div>
-            </form>
-          )}
+                <div className={styles.formGroup}>
+                  <label htmlFor="lastName" className={styles.formLabel}>
+                    Last Name*
+                  </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    required
+                    className={styles.formInput}
+                    placeholder="Smith"
+                  />
+                </div>
+
+                <div className={styles.formGroupFull}>
+                  <label htmlFor="email" className={styles.formLabel}>
+                    Email*
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className={styles.formInput}
+                    placeholder="abc@yourmail.com"
+                  />
+                </div>
+
+                <div className={styles.formGroupFull}>
+                  <label htmlFor="phone" className={styles.formLabel}>
+                    Contact Number*
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    className={styles.formInput}
+                    placeholder="1234567890"
+                  />
+                </div>
+
+                <div className={styles.formGroupFull}>
+                  <label htmlFor="message" className={styles.formLabel}>
+                    Message*
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    className={styles.formTextarea}
+                    placeholder="Your Message"
+                  ></textarea>
+                </div>
+
+                <div className={styles.formGroupFull}>
+                  <div className={styles.submitButton}>
+                    <Button
+                      variant="primary"
+                      size="md"
+                      type="submit"
+                      className={styles.submitBtn}
+                    >
+                      Submit
+                    </Button>
+                  </div>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </section>

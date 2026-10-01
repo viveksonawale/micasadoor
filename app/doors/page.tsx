@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import SectionEyebrow from "../components/SectionEyebrow";
+import NewSectionEyebrow from "../components/NewSectionEyebrow";
 import CallToActionSection from "../components/CallToActionSection";
 import { DOORS, IMG } from "../../lib/doorsData";
 import DoorsShowcase from "./DoorsShowcase";
@@ -45,7 +45,7 @@ export default function DoorsPage() {
         <section className={styles.doorsSection}>
           <div className={styles.container}>
             <div className={styles.sectionHeader}>
-              <SectionEyebrow label="01 DOOR TYPES" />
+              <NewSectionEyebrow label="01 DOOR TYPES" />
               <h2 className={styles.sectionHeading}>
                 Built to Specification
               </h2>

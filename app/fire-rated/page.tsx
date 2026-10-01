@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import SectionEyebrow from "../components/SectionEyebrow";
+import NewSectionEyebrow from "../components/NewSectionEyebrow";
 import ContactFormSection from "../components/ContactFormSection";
 import styles from "./page.module.css";
 import { Flame, ShieldCheck } from "lucide-react";
@@ -69,7 +69,7 @@ export default function FireRatedPage() {
 
               {/* Left Column: System Features */}
               <div className={styles.leftCol}>
-                <SectionEyebrow label="01 SYSTEM" />
+                <NewSectionEyebrow label="01 SYSTEM" />
                 <h2 className={styles.sectionHeading}>
                   A complete certified opening  not just a door leaf.
                 </h2>

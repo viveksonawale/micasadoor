@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Factory, Layers, Flame, Wrench, Trees, Gauge } from "lucide-react";
 import styles from "./WhyUsSection.module.css";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 
 const REASONS = [
   { icon: Factory, title: "Manufacturing Expertise", desc: "A dedicated production unit running controlled, stage-gated manufacturing." },
@@ -72,7 +72,7 @@ export default function WhyUsSection() {
     <section className={styles.sectionContainer} id="why-us">
       {/* ── Centered Header ── */}
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="06 WHY MICASA" />
+        <NewSectionEyebrow label="06 WHY MICASA" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}

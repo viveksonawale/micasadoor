@@ -1,3 +1,4 @@
+/*
 import React from "react";
 import styles from "./SectionEyebrow.module.css";
 
@@ -47,3 +48,4 @@ export default function SectionEyebrow({ label, icon, badge }: SectionEyebrowPro
     </div>
   );
 }
+*/

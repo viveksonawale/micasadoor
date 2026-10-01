@@ -1,0 +1,18 @@
+.eyebrowContainer {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.eyebrowText {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-primary-base, #e14401);
+  letter-spacing: 0;
+}
+
+.eyebrowText span {
+  color: var(--color-text-primary, #1a1a1a);
+}

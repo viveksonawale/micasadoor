@@ -53,6 +53,8 @@
   --font-display-fallback: Georgia, serif;
   --font-body-fallback: -apple-system, "Segoe UI", sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-playfair: 'Playfair Display', Georgia, serif;
+  --font-inter: 'Inter', -apple-system, "Segoe UI", sans-serif;
 
   /* Sizing and Spacing Variables */
   --radius-none: 0px;

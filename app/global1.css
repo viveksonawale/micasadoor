@@ -93,3 +93,8 @@
     filter: blur(0px);
   }
 }
+
+/* Hide intro gate immediately if already entered */
+html.micasa-entered #intro-gate-container {
+  display: none !important;
+}

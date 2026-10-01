@@ -7,8 +7,7 @@ import { ArrowUpRight } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./page.module.css";
-import { ALL_PRODUCTS } from "../data/products";
-import ContactFormSection from "../components/ContactFormSection";
+import { PROJECTS } from "@/lib/projectsData";
 
 const renderStrandplyText = (
   lineText: string,
@@ -93,28 +92,15 @@ export default function ProductsPage() {
         {/* Products Grid */}
         <section className={styles.productsSection}>
           <div className={styles.productsGrid}>
-            {ALL_PRODUCTS.map((prod, idx) => {
-              // Array of distinct door images for the catalog
-              const placeholderImages = [
-                'https://images.unsplash.com/photo-1517581177682-a085bc7fcb10?q=80&w=800&auto=format&fit=crop', // Teak
-                'https://images.unsplash.com/photo-1506161803730-61ba4f40f2b3?q=80&w=800&auto=format&fit=crop', // Red Meranti
-                'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop', // Steamed Beech
-                'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop', // Pine
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop', // Designer
-                'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop', // Custom
-                'https://images.unsplash.com/photo-1600566752229-250de48545e4?q=80&w=800&auto=format&fit=crop', // Lam Non-fire
-                'https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?q=80&w=800&auto=format&fit=crop', // Lam Fire
-                'https://images.unsplash.com/photo-1600566753086-00f18efc2294?q=80&w=800&auto=format&fit=crop', // Hotel
-                'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop', // Toilet
-              ];
-              const imgUrl = placeholderImages[idx % placeholderImages.length];
+            {PROJECTS.map((project, idx) => {
+              const imgUrl = project.image || 'https://images.unsplash.com/photo-1517581177682-a085bc7fcb10?q=80&w=800&auto=format&fit=crop';
 
               return (
-                <Link href={`/products/${prod.slug}`} key={idx} className={styles.productCard}>
+                <div key={idx} className={styles.productCard}>
                   <div className={styles.cardImageWrapper}>
                     <Image
                       src={imgUrl}
-                      alt={prod.name}
+                      alt={project.title}
                       fill
                       className={styles.cardImage}
                       style={{ objectFit: 'cover' }}
@@ -122,13 +108,13 @@ export default function ProductsPage() {
                   </div>
                   <div className={styles.cardContent}>
                     <div className={styles.cardHeader}>
-                      <span className={styles.cardCategory}>{prod.wood}</span>
+                      <span className={styles.cardCategory}>{project.developer}</span>
                       <ArrowUpRight size={20} className={styles.cardIcon} />
                     </div>
-                    <h3 className={styles.cardTitle}>{prod.name}</h3>
-                    <p className={styles.cardDesc}>{prod.tagline}</p>
+                    <h3 className={styles.cardTitle}>{project.title}</h3>
+                    <p className={styles.cardDesc}>{project.application}</p>
                   </div>
-                </Link>
+                </div>
               );
             })}
           </div>

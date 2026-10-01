@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { Flame, ShieldCheck, FileBadge } from "lucide-react";
 import styles from "./FireSection.module.css";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 import Button from "./Button";
 
 const renderStrandplyText = (
@@ -88,7 +88,7 @@ export default function FireSection() {
           {/* Left Column */}
           <div className={styles.leftCol}>
             <div className={styles.leftColTop}>
-              <SectionEyebrow label="10 FIRE-RATED WOODEN DOORS" />
+              <NewSectionEyebrow label="10 FIRE-RATED WOODEN DOORS" />
 
               <h2
                 ref={headerRef}

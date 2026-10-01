@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import styles from "./WoodCompareSection.module.css";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 
 const WOODS = [
   {
@@ -97,7 +97,7 @@ export default function WoodCompareSection() {
     <section className={styles.sectionContainer} id="wood-compare">
       {/* ── Centered Header ── */}
       <div className={styles.contentWrapper}>
-        <SectionEyebrow label="08 WOOD SELECTION" />
+        <NewSectionEyebrow label="08 WOOD SELECTION" />
         <h2
           ref={headerRef}
           className={`${styles.sectionTitle} ${isVisible ? styles.animate : ""}`}

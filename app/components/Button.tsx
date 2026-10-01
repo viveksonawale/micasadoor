@@ -21,9 +21,12 @@ export default function Button({
   const combinedStyles = `${styles.base} ${styles[variant]} ${styles[size]} ${className}`;
 
   const content = (
-    <>
-      <span className={styles.btnContent}>{children}</span>
-    </>
+    <span className={styles.btnContentWrapper}>
+      <span className={styles.btnContent}>
+        <span className={styles.textPrimary}>{children}</span>
+        <span className={styles.textHover} aria-hidden="true">{children}</span>
+      </span>
+    </span>
   );
 
   if (href) {

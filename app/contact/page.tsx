@@ -95,7 +95,7 @@ export default function ContactPage() {
 
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>Have a project in mind?</h1>
-            <p className={styles.heroSubheading}>
+            <p className={styles.heroSubtitle}>
               Share your door requirement and our team will help you select the right door, frame and installation solution.
             </p>
           </div>

@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { Droplets } from "lucide-react";
 import styles from "./WetAreaSection.module.css";
-import SectionEyebrow from "./SectionEyebrow";
+import NewSectionEyebrow from "./NewSectionEyebrow";
 import Button from "./Button";
 
 const renderStrandplyText = (
@@ -91,7 +91,7 @@ export default function WetAreaSection() {
 
           {/* Right Column: Tags and Button */}
           <div className={styles.contentCol}>
-            <SectionEyebrow label="11 NON-FIRE RATED / PINE DOORS" />
+            <NewSectionEyebrow label="11 NON-FIRE RATED / PINE DOORS" />
 
             <h2
               ref={headerRef}
