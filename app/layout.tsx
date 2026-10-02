@@ -3,6 +3,7 @@ import "./globals.css";
 import "./global1.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://micasadoor.com"),
   title: "Micasa Door Pvt. Ltd. | Wooden Doors & Frames Manufacturer",
   description:
     "Micasa Doors Pvt. Ltd provides precision-engineered doors and architectural frames crafted for durability, acoustic performance, and timeless architectural luxury.",
