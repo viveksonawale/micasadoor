@@ -1,49 +1,13 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./page.module.css";
-import { PROJECTS } from "@/lib/projectsData";
-
-const renderStrandplyText = (
-  lineText: string,
-  startIndex: number = 0,
-  isHighlight: boolean = false
-) => {
-  let currentIndex = startIndex;
-  const words = lineText.trim().split(/\s+/);
-
-  return words.map((word, wordIndex) => {
-    const chars = word.split("");
-    const wordStartIndex = currentIndex;
-    currentIndex += chars.length;
-
-    return (
-      <span
-        key={wordIndex}
-        className={`${styles.wordWrapper} ${isHighlight ? styles.highlight : ""}`}
-      >
-        {chars.map((char, charIndex) => {
-          const i = wordStartIndex + charIndex;
-          return (
-            <span
-              key={charIndex}
-              aria-hidden="true"
-              className={styles.strandplyChar}
-              style={{ "--i": i } as React.CSSProperties}
-            >
-              {char}
-            </span>
-          );
-        })}
-      </span>
-    );
-  });
-};
+import { ALL_PRODUCTS } from "@/app/data/products";
 
 export default function ProductsPage() {
   const [isHeroVisible, setIsHeroVisible] = useState(false);
@@ -51,14 +15,13 @@ export default function ProductsPage() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsHeroVisible(true);
-      },
+      ([entry]) => { if (entry.isIntersecting) setIsHeroVisible(true); },
       { threshold: 0.1 }
     );
     if (heroRef.current) observer.observe(heroRef.current);
     return () => observer.disconnect();
   }, []);
+
   return (
     <div className={styles.pageContainer}>
       <Navbar />
@@ -71,19 +34,16 @@ export default function ProductsPage() {
             fill
             className={styles.heroImage}
             alt="Products Hero"
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             priority
           />
           <div className={styles.heroOverlay} />
           <div className={styles.heroContainer}>
-            <h1
-              ref={heroRef}
-              className={`${styles.pageTitle}`}
-            >
+            <h1 ref={heroRef} className={styles.pageTitle}>
               Wooden doors, built to specification.
             </h1>
             <p className={styles.pageSubtitle}>
-              Six door programmes across four timbers — from premium solid teak entrances to high-volume internal pine doors.
+              Door programmes and frame systems across multiple timber species  manufactured in Gandhidham, Gujarat.
             </p>
           </div>
           <div className={styles.heroBottomBar} />
@@ -92,36 +52,45 @@ export default function ProductsPage() {
         {/* Products Grid */}
         <section className={styles.productsSection}>
           <div className={styles.productsGrid}>
-            {PROJECTS.map((project, idx) => {
-              const imgUrl = project.image || 'https://images.unsplash.com/photo-1517581177682-a085bc7fcb10?q=80&w=800&auto=format&fit=crop';
+            {ALL_PRODUCTS.map((product) => {
+              const category = product.isDoor
+                ? `Wooden Door  ${product.wood}`
+                : `Door Frame  ${product.kind}`;
 
               return (
-                <div key={idx} className={styles.productCard}>
+                <Link
+                  key={product.slug}
+                  href={`/products/${product.slug}`}
+                  className={styles.productCard}
+                >
                   <div className={styles.cardImageWrapper}>
                     <Image
-                      src={imgUrl}
-                      alt={project.title}
+                      src={product.image}
+                      alt={product.name}
                       fill
                       className={styles.cardImage}
-                      style={{ objectFit: 'cover' }}
+                      style={{ objectFit: "cover" }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                   <div className={styles.cardContent}>
                     <div className={styles.cardHeader}>
-                      <span className={styles.cardCategory}>{project.developer}</span>
+                      <span className={styles.cardCategory}>{category}</span>
                       <ArrowUpRight size={20} className={styles.cardIcon} />
                     </div>
-                    <h3 className={styles.cardTitle}>{project.title}</h3>
-                    <p className={styles.cardDesc}>{project.application}</p>
+                    <h3 className={styles.cardTitle}>{product.name}</h3>
+                    <p className={styles.cardDesc}>{product.tagline}</p>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
         </section>
       </main>
-        {/* <ContactFormSection /> */}
+
       <Footer />
     </div>
   );
 }
+
+

@@ -359,11 +359,11 @@
 
 .cardArrow {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
-  width: 64px;
-  height: 64px;
+  top: 24px;
+  right: 24px;
+  transform: scale(0.8);
+  width: 48px;
+  height: 48px;
   background-color: var(--color-primary-base, #e14401);
   color: #ffffff;
   border-radius: 0;
@@ -377,11 +377,11 @@
 
 .gridCard:hover .cardArrow {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  transform: scale(1);
 }
 
 .gridCard:active .cardArrow {
-  transform: translate(-50%, -50%) scale(1.15);
+  transform: scale(1.15);
   /* Enlarge circle on click */
 }
 

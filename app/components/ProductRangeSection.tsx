@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import NewSectionEyebrow from "./NewSectionEyebrow";
 import styles from "./ProductRangeSection.module.css";
 
@@ -66,12 +67,12 @@ const PRODUCTS = [
 ];
 
 const CATEGORIES = [
-  { title: "Wooden Doors", link: "/wooden-doors", img: "/doors/main-door.jpg", note: "Laminated Fire & Non-Fire Doors" },
-  { title: "Door Frames", link: "/door-frames", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop", note: "Teak · Meranti · Mahogany · Oak · LVL" },
-  { title: "Fire-Rated Doors", link: "/fire-rated-doors", img: "/doors/fire-door.jpg", note: "IS 3614 Certified" },
-  { title: "Non-Fire Doors", link: "/laminated-non-fire-doors", img: "/doors/bedroom-door.jpg", note: "100% A-Grade Pine Core" },
-  { title: "Wet-Area Doors", link: "/laminated-toilet-doors", img: "/doors/toilet-door.jpg", note: "Bathroom & Utility" },
-  { title: "Custom Doors", link: "/custom-wooden-doors", img: "/doors/dark_wood_door.jpg", note: "Built to Drawing" },
+  { title: "Wooden Doors", link: "/doors", img: "/doors/main-door.jpg", note: "Laminated Fire & Non-Fire Doors" },
+  { title: "Door Frames", link: "/doors", img: "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop", note: "Teak · Meranti · Mahogany · Oak · LVL" },
+  { title: "Fire-Rated Doors", link: "/fire-rated", img: "/doors/fire-door.jpg", note: "IS 3614 Certified" },
+  { title: "Non-Fire Doors", link: "/doors", img: "/doors/bedroom-door.jpg", note: "100% A-Grade Pine Core" },
+  { title: "Wet-Area Doors", link: "/doors", img: "/doors/toilet-door.jpg", note: "Bathroom & Utility" },
+  { title: "Custom Doors", link: "/doors", img: "/doors/dark_wood_door.jpg", note: "Built to Drawing" },
 ];
 
 export default function ProductRangeSection() {
@@ -273,7 +274,7 @@ export default function ProductRangeSection() {
       <div className={styles.bentoGridWrapper}>
         <div className={styles.bentoGrid}>
           {CATEGORIES.map((c) => (
-            <a href={c.link} key={c.title} className={styles.gridCard}>
+            <Link href={c.link} key={c.title} className={styles.gridCard}>
               <div className={styles.cardImageWrapper}>
                 <img src={c.img} alt={c.title} className={styles.cardImage} />
                 <div className={styles.cardOverlay} />
@@ -290,7 +291,7 @@ export default function ProductRangeSection() {
                 <h3 className={styles.cardTitle}>{c.title}</h3>
                 <p className={styles.cardNote}>{c.note}</p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

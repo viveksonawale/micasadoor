@@ -141,12 +141,13 @@
   display: flex;
   flex-direction: column;
   gap: 36px;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
+  border: 1px solid rgba(180, 170, 158, 0.35);
   border-radius: 0;
   padding: 32px 24px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
@@ -470,12 +471,14 @@
 }
 
 .officeCard {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
+  border: 1px solid rgba(180, 170, 158, 0.35);
   border-radius: 0;
   overflow: hidden;
   padding: 36px 32px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
 }
 
 .officeInfo {

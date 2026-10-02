@@ -66,11 +66,11 @@ export default function IntroGate() {
   if (phase === "done") return null;
 
   const opening = phase === "opening" || phase === "blur" || phase === "fade";
-  
+
   const doorAnim =
     phase === "closed" ? { rotateY: 0 }
-    : phase === "handle" ? { rotateY: 1.5 }
-    : { rotateY: [1.5, -116, -106] };
+      : phase === "handle" ? { rotateY: 1.5 }
+        : { rotateY: [1.5, -116, -106] };
 
   const doorTransition =
     opening
@@ -101,7 +101,7 @@ export default function IntroGate() {
           transition={{ duration: 0.35, ease: "easeOut" }}
           exit={{ opacity: 0, transition: { duration: 0.3 } }}
         >
-          {/* heavy blur overlay — exact match from original */}
+          {/* heavy blur overlay  exact match from original */}
           <motion.div
             className="pointer-events-none absolute inset-0 z-50"
             style={{ backdropFilter: "blur(30px)", WebkitBackdropFilter: "blur(30px)", background: "rgba(244,238,227,0.25)" }}
@@ -130,7 +130,7 @@ export default function IntroGate() {
             <img src="/factory/hero-factory.jpg" alt="Micasa Doors factory floor" className="h-full w-full object-cover" />
           </motion.div>
 
-          {/* scene — walls surround the doorway */}
+          {/* scene  walls surround the doorway */}
           <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: 1600 }}>
             <div className="relative" style={{ transform: "translateY(-3vh)" }}>
               {/* left wall */}
@@ -156,7 +156,7 @@ export default function IntroGate() {
                   {/* Base wood gradient */}
                   <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, #BCA88A 0%, #C8B89A 40%, #D4C4A8 100%)" }} />
 
-                  {/* Perspective plank lines — horizontal */}
+                  {/* Perspective plank lines  horizontal */}
                   {[8, 20, 35, 54, 75].map((pct, i) => (
                     <div key={i} className="absolute inset-x-0" style={{
                       top: `${pct}%`,
@@ -233,7 +233,7 @@ export default function IntroGate() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: opening ? 0.22 : 0 }}
                         transition={{ duration: 1.8, ease: [0.65, 0, 0.35, 1] }} />
-                      
+
                       <span
                         className="absolute rounded-sm"
                         style={{ right: "3%", top: "52.5%", width: "6.5%", height: "10.5%", background: "linear-gradient(180deg,#262626,#101010)", boxShadow: "0 2px 6px rgba(0,0,0,0.45)" }}
@@ -301,7 +301,7 @@ export default function IntroGate() {
           </div>
 
           {/* brand mark - Positioned on the left side, adjusted upwards slightly */}
-          <motion.div 
+          <motion.div
             className="absolute top-8 left-1/2 -translate-x-1/2 md:top-[40%] md:-translate-y-1/2 md:left-[10%] lg:left-[15%] xl:left-[18%] md:translate-x-0 z-30 pointer-events-none flex flex-col items-center md:items-start"
             initial={{ opacity: 1 }}
             animate={wallFade.animate} transition={wallFade.transition as any}
