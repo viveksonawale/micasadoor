@@ -53,6 +53,7 @@ export default function IntroGate() {
   }, []);
 
   useEffect(() => {
+    if (phase === "done") return;
     const onKey = (e: KeyboardEvent) => {
       if (["ArrowRight", "Enter", " "].includes(e.key)) {
         e.preventDefault();
@@ -61,7 +62,7 @@ export default function IntroGate() {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open]);
+  }, [open, phase]);
 
   if (phase === "done") return null;
 

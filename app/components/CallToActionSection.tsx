@@ -216,8 +216,8 @@ export default function CallToActionSection({ className }: { className?: string 
                 </div>
 
                 <div className={styles.formGroupFull}>
-                  <label htmlFor="ctaMessage" className={styles.formLabel}>Message*</label>
-                  <textarea id="ctaMessage" name="message" required className={styles.formTextarea} placeholder="Your Message"></textarea>
+                  <label htmlFor="ctaMessage" className={styles.formLabel}>Message</label>
+                  <textarea id="ctaMessage" name="message" className={styles.formTextarea} placeholder="Your Message"></textarea>
                 </div>
 
                 {errorMessage && (

@@ -9,7 +9,7 @@ const contactSchema = z.object({
   lastName: z.string().min(1, 'Last name is required'),
   email: z.string().email('Invalid email address'),
   phone: z.string().min(1, 'Phone number is required'),
-  message: z.string().min(1, 'Message is required'),
+  message: z.string().optional().default(''),
 });
 
 export async function POST(request: Request) {
