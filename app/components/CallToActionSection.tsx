@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { CheckCircle } from "lucide-react";
 import Button from "./Button";
 import styles from "./CallToActionSection.module.css";
 
@@ -42,6 +44,8 @@ const renderStrandplyText = (
 
 export default function CallToActionSection({ className }: { className?: string }) {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const headerRef = useRef<HTMLHeadingElement>(null);
 
@@ -65,9 +69,34 @@ export default function CallToActionSection({ className }: { className?: string 
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+      } else {
+        const resData = await response.json();
+        setErrorMessage(resData.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setErrorMessage("An error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -92,8 +121,14 @@ export default function CallToActionSection({ className }: { className?: string 
 
           <div className={styles.contactBlock}>
             <span className={styles.contactLabel}>Email ID</span>
-            <a href="mailto:support@metanoiaglobal.com" className={styles.contactValue}>
-              support@metanoiaglobal.com
+            <a href="mailto:support@micasadoor.com" className={styles.contactValue}>
+              support@micasadoor.com
+            </a>
+            <a href="mailto:divyang.bhanushali@micasadoor.com" className={styles.contactValue}>
+              divyang.bhanushali@micasadoor.com
+            </a>
+            <a href="mailto:rahul.dey@micasadoor.com" className={styles.contactValue}>
+              rahul.dey@micasadoor.com
             </a>
           </div>
 
@@ -127,9 +162,38 @@ export default function CallToActionSection({ className }: { className?: string 
         <div className={styles.formColumn}>
           <div className={styles.formPanel}>
             {formSubmitted ? (
-              <div className={styles.successMessage}>
-                <p>Thank you! Your message has been sent successfully. We will get back to you soon.</p>
-              </div>
+              <motion.div 
+                className={styles.successMessageWrapper}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                <div className={styles.successIconContainer}>
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring", stiffness: 200, damping: 15 }}
+                  >
+                    <CheckCircle size={72} color="#4CAF50" strokeWidth={1.5} />
+                  </motion.div>
+                </div>
+                <motion.h3 
+                  className={styles.successHeading}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  Message Sent Successfully!
+                </motion.h3>
+                <motion.p 
+                  className={styles.successText}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  Thank you! Your message has been sent successfully. We will get back to you within 24 hours.
+                </motion.p>
+              </motion.div>
             ) : (
               <form className={styles.formGrid} onSubmit={handleSubmit}>
                 <div className={styles.formGroup}>
@@ -156,10 +220,17 @@ export default function CallToActionSection({ className }: { className?: string 
                   <textarea id="ctaMessage" name="message" required className={styles.formTextarea} placeholder="Your Message"></textarea>
                 </div>
 
+                {errorMessage && (
+                  <div className={styles.formGroupFull} style={{ color: 'red', marginBottom: '10px' }}>
+                    <p>{errorMessage}</p>
+                  </div>
+                )}
+
                 <div className={styles.formGroupFull}>
                   <div className={styles.submitButton}>
-                    <Button variant="primary" size="md" type="submit" className={styles.submitBtn}>
-                      Submit
+                    {/* @ts-ignore - Assuming Button component supports disabled attribute natively or via rest props */}
+                    <Button variant="primary" size="md" type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+                      {isSubmitting ? "Submitting..." : "Submit"}
                     </Button>
                   </div>
                 </div>

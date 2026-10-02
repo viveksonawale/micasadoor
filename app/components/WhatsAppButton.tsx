@@ -9,7 +9,7 @@ export default function WhatsAppButton() {
     "Hi MICASA Doors, I would like to inquire about your precision engineered doors and frames."
   );
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-  const emailUrl = "mailto:support@metanoiaglobal.com";
+  const emailUrl = "mailto:support@micasadoor.com";
 
   return (
     <div className={styles.floatingStack}>

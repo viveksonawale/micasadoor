@@ -92,8 +92,14 @@ export default function ContactFormSection() {
 
           <div className={styles.contactBlock}>
             <span className={styles.contactLabel}>Email ID</span>
-            <a href="mailto:support@metanoiaglobal.com" className={styles.contactValue}>
-              support@metanoiaglobal.com
+            <a href="mailto:support@micasadoor.com" className={styles.contactValue}>
+              support@micasadoor.com
+            </a>
+            <a href="mailto:divyang.bhanushali@micasadoor.com" className={styles.contactValue}>
+              divyang.bhanushali@micasadoor.com
+            </a>
+            <a href="mailto:rahul.dey@micasadoor.com" className={styles.contactValue}>
+              rahul.dey@micasadoor.com
             </a>
           </div>
 

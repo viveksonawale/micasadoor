@@ -3,23 +3,28 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.css';
 
-const quickLinks = [
+const exploreLinks = [
   { name: 'Home', href: '/' },
-  { name: 'About Us', href: '#about' },
-  { name: 'Gallery', href: '#gallery' },
-  { name: 'How We Work', href: '#how-we-work' },
+  { name: 'About', href: '/about' },
+  { name: 'Resources', href: '/resources' },
   { name: 'Get a Quote', href: '/contact' },
 ];
 
-const doorLinks = [
-  { name: 'Interior Doors', href: '#doors' },
-  { name: 'Exterior Doors', href: '#doors' },
-  { name: 'Door Frames', href: '#frames' },
-  { name: 'Custom Doors', href: '#custom-doors' },
+const doorsLinks = [
+  { name: 'Fire Rated', href: '/fire-rated' },
+  { name: 'Laminated', href: '/doors' },
+  { name: 'Veneer', href: '/doors' },
+  { name: 'PU Finish', href: '/doors' },
+];
+
+const companyLinks = [
+  { name: 'Manufacturing', href: '/manufacturing' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const emails = [
-  'support@metanoiaglobal.com',
+  'support@micasadoor.com',
 ];
 
 export default function Footer() {
@@ -138,11 +143,10 @@ export default function Footer() {
             </div>
 
             <div className={styles.linksContainer}>
-              {/* Column 2: Our Doors (Products equivalent) */}
               <div className={styles.linkColumn}>
-                <h3 className={styles.columnHeading}>Our Doors</h3>
+                <h3 className={styles.columnHeading}>EXPLORE</h3>
                 <ul className={styles.linkList}>
-                  {doorLinks.map((link) => (
+                  {exploreLinks.map((link) => (
                     <li key={link.name} className={styles.linkItem}>
                       <Link href={link.href}>{link.name}</Link>
                     </li>
@@ -150,11 +154,21 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Column 3: Quick Links (Useful Links equivalent) */}
               <div className={styles.linkColumn}>
-                <h3 className={styles.columnHeading}>Quick Links</h3>
+                <h3 className={styles.columnHeading}>DOORS</h3>
                 <ul className={styles.linkList}>
-                  {quickLinks.map((link) => (
+                  {doorsLinks.map((link) => (
+                    <li key={link.name} className={styles.linkItem}>
+                      <Link href={link.href}>{link.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className={styles.linkColumn}>
+                <h3 className={styles.columnHeading}>COMPANY</h3>
+                <ul className={styles.linkList}>
+                  {companyLinks.map((link) => (
                     <li key={link.name} className={styles.linkItem}>
                       <Link href={link.href}>{link.name}</Link>
                     </li>
