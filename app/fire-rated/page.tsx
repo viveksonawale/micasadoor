@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "../components/Button";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import NewSectionEyebrow from "../components/NewSectionEyebrow";
@@ -77,8 +78,10 @@ export default function FireRatedPage() {
                 <div className={styles.featuresGrid}>
                   {CONSTRUCTION.map((c) => (
                     <div key={c.t} className={styles.featureCard}>
-                      <ShieldCheck size={20} className={styles.shieldIcon} />
-                      <h3 className={styles.featureTitle}>{c.t}</h3>
+                      <div className={styles.featureHeader}>
+                        <ShieldCheck size={20} className={styles.shieldIcon} />
+                        <h3 className={styles.featureTitle}>{c.t}</h3>
+                      </div>
                       <p className={styles.featureDesc}>{c.d}</p>
                     </div>
                   ))}
@@ -105,12 +108,12 @@ export default function FireRatedPage() {
                 </div>
 
                 <div className={styles.actionButtons}>
-                  <Link href="/contact?product=Fire%20Rated%20Doors" className={styles.primaryButton}>
-                    <span className={styles.btnText}>Request Fire Door Technical Data</span>
-                  </Link>
-                  <Link href="/contact?product=Fire%20Rated%20Doors" className={styles.secondaryButton}>
-                    <span className={styles.btnText}>Talk to Our Fire Door Specialist</span>
-                  </Link>
+                  <Button href="/contact?product=Fire%20Rated%20Doors" variant="primary" className={styles.fireButton}>
+                    Request Fire Door Technical Data
+                  </Button>
+                  <Button href="/contact?product=Fire%20Rated%20Doors" variant="secondary" className={styles.fireButton}>
+                    Talk to Our Fire Door Specialist
+                  </Button>
                 </div>
               </div>
 
