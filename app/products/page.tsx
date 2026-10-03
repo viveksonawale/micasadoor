@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "./page.module.css";
 import { ALL_PRODUCTS } from "@/app/data/products";
+import ContactFormSection from "../components/ContactFormSection";
 
 export default function ProductsPage() {
   const [isHeroVisible, setIsHeroVisible] = useState(false);
@@ -88,6 +89,7 @@ export default function ProductsPage() {
         </section>
       </main>
 
+      {/* <ContactFormSection /> */}
       <Footer />
     </div>
   );
