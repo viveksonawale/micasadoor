@@ -1,34 +1,43 @@
 .splitSection {
-  padding: 80px var(--gutter-mobile, 20px);
-  max-width: var(--container-max-width, 1600px);
+  padding: 32px 20px 48px;
+  max-width:  1400px;
   margin: 0 auto;
+  background-color: var(--color-surface, #F9F8F6);
 }
 
 @media (min-width: 640px) {
   .splitSection {
-    padding: 96px var(--gutter-tablet, 36px);
+    padding: 90px var(--gutter-tablet, 36px) 110px;
   }
 }
 
 @media (min-width: 1024px) {
   .splitSection {
-    padding: 120px var(--gutter-desktop, 48px);
+    padding: 100px var(--gutter-desktop, 48px) 120px;
   }
 }
 
 .splitContainer {
   display: flex;
   flex-direction: column;
-  gap: 36px;
-  background-color: #f8f9fa;
+  gap: 16px;
+  background-color: #ffffff;
+  border: 1px solid rgba(180, 170, 158, 0.35);
   border-radius: 0;
-  padding: 32px 24px;
+  padding: 24px 16px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .splitContainer {
+    padding: 48px 40px;
+    gap: 32px;
+  }
 }
 
 .logoWatermark {
@@ -59,14 +68,20 @@
 /* Left: Contact Info */
 .infoColumn {
   flex: 1;
-  max-width: 480px;
+  max-width: 100%;
   position: relative;
   z-index: 1;
 }
 
+@media (min-width: 1024px) {
+  .infoColumn {
+    max-width: 480px;
+  }
+}
+
 .infoTitle {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
   margin-bottom: 16px;
@@ -78,7 +93,7 @@
 
 @media (min-width: 768px) {
   .infoTitle {
-    font-size: 48px;
+    font-size: 44px;
   }
 }
 
@@ -122,13 +137,35 @@
 
 .infoDescription {
   font-size: 15px;
-  line-height: 1.02;
-  color: var(--color-text-secondary, #666666);
-  margin-bottom: 28px;
+  line-height: 1.6;
+  color: var(--color-text-secondary, #666);
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .infoDescription {
+    margin-bottom: 28px;
+  }
 }
 
 .contactBlock {
-  margin-bottom: 28px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .contactBlock {
+    margin-bottom: 28px;
+  }
+}
+
+.socialsBlock {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .socialsBlock {
+    display: block;
+  }
 }
 
 .contactLabel {
@@ -144,9 +181,9 @@
 
 .contactValue {
   display: block;
-  font-family: 'Cabinet Grotesk', sans-serif;
+  font-family: var(--font-inter, sans-serif);
   font-size: 16px;
-  color: var(--color-text-secondary, #666666);
+  color: var(--color-text-secondary, #666);
   text-decoration: none;
   margin-bottom: 4px;
   transition: color 0.2s ease;
@@ -188,13 +225,14 @@
 /* Right: Form */
 .formColumn {
   flex: 1;
-  max-width: 560px;
+  max-width: 100%;
   position: relative;
   z-index: 1;
 }
 
 @media (min-width: 1024px) {
   .formColumn {
+    max-width: 560px;
     padding-top: 8px;
   }
 }
@@ -203,7 +241,7 @@
   background: #FFFFFF;
   border: 1px solid #E5E5E5;
   padding: 32px;
-  border-radius: 8px;
+  border-radius: 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
