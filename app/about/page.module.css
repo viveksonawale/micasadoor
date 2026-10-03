@@ -32,16 +32,23 @@
 /* ── Hero Section ── */
 .heroSection {
   height: 55vh;
-  min-height: 480px;
+  min-height: 400px;
   max-height: 550px;
   position: relative;
   width: 100%;
 
   display: flex;
   align-items: flex-end;
-  padding: 48px 0 56px;
+  padding: 32px 0 40px;
   overflow: hidden;
   background-color: var(--color-neutral-900);
+}
+
+@media (min-width: 768px) {
+  .heroSection {
+    min-height: 480px;
+    padding: 48px 0 56px;
+  }
 }
 
 .heroImage {
@@ -102,7 +109,7 @@
 
 .heroTitle {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 44px;
+  font-size: 32px;
   font-weight: 700;
   color: var(--color-white);
   margin: 0 0 16px;
@@ -140,8 +147,14 @@
 
 /* ── Who We Are Section ── */
 .whoWeAreSection {
-  padding: 80px 0;
+  padding: 48px 0;
   background-color: var(--color-surface, #F9F8F6);
+}
+
+@media (min-width: 768px) {
+  .whoWeAreSection {
+    padding: 80px 0;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -153,7 +166,7 @@
 .whoWeAreGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 64px;
+  gap: 32px;
 }
 
 @media (min-width: 1024px) {
@@ -171,10 +184,10 @@
 
 .sectionHeading {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 700;
   color: var(--color-heading);
-  margin: 0 0 32px;
+  margin: 0 0 24px;
   line-height: 1.2;
 }
 
@@ -191,16 +204,22 @@
 .textWrapper {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-bottom: 40px;
+  gap: 16px;
+  margin-bottom: 32px;
 }
 
 .bodyText {
   font-family: var(--font-inter);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
   color: var(--color-text);
   margin: 0;
+}
+
+@media (min-width: 768px) {
+  .bodyText {
+    font-size: 16px;
+  }
 }
 
 .statsBlock {
@@ -249,35 +268,52 @@
 
 .pillarCard {
   background-color: var(--color-surface);
-  padding: 40px 32px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   border-radius: 0;
   transition: transform 0.4s var(--ease-standard, cubic-bezier(0.16, 1, 0.3, 1)), box-shadow 0.4s var(--ease-standard, cubic-bezier(0.16, 1, 0.3, 1));
 }
 
+@media (min-width: 768px) {
+  .pillarCard {
+    padding: 40px 32px;
+  }
+}
+
 .pillarCard:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
   z-index: 1;
-  /* Make shadow visible over adjacent borders */
+}
+
+.pillarHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
 }
 
 .pillarNumber {
   font-family: var(--font-inter);
   font-size: 11px;
   font-weight: 600;
-
   color: var(--color-primary-base);
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .pillarTitle {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--color-heading);
-  margin: 0 0 12px;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .pillarTitle {
+    font-size: 20px;
+  }
 }
 
 .pillarDesc {
@@ -290,7 +326,7 @@
 
 /* ── Office Locations Grid ── */
 .officesSection {
-  padding: 28px 20px 72px;
+  padding: 24px 20px 48px;
   background-color: var(--color-bg, #fcfbf9);
 }
 
@@ -334,10 +370,16 @@
   border: 1px solid rgba(180, 170, 158, 0.35);
   border-radius: 0;
   overflow: hidden;
-  padding: 36px 32px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .officeCard {
+    padding: 36px 32px;
+  }
 }
 
 .officeInfo {
@@ -348,12 +390,18 @@
 
 .officeHeading {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--color-text-primary);
   margin-bottom: 12px;
   perspective: 900px;
   transform-style: preserve-3d;
+}
+
+@media (min-width: 768px) {
+  .officeHeading {
+    font-size: 28px;
+  }
 }
 
 .officeAddress {
@@ -419,8 +467,14 @@
 
 /* ── Leadership Section ── */
 .leadershipSection {
-  padding: 80px 0;
+  padding: 48px 0;
   background-color: var(--color-surface, #F9F8F6);
+}
+
+@media (min-width: 768px) {
+  .leadershipSection {
+    padding: 80px 0;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -456,8 +510,8 @@
 .leadersGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 40px;
-  margin-top: 48px;
+  gap: 32px;
+  margin-top: 32px;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -480,7 +534,7 @@
 .leaderImageContainer {
   position: relative;
   width: 100%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/4;
   background-color: var(--color-neutral-200);
   margin-bottom: 24px;
   border-radius: 0;
@@ -494,10 +548,17 @@
 
 .leaderName {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--color-heading);
-  margin: 0 0 8px;
+  margin: 0 0 4px;
+}
+
+@media (min-width: 768px) {
+  .leaderName {
+    font-size: 24px;
+    margin: 0 0 8px;
+  }
 }
 
 .leaderRole {
