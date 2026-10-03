@@ -231,6 +231,7 @@
     filter: blur(15px);
     transform: translateY(10px) scale(2);
   }
+
   100% {
     opacity: 1;
     filter: blur(0px);
@@ -458,12 +459,6 @@
   gap: 24px;
 }
 
-@media (min-width: 768px) {
-  .officesGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (min-width: 1024px) {
   .officesGrid {
     grid-template-columns: repeat(3, 1fr);
@@ -475,10 +470,18 @@
   border: 1px solid rgba(180, 170, 158, 0.35);
   border-radius: 0;
   overflow: hidden;
-  padding: 36px 32px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+  aspect-ratio: 1 / 1;
+}
+
+@media (min-width: 768px) {
+  .officeCard {
+    padding: 36px 32px;
+    aspect-ratio: auto;
+  }
 }
 
 .officeInfo {
@@ -501,16 +504,30 @@
   font-size: 15px;
   line-height: 1.6;
   color: var(--color-neutral-700);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .officeAddress {
+    margin-bottom: 24px;
+  }
 }
 
 .mapContainer {
-  height: 340px;
+  flex: 1;
+  min-height: 0;
   width: 100%;
   border-radius: 0;
   overflow: hidden;
   pointer-events: none;
   user-select: none;
+}
+
+@media (min-width: 768px) {
+  .mapContainer {
+    height: 340px;
+    flex: none;
+  }
 }
 
 .mapIframe {
