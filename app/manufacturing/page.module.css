@@ -13,16 +13,23 @@
 /* ── Hero Section ── */
 .heroSection {
   height: 55vh;
-  min-height: 480px;
+  min-height: 400px;
   max-height: 550px;
   position: relative;
   width: 100%;
 
   display: flex;
   align-items: flex-end;
-  padding: 48px 0 56px;
+  padding: 32px 0 40px;
   overflow: hidden;
   background-color: var(--color-neutral-900);
+}
+
+@media (min-width: 768px) {
+  .heroSection {
+    min-height: 480px;
+    padding: 48px 0 56px;
+  }
 }
 
 .heroImage {
@@ -83,7 +90,7 @@
 
 .pageTitle {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 44px;
+  font-size: 32px;
   font-weight: 700;
   color: var(--color-white);
   margin: 0 0 16px;
@@ -121,8 +128,14 @@
 
 /* ─── Gallery Section ─────────────────────────────────────────────────────── */
 .gallerySection {
-  padding: 80px 0;
+  padding: 48px 0;
   background-color: var(--color-surface, #F9F8F6);
+}
+
+@media (min-width: 768px) {
+  .gallerySection {
+    padding: 80px 0;
+  }
 }
 
 .galleryContainer {
@@ -173,10 +186,7 @@
   .heroContainer, .galleryContainer {
     padding: 0 var(--gutter-mobile, 20px);
   }
-  .pageTitle {
-    font-size: 40px;
-  }
   .pageSubtitle {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
