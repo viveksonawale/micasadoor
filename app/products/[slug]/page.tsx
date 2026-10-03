@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import CallToActionSection from "../../components/CallToActionSection";
 import { ALL_PRODUCTS, DOORS, FRAMES_PRODUCTS, type DoorProduct, type FrameProduct } from "@/app/data/products";
 import styles from "./page.module.css";
+import ContactFormSection from "@/app/components/ContactFormSection";
 
 // Generate static params for all product slugs
 export async function generateStaticParams() {
@@ -81,16 +82,20 @@ export default async function ProductDetailPage({
         <section className={styles.contentSection}>
           <div className={styles.contentGrid}>
             {/* Left: Image + Description */}
-            <div>
-              <Image
-                src={p.image}
-                alt={`${p.name}  manufactured by Micasa Doors Solutions`}
-                width={1200}
-                height={900}
-                className={styles.productImage}
-                sizes="(max-width: 1024px) 100vw, 58vw"
-              />
-              <p className={styles.productDescription}>{p.description}</p>
+            <div className={styles.leftCol}>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src={p.image}
+                  alt={`${p.name}  manufactured by Micasa Doors Solutions`}
+                  width={1200}
+                  height={900}
+                  className={styles.productImage}
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+              <div className={styles.descriptionCard}>
+                <p className={styles.productDescription}>{p.description}</p>
+              </div>
             </div>
 
             {/* Right: Spec Panel */}
@@ -138,7 +143,7 @@ export default async function ProductDetailPage({
                 href={`/contact?product=${encodeURIComponent(p.name)}`}
                 className={styles.quoteBtn}
               >
-                Request a Quote  {p.name}
+                Request a Quote for {p.name}
               </Link>
             </div>
           </div>
@@ -163,7 +168,7 @@ export default async function ProductDetailPage({
           </section>
         )}
 
-        <CallToActionSection />
+        <ContactFormSection/>
       </main>
       <Footer />
     </div>

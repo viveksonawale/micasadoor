@@ -139,7 +139,7 @@ export default function CallToActionSection({ className }: { className?: string 
             </a>
           </div>
 
-          <div className={styles.contactBlock}>
+          <div className={`${styles.contactBlock} ${styles.socialsBlock}`}>
             <span className={styles.contactLabel}>Our Socials</span>
             <div className={styles.socialRow}>
               <a href="#" className={styles.socialLink} aria-label="Facebook">

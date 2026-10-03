@@ -11,15 +11,15 @@
 
 /* ── Hero Section (Copied from About Page) ── */
 .heroSection {
-  height: 55vh;
-  min-height: 480px;
-  max-height: 550px;
+  height: 40vh;
+  min-height: 360px;
+  max-height: 460px;
   position: relative;
   width: 100%;
 
   display: flex;
   align-items: flex-end;
-  padding: 48px 0 56px;
+  padding: 40px 0 48px;
   overflow: hidden;
   background-color: var(--color-neutral-900);
 }
@@ -32,7 +32,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  
+
 }
 
 .heroOverlay {
@@ -51,6 +51,7 @@
   position: relative;
   z-index: 2;
   max-width: var(--container-max-width, 1600px);
+  /* font-size: 12px; */
   width: 100%;
   margin: 0 auto;
   padding: 0 var(--gutter-mobile, 20px);
@@ -149,8 +150,20 @@
 
 /* Details Layout */
 .detailsSection {
-  padding: var(--space-24) 0;
-  background-color: var(--color-neutral-100);
+  padding: 48px 0 64px;
+  background-color: var(--color-ivory, #F9F8F6);
+}
+
+@media (min-width: 768px) {
+  .detailsSection {
+    padding: 56px 0 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .detailsSection {
+    padding: 64px 0 96px;
+  }
 }
 
 .container {
@@ -162,20 +175,29 @@
 .twoColumnLayout {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-16);
+  gap: 40px;
 }
 
 @media (min-width: 1024px) {
   .twoColumnLayout {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-24);
+    gap: 56px;
+    align-items: flex-start;
   }
 }
 
 .leftColumn {
   display: flex;
   flex-direction: column;
-  gap: var(--space-8);
+  gap: 24px;
+}
+
+.imageWrapper {
+  position: relative;
+  background-color: #ffffff;
+  padding: 12px;
+  border: 1px solid rgba(180, 170, 158, 0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
 }
 
 .mainImageContainer {
@@ -190,11 +212,29 @@
   object-fit: cover;
 }
 
+.descriptionCard {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid rgba(180, 170, 158, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
 .description {
   font-family: var(--font-inter);
-  font-size: 1.125rem;
-  color: var(--color-neutral-700);
-  line-height: 1.6;
+  font-size: 15px;
+  color: var(--color-text, #525152);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .descriptionCard {
+    padding: 22px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
 }
 
 /* Right Column: Spec List */
@@ -203,16 +243,22 @@
   flex-direction: column;
 }
 
+.specPanel {
+  background-color: #ffffff;
+  border: 1px solid rgba(180, 170, 158, 0.35);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+}
+
 .specRow {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-6) 0;
-  border-bottom: 1px solid var(--color-neutral-200);
+  gap: 8px;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(180, 170, 158, 0.25);
 }
 
-.specRow:first-child {
-  padding-top: 0;
+.specRow:last-child {
+  border-bottom: none;
 }
 
 .specLabel {
@@ -226,37 +272,18 @@
 
 .specValue {
   font-family: var(--font-inter);
-  font-size: 1rem;
+  font-size: 16px;
   color: var(--color-neutral-900);
   line-height: 1.5;
 }
 
 .ctaWrapper {
-  margin-top: var(--space-12);
+  margin-top: 20px;
   display: flex;
 }
 
 .ctaButton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.85rem 1.75rem;
-  background-color: var(--color-primary-base);
-  color: var(--color-white);
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  border-radius: 0;
-}
-
-.ctaButton:hover {
-  background-color: var(--color-primary-dark);
+  width: 100%;
 }
 
 /* Recommendations */
@@ -268,6 +295,13 @@
 @media (min-width: 1024px) {
   .moreSection {
     padding: 120px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .ctaButton {
+    padding: 12px 22px;
+    font-size: 11px;
   }
 }
 
@@ -333,7 +367,7 @@
 }
 
 .moreCardContent {
-  padding: 32px;
+  padding: 26px;
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -342,7 +376,7 @@
 
 .moreTitle {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--color-neutral-900);
   font-weight: 700;
 }
@@ -356,16 +390,21 @@
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .heroContent, .container {
+
+  .heroContent,
+  .container {
     padding: 0 var(--gutter-mobile);
   }
+
   .moreCard {
-    padding: var(--space-6);
+    padding: var(--space-4);
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .heroContent, .container {
+
+  .heroContent,
+  .container {
     padding: 0 var(--gutter-tablet);
   }
 }

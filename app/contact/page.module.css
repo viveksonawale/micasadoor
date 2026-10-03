@@ -231,6 +231,7 @@
     filter: blur(15px);
     transform: translateY(10px) scale(2);
   }
+
   100% {
     opacity: 1;
     filter: blur(0px);
@@ -458,12 +459,6 @@
   gap: 24px;
 }
 
-@media (min-width: 768px) {
-  .officesGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (min-width: 1024px) {
   .officesGrid {
     grid-template-columns: repeat(3, 1fr);
@@ -475,10 +470,16 @@
   border: 1px solid rgba(180, 170, 158, 0.35);
   border-radius: 0;
   overflow: hidden;
-  padding: 36px 32px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .officeCard {
+    padding: 36px 32px;
+  }
 }
 
 .officeInfo {
@@ -489,12 +490,18 @@
 
 .officeHeading {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 600;
   color: var(--color-text-primary);
   margin-bottom: 12px;
   perspective: 900px;
   transform-style: preserve-3d;
+}
+
+@media (min-width: 768px) {
+  .officeHeading {
+    font-size: 28px;
+  }
 }
 
 .officeAddress {

@@ -100,10 +100,12 @@ export default function ResourcesPage() {
               {RESOURCES.map((resource, index) => (
                 <Link key={index} href="/contact" className={styles.resourceCardLink}>
                   <div className={styles.resourceCard}>
-                    <div className={styles.cardIconWrapper}>
-                      {resource.icon}
+                    <div className={styles.cardHeader}>
+                      <div className={styles.cardIconWrapper}>
+                        {resource.icon}
+                      </div>
+                      <h3 className={styles.cardTitle}>{resource.title}</h3>
                     </div>
-                    <h3 className={styles.cardTitle}>{resource.title}</h3>
                     <p className={styles.cardDesc}>{resource.description}</p>
                     <div className={styles.cardAction}>
                       Request Access

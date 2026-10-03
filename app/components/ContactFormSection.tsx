@@ -80,7 +80,7 @@ export default function ContactFormSection() {
           <h2
             ref={headerRef}
             className={`${styles.infoTitle} ${isVisible ? styles.animate : ""}`}
-            aria-label="Get In Touch With Us"
+            aria-label="Have a Project in Mind"
           >
           {renderStrandplyText("Have a project ", 0, false)}
           {renderStrandplyText("in mind?", 15, true)}
@@ -110,7 +110,7 @@ export default function ContactFormSection() {
             </a>
           </div>
 
-          <div className={styles.contactBlock}>
+          <div className={`${styles.contactBlock} ${styles.socialsBlock}`}>
             <span className={styles.contactLabel}>Our Socials</span>
             <div className={styles.socialRow}>
               <a href="#" className={styles.socialLink} aria-label="Facebook">

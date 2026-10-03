@@ -50,7 +50,7 @@
   color: rgba(26, 26, 26, 0.6);
   max-width: 480px;
   line-height: 1.5;
-  margin-bottom: 32px;
+  margin-bottom: 25px;
 }
 
 /* ─── Strandply Animation ─────────────────────────────────────────────────── */
@@ -198,6 +198,7 @@
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   z-index: 2;
   border-radius: 0; /* Zero border radius square */
+  transform-origin: center center;
 }
 
 .stepInnerDot {
@@ -285,19 +286,20 @@
   }
 
   .timelineContainer {
-    padding-left: 80px; /* adjusted for mobile */
+    padding-left: 72px; /* adjusted for tablet */
   }
 
   .timelineLine, .timelineLineFill {
-    left: 40px;
+    left: 35px;
   }
 
   .stepMarker {
-    left: -46px; /* 80 - 41 = 39. 39 + 7 = 46 */
+    left: -43px; /* 72 - 43 = 29, + 7 = 36 */
   }
 
   .stepNumber {
-    left: -80px;
+    left: -76px;
+    width: 28px;
   }
 
   .stickyContent {
@@ -316,11 +318,45 @@
   }
 
   .sectionTitle {
-    font-size: 32px;
+    font-size: 28px;
+  }
+
+  .sectionSubtitle {
+    font-size: 15px;
+  }
+
+  .imageWrapper {
+    display: none;
+  }
+
+  .timelineContainer {
+    padding-left: 48px;
+  }
+
+  .timelineLine, .timelineLineFill {
+    left: 23px;
+  }
+
+  .stepMarker {
+    left: -31px; /* 48 - 31 = 17, + 7 = 24 */
+  }
+
+  .stepNumber {
+    left: -54px;
+    width: 18px;
+    font-size: 13px;
   }
   
   .stepTitle {
-    font-size: 22px;
+    font-size: 20px;
+  }
+
+  .stepDescription {
+    font-size: 14px;
+  }
+  
+  .stepItem {
+    padding-bottom: 40px;
   }
 }
 

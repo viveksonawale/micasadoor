@@ -82,7 +82,7 @@
 
 .pageTitle {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 44px;
+  font-size: 32px;
   font-weight: 700;
   color: var(--color-white);
   margin: 0 0 16px;
@@ -277,9 +277,9 @@
     padding: 100px 0 60px 0;
   }
   
-  .pageTitle {
+  /* .pageTitle {
     font-size: 40px;
-  }
+  } */
   
   .heroContainer, .productsSection {
     padding-left: var(--gutter-mobile, 20px);

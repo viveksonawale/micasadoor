@@ -160,8 +160,10 @@ export default function AboutPage() {
               <div className={styles.pillarsGrid}>
                 {PILLARS.map((p, i) => (
                   <div key={p.t} className={styles.pillarCard}>
-                    <div className={styles.pillarNumber}>{String(i + 1).padStart(2, "0")}</div>
-                    <h3 className={styles.pillarTitle}>{p.t}</h3>
+                    <div className={styles.pillarHeader}>
+                      <div className={styles.pillarNumber}>{String(i + 1).padStart(2, "0")}</div>
+                      <h3 className={styles.pillarTitle}>{p.t}</h3>
+                    </div>
                     <p className={styles.pillarDesc}>{p.d}</p>
                   </div>
                 ))}
