@@ -119,40 +119,46 @@ export default function FrameDetailPage({ params }: { params: Promise<{ slug: st
             <div className={styles.twoColumnLayout}>
               {/* Left Column */}
               <div className={styles.leftColumn}>
-                <div className={styles.mainImageContainer}>
-                  <Image
-                    src={frame.image}
-                    alt={`${frame.name} Detail`}
-                    fill
-                    className={styles.mainImage}
-                  />
+                <div className={styles.imageWrapper}>
+                  <div className={styles.mainImageContainer}>
+                    <Image
+                      src={frame.image}
+                      alt={`${frame.name} Detail`}
+                      fill
+                      className={styles.mainImage}
+                    />
+                  </div>
                 </div>
-                <p className={styles.description}>{frame.description}</p>
+                <div className={styles.descriptionCard}>
+                  <p className={styles.description}>{frame.description}</p>
+                </div>
               </div>
 
               {/* Right Column */}
               <div className={styles.specsColumn}>
-                <div className={styles.specRow}>
-                  <span className={styles.specLabel}>Category</span>
-                  <span className={styles.specValue}>{frame.kind}</span>
-                </div>
-
-                {frame.points && frame.points.length > 0 && (
+                <div className={styles.specPanel}>
                   <div className={styles.specRow}>
-                    <span className={styles.specLabel}>Key Features</span>
-                    <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--color-neutral-900)' }}>
-                      {frame.points.map((point, index) => (
-                        <li key={index} className={styles.specValue} style={{ marginBottom: '8px' }}>
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
+                    <span className={styles.specLabel}>Category</span>
+                    <span className={styles.specValue}>{frame.kind}</span>
                   </div>
-                )}
+
+                  {frame.points && frame.points.length > 0 && (
+                    <div className={styles.specRow}>
+                      <span className={styles.specLabel}>Key Features</span>
+                      <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--color-neutral-900)' }}>
+                        {frame.points.map((point, index) => (
+                          <li key={index} className={styles.specValue} style={{ marginBottom: '8px' }}>
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
 
                 <div className={styles.ctaWrapper}>
                   <Link href="/contact" className={styles.ctaButton}>
-                    REQUEST A QUOTE  {frame.name.toUpperCase()}
+                    REQUEST A QUOTE FOR {frame.name.toUpperCase()}
                   </Link>
                 </div>
               </div>
