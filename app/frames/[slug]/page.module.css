@@ -283,27 +283,7 @@
 }
 
 .ctaButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-  padding: 18px 28px;
-  background-color: var(--color-primary-base);
-  color: var(--color-white);
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  border-radius: 0;
-}
-
-.ctaButton:hover {
-  background-color: var(--color-primary-dark);
 }
 
 /* Recommendations */

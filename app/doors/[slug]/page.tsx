@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Button from "../../components/Button";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContactFormSection from "../../components/ContactFormSection";
@@ -119,64 +120,70 @@ export default function DoorDetailPage({ params }: { params: Promise<{ slug: str
             <div className={styles.twoColumnLayout}>
               {/* Left Column */}
               <div className={styles.leftColumn}>
-                <div className={styles.mainImageContainer}>
-                  <Image
-                    src={door.image}
-                    alt={`${door.name} Detail`}
-                    fill
-                    className={styles.mainImage}
-                  />
+                <div className={styles.imageWrapper}>
+                  <div className={styles.mainImageContainer}>
+                    <Image
+                      src={door.image}
+                      alt={`${door.name} Detail`}
+                      fill
+                      className={styles.mainImage}
+                    />
+                  </div>
                 </div>
-                <p className={styles.description}>{door.description}</p>
+                <div className={styles.descriptionCard}>
+                  <p className={styles.description}>{door.description}</p>
+                </div>
               </div>
 
               {/* Right Column */}
               <div className={styles.specsColumn}>
-                <div className={styles.specRow}>
-                  <span className={styles.specLabel}>Wood Type</span>
-                  <span className={styles.specValue}>{door.wood}</span>
+                <div className={styles.specPanel}>
+                  <div className={styles.specRow}>
+                    <span className={styles.specLabel}>Wood Type</span>
+                    <span className={styles.specValue}>{door.wood}</span>
+                  </div>
+                  {door.appearance && (
+                    <div className={styles.specRow}>
+                      <span className={styles.specLabel}>Appearance</span>
+                      <span className={styles.specValue}>{door.appearance}</span>
+                    </div>
+                  )}
+                  {door.applications && (
+                    <div className={styles.specRow}>
+                      <span className={styles.specLabel}>Recommended Applications</span>
+                      <span className={styles.specValue}>{door.applications.join(" - ")}</span>
+                    </div>
+                  )}
+                  {door.finishes && (
+                    <div className={styles.specRow}>
+                      <span className={styles.specLabel}>Available Finishes</span>
+                      <span className={styles.specValue}>{door.finishes.join(" - ")}</span>
+                    </div>
+                  )}
+                  {door.customisation && (
+                    <div className={styles.specRow}>
+                      <span className={styles.specLabel}>Customisation</span>
+                      <span className={styles.specValue}>{door.customisation}</span>
+                    </div>
+                  )}
+                  {door.frames && (
+                    <div className={styles.specRow}>
+                      <span className={styles.specLabel}>Recommended Frames</span>
+                      <span className={styles.specValue}>{door.frames.join(" - ")}</span>
+                    </div>
+                  )}
+                  {door.suitability && (
+                    <div className={styles.specRow}>
+                      <span className={styles.specLabel}>Project Suitability</span>
+                      <span className={styles.specValue}>{door.suitability}</span>
+                    </div>
+                  )}
                 </div>
-                {door.appearance && (
-                  <div className={styles.specRow}>
-                    <span className={styles.specLabel}>Appearance</span>
-                    <span className={styles.specValue}>{door.appearance}</span>
-                  </div>
-                )}
-                {door.applications && (
-                  <div className={styles.specRow}>
-                    <span className={styles.specLabel}>Recommended Applications</span>
-                    <span className={styles.specValue}>{door.applications.join(" - ")}</span>
-                  </div>
-                )}
-                {door.finishes && (
-                  <div className={styles.specRow}>
-                    <span className={styles.specLabel}>Available Finishes</span>
-                    <span className={styles.specValue}>{door.finishes.join(" - ")}</span>
-                  </div>
-                )}
-                {door.customisation && (
-                  <div className={styles.specRow}>
-                    <span className={styles.specLabel}>Customisation</span>
-                    <span className={styles.specValue}>{door.customisation}</span>
-                  </div>
-                )}
-                {door.frames && (
-                  <div className={styles.specRow}>
-                    <span className={styles.specLabel}>Recommended Frames</span>
-                    <span className={styles.specValue}>{door.frames.join(" - ")}</span>
-                  </div>
-                )}
-                {door.suitability && (
-                  <div className={styles.specRow}>
-                    <span className={styles.specLabel}>Project Suitability</span>
-                    <span className={styles.specValue}>{door.suitability}</span>
-                  </div>
-                )}
 
                 <div className={styles.ctaWrapper}>
-                  <Link href="/contact" className={styles.ctaButton}>
-                    REQUEST A QUOTE  {door.name.toUpperCase()}
-                  </Link>
+                  <Button href="/contact" variant="primary" className={styles.ctaButton}>
+                    REQUEST A QUOTE FOR {door.name.toUpperCase()}
+                  </Button>
                 </div>
               </div>
             </div>

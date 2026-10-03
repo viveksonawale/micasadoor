@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Button from "../../components/Button";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ContactFormSection from "../../components/ContactFormSection";
@@ -157,9 +158,9 @@ export default function FrameDetailPage({ params }: { params: Promise<{ slug: st
                 </div>
 
                 <div className={styles.ctaWrapper}>
-                  <Link href="/contact" className={styles.ctaButton}>
+                  <Button href="/contact" variant="primary" className={styles.ctaButton}>
                     REQUEST A QUOTE FOR {frame.name.toUpperCase()}
-                  </Link>
+                  </Button>
                 </div>
               </div>
             </div>
