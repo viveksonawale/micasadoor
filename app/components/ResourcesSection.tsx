@@ -97,7 +97,7 @@ export default function ResourcesSection() {
             </div>
 
             <span className={styles.requestLink}>
-              REQUEST <ArrowUpRight size={14} className={styles.arrowIcon} />
+              <span className={styles.requestText}>REQUEST</span> <ArrowUpRight size={14} className={styles.arrowIcon} />
             </span>
           </a>
         ))}

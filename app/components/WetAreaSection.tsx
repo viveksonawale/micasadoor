@@ -114,7 +114,7 @@ export default function WetAreaSection() {
             </div>
 
             <div className={styles.actionGroup}>
-              <Button href="/laminated-toilet-doors" variant="primary" size="lg">
+              <Button href="/laminated-toilet-doors" variant="primary" size="md" className="text-center flex items-center">
                 Explore Laminated Toilet Doors
               </Button>
             </div>

@@ -178,10 +178,10 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Bottom Bar / Copyright ── */}
           <div className={styles.bottomBar}>
             <p className={styles.copyright}>
-              Copyright © 2026 Micasa Doors |{' '}
+              <span className={styles.copyText}>Copyright © 2026 Micasa Doors</span>
+              <span className={styles.copySeparator}> | </span>
               <a
                 href="https://webnoia.vercel.app"
                 target="_blank"

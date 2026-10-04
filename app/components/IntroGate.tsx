@@ -132,8 +132,8 @@ export default function IntroGate() {
           </motion.div>
 
           {/* scene  walls surround the doorway */}
-          <div className="absolute inset-0 flex items-center justify-center" style={{ perspective: 1600 }}>
-            <div className="relative" style={{ transform: "translateY(-3vh)" }}>
+          <div className="absolute inset-0 flex items-center justify-center pt-24 md:pt-0" style={{ perspective: 1600 }}>
+            <div className="relative" style={{ transform: "translateY(0)" }}>
               {/* left wall */}
               <motion.div className="pointer-events-none absolute" style={{ top: "-70vh", bottom: "-70vh", right: "100%", width: "100vw", background: WALL_BG }}
                 initial={{ opacity: 1 }} animate={wallFade.animate} transition={wallFade.transition as any}>
@@ -303,7 +303,7 @@ export default function IntroGate() {
 
           {/* brand mark - Positioned on the left side, adjusted upwards slightly */}
           <motion.div
-            className="absolute top-8 left-1/2 -translate-x-1/2 md:top-[40%] md:-translate-y-1/2 md:left-[10%] lg:left-[15%] xl:left-[18%] md:translate-x-0 z-30 pointer-events-none flex flex-col items-center md:items-start"
+            className="absolute top-12 left-1/2 -translate-x-1/2 md:top-[40%] md:-translate-y-1/2 md:left-[10%] lg:left-[15%] xl:left-[18%] md:translate-x-0 z-30 pointer-events-none flex flex-col items-center md:items-start"
             initial={{ opacity: 1 }}
             animate={wallFade.animate} transition={wallFade.transition as any}
           >

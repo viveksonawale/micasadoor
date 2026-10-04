@@ -99,6 +99,8 @@ html {
   font-family: var(--font-inter, var(--font-body-fallback));
   font-size: 1.125rem;
   /* Increased base font size */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -109,6 +111,8 @@ body {
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .bg-ivory {

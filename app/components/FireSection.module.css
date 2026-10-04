@@ -294,8 +294,27 @@
     padding: 80px 0 100px 0;
   }
   
-  .detailsPanel {
-    padding: 24px;
+  .rightCol {
+    display: none;
+  }
+
+  .sectionTitle {
+    font-size: 30px;
+  }
+
+  .sectionSubtitle {
+    font-size: 14px;
+  }
+
+  .actionGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actionGroup > * {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
   }
 }
 

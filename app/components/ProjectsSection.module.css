@@ -40,11 +40,7 @@
   transform-style: preserve-3d;
 }
 
-@media (max-width: 768px) {
-  .sectionTitle {
-    font-size: 36px;
-  }
-}
+
 
 .wordWrapper {
   display: inline-flex;
@@ -90,6 +86,15 @@
   max-width: 640px;
   line-height: 1.5;
   margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 30px;
+  }
+  .sectionSubtitle {
+    font-size: 14px;
+  }
 }
 
 /* Category Filter Tabs */

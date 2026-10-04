@@ -171,7 +171,7 @@
   }
 
   .cardDesc {
-    font-size: 14px;
+    font-size: 17px;
   }
 }
 
@@ -194,16 +194,25 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
+  .iconBox {
+    display: none;
+  }
+  .cardTitle {
+    font-size: 18px;
+  }
+  .cardDesc {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 640px) {
   .sectionTitle {
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .gridContainer {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
     padding: 0 var(--gutter-mobile, 20px);
   }
 
@@ -213,6 +222,10 @@
   }
 
   .featureCard {
-    padding: 32px 24px;
+    padding: 20px 20px;
+  }
+
+  .iconBox {
+    display: none;
   }
 }

@@ -126,46 +126,17 @@
   position: relative;
 }
 
-.showcaseBadge {
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 300px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--color-border, #8d8f93);
-  border-radius: 0;
-  padding: 12px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  z-index: 10;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-  pointer-events: none;
-  /* Allows clicks to pass through to the door image if needed */
-}
-
-.badgeLabel {
-  font-family: 'Cabinet Grotesk', sans-serif;
+.doorConfigSummary {
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
-  font-weight: 700;
-
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-text-muted, #8d8f93);
 }
 
-.badgeValue {
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-text-primary, #1a1a1a);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+/* Badge removed for clean mobile view */
 
 /* ─── RIGHT  Vertical Steps Column ─────────────────────────────────────── */
 
@@ -292,7 +263,7 @@
   padding: 20px 24px;
   background: var(--color-neutral-100, #f1f2f3);
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 20px;
   flex-wrap: wrap;
@@ -346,23 +317,21 @@
 @media (max-width: 1024px) {
   .configuratorWrapper {
     flex-direction: column;
-    align-items: center;
-    gap: 32px;
+    align-items: stretch;
+    gap: 48px;
     padding: 0 var(--gutter-tablet, 36px);
   }
 
   .showcaseCol {
     position: static;
     max-width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  .showcaseInner {
-    aspect-ratio: 16 / 7;
-  }
-
-  .summaryBlock {
-    flex-direction: column;
-    align-items: flex-start;
+  .stepsCol {
+    flex: none;
+    width: 100%;
   }
 }
 
@@ -386,6 +355,15 @@
 
   .stepBlock {
     padding: 18px 18px 16px;
+  }
+
+  .summaryBlock {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ctaBtn {
+    width: 100%;
   }
 
   .sectionContainer {

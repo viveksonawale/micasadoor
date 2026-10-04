@@ -192,10 +192,24 @@
 
 .heroButton {
   font-family: 'JetBrains Mono', monospace !important;
-  font-size: 16px !important;
+  font-size: 12px !important;
+  padding: 8px 16px !important;
   font-weight: 700 !important;
   letter-spacing: 0 !important;
   text-transform: uppercase !important;
+}
+
+@media (min-width: 768px) {
+  .heroButton {
+    font-size: 14px !important;
+    padding: 10px 24px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroButton {
+    font-size: 16px !important;
+  }
 }
 
 /* CTAs */
@@ -209,17 +223,21 @@
 }
 
 @media (max-width: 639px) {
+  .bgContainer {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+
   .ctas {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 10px;
+    flex-direction: column;
+    gap: 16px;
   }
   .ctas > * {
-    flex: 1;
-    padding: 12px 8px !important;
-    font-size: 11px !important;
-    line-height: 1.3 !important;
-    white-space: normal !important;
+    width: 100%;
     text-align: center;
   }
   

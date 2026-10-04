@@ -1,7 +1,8 @@
 .splitSection {
-  padding: 32px 20px 48px;
+  padding: 22px 10px 38px;
   max-width:  1400px;
   margin: 0 auto;
+  /* border:2px solid black; */
   background-color: var(--color-surface, #F9F8F6);
 }
 
@@ -13,7 +14,7 @@
 
 @media (min-width: 1024px) {
   .splitSection {
-    padding: 100px var(--gutter-desktop, 48px) 120px;
+    padding: 40px var(--gutter-desktop, 38px) 60px;
   }
 }
 
@@ -21,13 +22,13 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  background-color: #ffffff;
-  border: 1px solid rgba(180, 170, 158, 0.35);
+  background-color: transparent;
+  border: none;
   border-radius: 0;
-  padding: 24px 16px;
+  padding: 0;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: none;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
@@ -51,8 +52,11 @@
 
 @media (min-width: 768px) {
   .splitContainer {
+    background-color: #ffffff;
+    border: 1px solid rgba(180, 170, 158, 0.35);
     padding: 48px 40px;
     gap: 32px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
   }
 }
 
@@ -244,11 +248,20 @@
 }
 
 .formPanel {
-  background: #FFFFFF;
-  border: 1px solid #E5E5E5;
-  padding: 32px;
+  background: transparent;
+  border: none;
+  padding: 8px 0 0 0;
   border-radius: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: none;
+}
+
+@media (min-width: 1024px) {
+  .formPanel {
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  }
 }
 
 .formGrid {
