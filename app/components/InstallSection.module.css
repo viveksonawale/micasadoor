@@ -262,7 +262,10 @@
 
 @media (max-width: 640px) {
   .sectionTitle {
-    font-size: 32px;
+    font-size: 30px;
+  }
+  .sectionSubtitle {
+    font-size: 14px;
   }
   .splitContainer {
     padding: 0 var(--gutter-mobile, 20px);
@@ -284,11 +287,14 @@
     width: 100%;
   }
   .imageColumn {
-    height: 400px;
+    display: none;
   }
   .primaryButton {
-    width: 100%;
-    text-align: left;
+    width: auto;
+    align-self: center;
+    text-align: center;
+    font-size: 12px !important;
+    padding: 12px 24px !important;
   }
 }
 
