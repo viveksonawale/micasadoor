@@ -174,7 +174,7 @@
 
 @media (max-width: 640px) {
   .sectionTitle {
-    font-size: 32px;
+    font-size: 30px;
   }
   .contentWrapper, .bentoGrid {
     padding: 0 var(--gutter-mobile, 20px);
