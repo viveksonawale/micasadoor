@@ -91,6 +91,7 @@
   /* Visible when transparent (not solid) */
   opacity: 1;
 }
+
 .isSolid .logoWhite {
   opacity: 0;
 }
@@ -99,6 +100,7 @@
   /* Visible when solid */
   opacity: 0;
 }
+
 .isSolid .logoBlack {
   opacity: 1;
 }
@@ -112,7 +114,7 @@
   height: 100%;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .desktopNav {
     display: flex;
   }
@@ -161,6 +163,7 @@
 .chevron {
   transition: transform 200ms ease;
 }
+
 .chevronUp {
   transform: rotate(-180deg);
   color: var(--color-primary-base, #e14401);
@@ -174,7 +177,7 @@
   flex: 1;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .actions {
     display: flex;
   }
@@ -213,7 +216,7 @@
   height: 24px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .mobileToggle {
     display: none;
   }
@@ -238,17 +241,16 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background-color: var(--color-surface, #fafafa);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 3px solid var(--color-primary-base, #e14401);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+  background-color: #ffffff;
+  border-bottom: 4px solid var(--color-primary-base, #e14401);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
   transition:
-    opacity 280ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 280ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity 350ms cubic-bezier(0.25, 1, 0.5, 1),
+    transform 350ms cubic-bezier(0.25, 1, 0.5, 1),
+    visibility 350ms cubic-bezier(0.25, 1, 0.5, 1);
   color: var(--color-text-primary, #1a1a1a);
   z-index: 200;
 }
@@ -259,48 +261,45 @@
   padding: 0 40px;
 }
 
-/* 2-column grid for the 9 frame items â€” sits inside dropdownCol */
+/* 2-column grid for the 9 frame items — sits inside dropdownCol */
 .framesListGrid {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  column-gap: 8px;
-  row-gap: 0;
+  column-gap: 3px;
+  row-gap: 6px;
   align-content: start;
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .frameListItem {
-  display: block;
-  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
   text-decoration: none;
-  border-radius: 0;
-  transition: background-color 180ms ease, padding-left 180ms ease;
+  border-radius: 0px;
+  transition: background-color 250ms ease, transform 250ms ease;
   cursor: pointer;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.framesListGrid li:last-child .frameListItem {
-  border-bottom: none;
+  background-color: transparent;
 }
 
 .frameListItem:hover,
 .frameListItemActive {
-  background-color: rgba(225, 68, 1, 0.04);
-  padding-left: 16px;
+  background-color: rgba(225, 68, 1, 0.06);
+  transform: translateX(4px);
 }
 
 .frameItemName {
-  display: block;
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
-  transition: color 180ms ease;
-  line-height: 1.3;
+  transition: color 250ms ease;
+  margin-bottom: 4px;
 }
 
 .frameListItem:hover .frameItemName,
@@ -309,12 +308,10 @@
 }
 
 .frameItemDesc {
-  display: block;
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 11px;
-  color: var(--color-text-secondary, #737373);
-  margin-top: 2px;
-  line-height: 1.3;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--color-text-secondary, #666);
+  line-height: 1.4;
 }
 
 /* =========================================
@@ -323,35 +320,37 @@
 
 .dropdownGrid {
   display: grid;
-  grid-template-columns: 380px 1fr 320px;
-  height: 560px;
-  overflow: hidden; /* ensures showcase image never bleeds outside the panel */
-}
-
-.dropdownCol {
-  padding: 28px 32px;
-  border-right: 1px solid var(--color-border);
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: 440px 1fr 360px;
+  height: 600px;
+  gap: 40px;
+  padding: 20px 0;
   overflow: hidden;
 }
 
-.dropdownColRight {
-  padding: 32px;
+.dropdownCol {
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+}
+
+.dropdownColRight {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+  padding-left: 40px;
 }
 
 .dropdownColHeader {
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-
+  letter-spacing: 0.1em;
   color: var(--color-primary-base, #e14401);
-  margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 24px;
 }
 
 /* List items in the DOORS column */
@@ -361,47 +360,45 @@
   margin: 0;
   display: flex;
   flex-direction: column;
+  gap: 8px;
   overflow-y: auto;
   overflow-x: hidden;
   flex: 1;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
 .dropdownList::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+  display: none;
 }
 
 .dropdownListItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--color-border);
-  transition: padding-left 200ms ease;
+  padding: 10px 14px;
+  transition: all 250ms ease;
   cursor: pointer;
   text-decoration: none;
-}
-
-.dropdownListItem:last-child {
-  border-bottom: none;
+  background-color: transparent;
 }
 
 .dropdownListItem:hover {
-  padding-left: 6px;
+  background-color: rgba(225, 68, 1, 0.06);
+  transform: translateX(4px);
 }
 
 .dropdownItemContent {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
 }
 
 .dropdownItemTitle {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
-  transition: color 180ms ease;
+  transition: color 250ms ease;
 }
 
 .dropdownListItem:hover .dropdownItemTitle {
@@ -409,81 +406,93 @@
 }
 
 .dropdownItemDesc {
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 12px;
-  color: var(--color-text-secondary, #737373);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--color-text-secondary, #666);
 }
 
 .dropdownItemIcon {
-  color: var(--color-text-secondary, #adadad);
-  transition: color 180ms ease, transform 180ms ease;
-  flex-shrink: 0;
+  color: var(--color-primary-base, #e14401);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 250ms ease;
 }
 
 .dropdownListItem:hover .dropdownItemIcon {
-  color: var(--color-primary-base, #e14401);
-  transform: translateX(4px);
+  opacity: 1;
+  transform: translateX(0);
 }
 
-/* Showcase image card â€” stretches to fill full column height */
+/* Showcase image card */
 .dropdownImageCard {
   position: relative;
   flex: 1;
   width: 100%;
   overflow: hidden;
-  background-color: #eee;
-  /* No min-height â€” flex:1 fills whatever the fixed grid row gives it */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .dynamicImage {
-  animation: fadeImageIn 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeImageIn 400ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 @keyframes fadeImageIn {
-  from { opacity: 0; transform: scale(1.03); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Explore column */
 .exploreBox {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 .exploreTitle {
   font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 22px;
+  font-size: 28px;
+  font-weight: 700;
   line-height: 1.2;
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
   color: var(--color-text-primary, #1a1a1a);
 }
 
 .exploreDesc {
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--color-text-secondary, #525152);
-  flex: 1;
-  padding-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-secondary, #666);
+  margin-bottom: 32px;
 }
 
 .exploreLink {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Cabinet Grotesk', sans-serif;
-  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-
-  color: var(--color-primary-base, #e14401);
-  transition: gap 200ms ease;
+  color: #fff;
+  background-color: var(--color-primary-base, #e14401);
+  padding: 12px 24px;
+  /* border-radius: 6px; */
+  transition: all 250ms ease;
   text-decoration: none;
+  align-self: flex-start;
 }
 
 .exploreLink:hover {
+  background-color: #c93b00;
   gap: 12px;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(225, 68, 1, 0.3);
 }
 
 /* Mobile Drawer (Preserved from old css) */
@@ -518,7 +527,7 @@
   transform: translateX(100%);
   transition: transform 280ms var(--ease-inout);
   color: var(--color-text-primary, #1a1a1a);
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .drawerOpen {
@@ -529,7 +538,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
+  padding: 16px 24px;
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -581,18 +590,19 @@
 .drawerNav {
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
+  padding: 10px 24px 20px 24px;
   flex: 1;
+  overflow-y: auto;
 }
 
 .drawerLink {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 16px 0;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: #1a1a1a;
@@ -609,8 +619,7 @@
 }
 
 .drawerFooter {
-  margin-top: auto;
-  padding: 16px 20px;
+  padding: 20px 24px;
   border-top: 1px solid #e5e5e5;
   background-color: #fdfbf7;
 }

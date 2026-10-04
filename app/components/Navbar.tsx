@@ -35,7 +35,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<"doors" | "frames" | null>(null);
-  
+
   const [hoveredDoorIdx, setHoveredDoorIdx] = useState<number>(0);
   const [hoveredFrameIdx, setHoveredFrameIdx] = useState<number>(0);
 
@@ -84,9 +84,9 @@ export default function Navbar() {
       <header className={headerClass} onMouseLeave={() => setHoveredMenu(null)}>
         <div className={styles.container}>
           {/* Brand Logo - Crossfade between white and black text versions */}
-          <Link 
-            href="/" 
-            className={`${styles.brand} ${isSolid ? styles.isSolid : ""}`} 
+          <Link
+            href="/"
+            className={`${styles.brand} ${isSolid ? styles.isSolid : ""}`}
             onClick={() => setHoveredMenu(null)}
           >
             <div className={styles.logoContainer}>
@@ -111,13 +111,13 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className={styles.desktopNav}>
-            
+
             {/* DOORS ITEM */}
-            <div 
+            <div
               className={styles.navItemWrapper}
               onMouseEnter={() => setHoveredMenu("doors")}
             >
-              <Link 
+              <Link
                 href="/doors"
                 onClick={() => setHoveredMenu(null)}
                 className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
@@ -128,11 +128,11 @@ export default function Navbar() {
             </div>
 
             {/* FRAMES ITEM */}
-            <div 
+            <div
               className={styles.navItemWrapper}
               onMouseEnter={() => setHoveredMenu("frames")}
             >
-              <Link 
+              <Link
                 href="/frames"
                 onClick={() => setHoveredMenu(null)}
                 className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
@@ -142,56 +142,56 @@ export default function Navbar() {
               </Link>
             </div>
 
-            <Link 
-              href="/products" 
+            <Link
+              href="/products"
               className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
               onMouseEnter={() => setHoveredMenu(null)}
             >
               PRODUCTS
             </Link>
 
-            <Link 
-              href="/fire-rated" 
+            <Link
+              href="/fire-rated"
               className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
               onMouseEnter={() => setHoveredMenu(null)}
             >
               FIRE RATED
             </Link>
 
-            <Link 
-              href="/manufacturing" 
+            <Link
+              href="/manufacturing"
               className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
               onMouseEnter={() => setHoveredMenu(null)}
             >
               MANUFACTURING
             </Link>
 
-            <Link 
-              href="/projects" 
+            <Link
+              href="/projects"
               className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
               onMouseEnter={() => setHoveredMenu(null)}
             >
               PROJECTS
             </Link>
 
-            <Link 
-              href="/resources" 
+            <Link
+              href="/resources"
               className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
               onMouseEnter={() => setHoveredMenu(null)}
             >
               RESOURCES
             </Link>
-            
-            <Link 
-              href="/about" 
+
+            <Link
+              href="/about"
               className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
               onMouseEnter={() => setHoveredMenu(null)}
             >
               ABOUT
             </Link>
 
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className={`${styles.navLink} ${isSolid ? styles.navLinkScrolled : styles.navLinkTop}`}
               onMouseEnter={() => setHoveredMenu(null)}
             >
@@ -231,96 +231,96 @@ export default function Navbar() {
         {isMounted && (
           <div className={`${styles.megaMenuWrapper} ${hoveredMenu ? styles.dropdownOpen : ""}`}>
             <div className={styles.megaMenuInner}>
-              
+
               {/* DOORS MEGA MENU */}
               {hoveredMenu === "doors" && (
-                  <div className={styles.dropdownGrid}>
-                    <div className={styles.dropdownCol}>
-                      <div className={styles.dropdownColHeader}>DOORS</div>
-                      <ul className={styles.dropdownList}>
-                        {doorTypes.map((door, idx) => (
-                          <li key={idx} onMouseEnter={() => setHoveredDoorIdx(idx)}>
-                            <Link href="/doors" onClick={() => setHoveredMenu(null)} className={styles.dropdownListItem}>
-                              <div className={styles.dropdownItemContent}>
-                                <span className={styles.dropdownItemTitle}>{door.name}</span>
-                                <span className={styles.dropdownItemDesc}>{door.desc}</span>
-                              </div>
-                              <ChevronRight size={14} className={styles.dropdownItemIcon} />
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className={styles.dropdownCol}>
-                      <div className={styles.dropdownColHeader}>SHOWCASE</div>
-                      <div className={styles.dropdownImageCard}>
-                        <Image 
-                          key={doorTypes[hoveredDoorIdx].image} 
-                          src={doorTypes[hoveredDoorIdx].image} 
-                          alt={doorTypes[hoveredDoorIdx].name} 
-                          fill 
-                          style={{objectFit: 'cover'}} 
-                          className={styles.dynamicImage}
-                        />
-                      </div>
-                    </div>
-                    <div className={styles.dropdownColRight}>
-                      <div className={styles.dropdownColHeader}>EXPLORE MORE</div>
-                      <div className={styles.exploreBox}>
-                        <h4 className={styles.exploreTitle}>Precision Woodcraft</h4>
-                        <p className={styles.exploreDesc}>
-                          Discover our full range of premium doors designed for architectural perfection and lasting durability.
-                        </p>
-                        <Link href="/doors" onClick={() => setHoveredMenu(null)} className={styles.exploreLink}>
-                          Explore All Doors <ArrowRight size={16} />
-                        </Link>
-                      </div>
+                <div className={styles.dropdownGrid}>
+                  <div className={styles.dropdownCol}>
+                    <div className={styles.dropdownColHeader}>DOORS</div>
+                    <ul className={styles.dropdownList}>
+                      {doorTypes.map((door, idx) => (
+                        <li key={idx} onMouseEnter={() => setHoveredDoorIdx(idx)}>
+                          <Link href="/doors" onClick={() => setHoveredMenu(null)} className={styles.dropdownListItem}>
+                            <div className={styles.dropdownItemContent}>
+                              <span className={styles.dropdownItemTitle}>{door.name}</span>
+                              <span className={styles.dropdownItemDesc}>{door.desc}</span>
+                            </div>
+                            <ChevronRight size={14} className={styles.dropdownItemIcon} />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={styles.dropdownCol}>
+                    <div className={styles.dropdownColHeader}>SHOWCASE</div>
+                    <div className={styles.dropdownImageCard}>
+                      <Image
+                        key={doorTypes[hoveredDoorIdx].image}
+                        src={doorTypes[hoveredDoorIdx].image}
+                        alt={doorTypes[hoveredDoorIdx].name}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className={styles.dynamicImage}
+                      />
                     </div>
                   </div>
+                  <div className={styles.dropdownColRight}>
+                    <div className={styles.dropdownColHeader}>EXPLORE MORE</div>
+                    <div className={styles.exploreBox}>
+                      <h4 className={styles.exploreTitle}>Precision Woodcraft</h4>
+                      <p className={styles.exploreDesc}>
+                        Discover our full range of premium doors designed for architectural perfection and lasting durability.
+                      </p>
+                      <Link href="/doors" onClick={() => setHoveredMenu(null)} className={styles.exploreLink}>
+                        Explore All Doors <ArrowRight size={16} />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               )}
 
               {/* FRAMES MEGA MENU */}
               {hoveredMenu === "frames" && (
-                  <div className={styles.dropdownGrid}>
-                    <div className={styles.dropdownCol}>
-                      <div className={styles.dropdownColHeader}>FRAMES</div>
-                      <ul className={styles.framesListGrid}>
-                        {frameTypes.map((frame, idx) => (
-                          <li key={idx} onMouseEnter={() => setHoveredFrameIdx(idx)}>
-                            <Link href="/frames" onClick={() => setHoveredMenu(null)} className={`${styles.frameListItem} ${hoveredFrameIdx === idx ? styles.frameListItemActive : ""}`}>
-                              <span className={styles.frameItemName}>{frame.name}</span>
-                              <span className={styles.frameItemDesc}>{frame.desc}</span>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className={styles.dropdownCol}>
-                      <div className={styles.dropdownColHeader}>SHOWCASE</div>
-                      <div className={styles.dropdownImageCard}>
-                        <Image 
-                          key={frameTypes[hoveredFrameIdx].image} 
-                          src={frameTypes[hoveredFrameIdx].image} 
-                          alt={frameTypes[hoveredFrameIdx].name} 
-                          fill 
-                          style={{objectFit: 'cover'}} 
-                          className={styles.dynamicImage}
-                        />
-                      </div>
-                    </div>
-                    <div className={styles.dropdownColRight}>
-                      <div className={styles.dropdownColHeader}>EXPLORE MORE</div>
-                      <div className={styles.exploreBox}>
-                        <h4 className={styles.exploreTitle}>Architectural Support</h4>
-                        <p className={styles.exploreDesc}>
-                          Precision engineered door frames built for longevity, acoustic superiority, and stunning visual appeal.
-                        </p>
-                        <Link href="/frames" onClick={() => setHoveredMenu(null)} className={styles.exploreLink}>
-                          Explore All Frames <ArrowRight size={16} />
-                        </Link>
-                      </div>
+                <div className={styles.dropdownGrid}>
+                  <div className={styles.dropdownCol}>
+                    <div className={styles.dropdownColHeader}>FRAMES</div>
+                    <ul className={styles.framesListGrid}>
+                      {frameTypes.map((frame, idx) => (
+                        <li key={idx} onMouseEnter={() => setHoveredFrameIdx(idx)}>
+                          <Link href="/frames" onClick={() => setHoveredMenu(null)} className={`${styles.frameListItem} ${hoveredFrameIdx === idx ? styles.frameListItemActive : ""}`}>
+                            <span className={styles.frameItemName}>{frame.name}</span>
+                            <span className={styles.frameItemDesc}>{frame.desc}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={styles.dropdownCol}>
+                    <div className={styles.dropdownColHeader}>SHOWCASE</div>
+                    <div className={styles.dropdownImageCard}>
+                      <Image
+                        key={frameTypes[hoveredFrameIdx].image}
+                        src={frameTypes[hoveredFrameIdx].image}
+                        alt={frameTypes[hoveredFrameIdx].name}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className={styles.dynamicImage}
+                      />
                     </div>
                   </div>
+                  <div className={styles.dropdownColRight}>
+                    <div className={styles.dropdownColHeader}>EXPLORE MORE</div>
+                    <div className={styles.exploreBox}>
+                      <h4 className={styles.exploreTitle}>Architectural Support</h4>
+                      <p className={styles.exploreDesc}>
+                        Precision engineered door frames built for longevity, acoustic superiority, and stunning visual appeal.
+                      </p>
+                      <Link href="/frames" onClick={() => setHoveredMenu(null)} className={styles.exploreLink}>
+                        Explore All Frames <ArrowRight size={16} />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           </div>
@@ -378,7 +378,7 @@ export default function Navbar() {
             </Link>
           </nav>
         </div>
-        
+
         <div className={styles.drawerFooter}>
           <div className={styles.drawerActions}>
             <a href="tel:+918898903436" className={styles.drawerBtnCall} aria-label="Call us">
