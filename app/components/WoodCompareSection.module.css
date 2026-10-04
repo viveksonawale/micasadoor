@@ -65,8 +65,17 @@
 }
 
 @keyframes strandplyAppear {
-  0% { opacity: 0.001; filter: blur(15px); transform: translateY(10px) scale(2); }
-  100% { opacity: 1; filter: blur(0px); transform: translateY(0) scale(1); }
+  0% {
+    opacity: 0.001;
+    filter: blur(15px);
+    transform: translateY(10px) scale(2);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* ─── Grid ────────────────────────────────────────────────────────────────── */
@@ -105,7 +114,8 @@
 }
 
 .woodCard:hover .woodTone {
-  transform: scaleY(1.2); /* The requested scale-y hover animation */
+  transform: scaleY(1.2);
+  /* The requested scale-y hover animation */
 }
 
 .woodName {
@@ -113,7 +123,7 @@
   font-size: 26px;
   font-weight: 700;
   color: var(--color-text-primary, #1a1a1a);
-  margin: 0 0 24px 0;
+  margin: 0 0 14px 0;
   letter-spacing: -0.05em;
 }
 
@@ -157,29 +167,41 @@
 }
 
 @media (max-width: 1024px) {
-  .contentWrapper, .gridContainer {
+
+  .contentWrapper,
+  .gridContainer {
     padding: 0 var(--gutter-tablet, 36px);
   }
+
   .sectionTitle {
     font-size: 40px;
+  }
+
+  .sectionSubtitle {
+    font-size: 14px;
+  }
+
+  .woodName {
+    font-size: 20px;
   }
 }
 
 @media (max-width: 640px) {
-  .contentWrapper, .gridContainer {
+
+  .contentWrapper,
+  .gridContainer {
     padding: 0 var(--gutter-mobile, 20px);
   }
+
   .gridContainer {
     grid-template-columns: 1fr;
   }
+
   .sectionTitle {
-    font-size: 32px;
+    font-size: 30px;
   }
+
   .contentWrapper {
     margin-bottom: 8px;
   }
 }
-
-
-
-
