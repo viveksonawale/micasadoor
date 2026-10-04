@@ -182,11 +182,9 @@ export default function CustomDoorsSection() {
               </AnimatePresence>
             </div>
 
-            {/* Selection overlay badge - Positioned below the door */}
-            <div className={styles.showcaseBadge}>
-              <span className={styles.badgeLabel}>Your selection</span>
-              <span className={styles.badgeValue}>{selectedDoor} · {frameData[selectedFrame]?.label}</span>
-            </div>
+            <p className={styles.doorConfigSummary}>
+              {frameData[selectedFrame]?.label} · {selectedFinish} · {selectedDoor}
+            </p>
 
           </div>
         </div>
