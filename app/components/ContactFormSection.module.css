@@ -1,6 +1,6 @@
 .splitSection {
-  padding: 32px 20px 48px;
-  max-width:  1400px;
+  padding: 22px 10px 38px;
+  max-width: 1400px;
   margin: 0 auto;
   background-color: var(--color-surface, #F9F8F6);
 }
@@ -13,7 +13,7 @@
 
 @media (min-width: 1024px) {
   .splitSection {
-    padding: 100px var(--gutter-desktop, 48px) 120px;
+    padding: 40px var(--gutter-desktop, 38px) 60px;
   }
 }
 
@@ -127,6 +127,7 @@
     filter: blur(15px);
     transform: translateY(10px) scale(2);
   }
+
   100% {
     opacity: 1;
     filter: blur(0px);
@@ -339,7 +340,3 @@
   font-size: 15px;
   font-weight: 500;
 }
-
-
-
-
