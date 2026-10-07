@@ -516,7 +516,8 @@
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
+  height: 100%;
+  height: 100dvh;
   width: 100%;
   max-width: 100%;
   background-color: #fdfbf7;
@@ -528,6 +529,7 @@
   transition: transform 280ms var(--ease-inout);
   color: var(--color-text-primary, #1a1a1a);
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .drawerOpen {
@@ -592,7 +594,11 @@
   flex-direction: column;
   padding: 10px 24px 20px 24px;
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y !important;
 }
 
 .drawerLink {
@@ -622,6 +628,8 @@
   padding: 20px 24px;
   border-top: 1px solid #e5e5e5;
   background-color: #fdfbf7;
+  flex-shrink: 0;
+  padding-bottom: env(safe-area-inset-bottom, 20px);
 }
 
 .drawerContactInfo {

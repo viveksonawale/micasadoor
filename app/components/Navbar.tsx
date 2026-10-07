@@ -67,10 +67,12 @@ export default function Navbar() {
 
   useEffect(() => {
     if (mobileMenuOpen) {
+      if ((window as any).__lenis) (window as any).__lenis.stop();
       document.body.style.overflow = "hidden";
       document.body.classList.add("mobile-menu-open");
     } else {
-      document.body.style.overflow = "unset";
+      if ((window as any).__lenis) (window as any).__lenis.start();
+      document.body.style.overflow = "";
       document.body.classList.remove("mobile-menu-open");
     }
   }, [mobileMenuOpen]);
