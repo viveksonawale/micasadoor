@@ -159,3 +159,8 @@ input[type="reset"] {
     transform: scale(1);
   }
 }
+
+body.mobile-menu-open {
+  overflow: hidden !important;
+  touch-action: none !important;
+}

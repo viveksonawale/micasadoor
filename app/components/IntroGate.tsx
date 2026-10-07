@@ -206,6 +206,27 @@ export default function IntroGate() {
 
               {/* door frame */}
               <div className="relative">
+                {/* brand mark - Positioned relative to the door container */}
+                <motion.div
+                  className="absolute top-[22%] left-[72%] -translate-x-1/2 -translate-y-1/2 md:top-[40%] md:-translate-y-1/2 md:left-[calc(50%-40vw)] lg:left-[calc(50%-35vw)] xl:left-[calc(50%-32vw)] md:translate-x-0 z-30 pointer-events-none flex flex-col items-center md:items-start w-max"
+                  initial={{ opacity: 1 }}
+                  animate={wallFade.animate} transition={wallFade.transition as any}
+                >
+                  <img src="/logo/logowithblacktext.svg" alt="Micasa Doors" className="h-19 md:h-28 lg:h-36 xl:h-44 w-auto object-contain drop-shadow-md" />
+                  <p
+                    className="select-none uppercase font-medium whitespace-nowrap"
+                    style={{
+                      fontFamily: "'JetBrains Mono', monospace",
+                      letterSpacing: "0",
+                      color: "rgba(8, 4, 0, 0.5)",
+                      fontSize: "clamp(12px, 1.4vw, 17px)",
+                      marginTop: "-1rem",
+                    }}
+                  >
+                    DOORS SOLUTIONS PVT.LTD.
+                  </p>
+                </motion.div>
+
                 <motion.div
                   className="pointer-events-none absolute"
                   style={{ top: "-12px", left: "-12px", right: "-12px", bottom: 0, borderWidth: "12px 12px 0 12px", borderStyle: "solid", borderColor: "transparent", borderImage: "linear-gradient(160deg,#4a3524,#2c1e12 60%,#3a2818) 1", boxShadow: "0 50px 120px rgba(90,70,45,0.45)" }}
@@ -298,29 +319,9 @@ export default function IntroGate() {
                   </motion.div>
                 </div>
               </div>
+
             </div>
           </div>
-
-          {/* brand mark - Positioned on the left side, adjusted upwards slightly */}
-          <motion.div
-            className="absolute top-12 left-1/2 -translate-x-1/2 md:top-[40%] md:-translate-y-1/2 md:left-[10%] lg:left-[15%] xl:left-[18%] md:translate-x-0 z-30 pointer-events-none flex flex-col items-center md:items-start"
-            initial={{ opacity: 1 }}
-            animate={wallFade.animate} transition={wallFade.transition as any}
-          >
-            <img src="/logo/logowithblacktext.svg" alt="Micasa Doors" className="h-16 md:h-28 lg:h-36 xl:h-44 w-auto object-contain drop-shadow-md" />
-            <p
-              className="select-none uppercase font-medium"
-              style={{
-                fontFamily: "'JetBrains Mono', monospace",
-                letterSpacing: "0",
-                color: "rgba(40, 28, 18, 0.55)",
-                fontSize: "clamp(12px, 1.4vw, 17px)",
-                marginTop: "-1.8em",
-              }}
-            >
-              DOORS SOLUTIONS PVT. LTD.
-            </p>
-          </motion.div>
 
           {/* skip */}
           <button

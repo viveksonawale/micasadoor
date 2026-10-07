@@ -21,6 +21,7 @@ export default function SmoothScroll({
       smoothWheel: true,
     });
     lenisRef.current = lenis;
+    (window as any).__lenis = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
