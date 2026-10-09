@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ivory: #F9F8F6;
+  --color-wood: #8C5E35;
+  --color-wood-pale: #EFE6DA;
+  --color-charcoal: #121212;
+  --color-smoke: #1A1A1A;
+}
+
 :root {
   /* Effect tokens */
   --ink: currentColor;

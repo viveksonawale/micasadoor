@@ -1,56 +1,79 @@
-"use client";
-
-import { useCallback, useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence, Transition } from "framer-motion";
 import { playHandleClick, playDoorCreak } from "../../lib/doorSound";
+
+declare global {
+  interface Window {
+    __gateOpen?: boolean;
+    __lenis?: {
+      start: () => void;
+      stop: () => void;
+    };
+  }
+}
 
 const IMG_GRAIN = "https://images.unsplash.com/photo-1644931551533-02906718127f?q=80&w=1600&auto=format&fit=crop";
 const WALL_BG = "#F9F8F6";
 
 export default function IntroGate() {
   const [phase, setPhase] = useState("closed"); // closed → handle → opening → blur → fade → done
+  const timeoutsRef = useRef<number[]>([]);
+
+  const clearTimeouts = () => {
+    timeoutsRef.current.forEach((t) => clearTimeout(t));
+    timeoutsRef.current = [];
+  };
 
   useEffect(() => {
     const hasEntered = sessionStorage.getItem("micasa-entered");
     if (hasEntered) {
-      setPhase("done");
-      setTimeout(() => window.dispatchEvent(new Event("micasa-gate-done")), 50);
+      document.documentElement.classList.add("micasa-entered");
+      queueMicrotask(() => {
+        setPhase("done");
+        window.dispatchEvent(new Event("micasa-gate-done"));
+      });
     }
+    return () => clearTimeouts();
   }, []);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && sessionStorage.getItem("micasa-entered")) {
+      return;
+    }
     if (phase !== "done") {
-      (window as any).__gateOpen = true;
-      if ((window as any).__lenis) (window as any).__lenis.stop();
+      window.__gateOpen = true;
+      if (window.__lenis) window.__lenis.stop();
       document.body.style.overflow = "hidden";
     } else {
-      (window as any).__gateOpen = false;
-      if ((window as any).__lenis) (window as any).__lenis.start();
+      window.__gateOpen = false;
+      if (window.__lenis) window.__lenis.start();
       document.body.style.overflow = "";
     }
     return () => {
-      (window as any).__gateOpen = false;
-      if ((window as any).__lenis) (window as any).__lenis.start();
+      window.__gateOpen = false;
+      if (window.__lenis) window.__lenis.start();
       document.body.style.overflow = "";
     };
   }, [phase]);
 
   const open = useCallback(() => {
-    setPhase((p) => {
-      if (p !== "closed") return p;
-      playHandleClick();
-      setTimeout(() => playDoorCreak(), 750);
-      setTimeout(() => setPhase("opening"), 800);
-      setTimeout(() => setPhase("blur"), 2400);
-      setTimeout(() => setPhase("fade"), 2700);
-      setTimeout(() => {
-        sessionStorage.setItem("micasa-entered", "true");
-        setPhase("done");
-        window.dispatchEvent(new Event("micasa-gate-done"));
-      }, 3050);
-      return "handle";
-    });
-  }, []);
+    if (phase !== "closed") return;
+    setPhase("handle");
+    playHandleClick();
+
+    const t1 = window.setTimeout(() => playDoorCreak(), 750);
+    const t2 = window.setTimeout(() => setPhase("opening"), 800);
+    const t3 = window.setTimeout(() => setPhase("blur"), 2400);
+    const t4 = window.setTimeout(() => setPhase("fade"), 2700);
+    const t5 = window.setTimeout(() => {
+      sessionStorage.setItem("micasa-entered", "true");
+      document.documentElement.classList.add("micasa-entered");
+      setPhase("done");
+      window.dispatchEvent(new Event("micasa-gate-done"));
+    }, 3050);
+
+    timeoutsRef.current = [t1, t2, t3, t4, t5];
+  }, [phase]);
 
   useEffect(() => {
     if (phase === "done") return;
@@ -73,18 +96,20 @@ export default function IntroGate() {
       : phase === "handle" ? { rotateY: 1.5 }
         : { rotateY: [1.5, -116, -106] };
 
-  const doorTransition =
+  const doorTransition: Transition =
     opening
       ? { duration: 1.6, times: [0, 0.72, 1], ease: ["easeIn", [0.22, 1, 0.36, 1]] }
       : { duration: 0.4, ease: "easeOut" };
 
-  const wallFade = {
+  const wallFade: { animate: { opacity: number }; transition: Transition } = {
     animate: { opacity: opening ? 0 : 1 },
     transition: { duration: 0.9, delay: opening ? 0.45 : 0, ease: "easeOut" },
   };
 
   const handleSkip = () => {
+    clearTimeouts();
     sessionStorage.setItem("micasa-entered", "true");
+    document.documentElement.classList.add("micasa-entered");
     setPhase("done");
     window.dispatchEvent(new Event("micasa-gate-done"));
   };
@@ -132,25 +157,25 @@ export default function IntroGate() {
           </motion.div>
 
           {/* scene  walls surround the doorway */}
-          <div className="absolute inset-0 flex items-center justify-center pt-24 md:pt-0" style={{ perspective: 1600 }}>
+          <div className="absolute inset-0 flex items-center justify-center pt-16 md:pt-0" style={{ perspective: 1600 }}>
             <div className="relative" style={{ transform: "translateY(0)" }}>
               {/* left wall */}
               <motion.div className="pointer-events-none absolute" style={{ top: "-70vh", bottom: "-70vh", right: "100%", width: "100vw", background: WALL_BG }}
-                initial={{ opacity: 1 }} animate={wallFade.animate} transition={wallFade.transition as any}>
+                initial={{ opacity: 1 }} animate={wallFade.animate} transition={wallFade.transition}>
               </motion.div>
               {/* right wall */}
               <motion.div className="pointer-events-none absolute" style={{ top: "-70vh", bottom: "-70vh", left: "100%", width: "100vw", background: WALL_BG }}
-                initial={{ opacity: 1 }} animate={wallFade.animate} transition={wallFade.transition as any}>
+                initial={{ opacity: 1 }} animate={wallFade.animate} transition={wallFade.transition}>
               </motion.div>
               {/* top wall */}
               <motion.div className="pointer-events-none absolute" style={{ bottom: "100%", left: "-100vw", width: "300vw", height: "70vh", background: WALL_BG }}
-                initial={{ opacity: 1 }} animate={wallFade.animate} transition={wallFade.transition as any}>
+                initial={{ opacity: 1 }} animate={wallFade.animate} transition={wallFade.transition}>
                 <div className="absolute inset-x-0 top-0 h-[38vh]"
                   style={{ background: "radial-gradient(ellipse 30% 90% at 50% 0%, rgba(255,248,232,0.55), transparent 70%)" }} />
               </motion.div>
               {/* floor */}
               <motion.div className="pointer-events-none absolute" style={{ top: "100%", left: "-100vw", width: "300vw", height: "28vh" }}
-                initial={{ opacity: 1 }} animate={wallFade.animate} transition={wallFade.transition as any}>
+                initial={{ opacity: 1 }} animate={wallFade.animate} transition={wallFade.transition}>
 
                 {/* Wood plank floor with perspective */}
                 <div className="absolute inset-0" style={{ background: "#C8B89A", overflow: "hidden" }}>
@@ -206,21 +231,26 @@ export default function IntroGate() {
 
               {/* door frame */}
               <div className="relative">
-                {/* brand mark - Positioned relative to the door container */}
+                {/* brand mark - Positioned on top on mobile, on the left on tablet & desktop */}
                 <motion.div
-                  className="absolute top-[22%] left-[72%] -translate-x-1/2 -translate-y-1/2 md:top-[40%] md:-translate-y-1/2 md:left-[calc(50%-40vw)] lg:left-[calc(50%-35vw)] xl:left-[calc(50%-32vw)] md:translate-x-0 z-30 pointer-events-none flex flex-col items-center md:items-start w-max"
+                  className="absolute bottom-[calc(100%+16px)] left-1/2 -translate-x-1/2 md:bottom-auto md:top-[40%] md:-translate-y-1/2 md:left-[calc(50%-47vw)] lg:left-[calc(50%-35vw)] xl:left-[calc(50%-32vw)] md:translate-x-0 z-30 pointer-events-none flex flex-col items-center md:items-start w-max"
                   initial={{ opacity: 1 }}
-                  animate={wallFade.animate} transition={wallFade.transition as any}
+                  animate={wallFade.animate} transition={wallFade.transition}
                 >
-                  <img src="/logo/logowithblacktext.svg" alt="Micasa Doors" className="h-19 md:h-28 lg:h-36 xl:h-44 w-auto object-contain drop-shadow-md" />
+                  <img
+                    src="/logo/micasa-logo-tight.svg"
+                    alt="Micasa Doors"
+                    className="block h-12 md:h-14 lg:h-[70px] xl:h-[84px] w-auto object-contain drop-shadow-md"
+                  />
                   <p
-                    className="select-none uppercase font-medium whitespace-nowrap"
+                    className="select-none uppercase font-medium whitespace-nowrap leading-none"
                     style={{
                       fontFamily: "'JetBrains Mono', monospace",
                       letterSpacing: "0",
                       color: "rgba(8, 4, 0, 0.5)",
                       fontSize: "clamp(12px, 1.4vw, 17px)",
-                      marginTop: "-1rem",
+                      lineHeight: 1,
+                      marginTop: "clamp(10px, 1.1vw, 16px)",
                     }}
                   >
                     DOORS SOLUTIONS PVT.LTD.
@@ -234,7 +264,7 @@ export default function IntroGate() {
                   animate={{ opacity: opening ? 0 : 1 }}
                   transition={{ duration: 0.7, delay: opening ? 0.25 : 0, ease: "easeOut" }}
                 />
-                <div className="relative overflow-hidden" style={{ height: "min(82vh, 640px)", aspectRatio: "3 / 6.4" }}>
+                <div className="relative overflow-hidden h-[min(65vh,480px)] md:h-[min(82vh,640px)]" style={{ aspectRatio: "3 / 6.4" }}>
                   {/* THE DOOR */}
                   <motion.div
                     data-testid="intro-door-panel"
@@ -242,13 +272,16 @@ export default function IntroGate() {
                     role="button"
                     aria-label="Open the door to enter the website"
                     className="absolute inset-0 cursor-pointer preserve-3d"
-                    style={{ transformOrigin: "left center" }}
+                    style={{ transformOrigin: "left center", transformStyle: "preserve-3d" }}
                     initial={{ rotateY: 0 }}
                     animate={doorAnim}
-                    transition={doorTransition as any}
+                    transition={doorTransition}
                   >
                     {/* front face */}
-                    <div className="absolute inset-0 overflow-hidden bg-[#c9ad8d] backface-hidden">
+                    <div
+                      className="absolute inset-0 overflow-hidden bg-[#c9ad8d] backface-hidden"
+                      style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" }}
+                    >
                       <img src="/doors/door-face-warm.jpg" alt="Micasa fluted wooden door" className="absolute inset-0 h-full w-full object-cover" />
                       {/* shading */}
                       <motion.div className="absolute inset-0 bg-black"
@@ -271,12 +304,12 @@ export default function IntroGate() {
                         }}
                         initial={{ rotate: 0 }}
                         animate={{ rotate: phase === "handle" ? [0, 26, 0] : 0 }}
-                        transition={phase === "handle" ? { duration: 0.75, times: [0, 0.45, 1], ease: "easeInOut" } as any : { duration: 0.25 }}
+                        transition={phase === "handle" ? { duration: 0.75, times: [0, 0.45, 1], ease: "easeInOut" } : { duration: 0.25 }}
                       />
                       {/* clickable hotspot */}
                       <motion.button
                         data-testid="intro-door-handle"
-                        onClick={(e: any) => { e.stopPropagation(); open(); }}
+                        onClick={(e) => { e.stopPropagation(); open(); }}
                         aria-label="Door handle  click to open"
                         className="absolute z-10 flex h-24 w-24 items-center justify-center cursor-pointer"
                         style={{ right: "-2%", top: "47%" }}
@@ -310,8 +343,15 @@ export default function IntroGate() {
                       </motion.div>
                     </div>
                     {/* back face */}
-                    <div className="absolute inset-0 backface-hidden"
-                      style={{ transform: "rotateY(180deg)", background: "#b99c7c" }}>
+                    <div
+                      className="absolute inset-0 backface-hidden"
+                      style={{
+                        transform: "rotateY(180deg)",
+                        background: "#b99c7c",
+                        backfaceVisibility: "hidden",
+                        WebkitBackfaceVisibility: "hidden",
+                      }}
+                    >
                       <img src={IMG_GRAIN} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" style={{ filter: "brightness(0.85)" }} />
                     </div>
                     {/* hinge-side thickness edge */}

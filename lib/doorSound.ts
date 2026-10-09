@@ -5,7 +5,7 @@ let ctx: AudioContext | null = null;
 
 const getCtx = () => {
   if (!ctx) {
-    const AC = window.AudioContext || (window as any).webkitAudioContext;
+    const AC = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
     if (!AC) return null;
     ctx = new AC();
   }
@@ -49,7 +49,7 @@ export const playHandleClick = () => {
     osc.connect(og); og.connect(ac.destination);
     osc.start(t);
     osc.stop(t + 0.12);
-  } catch (e) { /* audio unavailable */ }
+  } catch { /* audio unavailable */ }
 };
 
 export const playDoorCreak = () => {
@@ -94,5 +94,5 @@ export const playDoorCreak = () => {
     osc.connect(bp); bp.connect(g); g.connect(ac.destination);
     osc.start(t); lfo.start(t); stut.start(t);
     osc.stop(t + dur); lfo.stop(t + dur); stut.stop(t + dur);
-  } catch (e) { /* audio unavailable */ }
+  } catch { /* audio unavailable */ }
 };
